@@ -1,9 +1,11 @@
-import { SettingsService } from './settings.service';
+import { catchError, timeout, map } from 'rxjs/operators';
+  import 'rxjs/Rx';
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Response } from '@angular/http';
 import 'rxjs/Rx';
+import { SettingsService } from './settings.service';
+import { throwError } from 'rxjs';
 
-import { Observable } from "rxjs/Observable";
 
 
 
@@ -27,7 +29,7 @@ export class ServiceServices {
   }
 
 
-  userLogin(userName: string, password: string): Observable<any> {
+  userLogin(userName: string, password: string)  {
     let data = {
       "countryPhoneCode": "+2",
       "userName": userName,
@@ -42,14 +44,19 @@ export class ServiceServices {
       "appName": "xx",
       "notificationId": "cccc"
     };
-    return this.http.post(SettingsService.DOMAIN_URL + 'userservices/signin', data, { headers: SettingsService.getHeaderJson() }).map((res: Response) => {
-      return res.json()
-    })
-    // .catch( err => { return err });
-    // return this.http.get('http://jsonplaceholder.typicode.com/users')
-  }
-  /////////////////////////////////////////////////////////////////////////////////////////
+   return this.http.post(SettingsService.DOMAIN_URL + 'userservices/signin', data, { headers: SettingsService.getHeaderJson() }).pipe(
+      map(res => {
+        return res.json();
+      }),
+      catchError((error: Response) => {
+        return throwError(error.json());
+      }),
+      timeout(4000)
+    )
+}
 
+
+    
 
   get_Charter_Accounting(pageSize, pageNumber, searchCriateria) {
 
@@ -59,13 +66,16 @@ export class ServiceServices {
       "searchCriateria": searchCriateria
     }
 
-
-    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getcharteraccounting', data, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
-      return res.json()
-    })
-
-
-  }
+    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getcharteraccounting', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+      map(res => {
+        return res.json();
+      }),
+      catchError((error: Response) => {
+        return throwError(error.json());
+      }),
+      timeout(4000)
+    )
+}
 
 
 
@@ -80,17 +90,21 @@ export class ServiceServices {
       "language": "English"
     }
 
+     return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getestablishcompnies', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+      map(res => {
+        return res.json();
+      }),
+      catchError((error: Response) => {
+        return throwError(error.json());
+      }),
+      timeout(4000)
+    )
+}
 
-    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getestablishcompnies', data, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
-      return res.json()
-    })
 
 
-  }
 
-
-  GetFeasabilityStudy(pageSize, pageNumber, searchCriateria) {
-
+  GetFeasabilityStudy(pageSize , pageNumber , searchCriateria){
     let data = {
       "pageSize": pageSize,
       "pageNumber": pageNumber,
@@ -98,15 +112,16 @@ export class ServiceServices {
       "language": "English"
     }
 
-
-    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getfesabilitystudy', data, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
-      return res.json()
-    })
-
-
-  }
-
-
+     return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getfesabilitystudy', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+      map(res => {
+        return res.json();
+      }),
+      catchError((error: Response) => {
+        return throwError(error.json());
+      }),
+      timeout(4000)
+    )
+}
 
   GetCustomClearance(pageSize, pageNumber, searchCriateria) {
 
@@ -116,34 +131,39 @@ export class ServiceServices {
       "searchCriateria": searchCriateria,
 
     }
+    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getcustomclearance', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+      map(res => {
+        return res.json();
+      }),
+      catchError((error: Response) => {
+        return throwError(error.json());
+      }),
+      timeout(4000)
+    )
+}
 
+ 
+  
 
-    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getcustomclearance', data, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
-      return res.json()
-    })
-
-
-  }
-
-
-  GetOfficeServices(pageSize, pageNumber, searchCriateria) {
-
+  
+  GetOfficeServices(pageSize , pageNumber , searchCriateria){
+ 
     let data = {
       "pageSize": pageSize,
       "pageNumber": pageNumber,
       "searchCriateria": searchCriateria,
       "language": "English"
-
     }
-
-
-    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getofficeservices', data, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
-      return res.json()
-    })
-
-
-  }
-
+    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getofficeservices', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+      map(res => {
+        return res.json();
+      }),
+      catchError((error: Response) => {
+        return throwError(error.json());
+      }),
+      timeout(4000)
+    )
+}
 
   GetTradingAgencies(pageSize, pageNumber, searchCriateria) {
 
@@ -152,18 +172,17 @@ export class ServiceServices {
       "pageNumber": pageNumber,
       "searchCriateria": searchCriateria,
       "language": "English"
-
     }
-
-
-    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/gettradingagencies', data, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
-      return res.json()
-    })
-
-
-  }
-
-
+    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/gettradingagencies', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+      map(res => {
+        return res.json();
+      }),
+      catchError((error: Response) => {
+        return throwError(error.json());
+      }),
+      timeout(4000)
+    )
+}
   GetCertifiedTranslations(pageSize, pageNumber, searchCriateria) {
 
     let data = {
@@ -171,18 +190,20 @@ export class ServiceServices {
       "pageNumber": pageNumber,
       "searchCriateria": searchCriateria,
       "language": "English"
-
     }
+    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getcertifiedtranslations', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+      map(res => {
+        return res.json();
+      }),
+      catchError((error: Response) => {
+        return throwError(error.json());
+      }),
+      timeout(4000)
+    )
+}
+  
 
-
-    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getcertifiedtranslations', data, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
-      return res.json()
-    })
-
-
-  }
-
-
+ 
 
   GetShippings(pageSize, pageNumber, searchCriateria) {
 
@@ -191,17 +212,17 @@ export class ServiceServices {
       "pageNumber": pageNumber,
       "searchCriateria": searchCriateria,
       "language": "English"
-
     }
-
-
-    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getshippings', data, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
-      return res.json()
-    })
-
-
-  }
-
+    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getshippings', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+      map(res => {
+        return res.json();
+      }),
+      catchError((error: Response) => {
+        return throwError(error.json());
+      }),
+      timeout(4000)
+    )
+}
 
 
   GetHiringLabors(pageSize, pageNumber, jobTitleCode) {
@@ -211,52 +232,49 @@ export class ServiceServices {
       "pageNumber": pageNumber,
       "jobTitleCode": jobTitleCode,
       "language": "English"
-
     }
-
-
-    return this.http.post(SettingsService.DOMAIN_URL + 'formservices/searchhiringlabors', data, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
-      return res.json()
-    })
-
-
-  }
-
-  GetEmployment(pageSize, pageNumber, jobTitleCode) {
+    return this.http.post(SettingsService.DOMAIN_URL + 'formservices/searchhiringlabors', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+      map(res => {
+        return res.json();
+      }),
+      catchError((error: Response) => {
+        return throwError(error.json());
+      }),
+      timeout(4000)
+    )
+}
+ GetEmployment(pageSize, pageNumber, jobTitleCode) {
 
     let data = {
       "pageSize": pageSize,
       "pageNumber": pageNumber,
       "jobTitleCode": jobTitleCode,
       "language": "English"
-
     }
+    return this.http.post(SettingsService.DOMAIN_URL + 'formservices/searchemployments', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+      map(res => {
+        return res.json();
+      }),
+      catchError((error: Response) => {
+        return throwError(error.json());
+      }),
+      timeout(4000)
+    )
+}
 
 
-    return this.http.post(SettingsService.DOMAIN_URL + 'formservices/searchemployments', data, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
-      return res.json()
-    })
 
-
-  }
-
-
-
-
-
-  getJobTitlePickList() {
-    return this.http.get(SettingsService.DOMAIN_URL + 'picklistservices/getpicklist?type=Job_Title&language=English').map((res: Response) => {
-      return res.json()
-    })
-
-  }
-  public handelError(error: Response) {
-
-    console.log(error);
-
-    return Observable.throw(error)
-
-
-  }
-
+   getJobTitlePickList(){
+    return this.http.get(SettingsService.DOMAIN_URL + 'picklistservices/getpicklist?type=Job_Title&language=English').pipe(
+      map(res => {
+        return res.json();
+      }),
+      catchError((error: Response) => {
+        return throwError(error.json());
+      }),
+      timeout(4000)
+    )
+}
+ 
+ 
 }

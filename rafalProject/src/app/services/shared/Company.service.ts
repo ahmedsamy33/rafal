@@ -1,9 +1,9 @@
-import { SettingsService } from './settings.service';
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Response, ResponseContentType } from '@angular/http';
+import { Http, RequestOptions, Response } from '@angular/http';
 import 'rxjs/Rx';
-
-import { Observable } from "rxjs/Observable";
+import { SettingsService } from './settings.service';
+import { throwError } from 'rxjs';
+import { map, catchError, timeout } from 'rxjs/operators';
 
 
 
@@ -42,28 +42,32 @@ export class CompanyServices {
       "type": type,
     }
 
-
-    return this.http.post(SettingsService.DOMAIN_URL + 'companyservices/searchcompanies', data, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
-      return res.json()
-    })
-
-
-
-
-
-
-
-  }
-  GetFile(filename, formname) {
-
-
-    return this.http.get(SettingsService.DOMAIN_URL + '/adminservices/getformsfiles?filename=' + filename + '&formname=' + formname, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
-      return res.json()
-    })
-
-
-
-
-  }
-
+    return this.http.post(SettingsService.DOMAIN_URL + 'companyservices/searchcompanies', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+      map(res => {
+        return res.json();
+      }),
+      catchError((error: Response) => {
+        return throwError(error.json());
+      }),
+      timeout(4000)
+    )
 }
+   
+
+
+
+
+GetFile(filename , formname){
+   return this.http.get(SettingsService.DOMAIN_URL + '/adminservices/getformsfiles?filename='+filename+'&formname='+formname,   { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+    map(res => {
+      return res.json();
+    }),
+    catchError((error: Response) => {
+      return throwError(error.json());
+    }),
+    timeout(4000)
+  )
+}
+  }
+
+ 

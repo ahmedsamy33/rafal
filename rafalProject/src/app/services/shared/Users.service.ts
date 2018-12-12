@@ -5,7 +5,9 @@ import { map, catchError, timeout, filter } from 'rxjs/operators';
 import { SettingsService } from './settings.service';
 import { throwError } from 'rxjs';
 
- 
+@Injectable({
+  providedIn: 'root'
+})
 
 export class UsersServices {
 
@@ -17,12 +19,19 @@ export class UsersServices {
   
 
 
+  GetUsers(pageSize , pageNumber , searchCriateria){
 
-  
- getcountriesphpicklistcodes(): Observable<any> {
-    return this.http
-      .get(SettingsService.DOMAIN_URL + "picklistservices/getcountriesphpicklistcodes")
-      .pipe(
+    let data = {
+      "pageSize":pageSize,
+      "pageNumber":pageNumber ,
+      "searchCriateria": searchCriateria,
+      
+      }
+
+
+    
+    return this.http.post(SettingsService.DOMAIN_URL + 'userservices/getusersdata', data,
+     { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
         map(res => {
           return res.json();
         }),
@@ -32,7 +41,12 @@ export class UsersServices {
           return throwError(error.json());
         }),
         timeout(4000)
-      )
+      
+    )
   }
 
+
+  
+ 
+  
 }

@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   avatarImgSrc: string = 'assets/images/avatar.png';
   userName: string  ;
    isVisable;
@@ -216,11 +216,11 @@ export class HeaderComponent implements OnInit {
 
     this.AuthService.UploadProfileImage(uploadData).subscribe(data => {
 
-      localStorage.setItem('imageToken',data.imageToken)
+      // localStorage.setItem('imageToken',data.imageToken)
       
       
     
-      this.getProfileImageByToken(data.imageToken)
+      // this.getProfileImageByToken(data.imageToken)
     
     
     } , err => {

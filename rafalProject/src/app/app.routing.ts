@@ -8,6 +8,7 @@ import { UsersComponent } from './admin/components/users/users.component';
 const appRoutes: Routes = [
 
     //Site routes goes here 
+    { path: 'Users', component: UsersComponent },
     {
         path: 'layout', component: LayoutComponent,
         
@@ -19,7 +20,7 @@ const appRoutes: Routes = [
         ]
     },
 
-     { path: 'Users', component: UsersComponent },
+    
     // App routes goes here here
     // { 
     //     path: '',
