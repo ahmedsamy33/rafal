@@ -1,16 +1,16 @@
-import { settings } from './../../settings';
+import { SettingsService } from './settings.service';
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Response, ResponseContentType } from '@angular/http';
 import 'rxjs/Rx';
 
 import { Observable } from "rxjs/Observable";
- 
+
 
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////// General Classes /////////////////////////////////////////////
- 
+
 
 
 /*
@@ -27,43 +27,43 @@ export class CompanyServices {
   }
 
 
- 
 
-  
-  GetCompany(pageSize , pageNumber , searchCriateria,type){
+
+
+  GetCompany(pageSize, pageNumber, searchCriateria, type) {
 
 
 
     let data = {
-      "pageSize":pageSize,
-      "pageNumber":pageNumber ,
+      "pageSize": pageSize,
+      "pageNumber": pageNumber,
       "searchCriateria": searchCriateria,
-      "language":"English",
-      "type":type,
-      }
-
-    
-    return this.http.post(settings.DOMAIN_URL + 'companyservices/searchcompanies', data, { headers: settings.getHeaderJsonGetMethod() }).map( (res:Response) => {
-      return  res.json()
-    } )  
+      "language": "English",
+      "type": type,
+    }
 
 
-
-    
- 
-
- 
-}
-GetFile(filename , formname){
-
- 
-  return this.http.get(settings.DOMAIN_URL + '/adminservices/getformsfiles?filename='+filename+'&formname='+formname,   { headers: settings.getHeaderJsonGetMethod() }).map( (res:Response) => {
-    return  res.json()
-  } )  
+    return this.http.post(SettingsService.DOMAIN_URL + 'companyservices/searchcompanies', data, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
+      return res.json()
+    })
 
 
 
-  
-}
+
+
+
+
+  }
+  GetFile(filename, formname) {
+
+
+    return this.http.get(SettingsService.DOMAIN_URL + '/adminservices/getformsfiles?filename=' + filename + '&formname=' + formname, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
+      return res.json()
+    })
+
+
+
+
+  }
 
 }
