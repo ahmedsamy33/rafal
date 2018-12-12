@@ -1,0 +1,29 @@
+<form [formGroup]="forgetForm">
+  <div class="modal-header">
+    <div class="modal-title" id="exampleModalLabel">
+      <div class="modal-icon">
+
+      </div>
+      <h5>Forget password</h5>
+      <hr>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="form forget">
+      <input class="text" type="text" name="phone" placeholder="User name" formControlName="phonen" [(ngModel)]="phoneNumber"
+        [ngClass]="{ 'is-invalid': forgetForm.get('phonen').touched && forgetForm.get('phonen').hasError('required'),
+        'is-valid':forgetForm.get('phonen').touched && !forgetForm.get('phonen').hasError('required') }" />
+
+      <button type="button" class="btn btn-primary" [disabled]="!forgetForm.valid" (click)="openforgetPasswordConfirmmodal()">
+        Send</button>
+
+    </div>
+  </div>
+  <div class="modal-footer">
+
+
+  </div>
+</form>

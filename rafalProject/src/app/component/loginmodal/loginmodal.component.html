@@ -1,0 +1,79 @@
+<!-- <div class="modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"></div> -->
+<!-- <div class="modal bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-sm">
+     
+   <div class="modal-content">
+   
+      <div class="modal-header">
+        <div class="modal-title" id="exampleModalLabel">
+          <div class="modal-icon">
+            <i class="ic fas fa-lock-open"></i>
+          </div>
+          <h5>Log In</h5>
+          <hr>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="form log">
+          <input class="text" type="text" name="text" placeholder="User name" />
+          <input class="text" type="password" name="text" placeholder="Password" />
+          <a class="sign" (click)="openforgetmodal()">forget password?</a>
+          <a class="nav-link sign" (click)="opensignupmodal()">Dont have
+            account.Sign Up</a>
+        </div>
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-primary" (click)="openverfiy()">Log in</button>
+        </div>
+        
+      </div>
+      </div>
+   </div> -->
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-spin"></ngx-spinner>
+
+
+<form [formGroup]="loginForm">
+  <div class="modal-header">
+
+    <div id="dialog-sizes-name2" class="modal-title pull-top">
+      <div class="modal-icon">
+        <i class="ic fas fa-lock-open"></i>
+      </div>
+      <h5>Log In</h5>
+      <hr>
+      <!-- <div class="modal-icon">
+              <i class="ic fas fa-lock-open"></i>
+            </div>
+         <h4 id="dialog-sizes-name2" class="modal-title pull-left">Log in</h4> 
+         <hr> -->
+      <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+  </div>
+  <div class="modal-body">
+    <div class="form log">
+
+      <input class="text" type="text" name="phone" placeholder="User name" formControlName="phonen" [(ngModel)]="phoneNumber"
+        [ngClass]="{ 'is-invalid': loginForm.get('phonen').touched && loginForm.get('phonen').hasError('required'),
+        'is-valid':loginForm.get('phonen').touched && !loginForm.get('phonen').hasError('required') }" />
+      <input class="text" type="password" name="password" placeholder="Password" formControlName="pass" [(ngModel)]="Password"
+        [ngClass]="{ 'is-invalid': loginForm.get('pass').touched && loginForm.get('pass').hasError('required'),
+      'is-valid':loginForm.get('pass').touched && !loginForm.get('pass').hasError('required') }" />
+      <select formControlName="countrycode" [(ngModel)]="contryCode">
+        <option value="{{country}}" *ngFor="let country of countries">{{country}}</option>
+      </select>
+      <a class="sign" (click)="openforgetmodal()">forget password?</a>
+      <a class="nav-link sign" (click)="opensignupmodal()">Dont have
+        account.Sign Up</a>
+    </div>
+    <div class="modal-footer">
+
+      <button type="button" class="btn btn-primary" (click)="loginData()" [disabled]="!loginForm.valid ">Log in</button>
+    </div>
+  </div>
+</form>

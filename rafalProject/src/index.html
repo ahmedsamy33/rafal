@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Testproject</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Niramit">
+  <!-- <link rel="stylesheet" href="assets/css/slick.css" />  -->
+  <!-- <link rel="stylesheet" href="assets/css/owl.carousel.min.css" /> -->
+  <!-- <link rel="stylesheet" href="./assets/css/owl.carousel.min.css" /> -->
+  <link rel="stylesheet" href="./assets/css/animate.css" />
+
+  <style>
+    /* width */
+    ::-webkit-scrollbar {
+      width: 11px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 7px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #099;
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #099;
+    }
+
+  </style>
+
+
+
+  <script scr="jquery.js"></script>
+</head>
+
+<body>
+
+  <app-root></app-root>
+
+  <script src="assets/js/wow.min.js"></script>
+
+  <!-- <script src="assets/js/angular-slick.js"></script>
+  <script src="assets/js/angular-slick.min.js"></script> -->
+
+  <script>
+    new WOW().init();
+
+  </script>
+  <!--<script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+      
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+      
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+      
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        captionText.innerHTML = dots[slideIndex-1].alt;
+      }
+      </script> -->
+
+  <!-- <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.7/vue.js'></script><script src='https://rawgit.com/Wlada/vue-carousel-3d/master/dist/vue-carousel-3d.min.js'></script>
+<script >new Vue({
+  el: '#carousel3d',
+  data: {
+    slides: 7
+  },
+  components: {
+    'carousel-3d': Carousel3d.Carousel3d,
+    'slide': Carousel3d.Slide
+  }
+})
+//# sourceURL=pen.js
+</script> -->
+
+
+  <!-- All Plugins JS
+    <script src="assets/js/plugins.js"></script>
+     Slick Slider Js-->
+  <!-- <script src="assets/js/slick.min.js"></script> -->
+  <!-- Active JS -->
+  <!-- <script src="assets/js/active.js"></script> -->
+  <!--  <script> -->
+  <!-- <script>
+      /* global $, jquery */
+      $(function () {
+      " use strict";
+     $(".navbar-nav .nav-item .nav-link").click(function () {
+      $(this).parent().addClass("active").siblings().removeClass("active")
+  });
+
+  $(".navbar .nav-item .nav-link").click(function () {
+      $("html,body").animate({
+          scrollTop: $("#" + $(this).data('value')).offset().top
+      }, 1000);
+  });
+  $(".slider").slick({
+
+    // normal options...
+    infinite: false,
+  
+    // the magic
+    responsive: [{
+  
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          infinite: true
+        }
+  
+      }, {
+  
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          dots: true
+        }
+  
+      }, {
+  
+        breakpoint: 300,
+        settings: "unslick" // destroys slick
+  
+      }]
+  });
+  
+  
+}); 
+</script> -->
+  <!-- <script>
+class Sample {
+  @ViewChild('nav', {read: DragScrollComponent}) ds: DragScrollComponent;
+  
+  moveLeft() {
+    this.ds.moveLeft();
+  }
+
+  moveRight() {
+    this.ds.moveRight();
+  }
+}
+</script> -->
+  <!-- <script>
+
+$('.carousel').carousel()
+</script> -->
+</body>
+
+</html>

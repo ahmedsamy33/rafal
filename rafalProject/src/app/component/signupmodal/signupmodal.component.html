@@ -1,0 +1,59 @@
+<!-- <div role="document" class="modal-dialog-log">
+    <div class="modal-content"> -->
+<!--<div class="bd-example-modal-sm" id="sign" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">-->
+<!-- <div class="modal-content"> -->
+<form [formGroup]="signupForm">
+  <div class="modal-header">
+    <div class="modal-title" id="exampleModalLabel">
+      <div class="modal-icon">
+        <i class=" ic fas fa-user-plus"></i>
+      </div>
+      <h5>Sign Up</h5>
+      <hr>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="form log">
+      <input class="text" type="text" name="text" placeholder="name" formControlName="name" [(ngModel)]="Name"
+        [ngClass]="{ 'is-invalid': signupForm.get('name').touched && signupForm.get('name').hasError('required'),
+          'is-valid':signupForm.get('name').touched && !signupForm.get('name').hasError('required') }" />
+
+      <input class="text" type="number" name="text" placeholder="Phone" formControlName="phonen" [(ngModel)]="phoneNumber"
+        [ngClass]="{ 'is-invalid': signupForm.get('phonen').touched && signupForm.get('phonen').hasError('required'),
+          'is-valid':signupForm.get('phonen').touched && !signupForm.get('phonen').hasError('required') }" />
+
+      <input class="text" type="number" name="text" placeholder="ID number" formControlName="national" [(ngModel)]="nationalId"
+        [ngClass]="{ 'is-invalid': signupForm.get('national').touched && signupForm.get('national').hasError('required'),
+          'is-valid':signupForm.get('national').touched && !signupForm.get('national').hasError('required') }" />
+
+      <input class="text" type="password" name="text" placeholder="Password" formControlName="password" [(ngModel)]="Password"
+        [ngClass]="{ 'is-invalid': signupForm.get('password').touched && signupForm.get('password').hasError('required') || (signupForm.get('password').value != signupForm.get('confirm').value),
+          'is-valid':signupForm.get('password').touched && !signupForm.get('password').hasError('required') && (signupForm.get('password').value == signupForm.get('confirm').value) }" />
+
+      <input class="text" type="password" name="text" placeholder="Confirm Password" formControlName="confirm"
+        [(ngModel)]="confirmPassword" [ngClass]="{ 'is-invalid': signupForm.get('confirm').touched && signupForm.get('confirm').hasError('required') || (signupForm.get('password').value != signupForm.get('confirm').value),
+          'is-valid':signupForm.get('confirm').touched && !signupForm.get('confirm').hasError('required') && (signupForm.get('password').value == signupForm.get('confirm').value) }" />
+
+      <select formControlName="countrycode" [(ngModel)]="contryCode">
+        <option value="{{country}}" *ngFor="let country of countries">{{country}}</option>
+      </select>
+
+
+
+      <a class="nav-link sign" (click)="openloginmodal()">Already have
+        account.log in </a>
+    </div>
+  </div>
+  <div class="modal-footer">
+
+    <button type="button" class="btn btn-primary" (click)="signUp()" [disabled]="!signupForm.valid || (signupForm.get('password').value != signupForm.get('confirm').value)">Sign
+      up</button>
+  </div>
+
+
+
+</form>

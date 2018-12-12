@@ -1,0 +1,48 @@
+<form [formGroup]="tradingForm">
+  <div class="modal-header">
+    <div class="modal-title" id="exampleModalLabel">
+      <div class="modal-icon">
+        <i class="ic fas fa-globe"></i>
+      </div>
+      <h5><span>Trading</span> Agencies</h5>
+      <hr>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="form trade">
+      <input class="text" type="text" name="text" placeholder="Activity " formControlName="activity" [(ngModel)]="Activity"
+        [ngClass]="{ 'is-invalid': hasError('activity','required') || hasError('activity','maxlength'),
+          'is-valid':tradingForm.get('activity').touched && !hasError('activity','required') &&  !hasError('activity','maxlength')}"
+        required />
+      <input class="text" type="text" name="text" placeholder="Required Brand" formControlName="requiredBrand"
+        [(ngModel)]="RequiredBrand" [ngClass]="{ 'is-invalid': hasError('requiredBrand','required') || hasError('requiredBrand','maxlength'),
+        'is-valid':tradingForm.get('requiredBrand').touched && !hasError('requiredBrand','required') &&  !hasError('requiredBrand','maxlength')}"
+        required />
+      <input class="text" type="text" name="text" placeholder="product Description" formControlName="productDescription"
+        [(ngModel)]="ProductDescription" [ngClass]="{ 'is-invalid': hasError('productDescription','required') || hasError('productDescription','maxlength'),
+        'is-valid':tradingForm.get('productDescription').touched && !hasError('productDescription','required') &&  !hasError('productDescription','maxlength')}"
+        required />
+      <input class="text" type="text" name="text" placeholder="Location" formControlName="location" [(ngModel)]="Location"
+        [ngClass]="{ 'is-invalid': hasError('location','required') || hasError('location','maxlength'),
+      'is-valid':tradingForm.get('location').touched && !hasError('location','required') &&  !hasError('location','maxlength')}"
+        required />
+      <span> Upload the image of the product :</span>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="inputGroupFile01" formControlName="imageblob1" [(ngModel)]="imageBlob1"
+          [ngClass]="{ 'is-invalid': tradingForm.get('imageblob1').touched && tradingForm.get('imageblob1').hasError('required'),
+        'is-valid':tradingForm.get('imageblob1').touched && !tradingForm.get('imageblob1').hasError('required') }"
+          (change)="processFile($event,1)" accept="image/*" required>
+        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">no image choosen </label>
+        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}} </label>
+      </div>
+      <textarea type="text" name="text" placeholder="Other (optional)" formControlName="others" [(ngModel)]="Others"></textarea>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()" data-dismiss="modal">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="tradingService()" [disabled]="!tradingForm.valid ">Submit</button>
+  </div>
+</form>

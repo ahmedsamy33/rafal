@@ -1,0 +1,54 @@
+<form [formGroup]="shippingForm">
+<div class="modal-header">
+  <div class="modal-title" id="exampleModalLabel">
+    <div class="modal-icon">
+      <i class="ic fas fa-ship"></i>
+    </div>
+    <h5>Shipping</h5>
+    <hr>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+</div>
+<div class="modal-body">
+  <div class="form ship">
+    <span>Upload a copy of the bill of the authorization :</span>
+
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="inputGroupFile01" formControlName="imageblob1" [(ngModel)]="imageBlob1"
+      [ngClass]="{ 'is-invalid': shippingForm.get('imageblob1').touched && shippingForm.get('imageblob1').hasError('required'),
+    'is-valid':shippingForm.get('imageblob1').touched && !shippingForm.get('imageblob1').hasError('required') }"
+      (change)="processFile($event,1)" accept="image/*" required>
+    <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">no image choosen </label>
+    <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}} </label>
+    </div>
+    <input class="text" type="text" name="text" placeholder="Port of shipment" formControlName="shipmentPort" [(ngModel)]="ShipmentPort"
+    [ngClass]="{ 'is-invalid': hasError('shipmentPort','required') || hasError('shipmentPort','maxlength'),
+      'is-valid':shippingForm.get('shipmentPort').touched && !hasError('shipmentPort','required') &&  !hasError('shipmentPort','maxlength')}"
+    required/>
+    <input class="text" type="text" name="text" placeholder="name of the responsible of recieving" 
+    formControlName="responsibleOfRecievingName" [(ngModel)]="ResponsibleOfRecievingName" 
+    [ngClass]="{ 'is-invalid': hasError('responsibleOfRecievingName','required') || hasError('responsibleOfRecievingName','maxlength'),
+      'is-valid':shippingForm.get('responsibleOfRecievingName').touched && !hasError('responsibleOfRecievingName','required') &&  !hasError('responsibleOfRecievingName','maxlength')}"
+    required/>
+    <input class="text" type="text" name="text" placeholder="type of goods" 
+    formControlName="typeOfGoods" [(ngModel)]="TypeOfGoods" 
+    [ngClass]="{ 'is-invalid': hasError('typeOfGoods','required') || hasError('typeOfGoods','maxlength'),
+    'is-valid':shippingForm.get('typeOfGoods').touched && !hasError('typeOfGoods','required') &&  !hasError('typeOfGoods','maxlength')}"
+    required />
+    <input class="text" type="text" name="text" placeholder="delivery street address" 
+    formControlName="dStreetaddress" [(ngModel)]="DStreetaddress"
+    [ngClass]="{ 'is-invalid': hasError('dStreetaddress','required') || hasError('dStreetaddress','maxlength'),
+    'is-valid':shippingForm.get('dStreetaddress').touched && !hasError('dStreetaddress','required') &&  !hasError('dStreetaddress','maxlength')}"
+    required/>
+    <textarea type="text" name="text" placeholder="Other (optional)" formControlName="others" [(ngModel)]="Others"></textarea>
+
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Cancel</button>
+  <button type="button" class="btn btn-primary"  [disabled]="!shippingForm.valid " (click)="shippingService()">Submit</button>
+</div>
+</form>

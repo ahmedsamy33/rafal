@@ -1,0 +1,58 @@
+<form [formGroup]="certifiedForm">
+  <div class="modal-header">
+    <div class="modal-title" id="exampleModalLabel">
+      <div class="modal-icon">
+        <i class="ic fas fa-language"></i>
+      </div>
+      <h5><span>Certified</span> Translation</h5>
+      <hr>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="form translation">
+      <span>Upload the translation file :</span>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="inputGroupFile01" formControlName="imageblob1" [(ngModel)]="imageBlob1"
+          [ngClass]="{ 'is-invalid': certifiedForm.get('imageblob1').touched && certifiedForm.get('imageblob1').hasError('required'),
+          'is-valid':certifiedForm.get('imageblob1').touched && !certifiedForm.get('imageblob1').hasError('required') }"
+          (change)="processFile($event,1)" accept="image/* , .doc , .docx ,.pdf" required aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">no file choosen</label>
+        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}} </label>
+      </div>
+
+
+
+
+      <select class="text select" type="text" name="text" placeholder="Type of Translation" formControlName="typeOfTranslate"
+        [(ngModel)]="TypeOfTranslate" [ngClass]="{ 'is-invalid': hasError('typeOfTranslate','required'),'is-valid':certifiedForm.get('typeOfTranslate').touched && !hasError('typeOfTranslate','required')  }"
+        required>
+        <option *ngFor="let type of arrayTypeLang" value="{{type.code}}">{{type.value}}</option>
+
+      </select>
+
+      <select class="text select" type="text" name="text" placeholder="To which Language" formControlName="toLang"
+        [(ngModel)]="ToLang" [ngClass]="{ 'is-invalid': hasError('toLang','required'),'is-valid':certifiedForm.get('toLang').touched && !hasError('toLang','required')  }"
+        required>
+        <option *ngFor="let type of arrayLang" value="{{type.code}}">{{type.value}}</option>
+
+      </select>
+
+
+
+
+      <input class="text" type="text" name="text" placeholder="Responsible Of Recieving" formControlName="responsibleOfRecieving"
+        [(ngModel)]="ResponsibleOfRecieving" [ngClass]="{ 'is-invalid': hasError('responsibleOfRecieving','required') ||  hasError('responsibleOfRecieving','maxlength'),
+      'is-valid':certifiedForm.get('responsibleOfRecieving').touched && !hasError('responsibleOfRecieving','required') &&  ! hasError('responsibleOfRecieving','maxlength')}"
+        required />
+
+      <textarea type="text" name="text" placeholder="Other (optional)" formControlName="others" [(ngModel)]="Others"></textarea>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="Certified()" [disabled]="!certifiedForm.valid ">Submit</button>
+  </div>
+</form>

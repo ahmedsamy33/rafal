@@ -1,0 +1,53 @@
+<form [formGroup]="employmentForm">
+    <div class="modal-header">
+      <div class="modal-title" id="exampleModalLabel">
+        <div class="modal-icon">
+          <i class="ic fas fa-handshake"></i>
+        </div>
+        <h5>Employment</h5>
+        <hr>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="form employ">
+        <input class="text" type="text" name="text" placeholder="Activity" 
+        formControlName="activity" [(ngModel)]="Activity"
+        [ngClass]="{ 'is-invalid': hasError('activity','required') || hasError('activity','maxlength'),
+        'is-valid':employmentForm.get('activity').touched && !hasError('activity','required') &&  !hasError('activity','maxlength')}"
+        required />
+        <select class="text select" type="text" name="text" placeholder="Job Title"  
+        formControlName="job" [(ngModel)]="Job" 
+        [ngClass]="{ 'is-invalid': hasError('job','required'),'is-valid':employmentForm.get('job').touched && !hasError('job','required')  }"
+        required>
+          <option  *ngFor="let job of jobTitle" value="{{job.code}}">{{job.value}}</option>
+         
+       </select>
+        <input class="text" type="number" name="text" placeholder="Salary" 
+        formControlName="salary" [(ngModel)]="Salary"
+        [ngClass]="{ 'is-invalid': hasError('salary','required') || employmentForm.get('salary').minlength,
+        'is-valid':employmentForm.get('salary').touched && !hasError('salary','required') &&  ! employmentForm.get('salary').minlength}"
+        required/>
+        <span>Upload your CV :</span>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="inputGroupFile01" 
+          formControlName="imageblob1" [(ngModel)]="imageBlob1"
+          [ngClass]="{ 'is-invalid': employmentForm.get('imageblob1').touched && employmentForm.get('imageblob1').hasError('required'),
+          'is-valid':employmentForm.get('imageblob1').touched && !employmentForm.get('imageblob1').hasError('required') }"
+          (change)="processFile($event,1)"
+          accept="image/* , .doc , .docx ,.pdf"
+          required
+          aria-describedby="inputGroupFileAddon01">
+          <label class="custom-file-label" for="inputGroupFile01"  *ngIf="pictureName1 == ''">no file choosen</label>
+          <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}} </label>
+        </div>
+        <textarea type="text" name="text" placeholder="Other (optional)" formControlName="others" [(ngModel)]="Others"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Cancel </button>
+      <button type="button" class="btn btn-primary" (click)="employmentService()" [disabled]="!employmentForm.valid ">Submit</button>
+    </div>
+  </form>

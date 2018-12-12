@@ -1,0 +1,90 @@
+<form [formGroup]="hiringForm">
+
+  <div class="modal-header">
+    <div class="modal-title" id="exampleModalLabel">
+      <div class="modal-icon">
+        <i class="ic fas fa-briefcase"></i>
+      </div>
+      <h5><span>Hiring</span> Labors</h5>
+      <hr>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="form hiring">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 left">
+          <input class="text" type="text" name="text" placeholder="Activity" formControlName="active" [(ngModel)]="Active"
+            [ngClass]="{ 'is-invalid': hasError('active','required')|| hasError('active','minlength')|| hasError('active','maxlength'),
+            'is-valid':hiringForm.get('active').touched && !hasError('active','required') &&  !hasError('active','minlength') &&  !hasError('active','maxlength') }" />
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 right">
+          <select class="text select" type="text" name="text" placeholder="Job Title" formControlName="job" [(ngModel)]="Job"
+            [ngClass]="{ 'is-invalid': hasError('job','required'),'is-valid':!hasError('job','required')  }" required>
+            <option *ngFor="let job of jobTitle" value="{{job.code}}">{{job.value}}</option>
+
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <select class="text select" type="text" name="text" placeholder="Region" formControlName="region" [(ngModel)]="Region"
+            [ngClass]="{ 'is-invalid': hasError('region','required'),'is-valid':!hasError('region','required')  }"
+            required>
+            <option *ngFor="let region of RegionArr" value="{{region.code}}">{{region.value}}</option>
+          </select>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <input class="text" type="number" name="quantity" placeholder="Age" formControlName="age" [(ngModel)]="Age"
+            (change)="calAge()" [ngClass]="{ 'is-invalid': hasError('age','required')|| hasError('age','maxlength') || ageFlag,
+          'is-valid':hiringForm.get('age').touched && !hasError('age','required') &&  !hasError('age','maxlength') && !ageFlag }" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <input class="text" type="number" name="text" placeholder="Number of Years" formControlName="noYears"
+            [(ngModel)]="NoYears" [ngClass]="{ 'is-invalid': hasError('noYears','required')|| hasError('noYears','minlength')|| hasError('noYears','maxlength'),
+            'is-valid':hiringForm.get('noYears').touched && !hasError('noYears','required') &&  !hasError('noYears','minlength') &&  !hasError('noYears','maxlength') }" />
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <select class="text select" type="text" name="text" placeholder="Status of Visa " formControlName="statusOfVisa"
+            [(ngModel)]="StatusOfVisa" [ngClass]="{ 'is-invalid': hasError('statusOfVisa','required'),'is-valid':!hasError('statusOfVisa','required')  }"
+            required>
+            <option value="Available">avaliable</option>
+            <option value="Unavailable">unavaliable</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <input class="text" type="number" name="text" placeholder="Daily Hours" (change)="calDayHour()"
+            formControlName="dailyHours" [(ngModel)]="DailyHours" [ngClass]="{ 'is-invalid': hasError('dailyHours','required') || dayFlag,
+          'is-valid':hiringForm.get('dailyHours').touched && !hasError('dailyHours','required') && !dayFlag }" />
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <input class="text" type="number" name="text" placeholder="Salary" formControlName="salary" [(ngModel)]="Salary"
+            [ngClass]="{ 'is-invalid': hasError('salary','required') || hasError('salary','minlength'),
+          'is-valid':hiringForm.get('salary').touched && !hasError('salary','required') &&  !hasError('salary','minlength') }"
+            required />
+        </div>
+      </div>
+      <textarea type="text" name="text" placeholder="Skills" formControlName="skills" [(ngModel)]="Skills" [ngClass]="{ 'is-invalid': hasError('skills','required'),
+      'is-valid':hiringForm.get('skills').touched && !hasError('skills','required')  }"></textarea>
+      <input class="text big" type="text" name="text" placeholder="Required Qualifications" formControlName="requireQualification"
+        [(ngModel)]="RequireQualification" [ngClass]="{ 'is-invalid': hasError('requireQualification','required'),
+      'is-valid':hiringForm.get('requireQualification').touched && !hasError('requireQualification','required')  }"
+        required />
+
+      <textarea type="text" name="text" placeholder="Other (optional)" formControlName="others" [(ngModel)]="Others"
+        [ngClass]="{  'is-valid':hiringForm.get('others').touched } "></textarea>
+    </div>
+  </div>
+  <div class="modal-footer ">
+    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="hiringService()" [disabled]="!hiringForm.valid || ageFlag ||dayFlag">Submit</button>
+  </div>
+
+</form>

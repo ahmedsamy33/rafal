@@ -1,0 +1,71 @@
+.pageContent {
+    margin: 20px auto;
+  }
+  
+  .pageContent .searchBar {
+    margin: 0;
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 20px;
+  }
+  
+  .pageContent .searchBar h5 {
+    color: #099;
+    margin-top: 4px;
+  }
+  
+  .pageContent .searchBar .findPeople {
+    text-align: right;
+  }
+  
+  .pageContent .searchBar .findPeople button {
+    color: #ab0005;
+    background: transparent;
+    border: 1px solid;
+    padding: 5px 35px;
+    box-shadow: 0 2px 6px 0px #ddd;
+  }
+  
+  .pageContent .JobDetails .row {
+    margin: 0;
+  }
+  
+  .pageContent .JobDetails .job-title {
+    padding: 40px 0 10px;
+  }
+  
+  .pageContent .JobDetails .job-title i {
+    width: 20px;
+    color: #099;
+  }
+  
+  .pageContent .JobDetails .job-title h6 {
+    color: #099;
+    margin-bottom: 7px;
+  }
+  
+  .pageContent .JobDetails .job-title p {
+    color: #000;
+    margin-bottom: 7px;
+  }
+
+  .pageContent .JobDetails h5 {
+    color: #ab0005;
+  }
+
+  .pageContent .JobDetails ul li {
+    color: #797878;
+    font-size: 14px;
+  }
+  
+  .pageContent .JobDetails .contactData .contactTitle {
+    color: #099;    
+    margin: 25px 0 0;
+    font-size: 14px;
+  }
+  
+  .pageContent .JobDetails .contactData p {
+    color: #000;
+    font-size: 15px;
+  }
+  

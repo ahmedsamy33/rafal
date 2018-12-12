@@ -1,0 +1,155 @@
+.ubber{
+  overflow:hidden;
+   background-color: #0e1010;
+   text-align: center;
+}
+.ubber .list-inline{
+margin-bottom: 0;
+}
+.ubber .list-inline li{
+display: inline-block;
+   color: #fff;
+   margin-right: 5%;
+   font-size: 14px;
+}
+.ubber .list-inline li a{
+color: #fff;
+}
+.ubber .list-inline .select{
+   border: none;
+   background-color: transparent;
+   color: #c3bdbd;
+}
+.ubber .list-inline li .profile::after{
+   content:'<img src="..limages/images.jpg"/>' ;
+        background-color: #009999;position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   z-index: 3;
+   display: block;
+   height: 2.25rem;
+   padding: .375rem .75rem;
+   line-height: 1.5;
+   color: #fff;
+}
+
+@media (max-width:576px){
+.ubber .list-inline li{
+font-size: 10px;
+}
+}
+@media (max-width:992px) and (min-width:768px){
+  .ubber .list-inline li{
+       margin-right: 2%;
+       font-size: 14px;
+    } 
+}
+@media (max-width:768px) and (min-width:576px){
+  .ubber .list-inline li{
+       margin-right: 0;
+       font-size: 11px;
+    } 
+}
+@media (max-width:576px) and (min-width:300px){
+  .ubber .list-inline li{
+      margin-right: 13px;
+      font-size: 11px;
+    } 
+}
+
+.pageContent {
+  margin: 20px auto;
+}
+
+.pageContent .searchBar {
+  margin: 0;
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 20px;
+}
+
+.pageContent .searchBar form input {
+  width: 60%;
+  border: 0;
+  box-shadow: 0 2px 6px 0px #ddd;
+}
+
+.pageContent .searchBar form button {
+  background: #099;
+  color: #fff;
+  height: 38px;
+  margin-left: -50px;
+  border-radius: 0 5px 5px 0;
+}
+
+.pageContent .searchBar .findPeople {
+  text-align: right;
+}
+
+.pageContent .searchBar .findPeople button {
+  color: #ab0005;
+  background: transparent;
+  border: 1px solid;
+  padding: 5px 35px;
+  box-shadow: 0 2px 6px 0px #ddd;
+}
+
+.pageContent .cardsContent .row {
+  margin: 0;
+}
+
+.pageContent .cardsContent .card {
+  margin: 50px 0 0;
+  border: 1px solid #eee;
+}
+
+.pageContent .cardsContent .card:hover {
+  box-shadow: 0 30px 20px -27px #d8d8d8;
+  cursor: pointer;
+}
+
+.pageContent .cardsContent .card-title {
+  padding: 25px 15px 0;
+  margin: 0;
+}
+
+.pageContent .cardsContent .card-title img {
+  width: 30%;
+  float: left;
+  margin-right: 15px;
+}
+
+.pageContent .cardsContent .card-title .userData {
+  margin-top: 13px;
+}
+
+.pageContent .cardsContent .card-title .userData h6 {
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.pageContent .cardsContent .card-title .userData p {
+  margin-bottom: -3px;
+}
+
+.pageContent .cardsContent .card-body {
+  padding: 10px 20px;
+}
+
+.pageContent .cardsContent .card-links {
+  margin: 14px 0 0;
+}
+
+.pageContent .cardsContent .card-links .downloadName {
+  background: transparent;
+  color: #099;
+  padding: 0;
+  font-size: 14px;
+}
+
+.pageContent .cardsContent .card-links .downloadIcon {
+  color: #ab0005;
+  font-size: 14px;
+  float: right;
+}

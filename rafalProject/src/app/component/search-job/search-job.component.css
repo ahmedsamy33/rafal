@@ -1,0 +1,106 @@
+.pageContent {
+  margin: 20px auto;
+}
+
+.pageContent .searchBar {
+  margin: 0;
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 20px;
+}
+
+.pageContent .searchBar form input {
+  width: 60%;
+  border: 0;
+  box-shadow: 0 2px 6px 0px #ddd;
+}
+
+.pageContent .searchBar form button {
+  background: #099;
+  color: #fff;
+  height: 38px;
+  margin-left: -50px;
+  border-radius: 0 5px 5px 0;
+}
+
+.pageContent .searchBar .findPeople {
+  text-align: right;
+}
+
+.pageContent .searchBar .findPeople button {
+  color: #ab0005;
+  background: transparent;
+  border: 1px solid;
+  padding: 5px 35px;
+  box-shadow: 0 2px 6px 0px #ddd;
+}
+
+.pageContent .cardsContent .row {
+  margin: 0;
+}
+
+.pageContent .cardsContent .card {
+  margin: 50px 0 0;
+  border: 1px solid #eee;
+}
+
+.pageContent .cardsContent .card:hover {
+  box-shadow: 0 30px 20px -27px #d8d8d8;
+  cursor: pointer;
+}
+
+.pageContent .cardsContent .card-title {
+  background: #f9f9f9;
+  padding: 25px 30px 10px;
+  margin: 0;
+}
+
+.pageContent .cardsContent .card-title i {
+  width: 20px;
+  color: #099;
+}
+
+.pageContent .cardsContent .card-title h6 {
+  color: #099;
+  margin-bottom: 7px;
+}
+
+.pageContent .cardsContent .card-title p {
+  color: #000;
+  margin-bottom: 7px;
+}
+
+.pageContent .cardsContent .card-body {
+  padding: 10px 20px;
+}
+
+.pageContent .cardsContent .card-body .card-text {
+  text-align: justify;
+  height: 130px;
+  overflow: hidden;
+}
+
+.pageContent .cardsContent .card-links {
+  margin: 14px 0 0;
+}
+
+.pageContent .cardsContent .card-links .moreBtn {
+  background: transparent;
+  color: #ab0005;
+  padding: 0;
+}
+
+.pageContent .cardsContent .card-links .moreBtn i {
+  font-size: 12px;
+  border: 1px solid;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  line-height: 23px;
+}
+
+.pageContent .cardsContent .card-links .card-date {
+  color: #cecece;
+  font-size: 15px;
+  float: right;
+}

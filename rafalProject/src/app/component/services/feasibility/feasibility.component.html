@@ -1,0 +1,74 @@
+<form [formGroup]="FeasibilityForm">
+  <div class="modal-header">
+    <div class="modal-title" id="exampleModalLabel">
+      <div class="modal-icon">
+        <i class="ic fas fa-paste"></i>
+      </div>
+      <h5>Fesability study</h5>
+      <hr>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="form study">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <select class="text select" name="country" placeholder="country" formControlName="country" [(ngModel)]="Country"
+            (change)="getRegionValue()" [ngClass]="{ 'is-invalid': hasError('country','required'),'is-valid':FeasibilityForm.get('country').touched && !hasError('country','required')  }"
+            required>
+            <option *ngFor="let country of countryArr" value="{{country.code}}">{{country.value}}</option>
+
+          </select>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <select class="text select" name="company" placeholder="company type" formControlName="compType" [(ngModel)]="CompType"
+            [ngClass]="{ 'is-invalid': hasError('compType','required'),'is-valid':FeasibilityForm.get('compType').touched && !hasError('compType','required')  }"
+            required>
+            <option *ngFor="let company of CompanyArr" value="{{company.code}}">{{company.value}}</option>
+
+
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <input class="text" type="text" name="text" placeholder="Activity" formControlName="activity" [(ngModel)]="Activity"
+            [ngClass]="{ 'is-invalid': hasError('activity','required')|| hasError('activity','maxlength'),
+            'is-valid':FeasibilityForm.get('activity').touched && !hasError('activity','required') &&   !hasError('activity','maxlength') }"
+            required />
+        </div>
+        <div class="col">
+          <input class="text" type="text" name="text" placeholder="Detailed Address" formControlName="address"
+            [(ngModel)]="Address" [ngClass]="{ 'is-invalid': hasError('address','required')|| hasError('address','maxlength'),
+            'is-valid':FeasibilityForm.get('address').touched && !hasError('address','required') &&   !hasError('address','maxlength') }"
+            required />
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <select class="text select" type="text" name="text" placeholder="Region" formControlName="region" [(ngModel)]="Region"
+            [ngClass]="{ 'is-invalid': hasError('region','required'),'is-valid':FeasibilityForm.get('region').touched && !hasError('region','required')  }"
+            required>
+            <option *ngFor="let region of RegionArr" value="{{region.code}}">{{region.value}}</option>
+
+          </select>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <input class="text" type="number" name="text" placeholder="Capital Currency Ex:100:Usd" formControlName="capital"
+            [(ngModel)]="Capital" [ngClass]="{ 'is-invalid': hasError('capital','required'),
+            'is-valid':FeasibilityForm.get('capital').touched && !hasError('capital','required') }"
+            required />
+        </div>
+      </div>
+      <!-- <textarea type="text" name="text" placeholder="Other (optional)"></textarea> -->
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="bsModalRef.hide()">Cancel</button>
+    <button type="button" class="btn btn-primary" [disabled]="!FeasibilityForm.valid " (click)="FeasibilityService()">Submit</button>
+  </div>
+
+</form>
