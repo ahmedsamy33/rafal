@@ -48,7 +48,7 @@
           <td>{{item.description}}</td>
           <td class="url">
             <!-- {{item.advertiseImageToken}} -->
-            <a href="http://localhost:8080/Dolphin_Services/advertisementservices/getaddimage?imgetkn={{item.advertiseImageToken}}"
+            <a href="{{AdvImgService}}{{item.advertiseImageToken}}"
               target="_blank">
 
               <img src="{{ImgSrc}}" alt="avatar">
@@ -59,15 +59,14 @@
           <td>
             <i style="cursor: pointer;" (click)="DeleteAds(item.advertiseId)" class="fa fa-trash"></i>
           </td>
-          <td (click)="toggleActive(item.advertiseId,false)" *ngIf="item.isActive == true">
-            <i class="fa fa-toggle-on" title="Deactive"></i></td>
-          <td (click)="toggleActive(item.advertiseId,true)" *ngIf="item.isActive == false"><i class="fa fa-toggle-off"
+          <td class="text-center" (click)="toggleActive(item.advertiseId,false)" *ngIf="item.isActive == true">
+            <i style="cursor: pointer;"  class="fa fa-toggle-on" title="Deactive"></i></td>
+          <td class="text-center" (click)="toggleActive(item.advertiseId,true)" *ngIf="item.isActive == false"><i style="cursor: pointer;"  class="fa fa-toggle-off"
               title="active"></i></td>
 
 
 
           <!-- <td>{{item.creationDate | date : format : timezone }}</td> -->
-          <span class="label label-info">info</span>
         </tr>
       </tbody>
     </table>

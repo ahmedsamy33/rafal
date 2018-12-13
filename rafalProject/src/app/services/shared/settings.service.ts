@@ -8,6 +8,8 @@ import { SessionService } from './session.service';
 export class SettingsService {
   public static DOMAIN_URL = "http://localhost:8080/Dolphin_Services/";
   public static DOMAIN_ImgeURLAdver = "http://localhost:8080/Dolphin_Services/advertisementservices/getaddimage?imgetkn=";
+
+  
   public static imageUrlProfile =
     "http://localhost:8080/Dolphin_Services/userservices/getprofileimage?imgetkn=";
   // "http://rafalgroups.com/Dolphin_Services/userservices/getprofileimage?imgetkn=";

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CompanyserviceService } from '../../../services/shared/companyservice.service';
 import swal from 'sweetalert2';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
+import { SettingsService } from '../../../services/shared/settings.service';
 
 @Component({
   selector: 'app-advirtesment',
@@ -19,8 +21,11 @@ export class AdvirtesmentComponent implements OnInit {
 
   ImgSrc: string = 'assets/images/picture.png';
   imageToShow: any;
+  AdvImgService;
+  constructor(private service: CompanyserviceService, private spinner: NgxSpinnerService,public toastr:ToastrService) {
 
-  constructor(private service: CompanyserviceService, private spinner: NgxSpinnerService) { }
+    this.AdvImgService = SettingsService.DOMAIN_ImgeURLAdver;
+   }
   ngOnInit() {
     this.loadData(this.pageSize, this.pageNumber, this.searchCeritria);
   }
@@ -39,14 +44,12 @@ export class AdvirtesmentComponent implements OnInit {
 
     }, err => {
 
-      // this.alertMessage(
-      //   {
-      //     type: 'danger',
-      //     title: 'Server Error!',
-      //     value: 'error Loading Data.'
-      //   }
-      // );
+     
+
+
+
       this.spinner.hide();
+      this.toastr.error('Cannot Get Data', 'Server Error');
     })
 
 

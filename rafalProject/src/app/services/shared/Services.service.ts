@@ -66,7 +66,7 @@ export class ServiceServices {
       "searchCriateria": searchCriateria
     }
 
-    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getcharteraccounting', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getcharteraccounting', data, { headers: SettingsService.getHeaderJsonGetMethod6() }).pipe(
       map(res => {
         return res.json();
       }),
@@ -90,7 +90,7 @@ export class ServiceServices {
       "language": "English"
     }
 
-     return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getestablishcompnies', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+     return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getestablishcompnies', data, { headers: SettingsService.getHeaderJsonGetMethod6() }).pipe(
       map(res => {
         return res.json();
       }),
@@ -112,7 +112,7 @@ export class ServiceServices {
       "language": "English"
     }
 
-     return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getfesabilitystudy', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+     return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getfesabilitystudy', data, { headers: SettingsService.getHeaderJsonGetMethod6() }).pipe(
       map(res => {
         return res.json();
       }),
@@ -131,7 +131,7 @@ export class ServiceServices {
       "searchCriateria": searchCriateria,
 
     }
-    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getcustomclearance', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getcustomclearance', data, { headers: SettingsService.getHeaderJsonGetMethod6() }).pipe(
       map(res => {
         return res.json();
       }),
@@ -154,7 +154,7 @@ export class ServiceServices {
       "searchCriateria": searchCriateria,
       "language": "English"
     }
-    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getofficeservices', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getofficeservices', data, { headers: SettingsService.getHeaderJsonGetMethod6() }).pipe(
       map(res => {
         return res.json();
       }),
@@ -173,7 +173,7 @@ export class ServiceServices {
       "searchCriateria": searchCriateria,
       "language": "English"
     }
-    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/gettradingagencies', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/gettradingagencies', data, { headers: SettingsService.getHeaderJsonGetMethod6() }).pipe(
       map(res => {
         return res.json();
       }),
@@ -191,7 +191,7 @@ export class ServiceServices {
       "searchCriateria": searchCriateria,
       "language": "English"
     }
-    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getcertifiedtranslations', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getcertifiedtranslations', data, { headers: SettingsService.getHeaderJsonGetMethod6() }).pipe(
       map(res => {
         return res.json();
       }),
@@ -213,7 +213,7 @@ export class ServiceServices {
       "searchCriateria": searchCriateria,
       "language": "English"
     }
-    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getshippings', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+    return this.http.post(SettingsService.DOMAIN_URL + 'adminservices/getshippings', data, { headers: SettingsService.getHeaderJsonGetMethod6() }).pipe(
       map(res => {
         return res.json();
       }),

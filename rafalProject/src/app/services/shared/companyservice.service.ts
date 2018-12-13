@@ -468,7 +468,7 @@ export class CompanyserviceService {
     }
 
 
-    return this.http.post(SettingsService.DOMAIN_URL + 'advertisementservices/searchadds', data, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
+    return this.http.post(SettingsService.DOMAIN_URL + 'advertisementservices/searchadds', data, { headers: SettingsService.getHeaderJsonGetMethod6() }).map((res: Response) => {
       return res.json()
     })
 
@@ -479,7 +479,7 @@ export class CompanyserviceService {
   DeleteAds(id) {
 
 
-    return this.http.delete(SettingsService.DOMAIN_URL + 'advertisementservices/deleteadd?addid=' + id, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
+    return this.http.delete(SettingsService.DOMAIN_URL + 'advertisementservices/deleteadd?addid=' + id, { headers: SettingsService.getHeaderJsonGetMethod6() }).map((res: Response) => {
       return res.json()
     })
 

@@ -58,7 +58,7 @@ export class CompanyServices {
 
 
   GetFile(filename, formname) {
-    return this.http.get(SettingsService.DOMAIN_URL + '/adminservices/getformsfiles?filename=' + filename + '&formname=' + formname, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+    return this.http.get(SettingsService.DOMAIN_URL + '/adminservices/getformsfiles?filename=' + filename + '&formname=' + formname, { headers: SettingsService.getHeaderJsonGetMethod6() }).pipe(
       map(res => {
         return res.json();
       }),

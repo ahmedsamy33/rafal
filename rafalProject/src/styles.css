@@ -1817,3 +1817,87 @@ button.toast-close-button {
 .swal2-popup .swal2-content {
   font-size: 1.7em !important;
 }
+
+
+/* // pagination  */
+
+.ngx-pagination {
+  margin-left: 0;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 12px;
+  padding: 0;
+
+}
+
+.pagination-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.pagination-wrapper .input-group {
+  width: 150px;
+}
+.pagination-wrapper .input-group .input-group-addon {
+  color: #fff;
+  border: none;
+}
+.pagination-wrapper .form-group {
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.my-pagination /deep/ 
+
+{
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 12px;
+  padding: 0;
+}
+
+
+
+.my-pagination[_ngcontent-c8] .ngx-pagination a, .my-pagination[_ngcontent-c8] .ngx-pagination .current{
+  text-decoration: none;
+  height: 35px;
+  text-align: center;
+  line-height: 33px;
+  margin: 0;
+ }
+.my-pagination .ngx-pagination a:last-child,
+.my-pagination .ngx-pagination .current:last-child {
+  border: none;
+}
+
+.my-pagination .ngx-pagination .disabled {
+    color: rgba(38, 37, 60, 0.4);
+    cursor: not-allowed;
+}
+
+.ngx-pagination .small-screen {
+  display: none;
+}
+
+.bg-primary[_ngcontent-c8], .pagination-wrapper[_ngcontent-c8] .input-group[_ngcontent-c8] .input-group-addon[_ngcontent-c8], .my-pagination[_ngcontent-c8] .ngx-pagination a:hover, .my-pagination[_ngcontent-c8] .ngx-pagination .current{
+  background: linear-gradient(to top right, #fca400, #ffd17c);
+    background: -webkit-linear-gradient(to top right, #fca400, #ffd17c);
+    color: #fff;
+    padding: 0.1875rem 0.625rem;
+
+}
+
+.ngx-pagination::after {
+  clear: both;
+}
+
+.ngx-pagination::before, .ngx-pagination::after {
+  content: ' ';
+  display: table;
+}
+

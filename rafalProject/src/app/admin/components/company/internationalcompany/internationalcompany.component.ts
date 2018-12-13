@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyServices } from '../../../../services/shared/Company.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-internationalcompany',
@@ -18,7 +19,7 @@ export class InternationalcompanyComponent implements OnInit {
   companyType = 'Inter';
 
   ImgSrc: string = 'assets/images/picture.png';
-  constructor(private service: CompanyServices, private spinner: NgxSpinnerService) { }
+  constructor(private service: CompanyServices, private spinner: NgxSpinnerService , public toastr:ToastrService) { }
 
   ngOnInit() {
     this.loadData(this.pageSize, this.pageNumber, this.searchCeritria);
@@ -36,16 +37,10 @@ export class InternationalcompanyComponent implements OnInit {
 
     }
       , err => {
+ 
+     
         this.spinner.hide();
-
-        // this.alertMessage(
-        //   {
-        //     type: 'danger',
-        //     title: 'Server Error!',
-        //     value: 'error Loading Data.'
-        //   }
-        // );
-        this.loading = false;
+        this.toastr.error('Cannot Get Data', 'Server Error');
       })
 
   }
