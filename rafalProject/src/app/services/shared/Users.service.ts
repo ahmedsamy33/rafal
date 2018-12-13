@@ -28,10 +28,10 @@ export class UsersServices {
       
       }
 
-
+       
     
     return this.http.post(SettingsService.DOMAIN_URL + 'userservices/getusersdata', data,
-     { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+     { headers: SettingsService.getHeaderJsonGetMethod6() }).pipe(
         map(res => {
           return res.json();
         }),

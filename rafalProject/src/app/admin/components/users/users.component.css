@@ -1,0 +1,49 @@
+.pagination-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .pagination-wrapper .input-group {
+    width: 150px;
+  }
+  .pagination-wrapper .input-group .input-group-addon {
+    color: #fff;
+    border: none;
+  }
+  .pagination-wrapper .form-group {
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .my-pagination /deep/ .ngx-pagination .current{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 12px;
+    padding: 0;
+  }
+  .my-pagination .ngx-pagination a,
+  .my-pagination .ngx-pagination .current {
+    min-width: 30px;
+    text-decoration: none;
+    height: 35px;
+    text-align: center;
+    line-height: 33px;
+    margin: 0;
+    color: #26253c;
+  }
+  .my-pagination .ngx-pagination a:last-child,
+  .my-pagination .ngx-pagination .current:last-child {
+    border: none;
+  }
+  .my-pagination .ngx-pagination a:hover,
+  .my-pagination .ngx-pagination .current {
+    min-width: 30px;
+    color: #fff;
+  }
+  .my-pagination .ngx-pagination .disabled {
+    color: rgba(38, 37, 60, 0.4);
+    cursor: not-allowed;
+  }

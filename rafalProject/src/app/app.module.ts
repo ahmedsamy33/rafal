@@ -34,6 +34,8 @@ import { DragScrollModule } from 'ngx-drag-scroll';
 import { SettingsService } from './services/shared/settings.service';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
+
 import { ConfirmPasswordComponent } from './component/confirm-password/confirm-password.component';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { LayoutComponent } from './admin/layout/layout.component';
@@ -118,6 +120,7 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    ToastrModule.forRoot() ,// ToastrModule added,
     NgxSpinnerModule,
     DeviceDetectorModule.forRoot(),
     BrowserAnimationsModule,

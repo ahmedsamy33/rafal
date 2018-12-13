@@ -36,6 +36,7 @@
     "ngx-drag-scroll": "^2.0.2",
     "ngx-pagination": "^3.2.1",
     "ngx-spinner": "^6.1.2",
+    "ngx-toastr": "^9.1.1",
     "popper.js": "^1.14.4",
     "rxjs": "~6.2.0",
     "rxjs-compat": "^6.3.3",

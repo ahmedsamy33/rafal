@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 import Swal from 'sweetalert2'
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-users',
@@ -24,34 +25,9 @@ export class UsersComponent implements OnInit {
 
 
 
-  constructor(private service: UsersServices , private spinner: NgxSpinnerService ) { 
+  constructor(private service: UsersServices , private spinner: NgxSpinnerService , private toastr: ToastrService) { 
 
-    Swal({
-      title: 'Are you sure?',
-      text: 'You will not be able to recover this imaginary file!',
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, keep it'
-    }).then((result) => {
-      if (result.value) {
-        Swal(
-          'Deleted!',
-          'Your imaginary file has been deleted.',
-          'success'
-        )
-      // For more information about handling dismissals please visit
-      // https://sweetalert2.github.io/#handling-dismissals
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal(
-          'Cancelled',
-          'Your imaginary file is safe :)',
-          'error'
-        )
-      }
-    })
-
-
+    
   }
 
   ngOnInit() {
@@ -63,23 +39,19 @@ export class UsersComponent implements OnInit {
 
       this.service.GetUsers(pageSize  , pageNumber , searchCeritria).subscribe(res => {
 
-         
+        
         this.tableData =res.data;
         this.dataListSize = res.size;
-      this.spinner.hide()
+        console.log(this.dataListSize);
+          this.spinner.hide()
 
        
         
       },err => {
         this.spinner.hide()
 
-        // this.alertMessage(
-        //   {
-        //     type: 'danger',
-        //     title: 'Server Error!',
-        //     value: 'error Loading Data.'
-        //   }
-        // );
+        this.toastr.error('Cannot Get Data', 'Server Error');
+
        })
 
 
