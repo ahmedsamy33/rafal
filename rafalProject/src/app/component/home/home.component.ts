@@ -163,6 +163,20 @@ export class HomeComponent implements OnInit {
     else if (getUsertoken != null) {
       if (componentTo == 'LoginmodalComponent' || componentTo == 'SignupmodalComponent') {
         this.bsModalRef = this.modalService.show(comp, { class: 'modal-sm' });
+        // to get data session from modal
+        if (componentTo == 'LoginmodalComponent') {
+          this.bsModalRef.content.action.take(1).subscribe((value) => {
+            console.log("ahmed :", value) // here you will get the value;
+            this.userData = value.userDetails.picture_url;
+            this.userName = value.userDetails.userName;
+            console.log(this.userData);
+
+          });
+        }
+
+
+
+
       } else {
         this.bsModalRef = this.modalService.show(comp);
       }
@@ -170,6 +184,16 @@ export class HomeComponent implements OnInit {
 
       if (componentTo == 'LoginmodalComponent' || componentTo == 'SignupmodalComponent') {
         this.bsModalRef = this.modalService.show(comp, { class: 'modal-sm' });
+        // to get data session from modal
+        if (componentTo == 'LoginmodalComponent') {
+          this.bsModalRef.content.action.take(1).subscribe((value) => {
+            console.log("ahmed2 :", value) // here you will get the value;
+            this.userData = value.userDetails.picture_url;
+            this.userName = value.userDetails.userName;
+            console.log(this.userData);
+
+          });
+        }
       } else {
         this.bsModalRef = this.modalService.show(LoginmodalComponent, { class: 'modal-sm' });
       }

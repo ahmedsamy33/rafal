@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ForgetmodalComponent } from '../forgetmodal/forgetmodal.component';
 import { SignupmodalComponent } from '../signupmodal/signupmodal.component';
@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./loginmodal.component.css']
 })
 export class LoginmodalComponent implements OnInit {
-
+  @Output() action = new EventEmitter();
   private Password: string = null;
   private phoneNumber: string = null;
   loginForm: FormGroup;
@@ -86,12 +86,17 @@ export class LoginmodalComponent implements OnInit {
     this.spinner.show();
     this.autherService.Signin(data).subscribe(
       data => {
+        this.action.emit(data);
         console.log(data);
         SessionService.saveDataInLocalStorage(data);
-        console.log(SessionService.userSessionData);
+        // console.log();
+
         this.bsModalRef.hide();
         this.spinner.hide();
-        this.router.navigate(['layout/Users']);
+        if (data.userDetails.type == 'Company') {
+          this.router.navigate(['layout/Users']);
+        }
+
 
       },
       error => {
