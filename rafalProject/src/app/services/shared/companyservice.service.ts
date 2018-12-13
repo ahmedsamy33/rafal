@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response, RequestOptions } from '@angular/http';
+import { Http, Headers, Response, RequestOptions, ResponseContentType } from '@angular/http';
 import { Observable } from "rxjs";
 import { map, catchError, timeout, filter } from 'rxjs/operators';
 import { SettingsService } from './settings.service';
@@ -455,6 +455,59 @@ export class CompanyserviceService {
         }),
         timeout(4000)
       )
+  }
+
+
+
+  GetAdds(pageSize, pageNumber, searchCriateria) {
+
+    let data = {
+      "pageSize": pageSize,
+      "pageNumber": pageNumber,
+      "searchCriateria": searchCriateria,
+    }
+
+
+    return this.http.post(SettingsService.DOMAIN_URL + 'advertisementservices/searchadds', data, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
+      return res.json()
+    })
+
+
+  }
+
+
+  DeleteAds(id) {
+
+
+    return this.http.delete(SettingsService.DOMAIN_URL + 'advertisementservices/deleteadd?addid=' + id, { headers: SettingsService.getHeaderJsonGetMethod() }).map((res: Response) => {
+      return res.json()
+    })
+
+
+  }
+
+
+  toggleAds(id, status) {
+
+
+    return this.http.put(SettingsService.DOMAIN_URL + 'advertisementservices/updateadd?isactive=' + status + '&addid=' + id, null, { headers: SettingsService.getHeaderJsonWithTKN() }).map((res: Response) => {
+      return res.json()
+    })
+
+
+  }
+
+  getImageByToken(token) {
+
+    let contentHeaders = new Headers();
+    contentHeaders.append("imgetkn", token);
+
+
+
+    return this.http.get(SettingsService.DOMAIN_URL + 'advertisementservices/getaddimage?imgetkn=' + token, { headers: token, responseType: ResponseContentType.Blob }).map((res: Response) => {
+      return res.blob()
+    })
+
   }
 
 }
