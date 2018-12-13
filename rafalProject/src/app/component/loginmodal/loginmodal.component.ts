@@ -96,6 +96,7 @@ export class LoginmodalComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.spinner.hide();
 
       }
     )

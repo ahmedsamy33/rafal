@@ -64,6 +64,7 @@ import { ShippingadminComponent } from './admin/components/services/shippingadmi
 import { ChangepicComponent } from './admin/modalcomponent/changepic/changepic.component';
 import { ChangepassComponent } from './admin/modalcomponent/changepass/changepass.component';
 import { CompanyServices } from './services/shared/Company.service';
+import { AuthguardService } from './services/authguard.service';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -136,7 +137,7 @@ export function createTranslateLoader(http: HttpClient) {
     routing,
     DataTableModule
   ],
-  providers: [BsModalService, AuthentionService, SessionService, SettingsService, GlobalService, CompanyServices],
+  providers: [BsModalService, AuthentionService, SessionService, SettingsService, GlobalService, CompanyServices, AuthguardService],
   bootstrap: [AppComponent],
   entryComponents: [
 

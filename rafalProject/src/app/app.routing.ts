@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { LayoutComponent } from './admin/layout/layout.component';
 import { HomeComponent } from './component/home/home.component';
 import { UsersComponent } from './admin/components/users/users.component';
@@ -16,6 +16,7 @@ import { EmploymentadminComponent } from './admin/components/services/employment
 import { EstablishedcompanyComponent } from './admin/components/company/establishedcompany/establishedcompany.component';
 import { InternationalcompanyComponent } from './admin/components/company/internationalcompany/internationalcompany.component';
 import { NewinvestorComponent } from './admin/components/company/newinvestor/newinvestor.component';
+import { AuthguardService } from './services/authguard.service';
 
 
 
@@ -25,7 +26,7 @@ const appRoutes: Routes = [
 
     //Site routes goes here 
     {
-        path: 'layout', component: LayoutComponent,
+        path: 'layout', component: LayoutComponent, canActivate: [AuthguardService],
         children: [
             // service
             { path: 'charter_accounting', component: ChartAccountingComponent },
