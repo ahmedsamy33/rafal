@@ -13,7 +13,7 @@ import { ResetmodalComponent } from './component/resetmodal/resetmodal.component
 import { SignupmodalComponent } from './component/signupmodal/signupmodal.component';
 import { VerfiymodalComponent } from './component/verfiymodal/verfiymodal.component';
 import { UpgrademodalComponent } from './component/upgrademodal/upgrademodal.component';
-import {NgxPaginationModule} from 'ngx-pagination'; 
+import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -42,7 +42,6 @@ import { LayoutComponent } from './admin/layout/layout.component';
 import { HeaderComponent } from './admin/header/header.component';
 import { MenuComponent } from './admin/menu/menu.component';
 import { ChartAccountingComponent } from './admin/components/services/chart-accounting/chart-accounting.component';
-import { HiringlaborsComponent } from './admin/components/services/hiringlabors/hiringlabors.component';
 import { FeasibilitystudyComponent } from './admin/components/services/feasibilitystudy/feasibilitystudy.component';
 import { EstablishcompanyComponent } from './admin/components/services/establishcompany/establishcompany.component';
 import { CustomerclearanceComponent } from './admin/components/services/customerclearance/customerclearance.component';
@@ -58,7 +57,10 @@ import { routing } from './app.routing';
 import { DataTableModule } from "angular-6-datatable";
 import { SidebarComponent } from './admin/layout/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { HiringlaborsadminComponent } from './admin/components/services/hiringlaborsadmin/hiringlaborsadmin.component';
+import { EmploymentadminComponent } from './admin/components/services/employmentadmin/employmentadmin.component';
+import { ShippingadminComponent } from './admin/components/services/shippingadmin/shippingadmin.component'
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -91,7 +93,6 @@ export function createTranslateLoader(http: HttpClient) {
     HeaderComponent,
     MenuComponent,
     ChartAccountingComponent,
-    HiringlaborsComponent,
     FeasibilitystudyComponent,
     EstablishcompanyComponent,
     CustomerclearanceComponent,
@@ -102,7 +103,10 @@ export function createTranslateLoader(http: HttpClient) {
     NewinvestorComponent,
     InternationalcompanyComponent,
     AdvirtesmentComponent,
-    UsersComponent
+    UsersComponent,
+    HiringlaborsadminComponent,
+    EmploymentadminComponent,
+    ShippingadminComponent
   ],
   imports: [
     BrowserModule,
@@ -120,14 +124,14 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    ToastrModule.forRoot() ,// ToastrModule added,
+    ToastrModule.forRoot(),// ToastrModule added,
     NgxSpinnerModule,
     DeviceDetectorModule.forRoot(),
     BrowserAnimationsModule,
     routing,
     DataTableModule
   ],
-  providers: [BsModalService, AuthentionService, SessionService, SettingsService , GlobalService],
+  providers: [BsModalService, AuthentionService, SessionService, SettingsService, GlobalService],
   bootstrap: [AppComponent],
   entryComponents: [
 

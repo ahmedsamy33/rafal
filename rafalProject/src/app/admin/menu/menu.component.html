@@ -1,71 +1,4 @@
-<!-- <div class="nav-side-menu">
- 
-  <div class="menu-list">
-    <ul id="menu-content" class="menu-content menu-wrap animated fadeIn collapse out">
-      <li data-toggle="collapse" data-target="#products" class="collapsed menu-item active">
-        <a href="#"><i class="fas fa-users-cog fa-lg"></i> Services <span class="arrow"></span></a>
-      </li>
-      <ul class="sub-menu collapse" id="products">
-        <li class="active menu-item"><a href="#">Charter Accounting</a></li>
-        <li class="menu-item"><a href="#">Hiring labors</a></li>
-        <li><a href="#">Feasibility study</a></li>
-        <li><a href="#">Establishing companies</a></li>
-        <li><a href="#">Customs Clearance</a></li>
-        <li><a href="#">Employment</a></li>
-        <li><a href="#">Office services</a></li>
-        <li><a href="#">Trading agencies</a></li>
-        <li><a href="#">Certified translation</a></li>
-        <li><a href="#">Shipping</a></li>
-      </ul>
-      <li data-toggle="collapse" data-target="#service" class="collapsed">
-        <a href="#"><i class="fas fa-building fa-lg"></i>Company <span class="arrow"></span></a>
-      </li>
-      <ul class="sub-menu collapse com" id="service">
-        <li>Established company</li>
-        <li>New investor</li>
-        <li>International company</li>
-      </ul>
-      <li>
-        <a href="#">
-          <i class="fab fa-adversal fa-lg"></i> Advirtesment
-        </a>
-      </li>
-
-      <li>
-        <a href="#">
-          <i class="fa fa-users fa-lg"></i> Users
-        </a>
-      </li>
-    </ul>
-  </div>
-</div> -->
-
-
 <ul class="menu-wrap animated fadeIn">
-  <!-- <li *ngFor="let item of menuInfo;let i = index" class="menu-item" [ngClass]="{'item-toggle-on':item.toggle === 'on'}">
-    <a [routerLink]="[item.routerLink.join('/')]" *ngIf="item.routerLink" routerLinkActive="active" class="menu-link"
-      (click)="_selectItem(item)">
-      <div class="placeholder">
-        <i class="fa fa-{{item.icon}} fa-fw"></i>
-      </div>
-      <span class="text">{{item.title}}</span>
-    </a>
-
-    <a class="menu-link" *ngIf="!item.routerLink" (click)="isToggleOn(item)">
-      <div class="placeholder">
-        <i class="fa fa-{{item.icon}} fa-fw" *ngIf="item.icon"></i>
-      </div>
-      <span class="text">{{item.title}}</span>
-      <span class="fa fa-angle-right fa-fw direction"></span>
-    </a>
-
-    <div class="item-children" [@collapse]="item.toggle" *ngIf="item.children">
-      <app-menu [menuInfo]="item.children"></app-menu>
-    </div>
-  </li> -->
-
-
-  <hr>
 
   <!-- edit by ahmed -->
   <li class="menu-item">
@@ -81,7 +14,7 @@
     <ul class="menu-wrap animated fadeIn" *ngIf="ServiceFlag">
       <li class="menu-item">
 
-        <a routerLink="advetis" routerLinkActive="active" class="menu-link">
+        <a routerLink="charter_accounting" routerLinkActive="active" class="menu-link">
           <div class="placeholder">
             <!--<i class="fa fa-folder fa-fw"></i>-->
           </div>
@@ -91,7 +24,7 @@
 
       <li class="menu-item">
 
-        <a routerLink="advetis" routerLinkActive="active" class="menu-link">
+        <a routerLink="hiringLabors" routerLinkActive="active" class="menu-link">
           <div class="placeholder">
             <!--<i class="fa fa-folder fa-fw"></i>-->
           </div>
@@ -101,7 +34,7 @@
 
       <li class="menu-item">
 
-        <a routerLink="advetis" routerLinkActive="active" class="menu-link">
+        <a routerLink="establish_companies" routerLinkActive="active" class="menu-link">
           <div class="placeholder">
             <!--<i class="fa fa-folder fa-fw"></i>-->
           </div>
@@ -110,7 +43,7 @@
       </li>
       <li class="menu-item">
 
-        <a routerLink="advetis" routerLinkActive="active" class="menu-link">
+        <a routerLink="custom_clearance" routerLinkActive="active" class="menu-link">
           <div class="placeholder">
             <!--<i class="fa fa-folder fa-fw"></i>-->
           </div>
@@ -119,17 +52,25 @@
       </li>
       <li class="menu-item">
 
-        <a routerLink="advetis" routerLinkActive="active" class="menu-link">
+        <a routerLink="employment" routerLinkActive="active" class="menu-link">
           <div class="placeholder">
             <!--<i class="fa fa-folder fa-fw"></i>-->
           </div>
           <span class="text">Employment</span>
         </a>
       </li>
-
       <li class="menu-item">
 
-        <a routerLink="advetis" routerLinkActive="active" class="menu-link">
+        <a routerLink="feasability_Study" routerLinkActive="active" class="menu-link">
+          <div class="placeholder">
+            <!--<i class="fa fa-folder fa-fw"></i>-->
+          </div>
+          <span class="text">Feasibility study</span>
+        </a>
+      </li>
+      <li class="menu-item">
+
+        <a routerLink="office_services" routerLinkActive="active" class="menu-link">
           <div class="placeholder">
             <!--<i class="fa fa-folder fa-fw"></i>-->
           </div>
@@ -139,7 +80,7 @@
 
       <li class="menu-item">
 
-        <a routerLink="advetis" routerLinkActive="active" class="menu-link">
+        <a routerLink="trading_Agencies" routerLinkActive="active" class="menu-link">
           <div class="placeholder">
             <!--<i class="fa fa-folder fa-fw"></i>-->
           </div>
@@ -148,7 +89,7 @@
       </li>
       <li class="menu-item">
 
-        <a routerLink="advetis" routerLinkActive="active" class="menu-link">
+        <a routerLink="certified_Translations" routerLinkActive="active" class="menu-link">
           <div class="placeholder">
             <!--<i class="fa fa-folder fa-fw"></i>-->
           </div>
@@ -157,7 +98,7 @@
       </li>
       <li class="menu-item">
 
-        <a routerLink="advetis" routerLinkActive="active" class="menu-link">
+        <a routerLink="shipping" routerLinkActive="active" class="menu-link">
           <div class="placeholder">
             <!--<i class="fa fa-folder fa-fw"></i>-->
           </div>
@@ -182,7 +123,7 @@
     <ul class="menu-wrap animated fadeIn" *ngIf="companyFlag">
       <li class="menu-item">
 
-        <a routerLink="advetis" routerLinkActive="active" class="menu-link">
+        <a routerLink="established_Company" routerLinkActive="active" class="menu-link">
           <div class="placeholder">
             <!--<i class="fa fa-folder fa-fw"></i>-->
           </div>
@@ -191,7 +132,7 @@
       </li>
       <li class="menu-item">
 
-        <a routerLink="advetis" routerLinkActive="active" class="menu-link">
+        <a routerLink="new_Investor" routerLinkActive="active" class="menu-link">
           <div class="placeholder">
             <!--<i class="fa fa-folder fa-fw"></i>-->
           </div>
@@ -200,7 +141,7 @@
       </li>
       <li class="menu-item">
 
-        <a routerLink="advetis" routerLinkActive="active" class="menu-link">
+        <a routerLink="International" routerLinkActive="active" class="menu-link">
           <div class="placeholder">
             <!--<i class="fa fa-folder fa-fw"></i>-->
           </div>

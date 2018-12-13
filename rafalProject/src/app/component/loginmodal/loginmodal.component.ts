@@ -91,7 +91,7 @@ export class LoginmodalComponent implements OnInit {
         console.log(SessionService.userSessionData);
         this.bsModalRef.hide();
         this.spinner.hide();
-        this.router.navigate(['/layout']);
+        this.router.navigate(['layout/Users']);
 
       },
       error => {
