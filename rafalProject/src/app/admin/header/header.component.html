@@ -1,11 +1,12 @@
 <div class="pages-top">
   <div class="avatar-wrap">
-    <div  style="cursor: pointer;" (click)="openProfileImgModal()" class="avatar">
+    <div style="cursor: pointer;" (click)="openChangePicmodal()" class="avatar">
       <img src="{{avatarImgSrc}}" alt="avatar">
     </div>
     <div class="user-info-wrap">
       <span class="user-name" title="{{userName}}">{{userName}}</span>
-      <span style="cursor: pointer;" (click)="openChangePassword()"  class="user-post" title="changePassword"> changePassword</span>
+      <span style="cursor: pointer;" (click)="openChangepassmodal()" class="user-post" title="changePassword">
+        changePassword</span>
     </div>
   </div>
 
@@ -25,16 +26,16 @@
 
   <div class="msg-tips-wrap">
     <div class="msg-entrance ring">
-       <span class="fa fa-home fa-fw"></span> 
-      <!-- <span class="badge" *ngIf="tip.ring"></span> -->  
+      <span class="fa fa-home fa-fw"></span>
+      <!-- <span class="badge" *ngIf="tip.ring"></span> -->
     </div>
-     <div class="msg-entrance email" (click)="logOut()">
+    <div class="msg-entrance email" (click)="logOut()">
       <span class="fa fa-sign-out fa-fw"></span>
-      
-    </div>  
+
+    </div>
   </div>
 
-<!-- <div *ngIf="isVisable">
+  <!-- <div *ngIf="isVisable">
 
     <loading [loading]=true></loading>
   </div> -->
@@ -125,6 +126,6 @@
           
       </modal>
        -->
-      
-    
-    <!-- </div> -->
+
+
+  <!-- </div> -->

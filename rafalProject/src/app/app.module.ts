@@ -60,7 +60,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import Swal from 'sweetalert2';
 import { HiringlaborsadminComponent } from './admin/components/services/hiringlaborsadmin/hiringlaborsadmin.component';
 import { EmploymentadminComponent } from './admin/components/services/employmentadmin/employmentadmin.component';
-import { ShippingadminComponent } from './admin/components/services/shippingadmin/shippingadmin.component'
+import { ShippingadminComponent } from './admin/components/services/shippingadmin/shippingadmin.component';
+import { ChangepicComponent } from './admin/modalcomponent/changepic/changepic.component';
+import { ChangepassComponent } from './admin/modalcomponent/changepass/changepass.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -106,7 +108,9 @@ export function createTranslateLoader(http: HttpClient) {
     UsersComponent,
     HiringlaborsadminComponent,
     EmploymentadminComponent,
-    ShippingadminComponent
+    ShippingadminComponent,
+    ChangepicComponent,
+    ChangepassComponent,
   ],
   imports: [
     BrowserModule,
@@ -152,7 +156,9 @@ export function createTranslateLoader(http: HttpClient) {
     TradingComponent,
     CertifiedComponent,
     ShippingComponent,
-    ConfirmPasswordComponent
+    ConfirmPasswordComponent,
+    ChangepicComponent,
+    ChangepassComponent,
   ],
   exports: [
     ModalModule, CommonModule, TranslateModule
