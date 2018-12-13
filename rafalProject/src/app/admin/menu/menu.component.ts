@@ -11,14 +11,14 @@ import { collapse } from '../animation/collapse-animate';
 })
 export class MenuComponent implements OnInit {
 
-  @Input()menuInfo: any;
+  @Input() menuInfo: any;
   constructor(private _globalService: GlobalService) {
 
 
 
-    console.log(this.menuInfo ,);
-    
-   }
+    console.log("ddddddddddddddd", this.menuInfo, );
+
+  }
 
   ngOnInit() {
   }
@@ -29,6 +29,28 @@ export class MenuComponent implements OnInit {
 
   private _selectItem(item) {
     //this._globalService._isActived(item);
+    console.log(item);
+
     this._globalService.dataBusChanged('isActived', item);
+  }
+
+  public ServiceFlag: boolean = false;
+  public companyFlag: boolean = false;
+
+  toggleServices() {
+    if (this.ServiceFlag) {
+      this.ServiceFlag = false
+    } else {
+      this.ServiceFlag = true
+    }
+
+  }
+  togglecompany() {
+    if (this.companyFlag) {
+      this.companyFlag = false
+    } else {
+      this.companyFlag = true
+    }
+
   }
 }

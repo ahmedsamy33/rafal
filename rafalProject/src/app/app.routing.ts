@@ -2,33 +2,24 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './admin/layout/layout.component';
 import { HomeComponent } from './component/home/home.component';
 import { UsersComponent } from './admin/components/users/users.component';
+import { AdvirtesmentComponent } from './admin/components/advirtesment/advirtesment.component';
 
 
 
 const appRoutes: Routes = [
 
     //Site routes goes here 
-    { path: 'Users', component: UsersComponent },
     {
         path: 'layout', component: LayoutComponent,
-        
-
         children: [
-        //   { path: '', component: HomeComponent, pathMatch: 'full'},
-        //   { path: 'Users', component: UsersComponent },
-        //   { path: 'test/:id', component: AboutComponent }
+            {
+                path: 'Users', component: UsersComponent,
+            },
+            {
+                path: 'advetis', component: AdvirtesmentComponent
+            }
         ]
     },
-
-    
-    // App routes goes here here
-    // { 
-    //     path: '',
-    //     children: [
-    //       { path: 'dashboard', component: DashboardComponent },
-    //       { path: 'profile', component: ProfileComponent }
-    //     ]
-    // },
 
     //no layout routes
     // { path: 'login', component: LoginComponent, pathMatch: 'full' },
