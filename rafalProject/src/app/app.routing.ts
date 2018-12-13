@@ -41,8 +41,8 @@ const appRoutes: Routes = [
 
             // company
             { path: 'established_Company', component: EstablishedcompanyComponent },
-            { path: 'new_Investor', component: InternationalcompanyComponent },
-            { path: 'International', component: NewinvestorComponent },
+            { path: 'new_Investor', component: NewinvestorComponent },
+            { path: 'International', component: InternationalcompanyComponent },
 
             { path: 'Users', component: UsersComponent },
             { path: 'advetis', component: AdvirtesmentComponent },

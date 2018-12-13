@@ -42,7 +42,7 @@ export class CompanyServices {
       "type": type,
     }
 
-    return this.http.post(SettingsService.DOMAIN_URL + 'companyservices/searchcompanies', data, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+    return this.http.post(SettingsService.DOMAIN_URL + 'companyservices/searchcompanies', data, { headers: SettingsService.getHeaderJsonWithTKN() }).pipe(
       map(res => {
         return res.json();
       }),
@@ -51,23 +51,22 @@ export class CompanyServices {
       }),
       timeout(4000)
     )
-}
-   
-
-
-
-
-GetFile(filename , formname){
-   return this.http.get(SettingsService.DOMAIN_URL + '/adminservices/getformsfiles?filename='+filename+'&formname='+formname,   { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
-    map(res => {
-      return res.json();
-    }),
-    catchError((error: Response) => {
-      return throwError(error.json());
-    }),
-    timeout(4000)
-  )
-}
   }
 
- 
+
+
+
+
+  GetFile(filename, formname) {
+    return this.http.get(SettingsService.DOMAIN_URL + '/adminservices/getformsfiles?filename=' + filename + '&formname=' + formname, { headers: SettingsService.getHeaderJsonGetMethod() }).pipe(
+      map(res => {
+        return res.json();
+      }),
+      catchError((error: Response) => {
+        return throwError(error.json());
+      }),
+      timeout(4000)
+    )
+  }
+}
+

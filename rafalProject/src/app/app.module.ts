@@ -63,6 +63,7 @@ import { EmploymentadminComponent } from './admin/components/services/employment
 import { ShippingadminComponent } from './admin/components/services/shippingadmin/shippingadmin.component';
 import { ChangepicComponent } from './admin/modalcomponent/changepic/changepic.component';
 import { ChangepassComponent } from './admin/modalcomponent/changepass/changepass.component';
+import { CompanyServices } from './services/shared/Company.service';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -135,7 +136,7 @@ export function createTranslateLoader(http: HttpClient) {
     routing,
     DataTableModule
   ],
-  providers: [BsModalService, AuthentionService, SessionService, SettingsService, GlobalService],
+  providers: [BsModalService, AuthentionService, SessionService, SettingsService, GlobalService, CompanyServices],
   bootstrap: [AppComponent],
   entryComponents: [
 

@@ -1,85 +1,87 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-spin"></ngx-spinner>
+
 <div class="row">
   <div class="col-md-12">
-     
 
-        <div class="search-group">
-            <input [(ngModel)]="searchCeritria" (keyup.enter)="searchData()" type="text" class="search-input" placeholder="Search  · · ·">
-            <button (click)="searchData()" class="search-btn">
-              <i class="fa fa-search fa-fw"></i>
-            </button>
-          </div>
 
-          
-      <table class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>ID</th>
-            <!-- <th>Password</th> -->
-            <th>Creation Date</th>
-           
+    <div class="search-group">
+      <input [(ngModel)]="searchCeritria" (keyup.enter)="searchData()" type="text" class="search-input" placeholder="Search  · · ·">
+      <button (click)="searchData()" class="search-btn">
+        <i class="fa fa-search fa-fw"></i>
+      </button>
+    </div>
 
+
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>ID</th>
+          <!-- <th>Password</th> -->
+          <th>Creation Date</th>
 
 
 
-            <!-- <th>STATE</th> -->
-          </tr>
-        </thead>
-        <tbody>
-
-            <tr *ngIf="dataListSize == 0" >
-                <td  class="text-center no-data" colspan="7">
-                    <i  class="fa fa-database fa-fw"></i>
-                    No Data Avilable
-                </td>
-                
-                </tr>
-                 
-          <tr *ngFor="let item of tableData  | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber , totalItems: dataListSize};let index = index">
-              <td>{{index+1}}</td>
-
-              <td>{{item.userName}}</td>
-              <td>{{item.phoneNumber}}</td>
-              <td>{{item.nationalId}}</td>
 
 
-             
+          <!-- <th>STATE</th> -->
+        </tr>
+      </thead>
+      <tbody>
 
-              <td>{{item.creationDate | date : format : timezone }}</td>
-              <span class="label label-info">info</span>
-           </tr>
-        </tbody>
-      </table>
-      <form class="pagination-wrapper">
+        <tr *ngIf="dataListSize == 0">
+          <td class="text-center no-data" colspan="7">
+            <i class="fa fa-database fa-fw"></i>
+            No Data Avilable
+          </td>
 
-        
-        <div class="form-group pages">
-            <div class="has-text-centered">
+        </tr>
 
-            <div *ngIf="loading" class="spinner" ></div>
-            </div>
-          <pagination-controls class="my-pagination" id="pager" (pageChange)="pageChanged($event)" maxSize="9" directionLinks="true"
-             previousLabel="Prev" nextLabel="Next" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
-            screenReaderCurrentLabel="You're on page">
-          </pagination-controls>
+        <tr *ngFor="let item of tableData  | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber , totalItems: dataListSize};let index = index">
+          <td>{{index+1}}</td>
+
+          <td>{{item.userName}}</td>
+          <td>{{item.phoneNumber}}</td>
+          <td>{{item.nationalId}}</td>
+
+
+
+
+          <td>{{item.creationDate | date : format : timezone }}</td>
+          <span class="label label-info">info</span>
+        </tr>
+      </tbody>
+    </table>
+    <form class="pagination-wrapper">
+
+
+      <div class="form-group pages">
+        <div class="has-text-centered">
+
+          <div *ngIf="loading" class="spinner"></div>
         </div>
+        <pagination-controls class="my-pagination" id="pager" (pageChange)="pageChanged($event)" maxSize="9"
+          directionLinks="true" previousLabel="Prev" nextLabel="Next" screenReaderPaginationLabel="Pagination"
+          screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page">
+        </pagination-controls>
+      </div>
 
 
-        <div class="form-group options pages">
-          <div class="input-group input-group-sm">
-            <select class="form-control" name="pageChangedName" [(ngModel)]="pageSize" (ngModelChange)="loadData()">
-              <option>1</option>
-              <option>5</option>
-              <option>10</option>
-              <option>20</option>
-              <option>50</option>
-             
-            </select>
-            <span class="input-group-addon addon-right">Per Page</span>
-          </div>
+      <div class="form-group options pages">
+        <div class="input-group input-group-sm">
+          <select class="form-control" name="pageChangedName" [(ngModel)]="pageSize" (ngModelChange)="loadData()">
+            <option>1</option>
+            <option>5</option>
+            <option>10</option>
+            <option>20</option>
+            <option>50</option>
+
+          </select>
+          <span class="input-group-addon addon-right">Per Page</span>
         </div>
-      </form>
-   </div>
+      </div>
+    </form>
+  </div>
 </div>
