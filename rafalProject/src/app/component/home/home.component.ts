@@ -18,6 +18,10 @@ import { VerfiymodalComponent } from '../verfiymodal/verfiymodal.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CompanyserviceService } from '../../services/shared/companyservice.service';
 import { SettingsService } from '../../services/shared/settings.service';
+import { SessionService } from '../../services/shared/session.service';
+import { AuthentionService } from '../../services/shared/authention.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { element } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-home',
@@ -34,17 +38,21 @@ export class HomeComponent implements OnInit {
   addadvertismentForm: FormGroup;
   public imageBlob1: any;
 
+  public userName: string;
   public file1: any;
 
   public pictureName1: string = '';
   public imaArray = [];
 
+  public profileImage = SettingsService.imageUrlProfile;
   public imgUrl = SettingsService.DOMAIN_ImgeURLAdver;
 
+  public userData;
   constructor(private modalService: BsModalService,
     public translate: TranslateService,
     private builder: FormBuilder,
-    private companyService: CompanyserviceService
+    private companyService: CompanyserviceService,
+    private AuthService: AuthentionService, private spinner: NgxSpinnerService
 
   ) {
     this.lang = localStorage.getItem("lang");
@@ -71,12 +79,40 @@ export class HomeComponent implements OnInit {
     );
 
     this.getAllAdver();
+
+
+
+
+
   }
   title = 'testproject';
 
 
   ngOnInit() {
+    let token = localStorage.getItem('token');
 
+    if (token != null && !SessionService.userSessionData.is_log) {
+      this.spinner.show();
+      this.AuthService.validateSession().subscribe(
+        data => {
+          SessionService.saveInSession(data);
+          this.spinner.hide();
+
+          SessionService.saveDataInLocalStorage(data);
+          console.log(data, SessionService.userSessionData);
+          localStorage.setItem("token", data.tkn);
+          this.userData = SessionService.userSessionData.userDetails.picture_url;
+          this.userName = data.userDetails.userName
+        },
+        error => {
+          this.spinner.hide();
+
+        }
+      )
+    } else {
+      console.log(SessionService.userSessionData.userDetails.picture_url);
+      this.userData = SessionService.userSessionData.userDetails.picture_url;
+    }
   }
 
 
@@ -371,6 +407,22 @@ export class HomeComponent implements OnInit {
     return (ctrl.dirty || ctrl.touched) && ctrl.hasError(error);
   }
 
+  logOut() {
+    this.spinner.show();
+
+    this.AuthService.logOut().subscribe(
+      data => {
+        SessionService.clearDateFromLocalStorage();
+        SessionService.resetData();
+        this.spinner.hide();
+
+      },
+      error => {
+        this.spinner.hide();
+
+      }
+    )
+  }
 
 }
 

@@ -49,10 +49,13 @@ export class SessionService {
       "token",
       data.tkn
     );
+
   }
   static saveInSession(data) {
     SessionService.userSessionData = data;
     SessionService.userSessionData.is_log = true;
+
+
   }
 
   static getDataFromLocalstorage() {

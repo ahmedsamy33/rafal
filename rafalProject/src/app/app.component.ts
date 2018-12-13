@@ -1,7 +1,6 @@
 import { SessionService } from './services/shared/session.service';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
-import { Jsonp } from '@angular/http';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -34,6 +33,18 @@ export class AppComponent {
 
     if (token != null) {
       SessionService.userSessionData.tkn = token;
+      // this.AuthService.validateSession().subscribe(
+      //   data => {
+      //     SessionService.saveInSession(data);
+
+      //     SessionService.saveDataInLocalStorage(data);
+      //     console.log(data, SessionService.userSessionData);
+      //     localStorage.setItem("token", data.tkn);
+      //   },
+      //   error => {
+
+      //   }
+      // )
     }
     console.log(token, SessionService.userSessionData);
 
