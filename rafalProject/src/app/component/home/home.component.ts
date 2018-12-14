@@ -58,6 +58,7 @@ export class HomeComponent implements OnInit {
   public imgUrl = SettingsService.DOMAIN_ImgeURLAdver;
 
   public userData;
+  public checkDisplay;
   constructor(private modalService: BsModalService,
     public translate: TranslateService,
     private builder: FormBuilder,
@@ -100,8 +101,11 @@ export class HomeComponent implements OnInit {
   title = 'testproject';
 
 
+
+
   ngOnInit() {
     let token = localStorage.getItem('token');
+
 
     if (token != null && !SessionService.userSessionData.is_log) {
       this.spinner.show();
@@ -114,7 +118,10 @@ export class HomeComponent implements OnInit {
           console.log(data, SessionService.userSessionData);
           localStorage.setItem("token", data.tkn);
           this.userData = SessionService.userSessionData.userDetails.picture_url;
-          this.userName = data.userDetails.userName
+          this.userName = data.userDetails.userName;
+          let islog = SessionService.userSessionData.is_log;
+          this.checkDisplay = islog;
+          console.log(this.checkDisplay);
         },
         error => {
           this.spinner.hide();
@@ -124,6 +131,8 @@ export class HomeComponent implements OnInit {
     } else {
       console.log(SessionService.userSessionData.userDetails.picture_url);
       this.userData = SessionService.userSessionData.userDetails.picture_url;
+      let islog = SessionService.userSessionData.is_log;
+      this.checkDisplay = islog;
     }
   }
 
@@ -184,7 +193,8 @@ export class HomeComponent implements OnInit {
             this.userData = value.userDetails.picture_url;
             this.userName = value.userDetails.userName;
             console.log(this.userData);
-
+            let islog = true;
+            this.checkDisplay = islog;
           });
         }
 
@@ -205,7 +215,8 @@ export class HomeComponent implements OnInit {
             this.userData = value.userDetails.picture_url;
             this.userName = value.userDetails.userName;
             console.log(this.userData);
-
+            let islog = true;
+            this.checkDisplay = islog;
           });
         }
       } else {
@@ -527,9 +538,10 @@ export class HomeComponent implements OnInit {
 
         SessionService.clearDateFromLocalStorage();
         SessionService.resetData();
-        this.toastr.success
-        this.spinner.hide();
 
+        this.spinner.hide();
+        let islog = SessionService.userSessionData.is_log;
+        this.checkDisplay = islog;
       },
       error => {
         this.toastr.error(error.errorCode, error.message, option);

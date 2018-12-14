@@ -77,16 +77,18 @@
   <div class="container">
     <ul class="list-inline">
       <li class="nav-item">
-        <a class="nav-link sign" (click)="openmodal('LoginmodalComponent')">Log In </a>
+        <a class="nav-link sign" *ngIf="!checkDisplay " (click)="openmodal('LoginmodalComponent')">Log In
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sign" (click)="openmodal('SignupmodalComponent')">Sign Up</a>
+        <a class="nav-link sign" *ngIf="!checkDisplay  " (click)="openmodal('SignupmodalComponent')">Sign Up</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sign" (click)="logOut()">Log out </a>
+        <a class="nav-link sign" *ngIf="checkDisplay " (click)="logOut()">Log out </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sign" (click)="openmodal('UpgrademodalComponent')"> Upgrate to company</a>
+        <a class="nav-link sign" *ngIf="checkDisplay " (click)="openmodal('UpgrademodalComponent')">
+          Upgrate to company</a>
       </li>
       <li class="nav-item">
         <a class="nav-link sign"> Search</a>

@@ -25,7 +25,7 @@ export class HeaderComponent {
   selectedFile: File = null;
 
   ChangProfileImgBtn = false;
-  
+
   bsModalRef: BsModalRef;
 
   sidebarToggle: boolean = true;
@@ -34,21 +34,21 @@ export class HeaderComponent {
   constructor(public router: Router, public AuthService: AuthentionService, builder: FormBuilder,
     private fb: FormBuilder, public http: HttpClientModule, private modalService: BsModalService) {
 
- 
+
 
 
 
     this.userName = SessionService.userSessionData.userDetails.userName;
-    let profileImaeToken =SessionService.userSessionData.userDetails.picture_url;
+    let profileImaeToken = SessionService.userSessionData.userDetails.picture_url;
 
     if (ChangepicComponent) {
 
       // this.modalService.action.take(1).subscribe((value) => {
       //   console.log("ahmed :", value) // here you will get the value;
-        
+
 
       // });
-      
+
     }
     this.getProfileImageByToken(profileImaeToken)
 
@@ -88,7 +88,7 @@ export class HeaderComponent {
       err => {
 
         this.isVisable = false;
- 
+
         // this.alertMessage(
         //   {
         //     type: 'danger',
@@ -104,9 +104,9 @@ export class HeaderComponent {
     this.isVisable = true
 
     this.AuthService.logOut().subscribe(data => {
-
+      SessionService.resetData();
       SessionService.clearDateFromLocalStorage();
-      this.router.navigate(['./login']);
+      this.router.navigate(['home']);
       this.isVisable = false;
 
 
@@ -116,7 +116,7 @@ export class HeaderComponent {
       }
   }
 
- 
+
 
   openProfileImgModal() {
     // this.profileImg.open()
@@ -126,9 +126,9 @@ export class HeaderComponent {
   }
 
 
-  
 
- 
+
+
 
   previewImg(event) {
     this.selectedFile = event.target.files[0];
@@ -138,7 +138,7 @@ export class HeaderComponent {
     }
   }
 
- 
+
 
   // change image 
   changeProfileImage(event) {
@@ -215,7 +215,7 @@ export class HeaderComponent {
 
   //validate password 
 
- 
+
 
   // open modal picr
   openChangePicmodal() {
