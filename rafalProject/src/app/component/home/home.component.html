@@ -132,9 +132,9 @@
 
         <li>
           <div class="dropdown" *ngIf="checkDisplay">
-            <!-- <img *ngIf="userData == null" class="btn btn-secondary dropdown-toggle" src="./assets/images/images.jpg" id="dropdownMenuButton"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" /> -->
-            <img class="btn btn-secondary dropdown-toggle" src="{{profileImage+userData}}" id="dropdownMenuButton"
+            <img *ngIf="userData == null" class="btn btn-secondary dropdown-toggle" src="./assets/images/images.jpg" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+            <img *ngIf="userData != null" class="btn btn-secondary dropdown-toggle" src="{{profileImage+userData}}" id="dropdownMenuButton"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
