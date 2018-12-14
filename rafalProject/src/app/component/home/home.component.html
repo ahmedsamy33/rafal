@@ -19,17 +19,22 @@
       </div>
       <div class="modal-body">
         <div class="form profile">
-          <img src="./assets/images/images.jpg" />
+          <img *ngIf="pictureName2 == ''" src="./assets/images/images.jpg" />
+          <img *ngIf="pictureName2 != ''" src="{{imageForURl}}" />
           <span>choose photo :</span>
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-            <label class="custom-file-label" for="inputGroupFile01">no image choosen</label>
+            <input type="file" class="custom-file-input" id="inputGroupFile02" accept="image/*" [(ngModel)]="imageBlob2"
+              (change)="processFile($event,2)">
+            <label class="custom-file-label" *ngIf="pictureName2 == ''" for="inputGroupFile02">no image choosen</label>
+            <label class="custom-file-label" *ngIf="pictureName2 != ''" for="inputGroupFile02"> {{pictureName2}}</label>
+
           </div>
 
         </div>
         <div class="modal-footer foot">
 
-          <button type="button" class="btn btn-primary">Change</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" (click)="changeProfileImage()"
+            [disabled]="pictureName2 == ''">Change</button>
         </div>
 
       </div>
@@ -107,19 +112,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link " href="#home">{{'home'|translate}} <span class="sr-only">(current)</span></a>
+          <a class="nav-link ">{{'home'|translate}} <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="home#about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#services">Services</a>
+          <a class="nav-link" href="home#services">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#adver">Advertisment</a>
+          <a class="nav-link" href="home#adver">Advertisment</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact</a>
+          <a class="nav-link" href="home#contact">Contact</a>
         </li>
 
 

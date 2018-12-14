@@ -120,4 +120,27 @@ export class UserDataService {
         timeout(4000)
       )
   }
+
+
+  // upload user profile image
+  uploadImage(file: any) {
+    let formData: FormData = new FormData();
+    formData.append("profileimage", file);
+    // console.log("form ", formData);
+
+    return this.http
+      .post(SettingsService.DOMAIN_URL + "userservices/uploadprofileimage", formData, {
+        headers: SettingsService.getHeaderJsonWithTKN3()
+      })
+      .pipe(
+        map(res => {
+          return res.json();
+        }),
+        catchError((error: Response) => {
+          return throwError(error.json());
+        }),
+        timeout(4000)
+      )
+
+  }
 }

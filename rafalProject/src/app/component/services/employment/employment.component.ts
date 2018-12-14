@@ -24,7 +24,7 @@ export class EmploymentComponent implements OnInit {
     private builder: FormBuilder,
     private companyService: CompanyserviceService
 
-  
+
   ) {
     console.log("ddddd");
 
@@ -48,7 +48,7 @@ export class EmploymentComponent implements OnInit {
         // console.log(data[0].code);
         this.jobTitle = data;
       },
-      error => {}
+      error => { }
     );
 
   }
@@ -56,7 +56,7 @@ export class EmploymentComponent implements OnInit {
   ngOnInit() {
   }
   employmentService() {
-   
+
     this.companyService.EmploymentService(
       this.Activity,
       this.job,
@@ -65,10 +65,10 @@ export class EmploymentComponent implements OnInit {
       this.file1
     ).subscribe(
       data => {
-       this.bsModalRef.hide();
+        this.bsModalRef.hide();
       },
       error => {
-       
+
       }
     );
   }
@@ -79,7 +79,7 @@ export class EmploymentComponent implements OnInit {
       let reader = new FileReader();
       if (event.target.files && event.target.files.length > 0) {
         let file = event.target.files[0];
-        reader.readAsDataURL(file);
+        reader.readAsArrayBuffer(file);
         reader.onload = () => {
           const imgBlob = new Blob([reader.result], { type: file.type });
           this.file1 = imgBlob;
@@ -92,7 +92,7 @@ export class EmploymentComponent implements OnInit {
         );
         this.pictureName1 = currentName;
 
-         this.fileExtension=currentName.substring(
+        this.fileExtension = currentName.substring(
           currentName.lastIndexOf('.') + 1,
           currentName.length
         );
@@ -100,7 +100,7 @@ export class EmploymentComponent implements OnInit {
         console.log("ssss : ", this.fileExtension)
       } else {
         this.pictureName1 = '';
-        this.fileExtension='';
+        this.fileExtension = '';
       }
     }
 

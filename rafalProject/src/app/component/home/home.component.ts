@@ -23,6 +23,7 @@ import { AuthentionService } from '../../services/shared/authention.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ResetmodalComponent } from '../resetmodal/resetmodal.component';
+import { UserDataService } from '../../services/shared/user-data.service';
 
 @Component({
   selector: 'app-home',
@@ -38,11 +39,19 @@ export class HomeComponent implements OnInit {
   public Discription: string = null;
   addadvertismentForm: FormGroup;
   public imageBlob1: any;
+  public imageBlob2: any;
+
+  public imageForURl;
 
   public userName: string;
   public file1: any;
 
   public pictureName1: string = '';
+
+  public file2: any;
+
+  public pictureName2: string = '';
+
   public imaArray = [];
 
   public profileImage = SettingsService.imageUrlProfile;
@@ -53,8 +62,10 @@ export class HomeComponent implements OnInit {
     public translate: TranslateService,
     private builder: FormBuilder,
     private companyService: CompanyserviceService,
-    private AuthService: AuthentionService, private spinner: NgxSpinnerService, private toastr: ToastrService
-
+    private AuthService: AuthentionService,
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService,
+    private userService: UserDataService
   ) {
     this.lang = localStorage.getItem("lang");
 
@@ -366,7 +377,7 @@ export class HomeComponent implements OnInit {
 
           this.addadvertismentForm.reset();
           this.pictureName1 = '';
-          this.spinner.hide();
+          // this.spinner.hide();
 
         },
         error => {
@@ -411,7 +422,7 @@ export class HomeComponent implements OnInit {
       let reader = new FileReader();
       if (event.target.files && event.target.files.length > 0) {
         let file = event.target.files[0];
-        reader.readAsDataURL(file);
+        reader.readAsArrayBuffer(file);
 
 
         reader.onload = (e) => {
@@ -438,12 +449,70 @@ export class HomeComponent implements OnInit {
 
       }
     }
+    else if (num == 2) {
+      let reader = new FileReader();
+      console.log(event.target.files);
+
+      if (event.target.files && event.target.files.length > 0) {
+        let file = event.target.files[0];
+        reader.readAsArrayBuffer(file);
+        reader.onload = (e) => {
+
+          // console.log(e.target.result);
+
+          const imgBlob = new Blob([reader.result], { type: file.type });
+          this.file2 = imgBlob;
+
+          reader.readAsDataURL(file);
+          reader.onload = (e) => {
+            this.imageForURl = e.target.result;
+
+          }
+        };
+      }
+      if (this.imageBlob2 != '') {
+        let currentName = this.imageBlob2.substring(
+          this.imageBlob2.lastIndexOf('\\') + 1,
+          this.imageBlob2.length
+        );
+        this.pictureName2 = currentName;
+      } else {
+        this.pictureName2 = '';
+
+      }
+    }
 
   }
   hasError(field: string, error: string) {
     const ctrl = this.addadvertismentForm.get(field);
 
     return (ctrl.dirty || ctrl.touched) && ctrl.hasError(error);
+  }
+
+  public modal;
+  public Close;
+
+  // change image(){}
+  changeProfileImage() {
+    this.spinner.show();
+    let option = {
+      timeOut: 5000,
+      progressBar: true
+    }
+    this.userService.uploadImage(this.file2).subscribe(
+      data => {
+        this.userData = data.imageToken;
+        this.toastr.success('Image is uploaded ', 'successfully', option);
+
+        this.spinner.hide();
+
+      },
+      err => {
+        this.spinner.hide();
+        this.toastr.error(err.errorCode, err.message, option);
+
+      }
+    );
   }
 
   logOut() {

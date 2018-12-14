@@ -55,7 +55,7 @@ export class CharterComponent implements OnInit {
       let reader = new FileReader();
       if (event.target.files && event.target.files.length > 0) {
         let file = event.target.files[0];
-        reader.readAsDataURL(file);
+        reader.readAsArrayBuffer(file);
         reader.onload = () => {
           const imgBlob = new Blob([reader.result], { type: file.type });
           this.file1 = imgBlob;
@@ -78,7 +78,7 @@ export class CharterComponent implements OnInit {
       let reader = new FileReader();
       if (event.target.files && event.target.files.length > 0) {
         let file = event.target.files[0];
-        reader.readAsDataURL(file);
+        reader.readAsArrayBuffer(file);
         reader.onload = () => {
           const imgBlob = new Blob([reader.result], { type: file.type });
           this.file2 = imgBlob;
@@ -99,7 +99,7 @@ export class CharterComponent implements OnInit {
       let reader = new FileReader();
       if (event.target.files && event.target.files.length > 0) {
         let file = event.target.files[0];
-        reader.readAsDataURL(file);
+        reader.readAsArrayBuffer(file);
         reader.onload = () => {
           const imgBlob = new Blob([reader.result], { type: file.type });
           this.file3 = imgBlob;

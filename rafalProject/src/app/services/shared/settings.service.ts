@@ -9,7 +9,7 @@ export class SettingsService {
   public static DOMAIN_URL = "http://localhost:8080/Dolphin_Services/";
   public static DOMAIN_ImgeURLAdver = "http://localhost:8080/Dolphin_Services/advertisementservices/getaddimage?imgetkn=";
 
-  
+
   public static imageUrlProfile =
     "http://localhost:8080/Dolphin_Services/userservices/getprofileimage?imgetkn=";
   // "http://rafalgroups.com/Dolphin_Services/userservices/getprofileimage?imgetkn=";
@@ -81,6 +81,15 @@ export class SettingsService {
   static getHeaderJsonWithTKNImgeUpload(): Headers {
     let contentHeaders = new Headers();
     contentHeaders.append('Accept', 'application/json');
+    return contentHeaders;
+  }
+  static getHeaderJsonWithTKN3(): Headers {
+    let contentHeaders = new Headers();
+    // console.log(sessionData.userSessionData.tkn);
+
+    contentHeaders.append("tkn", SessionService.userSessionData.tkn);
+    contentHeaders.append("Accept", "application/json");
+
     return contentHeaders;
   }
 }
