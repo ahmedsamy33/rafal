@@ -2,6 +2,8 @@ import { UserDataService } from './../../services/shared/user-data.service';
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-upgrademodal',
@@ -40,6 +42,8 @@ export class UpgrademodalComponent implements OnInit {
 
   constructor(public bsModalRef: BsModalRef, public UserService: UserDataService,
     private builder: FormBuilder,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
   ) {
     console.log("ddddd");
     console.log(this.company);
@@ -146,7 +150,11 @@ export class UpgrademodalComponent implements OnInit {
     }
 
 
-
+    this.spinner.show();
+    let option = {
+      timeOut: 5000,
+      progressBar: true
+    }
 
 
     this.UserService.companyupgradeservices(data).subscribe(
@@ -155,9 +163,12 @@ export class UpgrademodalComponent implements OnInit {
         this.UserService.UploadCompanyCR(this.file1, data.id).subscribe(
           data => {
             this.bsModalRef.hide();
+            this.spinner.hide();
+            this.toastr.success('Upgraded  ', 'successfully', option);
           },
           error => {
-
+            this.spinner.hide();
+            this.toastr.error(error.errorCode, error.message, option);
           }
         );
       },

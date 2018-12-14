@@ -238,7 +238,25 @@ export class HomeComponent implements OnInit {
         }
       } else {
         this.bsModalRef = this.modalService.show(LoginmodalComponent, { class: 'modal-sm' });
+        if (componentTo == 'LoginmodalComponent') {
+          this.bsModalRef.content.action.take(1).subscribe((value) => {
+            console.log("ahmed2 :", value) // here you will get the value;
+            this.userData = value.userDetails.picture_url;
+            this.userName = value.userDetails.userName;
+            // console.log("ahmed2 :", value.userDetails.type);
+            let islog = true;
+            this.checkDisplay = islog;
+            this.userType = value.userDetails.type;
+          });
+        }
       }
+
+
+
+
+
+
+
     }
   }
 
@@ -298,6 +316,17 @@ export class HomeComponent implements OnInit {
       });
     } else if (getUserlogin == null) {
       this.bsModalRef = this.modalService.show(LoginmodalComponent, { class: 'modal-sm' });
+
+      this.bsModalRef.content.action.take(1).subscribe((value) => {
+        console.log("ahmed2 :", value) // here you will get the value;
+        this.userData = value.userDetails.picture_url;
+        this.userName = value.userDetails.userName;
+        // console.log("ahmed2 :", value.userDetails.type);
+        let islog = true;
+        this.checkDisplay = islog;
+        this.userType = value.userDetails.type;
+      });
+
     } else {
       this.spinner.show();
       let option = {

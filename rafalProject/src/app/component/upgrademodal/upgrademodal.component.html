@@ -20,52 +20,44 @@
       </select>
 
       <!--Established comany  -->
-      <select class=" text select form-control" *ngIf="company == 'Esta'" formControlName="countryCode" [(ngModel)]="CountryCode"
-        [ngClass]="{ 'is-invalid': hasError('countryCode','required'),'is-valid':mydForm.get('countryCode').touched && !hasError('countryCode','required')  }">
+      <select class=" text select form-control" *ngIf="company == 'Established'" formControlName="countryCode"
+        [(ngModel)]="CountryCode" [ngClass]="{ 'is-invalid': hasError('countryCode','required'),'is-valid':mydForm.get('countryCode').touched && !hasError('countryCode','required')  }">
         <option *ngFor="let country of countryArr" value="{{country.code}}">{{ country.value }}</option>
       </select>
 
-      <input class="text" type="text" name="text" *ngIf="company != 'Inverst' " formControlName="companyName"
+      <input class="text" type="text" name="text" *ngIf="company != 'New_Inverstor' " formControlName="companyName"
         [(ngModel)]="CompanyName" [ngClass]="{ 'is-invalid': hasError('companyName','required')|| hasError('companyName','maxlength'),
             'is-valid':mydForm.get('companyName').touched && !hasError('companyName','required') &&   !hasError('companyName','maxlength')   }"
         placeholder="Company name" />
 
-      <input class="text" type="date" name="text" *ngIf="company == 'Esta'" formControlName="expireDate" [(ngModel)]="ExpireDate"
-       [ngClass]="{ 'is-invalid': hasError('expireDate','required'),
+      <input class="text" type="date" name="text" *ngIf="company == 'Established'" formControlName="expireDate"
+        [(ngModel)]="ExpireDate" [ngClass]="{ 'is-invalid': hasError('expireDate','required'),
       'is-valid':mydForm.get('expireDate').touched && !hasError('expireDate','required')   }"
         placeholder="Expiry date:" />
 
-      <input class="text" type="text" name="text" *ngIf="company == 'Esta' ||company == 'Inter' " formControlName="websiteLink"
-        [(ngModel)]="WebsiteLink"  [ngClass]="{ 'is-invalid': hasError('websiteLink','required')|| hasError('websiteLink','maxlength'),
+      <input class="text" type="text" name="text" *ngIf="company == 'Established' ||company == 'International' "
+        formControlName="websiteLink" [(ngModel)]="WebsiteLink" [ngClass]="{ 'is-invalid': hasError('websiteLink','required')|| hasError('websiteLink','maxlength'),
         'is-valid':mydForm.get('websiteLink').touched && !hasError('websiteLink','required') &&   !hasError('websiteLink','maxlength')   }"
         placeholder="company websit " />
 
-      <input class="text" type="email" name="text" formControlName="mail" [(ngModel)]="Mail"
-
-      [ngClass]="{ 'is-invalid': hasError('mail','required')|| hasError('mail','maxlength') || hasError('mail','pattern'),
+      <input class="text" type="email" name="text" formControlName="mail" [(ngModel)]="Mail" [ngClass]="{ 'is-invalid': hasError('mail','required')|| hasError('mail','maxlength') || hasError('mail','pattern'),
       'is-valid':mydForm.get('mail').touched && !hasError('mail','required') &&   !hasError('mail','maxlength') &&   !hasError('mail','pattern')  }"
-
         placeholder="Email addres " />
 
 
       <!--New investor  -->
-      <input class="text" type="text" name="text" *ngIf="company == 'Inverst'" formControlName="investnentType"
-        [(ngModel)]="InvestnentType" placeholder="Investment type"
-        [ngClass]="{ 'is-invalid': hasError('investnentType','required') ,
-        'is-valid':mydForm.get('investnentType').touched && !hasError('investnentType','required')  }"
-        />
-      <select class=" text select form-control" *ngIf="company == 'Inverst'" formControlName="investor" [(ngModel)]="Investor"
-      [ngClass]="{ 'is-invalid': hasError('investor','required'),'is-valid':mydForm.get('investor').touched && !hasError('investor','required')  }"
-      >
+      <input class="text" type="text" name="text" *ngIf="company == 'New_Inverstor'" formControlName="investnentType"
+        [(ngModel)]="InvestnentType" placeholder="Investment type" [ngClass]="{ 'is-invalid': hasError('investnentType','required') ,
+        'is-valid':mydForm.get('investnentType').touched && !hasError('investnentType','required')  }" />
+      <select class=" text select form-control" *ngIf="company == 'New_Inverstor'" formControlName="investor"
+        [(ngModel)]="Investor" [ngClass]="{ 'is-invalid': hasError('investor','required'),'is-valid':mydForm.get('investor').touched && !hasError('investor','required')  }">
         <option *ngFor="let country of countryArr" value="{{country.code}}">{{ country.value }}</option>
 
       </select>
 
       <!-- internal -->
-      <select class=" text select form-control" *ngIf="company == 'Inter'" formControlName="investmentCountryCode"
-        [(ngModel)]="InvestmentCountryCode"
-        [ngClass]="{ 'is-invalid': hasError('investmentCountryCode','required'),'is-valid':mydForm.get('investmentCountryCode').touched && !hasError('investmentCountryCode','required')  }"
-        >
+      <select class=" text select form-control" *ngIf="company == 'International'" formControlName="investmentCountryCode"
+        [(ngModel)]="InvestmentCountryCode" [ngClass]="{ 'is-invalid': hasError('investmentCountryCode','required'),'is-valid':mydForm.get('investmentCountryCode').touched && !hasError('investmentCountryCode','required')  }">
         <option *ngFor="let region of RegionArr2" value="{{region.code}}">{{ region.value }}</option>
 
       </select>
@@ -74,31 +66,28 @@
 
 
       <!--International company activity -->
-      <input class="text" type="text" name="text" *ngIf="company == 'Inter'" 
-      formControlName="activity" [(ngModel)]="Activity"
-      [ngClass]="{ 'is-invalid': hasError('activity','required') ,
+      <input class="text" type="text" name="text" *ngIf="company == 'International'" formControlName="activity"
+        [(ngModel)]="Activity" [ngClass]="{ 'is-invalid': hasError('activity','required') ,
       'is-valid':mydForm.get('activity').touched && !hasError('activity','required')  }"
         placeholder="Activity" />
 
 
-      <input class="text" type="number" name="text" *ngIf="company == 'Inverst'" formControlName="capital" [(ngModel)]="Capital"
-      [ngClass]="{ 'is-invalid': hasError('capital','required') ,
+      <input class="text" type="number" name="text" *ngIf="company == 'New_Inverstor'" formControlName="capital"
+        [(ngModel)]="Capital" [ngClass]="{ 'is-invalid': hasError('capital','required') ,
       'is-valid':mydForm.get('capital').touched && !hasError('capital','required')  }"
         placeholder="Capital ($)" />
 
       <!--nationality-->
-      <select class=" text select form-control" *ngIf="company != 'Esta'" (change)="getRegionValue2()" formControlName="nationality"
-        [(ngModel)]="Nationality"
-        [ngClass]="{ 'is-invalid': hasError('nationality','required'),'is-valid':mydForm.get('nationality').touched && !hasError('nationality','required')  }"
-        >
+      <select class=" text select form-control" *ngIf="company != 'Established'" (change)="getRegionValue2()"
+        formControlName="nationality" [(ngModel)]="Nationality" [ngClass]="{ 'is-invalid': hasError('nationality','required'),'is-valid':mydForm.get('nationality').touched && !hasError('nationality','required')  }">
         <option *ngFor="let company of countryArr" value="{{company.code}}">{{ company.value }}</option>
 
       </select>
 
 
 
-      <span *ngIf="company != 'Inverst'">C.R Image</span>
-      <div class="custom-file" *ngIf="company != 'Inverst'">
+      <span *ngIf="company != 'New_Inverstor'">C.R Image</span>
+      <div class="custom-file" *ngIf="company != 'New_Inverstor'">
         <input type="file" class="custom-file-input" id="inputGroupFile01" formControlName="imageblob1" [(ngModel)]="imageBlob1"
           [ngClass]="{ 'is-invalid': mydForm.get('imageblob1').touched && mydForm.get('imageblob1').hasError('required'),
       'is-valid':mydForm.get('imageblob1').touched && !mydForm.get('imageblob1').hasError('required') }"
@@ -111,7 +100,36 @@
   </div>
   <div class="modal-footer upgrate-foot">
     <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Cancel</button>
-    <button type="button" class="btn btn-primary" (click)="upgradeService()" [disabled]="!mydForm.valid ">Send</button>
+    <button type="button" class="btn btn-primary" *ngIf="company == 'Established'" (click)="upgradeService()"
+      [disabled]="
+        mydForm.get('countryCode').hasError('required')||
+        mydForm.get('companyName').hasError('required')|| mydForm.get('companyName').hasError('maxlength')||
+        mydForm.get('expireDate').hasError('required')||
+        mydForm.get('websiteLink').hasError('required')||  mydForm.get('websiteLink').hasError('maxlength')||
+        mydForm.get('mail').hasError('required')|| mydForm.get('mail').hasError('maxlength') ||  mydForm.get('mail').hasError('pattern')||
+        mydForm.get('imageblob1').hasError('required')
+
+    ">Send
+    </button>
+    <button type="button" class="btn btn-primary" *ngIf="company == 'International'" (click)="upgradeService()"
+      [disabled]="
+        mydForm.get('companyName').hasError('required')|| mydForm.get('companyName').hasError('maxlength')||
+        mydForm.get('websiteLink').hasError('required')||  mydForm.get('websiteLink').hasError('maxlength')||
+        mydForm.get('mail').hasError('required')|| mydForm.get('mail').hasError('maxlength') ||  mydForm.get('mail').hasError('pattern')||
+        mydForm.get('imageblob1').hasError('required')||
+        mydForm.get('investmentCountryCode').hasError('required')||
+        mydForm.get('activity').hasError('required')||
+        mydForm.get('nationality').hasError('required')
+        
+    ">Send</button>
+    <button type="button" class="btn btn-primary" *ngIf="company == 'New_Inverstor'" (click)="upgradeService()"
+      [disabled]="
+        mydForm.get('mail').hasError('required')|| mydForm.get('mail').hasError('maxlength') ||  mydForm.get('mail').hasError('pattern')||
+        mydForm.get('investnentType').hasError('required')||
+        mydForm.get('investor').hasError('required')||
+        mydForm.get('capital').hasError('required')||
+        mydForm.get('nationality').hasError('required')
+    ">Send</button>
   </div>
 
 </form>

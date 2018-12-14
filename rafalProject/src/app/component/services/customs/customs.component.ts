@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CompanyserviceService } from '../../../services/shared/companyservice.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-customs',
@@ -24,7 +26,8 @@ export class CustomsComponent implements OnInit {
   customsForm: FormGroup;
 
   constructor(public bsModalRef: BsModalRef, private builder: FormBuilder,
-    private companyService: CompanyserviceService) {
+    private companyService: CompanyserviceService, private toastr: ToastrService,
+    private spinner: NgxSpinnerService) {
     console.log("ddddd");
     this.customsForm = this.builder.group({
       "imageblob1": ['', Validators.compose([Validators.required])],
@@ -40,7 +43,11 @@ export class CustomsComponent implements OnInit {
 
 
   customsService() {
-
+    this.spinner.show();
+    let option = {
+      timeOut: 5000,
+      progressBar: true
+    }
     this.companyService.CustomClearanceService(
       this.ShipmentPort,
       this.ShipmentDescription,
@@ -50,9 +57,12 @@ export class CustomsComponent implements OnInit {
     ).subscribe(
       data => {
         this.bsModalRef.hide();
+        this.spinner.hide();
+        this.toastr.success('Uploaded ', 'successfully', option);
       },
       error => {
-
+        this.spinner.hide();
+        this.toastr.error(error.errorCode, error.message, option);
       }
     );
   }

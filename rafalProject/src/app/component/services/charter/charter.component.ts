@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CompanyserviceService } from '../../../services/shared/companyservice.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-charter',
@@ -25,7 +27,8 @@ export class CharterComponent implements OnInit {
   constructor(
     public bsModalRef: BsModalRef,
     private builder: FormBuilder,
-    private companyService: CompanyserviceService) {
+    private companyService: CompanyserviceService, private toastr: ToastrService,
+    private spinner: NgxSpinnerService) {
     this.accountingForm = this.builder.group({
       "yearofbudget": ['', Validators.compose([Validators.required])],
       "imageblob1": ['', Validators.compose([Validators.required])],
@@ -39,12 +42,20 @@ export class CharterComponent implements OnInit {
   }
 
   CharterService() {
+    this.spinner.show();
+    let option = {
+      timeOut: 5000,
+      progressBar: true
+    }
     this.companyService.charterService(this.file1, this.file2, this.file3, this.yearofBudget).subscribe(
       data => {
         this.bsModalRef.hide();
+        this.spinner.hide();
+        this.toastr.success('Uploaded ', 'successfully', option);
       },
       error => {
-
+        this.spinner.hide();
+        this.toastr.error(error.errorCode, error.message, option);
       }
     );
   }

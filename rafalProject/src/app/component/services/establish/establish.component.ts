@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CompanyserviceService } from '../../../services/shared/companyservice.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-establish',
@@ -34,7 +36,9 @@ export class EstablishComponent implements OnInit {
   establishingForm: FormGroup;
   constructor(public bsModalRef: BsModalRef,
     private builder: FormBuilder,
-    private companyService: CompanyserviceService
+    private companyService: CompanyserviceService,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
 
   ) {
     this.establishingForm = this.builder.group({
@@ -69,7 +73,11 @@ export class EstablishComponent implements OnInit {
   ngOnInit() {
   }
   establishingService() {
-
+    this.spinner.show();
+    let option = {
+      timeOut: 5000,
+      progressBar: true
+    }
     this.companyService.establishingService(
       this.Country,
       this.Activity,
@@ -81,11 +89,13 @@ export class EstablishComponent implements OnInit {
       this.file3
     ).subscribe(
       data => {
-
         this.bsModalRef.hide();
+        this.spinner.hide();
+        this.toastr.success('Uploaded ', 'successfully', option);
       },
       error => {
-
+        this.spinner.hide();
+        this.toastr.error(error.errorCode, error.message, option);
       }
     );
   }

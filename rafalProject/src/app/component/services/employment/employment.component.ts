@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CompanyserviceService } from '../../../services/shared/companyservice.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-employment',
   templateUrl: './employment.component.html',
@@ -22,7 +24,9 @@ export class EmploymentComponent implements OnInit {
 
   constructor(public bsModalRef: BsModalRef,
     private builder: FormBuilder,
-    private companyService: CompanyserviceService
+    private companyService: CompanyserviceService,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
 
 
   ) {
@@ -56,7 +60,11 @@ export class EmploymentComponent implements OnInit {
   ngOnInit() {
   }
   employmentService() {
-
+    this.spinner.show();
+    let option = {
+      timeOut: 5000,
+      progressBar: true
+    }
     this.companyService.EmploymentService(
       this.Activity,
       this.job,
@@ -66,9 +74,12 @@ export class EmploymentComponent implements OnInit {
     ).subscribe(
       data => {
         this.bsModalRef.hide();
+        this.spinner.hide();
+        this.toastr.success('Uploaded ', 'successfully', option);
       },
       error => {
-
+        this.spinner.hide();
+        this.toastr.error(error.errorCode, error.message, option);
       }
     );
   }

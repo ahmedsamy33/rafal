@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CompanyserviceService } from '../../../services/shared/companyservice.service';
+import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-certified',
@@ -26,7 +28,9 @@ export class CertifiedComponent implements OnInit {
   public arrayTypeLang = [];
   constructor(public bsModalRef: BsModalRef,
     private builder: FormBuilder,
-    private companyService: CompanyserviceService
+    private companyService: CompanyserviceService,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
 
   ) {
     console.log("ddddd");
@@ -71,7 +75,11 @@ export class CertifiedComponent implements OnInit {
 
 
   Certified() {
-
+    this.spinner.show();
+    let option = {
+      timeOut: 5000,
+      progressBar: true
+    }
     this.companyService.CertifiedService(
       this.TypeOfTranslate,
       this.ToLang,
@@ -81,10 +89,16 @@ export class CertifiedComponent implements OnInit {
       this.file1
     ).subscribe(
       data => {
+        this.toastr.success('Uploaded ', 'successfully', option);
+        this.spinner.hide();
+
         this.bsModalRef.hide();
 
       },
       error => {
+        this.spinner.hide();
+        this.toastr.error(error.errorCode, error.message, option);
+
 
       }
     );
