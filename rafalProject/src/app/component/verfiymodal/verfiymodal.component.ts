@@ -1,5 +1,5 @@
 import { SessionService } from './../../services/shared/session.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { AuthentionService } from '../../services/shared/authention.service';
@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./verfiymodal.component.css']
 })
 export class VerfiymodalComponent implements OnInit {
+  @Output() actionVerfiy = new EventEmitter();
 
   public getSignupData;
   public Code;
@@ -72,6 +73,8 @@ export class VerfiymodalComponent implements OnInit {
       data => {
         console.log(data);
         this.toastr.success('Login successfully!', 'Welcome', option);
+        this.actionVerfiy.emit(data);
+        console.log(data);
 
         SessionService.saveDataInLocalStorage(data);
         SessionService.clearsinginSaveData();

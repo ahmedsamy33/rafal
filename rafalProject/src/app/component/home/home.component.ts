@@ -186,11 +186,11 @@ export class HomeComponent implements OnInit {
     let getUsertoken = localStorage.getItem("token");
     if (getUserVerfiy != null) {
       this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
-      this.bsModalRef.content.action.take(1).subscribe((value) => {
+      this.bsModalRef.content.actionVerfiy.take(1).subscribe((value) => {
         console.log("ahmed 111111111:", value) // here you will get the value;
         this.userData = value.userDetails.picture_url;
         this.userName = value.userDetails.userName;
-        this.userType = value.userDetails.userDetails.type;
+        this.userType = value.userDetails.type;
         // console.log("ahmed :", value.userDetails.type);
         console.log(this.userData);
         let islog = true;
@@ -206,7 +206,7 @@ export class HomeComponent implements OnInit {
             console.log("ahmed :", value) // here you will get the value;
             this.userData = value.userDetails.picture_url;
             this.userName = value.userDetails.userName;
-            this.userType = value.userDetails.userDetails.type;
+            this.userType = value.userDetails.type;
             // console.log("ahmed :", value.userDetails.type);
             console.log(this.userData);
             let islog = true;
@@ -242,108 +242,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  // openSignup() {
-  //   let getUserVerfiy = JSON.parse(localStorage.getItem("userSignupData"));
-  //   if (getUserVerfiy != null) {
-  //     this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
-  //   } else {
-  //     this.bsModalRef = this.modalService.show(SignupmodalComponent, { class: 'modal-sm' });
-  //   }
-  // }
 
-  // openUpGrade() {
-  //   let getUserVerfiy = JSON.parse(localStorage.getItem("userSignupData"));
-  //   if (getUserVerfiy != null) {
-  //     this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
-  //   } else {
-  //     this.bsModalRef = this.modalService.show(UpgrademodalComponent);
-  //   }
-  // }
-  // openCharterModal() {
-  //   let getUserVerfiy = JSON.parse(localStorage.getItem("userSignupData"));
-  //   if (getUserVerfiy != null) {
-  //     this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
-  //   } else {
-  //     this.bsModalRef = this.modalService.show(CharterComponent);
-  //   }
-  // }
-
-  // openHiringModal() {
-  //   let getUserVerfiy = JSON.parse(localStorage.getItem("userSignupData"));
-  //   if (getUserVerfiy != null) {
-  //     this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
-  //   } else {
-  //     this.bsModalRef = this.modalService.show(HiringComponent);
-  //   }
-  // }
-
-  // openFeasibilityModal() {
-  //   let getUserVerfiy = JSON.parse(localStorage.getItem("userSignupData"));
-  //   if (getUserVerfiy != null) {
-  //     this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
-  //   } else {
-  //     this.bsModalRef = this.modalService.show(FeasibilityComponent);
-  //   }
-  // }
-
-  // openEstablishingModal() {
-  //   let getUserVerfiy = JSON.parse(localStorage.getItem("userSignupData"));
-  //   if (getUserVerfiy != null) {
-  //     this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
-  //   } else {
-  //     this.bsModalRef = this.modalService.show(EstablishComponent);
-  //   }
-  // }
-
-  // openCustomsModal() {
-  //   let getUserVerfiy = JSON.parse(localStorage.getItem("userSignupData"));
-  //   if (getUserVerfiy != null) {
-  //     this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
-  //   } else {
-  //     this.bsModalRef = this.modalService.show(CustomsComponent);
-  //   }
-  // }
-
-  // openEmploymentModal() {
-  //   let getUserVerfiy = JSON.parse(localStorage.getItem("userSignupData"));
-  //   if (getUserVerfiy != null) {
-  //     this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
-  //   } else {
-  //     this.bsModalRef = this.modalService.show(EmploymentComponent);
-  //   }
-  // }
-  // openOfficeModal() {
-  //   let getUserVerfiy = JSON.parse(localStorage.getItem("userSignupData"));
-  //   if (getUserVerfiy != null) {
-  //     this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
-  //   } else {
-  //     this.bsModalRef = this.modalService.show(OfficeComponent);
-  //   }
-  // }
-  // openTradingModal() {
-  //   let getUserVerfiy = JSON.parse(localStorage.getItem("userSignupData"));
-  //   if (getUserVerfiy != null) {
-  //     this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
-  //   } else {
-  //     this.bsModalRef = this.modalService.show(TradingComponent);
-  //   }
-  // }
-  // openCertifiedModal() {
-  //   let getUserVerfiy = JSON.parse(localStorage.getItem("userSignupData"));
-  //   if (getUserVerfiy != null) {
-  //     this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
-  //   } else {
-  //     this.bsModalRef = this.modalService.show(CertifiedComponent);
-  //   }
-  // }
-  // openShippingModal() {
-  //   let getUserVerfiy = JSON.parse(localStorage.getItem("userSignupData"));
-  //   if (getUserVerfiy != null) {
-  //     this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
-  //   } else {
-  //     this.bsModalRef = this.modalService.show(ShippingComponent);
-  //   }
-  // }
 
 
   slides = [
@@ -387,6 +286,16 @@ export class HomeComponent implements OnInit {
     let getUserlogin = localStorage.getItem("token");
     if (getUserVerfiy != null) {
       this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
+      this.bsModalRef.content.actionVerfiy.take(1).subscribe((value) => {
+        console.log("ahmed 111111111:", value) // here you will get the value;
+        this.userData = value.userDetails.picture_url;
+        this.userName = value.userDetails.userName;
+        this.userType = value.userDetails.type;
+        // console.log("ahmed :", value.userDetails.type);
+        console.log(this.userData);
+        let islog = true;
+        this.checkDisplay = islog;
+      });
     } else if (getUserlogin == null) {
       this.bsModalRef = this.modalService.show(LoginmodalComponent, { class: 'modal-sm' });
     } else {
