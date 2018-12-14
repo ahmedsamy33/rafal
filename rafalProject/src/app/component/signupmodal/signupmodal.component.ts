@@ -67,7 +67,7 @@ export class SignupmodalComponent implements OnInit {
     }
     this.autherService.signup(data).subscribe(
       data => {
-        this.toastr.success('Sign up successfully!', 'Done', option);
+        // this.toastr.success('Sign up successfully!', 'Done', option);
         this.spinner.hide();
 
         SessionService.singinSaveData(this.phoneNumber, this.Password, this.contryCode)

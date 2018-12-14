@@ -59,6 +59,8 @@ export class HomeComponent implements OnInit {
 
   public userData;
   public checkDisplay;
+
+  public userType;
   constructor(private modalService: BsModalService,
     public translate: TranslateService,
     private builder: FormBuilder,
@@ -121,6 +123,7 @@ export class HomeComponent implements OnInit {
           this.userName = data.userDetails.userName;
           let islog = SessionService.userSessionData.is_log;
           this.checkDisplay = islog;
+          this.userType = SessionService.userSessionData.userDetails.type;
           console.log(this.checkDisplay);
         },
         error => {
@@ -133,6 +136,7 @@ export class HomeComponent implements OnInit {
       this.userData = SessionService.userSessionData.userDetails.picture_url;
       let islog = SessionService.userSessionData.is_log;
       this.checkDisplay = islog;
+      this.userType = SessionService.userSessionData.userDetails.type;
     }
   }
 
@@ -182,6 +186,16 @@ export class HomeComponent implements OnInit {
     let getUsertoken = localStorage.getItem("token");
     if (getUserVerfiy != null) {
       this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
+      this.bsModalRef.content.action.take(1).subscribe((value) => {
+        console.log("ahmed 111111111:", value) // here you will get the value;
+        this.userData = value.userDetails.picture_url;
+        this.userName = value.userDetails.userName;
+        this.userType = value.userDetails.userDetails.type;
+        // console.log("ahmed :", value.userDetails.type);
+        console.log(this.userData);
+        let islog = true;
+        this.checkDisplay = islog;
+      });
     }
     else if (getUsertoken != null) {
       if (componentTo == 'LoginmodalComponent' || componentTo == 'SignupmodalComponent' || componentTo == 'ResetmodalComponent') {
@@ -192,6 +206,8 @@ export class HomeComponent implements OnInit {
             console.log("ahmed :", value) // here you will get the value;
             this.userData = value.userDetails.picture_url;
             this.userName = value.userDetails.userName;
+            this.userType = value.userDetails.userDetails.type;
+            // console.log("ahmed :", value.userDetails.type);
             console.log(this.userData);
             let islog = true;
             this.checkDisplay = islog;
@@ -214,9 +230,10 @@ export class HomeComponent implements OnInit {
             console.log("ahmed2 :", value) // here you will get the value;
             this.userData = value.userDetails.picture_url;
             this.userName = value.userDetails.userName;
-            console.log(this.userData);
+            // console.log("ahmed2 :", value.userDetails.type);
             let islog = true;
             this.checkDisplay = islog;
+            this.userType = value.userDetails.type;
           });
         }
       } else {
@@ -516,7 +533,9 @@ export class HomeComponent implements OnInit {
         this.toastr.success('Image is uploaded ', 'successfully', option);
 
         this.spinner.hide();
-
+        this.file2 = null;
+        this.imageForURl = null;
+        this.pictureName2 = '';
       },
       err => {
         this.spinner.hide();

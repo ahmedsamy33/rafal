@@ -77,17 +77,17 @@
   <div class="container">
     <ul class="list-inline">
       <li class="nav-item">
-        <a class="nav-link sign" *ngIf="!checkDisplay " (click)="openmodal('LoginmodalComponent')">Log In
+        <a class="nav-link sign" *ngIf="!checkDisplay" (click)="openmodal('LoginmodalComponent')">Log In
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sign" *ngIf="!checkDisplay  " (click)="openmodal('SignupmodalComponent')">Sign Up</a>
+        <a class="nav-link sign" *ngIf="!checkDisplay" (click)="openmodal('SignupmodalComponent')">Sign Up</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sign" *ngIf="checkDisplay " (click)="logOut()">Log out </a>
+        <a class="nav-link sign" *ngIf="checkDisplay" (click)="logOut()">Log out </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sign" *ngIf="checkDisplay " (click)="openmodal('UpgrademodalComponent')">
+        <a class="nav-link sign" *ngIf="checkDisplay && userType != 'Company'" (click)="openmodal('UpgrademodalComponent')">
           Upgrate to company</a>
       </li>
       <li class="nav-item">
@@ -126,20 +126,21 @@
           <a class="nav-link" href="home#adver">Advertisment</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="home#contact">Contact</a>
+          <a class="nav-link" href="home#contact"> Contact</a>
         </li>
 
 
         <li>
-          <div class="dropdown">
-            <!-- <img class="btn btn-secondary dropdown-toggle" src="./assets/images/images.jpg" id="dropdownMenuButton"
+          <div class="dropdown" *ngIf="checkDisplay">
+            <!-- <img *ngIf="userData == null" class="btn btn-secondary dropdown-toggle" src="./assets/images/images.jpg" id="dropdownMenuButton"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" /> -->
             <img class="btn btn-secondary dropdown-toggle" src="{{profileImage+userData}}" id="dropdownMenuButton"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <div class="user-image">
-                <img class="user" src="{{profileImage+userData}}" />
+                <img class="user" *ngIf="userData == null" src="./assets/images/images.jpg" />
+                <img class="user" *ngIf="userData != null" src="{{profileImage+userData}}" />
                 <div class="over">
                   <a class="chan" href="#" data-toggle="modal" data-target="#profile">change</a>
                 </div>
