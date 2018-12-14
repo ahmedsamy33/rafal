@@ -344,7 +344,7 @@ export class HomeComponent implements OnInit {
 
           this.addadvertismentForm.reset();
           this.pictureName1 = '';
-          // this.spinner.hide();
+          this.spinner.hide();
 
         },
         error => {
