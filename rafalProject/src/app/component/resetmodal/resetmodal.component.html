@@ -1,30 +1,42 @@
-<div class=" bd-example-modal-sm" id="reset" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
+<form [formGroup]="editFormPass">
+  <div class=" bd-example-modal-sm" id="reset" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
 
-      <div class="modal-header">
-        <div class="modal-title" id="exampleModalLabel">
-          <div class="modal-icon">
+        <div class="modal-header">
+          <div class="modal-title" id="exampleModalLabel">
+            <div class="modal-icon">
+
+            </div>
+            <h5>Reset</h5>
+            <hr>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="form reset">
+            <input class="text" type="password" name="text" placeholder="Old Password" formControlName="oldpass" [(ngModel)]="Oldpass"
+              [ngClass]="{ 'is-invalid': hasError('oldpass','required'),
+          'is-valid':editFormPass.get('oldpass').touched && !hasError('oldpass','required')  }"
+              required />
+            <input class="text" type="password" name="text" placeholder="New Password" formControlName="newpass"
+              [(ngModel)]="Newpass" [ngClass]="{ 'is-invalid': hasError('newpass','required'),
+          'is-valid':editFormPass.get('newpass').touched && !hasError('newpass','required')  }"
+              required />
+            <input class="text" type="password" name="text" placeholder=" Confirm Password" formControlName="confirmnewpass"
+              [(ngModel)]="Confirmnewpass" [ngClass]="{ 'is-invalid': hasError('confirmnewpass','required'),
+          'is-valid':editFormPass.get('confirmnewpass').touched && !hasError('confirmnewpass','required')  }"
+              required />
+            <button type="button" class="btn btn-secondary" [disabled]="!editFormPass.valid || (editFormPass.value.newpass !== editFormPass.value.confirmnewpass) "
+              (click)="changePass()">Change</button>
 
           </div>
-          <h5>Reset</h5>
-          <hr>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
-            <span aria-hidden="true">&times;</span>
-          </button>
         </div>
-      </div>
-      <div class="modal-body">
-        <div class="form reset">
-          <input class="text" type="text" name="text" placeholder="Code" />
-          <input class="text" type="password" name="text" placeholder="New Password" />
-          <input class="text" type="password" name="text" placeholder=" Confirm Password" /> <a href="#" data-toggle="modal"
-            data-target="#verify">Change</a>
-          <a class="link" href="#">Resend code</a>
-        </div>
-      </div>
 
+      </div>
     </div>
   </div>
-</div>
+</form>

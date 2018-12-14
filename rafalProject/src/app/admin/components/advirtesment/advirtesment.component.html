@@ -1,4 +1,4 @@
-<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-spin"></ngx-spinner>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
 
 <div class="row">
   <div class="col-md-12">
@@ -48,8 +48,7 @@
           <td>{{item.description}}</td>
           <td class="url">
             <!-- {{item.advertiseImageToken}} -->
-            <a href="{{AdvImgService}}{{item.advertiseImageToken}}"
-              target="_blank">
+            <a href="{{AdvImgService}}{{item.advertiseImageToken}}" target="_blank">
 
               <img src="{{ImgSrc}}" alt="avatar">
 
@@ -60,9 +59,9 @@
             <i style="cursor: pointer;" (click)="DeleteAds(item.advertiseId)" class="fa fa-trash"></i>
           </td>
           <td class="text-center" (click)="toggleActive(item.advertiseId,false)" *ngIf="item.isActive == true">
-            <i style="cursor: pointer;"  class="fa fa-toggle-on" title="Deactive"></i></td>
-          <td class="text-center" (click)="toggleActive(item.advertiseId,true)" *ngIf="item.isActive == false"><i style="cursor: pointer;"  class="fa fa-toggle-off"
-              title="active"></i></td>
+            <i style="cursor: pointer;" class="fa fa-toggle-on" title="Deactive"></i></td>
+          <td class="text-center" (click)="toggleActive(item.advertiseId,true)" *ngIf="item.isActive == false"><i style="cursor: pointer;"
+              class="fa fa-toggle-off" title="active"></i></td>
 
 
 

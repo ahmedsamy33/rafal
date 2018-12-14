@@ -4,7 +4,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { AuthentionService } from '../../services/shared/authention.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-verfiymodal',
   templateUrl: './verfiymodal.component.html',
@@ -25,7 +26,7 @@ export class VerfiymodalComponent implements OnInit {
   constructor(public bsModalRef: BsModalRef,
     private autherService: AuthentionService,
     private deviceService: DeviceDetectorService,
-    private builder: FormBuilder) {
+    private builder: FormBuilder, private spinner: NgxSpinnerService, private toastr: ToastrService) {
 
     this.verfiyForm = this.builder.group({
 
@@ -46,7 +47,11 @@ export class VerfiymodalComponent implements OnInit {
   }
 
   verfiyEmail() {
-
+    this.spinner.show();
+    let option = {
+      timeOut: 5000,
+      progressBar: true
+    }
     let lang = localStorage.getItem("lang");
     if (lang == "en") {
       lang = "English";
@@ -66,13 +71,70 @@ export class VerfiymodalComponent implements OnInit {
     ).subscribe(
       data => {
         console.log(data);
+        this.toastr.success('Login successfully!', 'Welcome', option);
+
         SessionService.saveDataInLocalStorage(data);
         SessionService.clearsinginSaveData();
         localStorage.removeItem("userSignupData");
-        this.bsModalRef.hide()
+        this.bsModalRef.hide();
+        this.spinner.hide();
+
       },
       error => {
-        console.log(error);
+
+        if (error.errorCode == "4000") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4001") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4002") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4003") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4004") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4005") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4006") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4007") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4009") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4010") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4011") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4012") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4013") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4014") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4015") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4016") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4018") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4023") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4037") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4041") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4043") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "4044") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "1013") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "3004") {
+          this.toastr.error(error.errorCode, error.message, option);
+        } else if (error.errorCode == "3009") {
+          this.toastr.error(error.errorCode, error.message, option);
+        }
+
+        this.spinner.hide();
 
       }
     );
@@ -96,13 +158,17 @@ export class VerfiymodalComponent implements OnInit {
   }
 
   resendCode() {
+    this.spinner.show();
+
     this.autherService.ResendCode(this.getSignupData.userName).subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
+        this.spinner.hide();
 
       },
       error => {
-        console.log(error);
+        // console.log(error);
+        this.spinner.hide();
 
       }
     );

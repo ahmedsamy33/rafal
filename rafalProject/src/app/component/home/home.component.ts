@@ -21,7 +21,8 @@ import { SettingsService } from '../../services/shared/settings.service';
 import { SessionService } from '../../services/shared/session.service';
 import { AuthentionService } from '../../services/shared/authention.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { element } from '@angular/core/src/render3/instructions';
+import { ToastrService } from 'ngx-toastr';
+import { ResetmodalComponent } from '../resetmodal/resetmodal.component';
 
 @Component({
   selector: 'app-home',
@@ -52,7 +53,7 @@ export class HomeComponent implements OnInit {
     public translate: TranslateService,
     private builder: FormBuilder,
     private companyService: CompanyserviceService,
-    private AuthService: AuthentionService, private spinner: NgxSpinnerService
+    private AuthService: AuthentionService, private spinner: NgxSpinnerService, private toastr: ToastrService
 
   ) {
     this.lang = localStorage.getItem("lang");
@@ -152,6 +153,8 @@ export class HomeComponent implements OnInit {
       comp = CertifiedComponent;
     } else if (componentTo == 'ShippingComponent') {
       comp = ShippingComponent;
+    } else if (componentTo == 'ResetmodalComponent') {
+      comp = ResetmodalComponent;
     }
 
     let getUserVerfiy = JSON.parse(localStorage.getItem("userSignupData"));
@@ -161,7 +164,7 @@ export class HomeComponent implements OnInit {
       this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
     }
     else if (getUsertoken != null) {
-      if (componentTo == 'LoginmodalComponent' || componentTo == 'SignupmodalComponent') {
+      if (componentTo == 'LoginmodalComponent' || componentTo == 'SignupmodalComponent' || componentTo == 'ResetmodalComponent') {
         this.bsModalRef = this.modalService.show(comp, { class: 'modal-sm' });
         // to get data session from modal
         if (componentTo == 'LoginmodalComponent') {
@@ -348,16 +351,28 @@ export class HomeComponent implements OnInit {
     } else if (getUserlogin == null) {
       this.bsModalRef = this.modalService.show(LoginmodalComponent, { class: 'modal-sm' });
     } else {
+      this.spinner.show();
+      let option = {
+        timeOut: 5000,
+        progressBar: true
+      }
       this.companyService.addAdvertisment(
         this.file1,
         this.Job,
         this.Discription
       ).subscribe(
         data => {
+          this.toastr.success('Submitted ', 'successfully', option);
+
           this.addadvertismentForm.reset();
           this.pictureName1 = '';
+          this.spinner.hide();
+
         },
         error => {
+          this.toastr.error(error.errorCode, error.message, option);
+
+          this.spinner.hide();
 
         }
       );
@@ -433,15 +448,22 @@ export class HomeComponent implements OnInit {
 
   logOut() {
     this.spinner.show();
-
+    let option = {
+      timeOut: 5000,
+      progressBar: true
+    }
     this.AuthService.logOut().subscribe(
       data => {
+        this.toastr.success('^-^', 'Logout successfully', option);
+
         SessionService.clearDateFromLocalStorage();
         SessionService.resetData();
+        this.toastr.success
         this.spinner.hide();
 
       },
       error => {
+        this.toastr.error(error.errorCode, error.message, option);
         this.spinner.hide();
 
       }
