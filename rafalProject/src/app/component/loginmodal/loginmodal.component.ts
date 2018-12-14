@@ -91,7 +91,7 @@ export class LoginmodalComponent implements OnInit {
         console.log(data);
         SessionService.saveDataInLocalStorage(data);
         // console.log();
-
+        localStorage.setItem('type', data.userDetails.type);
         this.bsModalRef.hide();
         this.spinner.hide();
         if (data.userDetails.type == 'Company') {

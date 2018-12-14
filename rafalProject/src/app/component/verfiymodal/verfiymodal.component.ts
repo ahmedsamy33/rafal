@@ -75,6 +75,7 @@ export class VerfiymodalComponent implements OnInit {
         this.toastr.success('Login successfully!', 'Welcome', option);
         this.actionVerfiy.emit(data);
         console.log(data);
+        localStorage.setItem('type', data.userDetails.type);
 
         SessionService.saveDataInLocalStorage(data);
         SessionService.clearsinginSaveData();

@@ -49,7 +49,7 @@ export class SessionService {
       "token",
       data.tkn
     );
- 
+
 
 
   }
@@ -66,6 +66,7 @@ export class SessionService {
 
   static clearDateFromLocalStorage() {
     localStorage.removeItem("token");
+    localStorage.removeItem("type")
   }
 
   static singinSaveData(userName, pass, countryPhoneCode) {

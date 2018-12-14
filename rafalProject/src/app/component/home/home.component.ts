@@ -136,6 +136,7 @@ export class HomeComponent implements OnInit {
       this.userData = SessionService.userSessionData.userDetails.picture_url;
       let islog = SessionService.userSessionData.is_log;
       this.checkDisplay = islog;
+      this.userName = SessionService.userSessionData.userDetails.userName;
       this.userType = SessionService.userSessionData.userDetails.type;
     }
   }

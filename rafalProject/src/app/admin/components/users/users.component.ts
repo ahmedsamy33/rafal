@@ -15,7 +15,7 @@ export class UsersComponent implements OnInit {
   tableData: Array<any>;
   searchCeritria = '';
   dataListSize = 0;
-   
+
   /* pagination Info */
   pageSize = 5;
   pageNumber = 1;
@@ -25,51 +25,51 @@ export class UsersComponent implements OnInit {
 
 
 
-  constructor(private service: UsersServices , private spinner: NgxSpinnerService , private toastr: ToastrService) { 
+  constructor(private service: UsersServices, private spinner: NgxSpinnerService, private toastr: ToastrService) {
 
-    
+
   }
 
   ngOnInit() {
-    this.loadData(this.pageSize , this.pageNumber ,this.searchCeritria );
+    this.loadData(this.pageSize, this.pageNumber, this.searchCeritria);
   }
 
-  loadData(pageSize  , pageNumber , searchCeritria) {
+  loadData(pageSize, pageNumber, searchCeritria) {
     this.spinner.show()
 
-      this.service.GetUsers(pageSize  , pageNumber , searchCeritria).subscribe(res => {
-
-        
-        this.tableData =res.data;
-        this.dataListSize = res.size;
-        console.log(this.dataListSize);
-          this.spinner.hide()
-
-       
-        
-      },err => {
-        this.spinner.hide()
-
-        this.toastr.error('Cannot Get Data', 'Server Error');
-
-       })
+    this.service.GetUsers(pageSize, pageNumber, searchCeritria).subscribe(res => {
 
 
-      
+      this.tableData = res.data;
+      this.dataListSize = res.size;
+      console.log(this.dataListSize);
+      this.spinner.hide()
+
+
+
+    }, err => {
+      this.spinner.hide()
+
+      this.toastr.error('Cannot Get Data', 'Server Error');
+
+    })
+
+
+
   }
 
   pageChanged(pN: number): void {
 
-    
+
     this.pageNumber = pN;
-    this.loadData(this.pageSize , this.pageNumber ,this.searchCeritria );
+    this.loadData(this.pageSize, this.pageNumber, this.searchCeritria);
   }
 
-  searchData(){
-    this.loadData(this.pageSize , this.pageNumber ,this.searchCeritria );
+  searchData() {
+    this.loadData(this.pageSize, this.pageNumber, this.searchCeritria);
     // this.searchCeritria ='';
 
   }
 
- 
+
 }
