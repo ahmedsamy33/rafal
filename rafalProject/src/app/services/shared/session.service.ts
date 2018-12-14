@@ -49,6 +49,8 @@ export class SessionService {
       "token",
       data.tkn
     );
+ 
+
 
   }
   static saveInSession(data) {

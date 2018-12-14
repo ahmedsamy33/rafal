@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ChangepicComponent } from '../modalcomponent/changepic/changepic.component';
 import { ChangepassComponent } from '../modalcomponent/changepass/changepass.component';
 
@@ -25,11 +25,8 @@ export class HeaderComponent {
   selectedFile: File = null;
 
   ChangProfileImgBtn = false;
-  //  @ViewChild('passmodal') passmodal: Modal;
-  //  @ViewChild('profileImg') profileImg: Modal;
-
-
-
+  
+  bsModalRef: BsModalRef;
 
   sidebarToggle: boolean = true;
   tip = { ring: true, email: true };
@@ -37,23 +34,22 @@ export class HeaderComponent {
   constructor(public router: Router, public AuthService: AuthentionService, builder: FormBuilder,
     private fb: FormBuilder, public http: HttpClientModule, private modalService: BsModalService) {
 
-    // super(_globalService);
+ 
 
 
-    this.changePass = builder.group({
 
-      'oldpass': ['', [Validators.required]],
-      'newpass': ['', [Validators.required]],
-      'confirmpass': ['', [Validators.required]],
-    },
-      {
-        validator: this.validate.bind(this)
-      });
+    this.userName = SessionService.userSessionData.userDetails.userName;
+    let profileImaeToken =SessionService.userSessionData.userDetails.picture_url;
 
+    if (ChangepicComponent) {
 
-    this.userName = localStorage.getItem('userName')
-    let profileImaeToken = localStorage.getItem('imageToken')
+      // this.modalService.action.take(1).subscribe((value) => {
+      //   console.log("ahmed :", value) // here you will get the value;
+        
 
+      // });
+      
+    }
     this.getProfileImageByToken(profileImaeToken)
 
 
@@ -92,8 +88,7 @@ export class HeaderComponent {
       err => {
 
         this.isVisable = false;
-        this.closeImgModal()
-
+ 
         // this.alertMessage(
         //   {
         //     type: 'danger',
@@ -121,10 +116,7 @@ export class HeaderComponent {
       }
   }
 
-  openChangePassword() {
-    // this.passmodal.open();
-
-  }
+ 
 
   openProfileImgModal() {
     // this.profileImg.open()
@@ -134,24 +126,9 @@ export class HeaderComponent {
   }
 
 
-  closeModal() {
-    // this.passmodal.close()
+  
 
-    this.changePass.reset()
-
-  }
-  closeImgModal() {
-    // this.profileImg.close()
-
-
-  }
-
-
-  hasError(field: string, error: string) {
-    const ctrl = this.changePass.get(field);
-    return ctrl.dirty && ctrl.hasError(error);
-  }
-
+ 
 
   previewImg(event) {
     this.selectedFile = event.target.files[0];
@@ -161,56 +138,11 @@ export class HeaderComponent {
     }
   }
 
-  changPassword() {
-    this.isVisable = true
-
-    this.AuthService.changePassword(this.changePass.get('oldpass').value, this.changePass.get('newpass').value).subscribe(data => {
-
-      this.isVisable = false;
-
-
-
-
-      let value: any = localStorage.getItem("userTkn");
-      value = data.tkn;
-
-      localStorage.setItem("userTkn", JSON.stringify(value));
-
-
-      SessionService.userSessionData.tkn = data.tkn;
-      //  this.passmodal.close()
-
-
-      this.changePass.reset()
-      //  this.closeModal('passwordModal')
-      //  this.notfy.notification('success','Done',"Done Updating Your Password");
-
-
-    }, err => {
-      //   this.passmodal.close()
-
-      //  this.alertMessage(
-      //   {
-      //     type: 'danger',
-      //     title: 'Server Error!',
-      //     value: JSON.parse(err._body).message
-      //   }
-      // );
-      this.isVisable = false;
-    }
-
-    )
-
-
-
-
-  }
-
+ 
 
   // change image 
   changeProfileImage(event) {
 
-    this.closeImgModal()
     this.isVisable = true;
 
     const uploadData = new FormData();
@@ -283,24 +215,7 @@ export class HeaderComponent {
 
   //validate password 
 
-  validate(changePassFormGroup: FormGroup) {
-    let password = changePassFormGroup.controls.newpass.value;
-    let repeatPassword = changePassFormGroup.controls.confirmpass.value;
-
-    if (repeatPassword.length <= 0) {
-      return null;
-    }
-
-    if (repeatPassword !== password) {
-      return {
-        doesMatchPassword: true
-      };
-    }
-
-    return null;
-
-  }
-
+ 
 
   // open modal picr
   openChangePicmodal() {

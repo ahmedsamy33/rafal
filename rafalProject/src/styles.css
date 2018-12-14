@@ -1901,3 +1901,63 @@ button.toast-close-button {
   display: table;
 }
 
+
+.validationHint{
+  margin-top: 6px;
+    /* color: $danger; */
+    color: #e33f3f;
+
+}
+
+.pages-sider , .pages-top{
+  background: #009999 !important;
+
+}
+
+.table-bordered i {
+  color: #009999 !important;
+  text-align: center !important;
+
+
+}
+
+.ngx-pagination .current, .ngx-pagination a:hover ,.pagination-wrapper .input-group .input-group-addon {
+  background: linear-gradient(to top right, #fca400, #ffd17c) !important;
+  background: -webkit-linear-gradient(to top right, #fca400, #ffd17c) !important;
+  color: #fff !important;
+  padding: 0.1875rem 0.625rem !important;
+}
+
+
+.btn-icon{
+  padding: 6px 15px !important;
+  
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background: #009999;
+    border-color: #009999 !important;
+}
+.btn-icon:hover{
+  border-color: #009999;
+  background: #009999;
+
+
+}
+.btn-icon:focus{
+  box-shadow: none !important;
+
+}
+select{
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+
+
+}
+
+.my-pagination  a, .my-pagination  .current , .my-pagination  a:hover{
+  text-decoration: none !important;
+  height: 35px !important;
+  text-align: center !important;
+  line-height: 33px !important;
+  margin: 0 !important;
+ }

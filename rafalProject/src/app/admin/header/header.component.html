@@ -30,102 +30,10 @@
       <!-- <span class="badge" *ngIf="tip.ring"></span> -->
     </div>
     <div class="msg-entrance email" (click)="logOut()">
-      <span class="fa fa-sign-out fa-fw"></span>
+      <!-- <span class="fas fa-sign-out fa-fw" aria-hidden="true"></span> -->
+      <i class="fas fa-sign-in-alt"></i>
 
     </div>
   </div>
 
-  <!-- <div *ngIf="isVisable">
-
-    <loading [loading]=true></loading>
-  </div> -->
-
-
-  <!-- <modal #passmodal>
-      <modal-header>
-        <h3>change Password</h3>
-      </modal-header>
-      <modal-content>
-        <form [formGroup]="changePass">
-
-          <div class="form-group">
-            
-            <label class="control-label">Current Password</label>
-            <input  [(ngModel)]="oldpass" formControlName="oldpass" type="password" class="form-control" placeholder="Current Password">
-  <p class="validationHint" *ngIf="hasError('oldpass', 'required')">{{ required}}</p>
-            
-            
-            <label class="control-label">New Password</label>
-            <input  [(ngModel)]="newpass" formControlName="newpass" type="password" class="form-control" placeholder="New Password">
-            
-  <p class="validationHint" *ngIf="hasError('newpass', 'required')">{{ required}}</p>
-            
-            
-            <label class="control-label">Re-type Password</label>
-            <input formControlName="confirmpass" type="password" class="form-control" placeholder="Re-type Password">
-  
-
-  
-  <p class="validationHint" *ngIf="hasError('confirmpass', 'required')">{{required}}</p>
-
-  <p class="validationHint" *ngIf="changePass.errors?.doesMatchPassword">Password does not match</p>
-
-
-              
-          </div>
-        </form>
-      </modal-content>
-      <modal-footer>
-          <button class="btn btn-info" [disabled]="!changePass.valid" (click)="changPassword()">Change</button>
-
-          
-        <button class="btn btn-primary" (click)="closeModal()">close</button>
-      </modal-footer>
-    </modal>
-
-    
-    <modal #profileImg >
-        <modal-header>
-              
-          <h4 class="modal-title" id="modal-basic-title">Profile Image</h4>
-       
-       </modal-header>
-  
-
-       <modal-content>
-
-               
-          <div class="avatar-upload">
-              <div class="avatar-edit">
-                  <input [(ngModel)]="imageBlob1" type='file' id="imageUpload"  (change)="previewImg($event)" accept="image/*" required/>
-                  <label for="imageUpload">
-                <i class="fa fa-upload"></i>
-
-                  </label>
-              </div>
-              <div class="avatar-preview">
-                  <img id="imagePreview"  [src]="imageSrc || 'http://placehold.it/180'" alt="your image" />
-
-              </div>
-          </div>
-
-  
-        </modal-content>
-
-
-
-            <modal-footer>
-                <button type="button" class="btn btn-outline-dark" (click)="closeImgModal()">Close</button>
-          
-          
-          <button [disabled]="! ChangProfileImgBtn" class="btn btn-primary"  (click)="changeProfileImage($event)">Upload!</button>
-          
-          
-            </modal-footer>
-       
-          
-      </modal>
-       -->
-
-
-  <!-- </div> -->
+ 

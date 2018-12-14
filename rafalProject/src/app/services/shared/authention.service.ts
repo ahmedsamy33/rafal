@@ -244,7 +244,7 @@ export class AuthentionService {
     return this.http.post(SettingsService.DOMAIN_URL + 'userservices/uploadprofileimage', imageBlob,{headers : SettingsService.getHeaderJsonWithTKN()} )
     .pipe(
       map(res => {
-        return res.blob();
+        return res.json();
       }),
       catchError((error: Response) => {
         return throwError(error.json());

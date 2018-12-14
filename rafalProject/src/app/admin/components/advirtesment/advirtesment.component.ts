@@ -19,7 +19,7 @@ export class AdvirtesmentComponent implements OnInit {
   pageSize = 5;
   pageNumber = 1;
 
-  ImgSrc: string = 'assets/images/picture.png';
+  ImgSrc: string = './../assets/images/picture.png';
   imageToShow: any;
   AdvImgService;
   constructor(private service: CompanyserviceService, private spinner: NgxSpinnerService,public toastr:ToastrService) {
