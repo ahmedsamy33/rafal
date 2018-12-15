@@ -24,6 +24,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ResetmodalComponent } from '../resetmodal/resetmodal.component';
 import { UserDataService } from '../../services/shared/user-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -68,7 +69,8 @@ export class HomeComponent implements OnInit {
     private AuthService: AuthentionService,
     private spinner: NgxSpinnerService,
     private toastr: ToastrService,
-    private userService: UserDataService
+    private userService: UserDataService,
+    private router: Router
   ) {
     this.lang = localStorage.getItem("lang");
 
@@ -103,9 +105,16 @@ export class HomeComponent implements OnInit {
   title = 'testproject';
 
 
-
+  public urlActive;
 
   ngOnInit() {
+
+    this.urlActive = this.router.url.substring(
+      this.router.url.lastIndexOf('/') + 1,
+      this.router.url.lastIndexOf('#'),
+    );
+    console.log(this.urlActive);
+
     let token = localStorage.getItem('token');
 
 

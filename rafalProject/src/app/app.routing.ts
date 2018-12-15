@@ -50,6 +50,8 @@ const appRoutes: Routes = [
         ]
     },
     { path: 'home', component: HomeComponent, pathMatch: 'full' },
+    { path: '', component: HomeComponent },
+
     { path: '**', redirectTo: 'home' },
 ];
 

@@ -6,6 +6,7 @@ import { AuthentionService } from '../../services/shared/authention.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-verfiymodal',
   templateUrl: './verfiymodal.component.html',
@@ -27,6 +28,7 @@ export class VerfiymodalComponent implements OnInit {
   constructor(public bsModalRef: BsModalRef,
     private autherService: AuthentionService,
     private deviceService: DeviceDetectorService,
+    private router: Router,
     private builder: FormBuilder, private spinner: NgxSpinnerService, private toastr: ToastrService) {
 
     this.verfiyForm = this.builder.group({
@@ -82,6 +84,14 @@ export class VerfiymodalComponent implements OnInit {
         localStorage.removeItem("userSignupData");
         this.bsModalRef.hide();
         this.spinner.hide();
+
+        if (this.router.url == '/home') {
+          this.router.navigate(['']);
+
+        } else {
+          this.router.navigate(['home']);
+
+        }
 
       },
       error => {
