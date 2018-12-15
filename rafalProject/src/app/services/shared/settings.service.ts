@@ -11,21 +11,26 @@ import { throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class SettingsService {
-  public static DOMAIN_URL = "http://localhost:8080/Dolphin_Services/";
-  public static DOMAIN_ImgeURLAdver = "http://localhost:8080/Dolphin_Services/advertisementservices/getaddimage?imgetkn=";
+  public static DOMAIN_URL =
+    // "http://localhost:8080/Dolphin_Services/";
+    "http://rafalgroups.com/Dolphin_Services/";
+  public static DOMAIN_ImgeURLAdver =
+    // "http://localhost:8080/Dolphin_Services/advertisementservices/getaddimage?imgetkn=";
+    "http://rafalgroups.com/Dolphin_Services/advertisementservices/getaddimage?imgetkn=";
 
-  
 
-  public static imageUrlCompany = 'http://localhost:8080/Dolphin_Services/companyservices/getcompanyimage?imgetkn='
+  public static imageUrlCompany =
+    // 'http://localhost:8080/Dolphin_Services/companyservices/getcompanyimage?imgetkn='
+    'http://rafalgroups.com/Dolphin_Services/companyservices/getcompanyimage?imgetkn='
 
   public static imageUrlProfile =
-    "http://localhost:8080/Dolphin_Services/userservices/getprofileimage?imgetkn=";
-  // "http://rafalgroups.com/Dolphin_Services/userservices/getprofileimage?imgetkn=";
-  constructor(public http:Http) { }
+    // "http://localhost:8080/Dolphin_Services/userservices/getprofileimage?imgetkn=";
+    "http://rafalgroups.com/Dolphin_Services/userservices/getprofileimage?imgetkn=";
+  constructor(public http: Http) { }
 
 
 
- 
+
   static getHeaderJson(): Headers {
     let contentHeaders = new Headers();
     contentHeaders.append('Content-Type', 'application/json');

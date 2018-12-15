@@ -14,7 +14,7 @@ export class EmploymentadminComponent implements OnInit {
   JobTitle: Array<any>;
   jobTitleCode = '';
   dataListSize = 0;
-  loading = true ;
+  loading = true;
   /* pagination Info */
   pageSize = 5;
   pageNumber = 1;
@@ -23,72 +23,110 @@ export class EmploymentadminComponent implements OnInit {
   ImgSrc: string = 'assets/images/picture.png';
 
   imgService = SettingsService.imageUrlProfile
-  constructor(private service: ServiceServices ,  private spinner: NgxSpinnerService , public toastr:ToastrService  ) { 
+  constructor(private service: ServiceServices, private spinner: NgxSpinnerService, public toastr: ToastrService) {
 
- 
+
   }
 
   ngOnInit() {
     this.getPickList()
-    this.loadData(this.pageSize , this.pageNumber ,this.jobTitleCode );
+    this.loadData(this.pageSize, this.pageNumber, this.jobTitleCode);
 
 
     console.log(this.imgService);
-    
+
   }
 
 
-  getPickList(){
-    this.service.getJobTitlePickList().subscribe(data =>{
+  getPickList() {
+    this.service.getJobTitlePickList().subscribe(data => {
       this.JobTitle = data;
-      
+
     })
 
   }
-  loadData(pageSize  , pageNumber , jobTitleCode) {
+  loadData(pageSize, pageNumber, jobTitleCode) {
     this.spinner.show();
 
-      this.service.GetEmployment( pageSize , pageNumber ,jobTitleCode  ).subscribe(res => {
+    this.service.GetEmployment(pageSize, pageNumber, jobTitleCode).subscribe(res => {
 
-        this.tableData =res.data;
-        this.dataListSize = res.size;
-        console.log(this.tableData);
-        
-        this.spinner.hide();
-       
-        
-      },err => {
-  
-        this.spinner.hide();
-        this.toastr.error('Cannot Get Data', 'Server Error');
-      })
+      this.tableData = res.data;
+      this.dataListSize = res.size;
+      console.log(this.tableData);
+
+      this.spinner.hide();
 
 
-      
+    }, err => {
+
+      this.spinner.hide();
+      this.toastr.error('Cannot Get Data', 'Server Error');
+    })
+
+
+
   }
 
   pageChanged(pN: number): void {
 
-    
+
     this.pageNumber = pN;
-    this.loadData(this.pageSize , this.pageNumber ,this.jobTitleCode );
+    this.loadData(this.pageSize, this.pageNumber, this.jobTitleCode);
   }
 
-  searchData(){
-    this.loadData(this.pageSize , this.pageNumber ,this.jobTitleCode );
+  searchData() {
+    this.loadData(this.pageSize, this.pageNumber, this.jobTitleCode);
     // this.searchCeritria ='';
 
   }
 
-  
- 
-openUrl(url){
 
-  var URL = url;
 
-  window.open(URL,'_blank');
 
-}
+  getFiles(fileName, id) {
+    this.spinner.show();
+
+    this.service.getImage(fileName, 'Employment').subscribe(data => {
+      // console.log(data);
+      this.spinner.hide();
+
+      // let bikeImage = document.getElementById(id) as HTMLImageElement;
+
+
+      // var objectURL = URL.createObjectURL(data);
+      // bikeImage.src = objectURL;
+
+
+      this.downloadFile(data)
+
+
+
+
+
+
+    }, err => {
+      console.log(err);
+
+    })
+  }
+
+  downloadFile(data) {
+    // const blob = new Blob([data], { type: 'text/csv' });
+    // const url = window.URL.createObjectURL(blob);
+    // window.open(url);
+    // window.focus();
+
+
+    var url = window.URL.createObjectURL(data);
+    var a = document.createElement('a');
+    document.body.appendChild(a);
+    a.setAttribute('style', 'display: none');
+    a.href = url;
+    a.download = data.filename;
+    a.click();
+    window.URL.revokeObjectURL(url);
+    a.remove(); // remove the element
+  }
 
 
 }
