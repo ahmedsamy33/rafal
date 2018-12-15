@@ -2,6 +2,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ServiceServices } from './../../../../services/shared/Services.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { SettingsService } from '../../../../services/shared/settings.service';
 
 @Component({
   selector: 'app-employmentadmin',
@@ -21,7 +22,7 @@ export class EmploymentadminComponent implements OnInit {
 
   ImgSrc: string = 'assets/images/picture.png';
 
-
+  imgService = SettingsService.imageUrlProfile
   constructor(private service: ServiceServices ,  private spinner: NgxSpinnerService , public toastr:ToastrService  ) { 
 
  
@@ -30,6 +31,10 @@ export class EmploymentadminComponent implements OnInit {
   ngOnInit() {
     this.getPickList()
     this.loadData(this.pageSize , this.pageNumber ,this.jobTitleCode );
+
+
+    console.log(this.imgService);
+    
   }
 
 

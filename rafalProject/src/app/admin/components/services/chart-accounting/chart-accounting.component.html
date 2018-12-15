@@ -35,7 +35,9 @@
 
               <td>{{item.yearOfBudget}}</td>
               <td>
-                  <a class="url" href="http://localhost:8080/Dolphin_Services/adminservices/getformsfiles?filename={{item.accOfYearImageName}}&formname=CharterAccount" target="_blank">
+                  <a class="url" 
+                  
+                 (click)="getFiles(item.accOfYearImageName)" target="_blank">
                       <img src="{{ImgSrc}}" alt="avatar">  
                   </a></td>
 

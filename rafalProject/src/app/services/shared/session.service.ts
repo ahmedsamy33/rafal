@@ -44,6 +44,8 @@ export class SessionService {
 
   static saveDataInLocalStorage(data) {
     SessionService.userSessionData = data;
+
+    
     SessionService.userSessionData.is_log = true;
     localStorage.setItem(
       "token",
@@ -51,6 +53,15 @@ export class SessionService {
     );
 
 
+    localStorage.setItem(
+      "imgToken",
+      data.userDetails.picture_url
+    );
+
+    localStorage.setItem(
+      "userName",
+      data.userDetails.userName
+    );
 
   }
   static saveInSession(data) {

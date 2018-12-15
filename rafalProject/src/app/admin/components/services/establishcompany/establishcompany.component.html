@@ -15,10 +15,12 @@
           <tr>
             <th>#</th>
             <th>Country</th>
-            <th>Region</th>
             <th>Activity</th>
             <th>Capital Currency</th>
             <th>ID Cardss</th>
+
+            <th>ids Copies </th>
+
             <th>Authorization Copy</th>
 
             <th>Rental Agreement Copy</th>
@@ -42,7 +44,6 @@
               <td>{{index+1}}</td>
 
               <td>{{item.country}}</td>
-              <td>{{item.region}}</td>
               <td>{{item.activity}}</td>
               <td>{{item.capitalCurrency}}</td>
               <td>{{item.id}}</td>
@@ -50,7 +51,19 @@
 
 
 
+               
+              <td>
+                <a class="url"
+                
+                href="http://localhost:8080/Dolphin_Services/adminservices/getformsfiles?filename={{item.idsCopiesImageName}}&formname=EstablishCompanies"
+
+
+                target="_blank"> 
+                    <img src="{{ImgSrc}}" alt="avatar">
+                </a>
               
+              </td>
+
               
               <td>
                   <a class="url"

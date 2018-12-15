@@ -34,7 +34,7 @@
             <th>Activity</th>
             <th> Salary</th> 
             <th>Cv</th>
-            <th>Image</th>
+            <th>Profile Image</th>
 
           </tr>
         </thead>
@@ -63,7 +63,7 @@
                       href="http://localhost:8080/Dolphin_Services/adminservices/getformsfiles?filename={{item.cvUrl}}&formname=Employment"
       
                       target="_blank"> 
-                          <img src="{{ImgSrc}}" alt="avatar">
+                          <i class="fa fa-download"></i> 
                       </a>
                     
                     </td>
@@ -71,7 +71,7 @@
                     
               <td>
                 <a class="url"  
-                href="http://localhost:8080/Dolphin_Services/adminservices/getformsfiles?filename={{item.profileImage}}&formname=Employment"
+                href="{{imgService}}{{item.profileImage}}"
 
                 target="_blank"> 
                     <img src="{{ImgSrc}}" alt="avatar">

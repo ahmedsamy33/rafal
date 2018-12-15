@@ -59,7 +59,7 @@
 
           <td class="url">
             <!-- {{item.advertiseImageToken}} -->
-            <a href="http://localhost:8080/Dolphin_Services/companyservices/getcompanyimage?imgetkn={{item.cRNumberImageToken}}"
+            <a href="{{ImageService}}{{item.cRNumberImageToken}}"
               target="_blank">
 
               <img src="{{ImgSrc}}" alt="avatar">
@@ -82,7 +82,10 @@
 
 
           <td>{{item.creationDate | date : format : timezone }}</td>
-          <span class="label label-info">{{item.status}}</span>
+          <td *ngIf="item.status == 'Pending' " class="pending">{{item.status}}</td>
+          <td *ngIf="item.status == 'Approverd' " class="Approverd">{{item.status}}</td>
+          <td *ngIf="item.status == 'Rejected' " class="Rejected">{{item.status}}</td>
+
         </tr>
       </tbody>
     </table>

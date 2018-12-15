@@ -1,6 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Headers } from '@angular/http';
+import { Headers, Http } from '@angular/http';
 import { SessionService } from './session.service';
+
+import { map, catchError, timeout } from 'rxjs/operators';
+
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +14,18 @@ export class SettingsService {
   public static DOMAIN_URL = "http://localhost:8080/Dolphin_Services/";
   public static DOMAIN_ImgeURLAdver = "http://localhost:8080/Dolphin_Services/advertisementservices/getaddimage?imgetkn=";
 
+  
+
+  public static imageUrlCompany = 'http://localhost:8080/Dolphin_Services/companyservices/getcompanyimage?imgetkn='
 
   public static imageUrlProfile =
     "http://localhost:8080/Dolphin_Services/userservices/getprofileimage?imgetkn=";
   // "http://rafalgroups.com/Dolphin_Services/userservices/getprofileimage?imgetkn=";
-  constructor() { }
+  constructor(public http:Http) { }
 
 
+
+ 
   static getHeaderJson(): Headers {
     let contentHeaders = new Headers();
     contentHeaders.append('Content-Type', 'application/json');

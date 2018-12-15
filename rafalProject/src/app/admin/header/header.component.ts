@@ -1,9 +1,11 @@
+import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { SessionService } from './../../services/shared/session.service';
 import { AuthentionService } from './../../services/shared/authention.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ChangepicComponent } from '../modalcomponent/changepic/changepic.component';
 import { ChangepassComponent } from '../modalcomponent/changepass/changepass.component';
@@ -32,69 +34,42 @@ export class HeaderComponent {
   tip = { ring: true, email: true };
 
   constructor(public router: Router, public AuthService: AuthentionService, builder: FormBuilder,
-    private fb: FormBuilder, public http: HttpClientModule, private modalService: BsModalService) {
+    private fb: FormBuilder, public http: HttpClientModule, private modalService: BsModalService ,public spinner:NgxSpinnerService , public toast : ToastrService) {
 
 
 
 
 
-    this.userName = SessionService.userSessionData.userDetails.userName;
-    let profileImaeToken = SessionService.userSessionData.userDetails.picture_url;
+    this.userName = localStorage.getItem('userName');
+    let profileImaeToken = localStorage.getItem('imgToken');
 
-    if (ChangepicComponent) {
-
-      // this.modalService.action.take(1).subscribe((value) => {
-      //   console.log("ahmed :", value) // here you will get the value;
-
-
-      // });
-
-    }
+      console.log(profileImaeToken);
+      
+   
     this.getProfileImageByToken(profileImaeToken)
 
 
   }
 
-  // public _sidebarToggle() {
-  //   /* this._globalService.sidebarToggle$.subscribe(sidebarToggle => {
-  //     this.sidebarToggle = sidebarToggle;
-  //   }, error => {
-  //     console.log('Error: ' + error);
-  //   }); */
-
-  //   this._globalService.data$.subscribe(data => {
-  //     if (data.ev === 'sidebarToggle') {
-  //       this.sidebarToggle = data.value;
-  //     }
-  //   }, error => {
-  //     console.log('Error: ' + error);
-  //   });
-  //   this._globalService.dataBusChanged('sidebarToggle', !this.sidebarToggle);
-
-
-  //   //this._globalService._sidebarToggleState(!this.sidebarToggle);
-  // }
-
 
   getProfileImageByToken(imageToken) {
+    
+    this.spinner.show()
     this.AuthService.getProfileImage(imageToken).subscribe(image => {
 
 
       this.createImageFromBlob(image)
-      this.isVisable = false;
+      
+      this.spinner.hide()
 
     },
 
       err => {
 
-        this.isVisable = false;
+     
+        this.spinner.hide()
+        this.toast.error(err.message , 'Server Error');
 
-        // this.alertMessage(
-        //   {
-        //     type: 'danger',
-        //     title: 'Server Error!',
-        //     value: 'Error while Set New Image'
-        //   })
 
       })
 
@@ -117,14 +92,7 @@ export class HeaderComponent {
   }
 
 
-
-  openProfileImgModal() {
-    // this.profileImg.open()
-    this.imageSrc = this.avatarImgSrc;
-
-
-  }
-
+ 
 
 
 
@@ -143,7 +111,7 @@ export class HeaderComponent {
   // change image 
   changeProfileImage(event) {
 
-    this.isVisable = true;
+    this.spinner.show()
 
     const uploadData = new FormData();
 
@@ -151,23 +119,23 @@ export class HeaderComponent {
 
     this.AuthService.UploadProfileImage(uploadData).subscribe(data => {
 
-      // localStorage.setItem('imageToken',data.imageToken)
+      this.spinner.hide()
+      this.bsModalRef.hide()
+
+      SessionService.userSessionData.userDetails.picture_url = data.imageToken;
+
+     localStorage.setItem('imgToken',data.imageToken);
 
 
-
-      // this.getProfileImageByToken(data.imageToken)
+      this.getProfileImageByToken(data.imageToken)
 
 
     }, err => {
 
-      this.isVisable = false;
+      
+      this.spinner.hide()
 
-      // this.alertMessage(
-      //   {
-      //     type: 'danger',
-      //     title: 'Server Error!',
-      //     value: 'Error while Upload Image'
-      //   })
+    this.toast.error(err.message , 'Server Error');
 
     })
   }
@@ -184,12 +152,9 @@ export class HeaderComponent {
 
         if (!this.imageSrc.startsWith('data:image')) {
           this.ChangProfileImgBtn = false;
-          // this.alertMessage(
-          //   {
-          //     type: 'danger',
-          //     title: 'Server Error!',
-          //     value: 'Upload A valid Image Please'
-          //   })
+    this.toast.error('Upload A valid Image Please', 'Server Error');
+
+      
 
         }
 
@@ -212,7 +177,17 @@ export class HeaderComponent {
     }
   }
 
+openModal(template: TemplateRef<any>) {
+    this.imageSrc = this.avatarImgSrc;
+    this.bsModalRef = this.modalService.show(template, { class: 'modal-md' });
+  }
 
+
+
+ 
+  
+   
+  
   //validate password 
 
 

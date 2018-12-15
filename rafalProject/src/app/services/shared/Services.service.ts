@@ -277,4 +277,18 @@ export class ServiceServices {
 }
  
  
+
+getFileByFormName(fileName , formname) {
+  return this.http.get(SettingsService.DOMAIN_URL + 'adminservices/getformsfiles?filename='+fileName+'&formname='+ formname,  { headers: SettingsService.getHeaderJsonWithTKN() }).pipe(
+    map(res => {
+      return res
+        }),
+    catchError((error: Response) => {
+      return throwError(error.json());
+    }),
+    timeout(4000)
+  )
+}
+
+
 }

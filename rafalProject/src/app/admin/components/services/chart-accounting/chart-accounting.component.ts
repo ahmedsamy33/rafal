@@ -1,3 +1,4 @@
+import { SettingsService } from './../../../../services/shared/settings.service';
 import { Component, OnInit } from '@angular/core';
 import { ServiceServices } from '../../../../services/shared/Services.service';
 import { ToastrService } from 'ngx-toastr';
@@ -64,6 +65,20 @@ export class ChartAccountingComponent implements OnInit {
 
   }
 
+  getFiles(fileName){
+    this.spinner.show();
+
+    this.service.getFileByFormName(fileName , 'CharterAccount').subscribe(data => {
+      console.log(data);
+    this.spinner.hide();
+
+      
+      
+    }, err => {
+      console.log(err);
+      
+    })
+  }
  
   
 

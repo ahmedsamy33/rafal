@@ -1961,3 +1961,21 @@ select{
   line-height: 33px !important;
   margin: 0 !important;
  }
+
+ .my-pagination{
+   border: 0 !important;
+ }
+
+ .pending{
+   background: #fab95b;
+   color: #fff;
+ }
+
+ .Approverd{
+  background: #7db139;
+  color: #fff;
+}
+.Rejected {
+  background: #f5564e;
+  color: #fff;
+}

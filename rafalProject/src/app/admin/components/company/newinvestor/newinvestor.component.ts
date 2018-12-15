@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CompanyServices } from '../../../../services/shared/Company.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { SettingsService } from '../../../../services/shared/settings.service';
 
 @Component({
   selector: 'app-newinvestor',
@@ -19,6 +20,8 @@ export class NewinvestorComponent implements OnInit {
   companyType = 'Inverst'
 
   ImgSrc: string = 'assets/images/picture.png';
+  ImageService = SettingsService.imageUrlCompany;
+
   constructor(private service: CompanyServices, private spinner: NgxSpinnerService , public toastr:ToastrService) { }
 
   ngOnInit() {
