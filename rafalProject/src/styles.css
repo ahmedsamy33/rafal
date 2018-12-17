@@ -210,7 +210,7 @@ body {
   /* height: 0; */
   background-color: transparent;
   position: absolute;
-  top: 62px;
+  top: 25px;
   right: 0;
   left: 0;
   /* margin-top: 14px; */
@@ -264,6 +264,7 @@ body {
   color: #000;
   font-size: 15px;
   cursor: pointer;
+  margin-top:4px;
 
 }
 
@@ -852,6 +853,7 @@ p {
   line-height: 16px;
   margin: auto;
   margin-top: 17px;
+  font-size:14px;
 }
 
 .modal .modal-body .form textarea::placeholder {
@@ -869,7 +871,7 @@ p {
   border-radius: 6px;
   background: transparent;
   border: 1px solid #009999;
-  color: #fff;
+  
   margin-top: 32px;
   line-height: 16px;
   margin: auto;

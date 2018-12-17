@@ -9,3 +9,39 @@
 .btn {
   z-index: 100;
 }
+.log-group span{
+  color: #666;
+  font-size: 13px;
+  text-align: left;
+  display: block;
+  padding: 0;
+  margin:0;
+}
+.log-group select{
+height: 28px;
+font-size: 12px;
+background-color: #eee;
+}
+.log-group input{
+  
+  height: 30px;
+  background-color: #fff;
+  font-size: 14px;
+ 
+  border: 1px solid #009999;
+  color: #636363;
+  line-height: 34px;
+  /* margin: auto;
+  margin-top: 10px;
+  width: 98%;
+  padding-left: 10px; */
+}
+.log-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 97%;
+  margin: 13px auto 0px;
+  margin-bottom: 10px !important;
+}

@@ -4,7 +4,7 @@
       <div class="modal-icon">
         <i class="ic fas fa-globe"></i>
       </div>
-      <h5><span>Trading</span> Agencies</h5>
+      <h5><span>{{'Trading'|translate}}</span> {{'Agencies'|translate}}</h5>
       <hr>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
         <span aria-hidden="true">&times;</span>
@@ -13,11 +13,11 @@
   </div>
   <div class="modal-body">
     <div class="form trade">
-      <input class="text" type="text" name="text" placeholder="Activity " formControlName="activity" [(ngModel)]="Activity"
+      <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}} " formControlName="activity" [(ngModel)]="Activity"
         [ngClass]="{ 'is-invalid': hasError('activity','required') || hasError('activity','maxlength'),
           'is-valid':tradingForm.get('activity').touched && !hasError('activity','required') &&  !hasError('activity','maxlength')}"
         required />
-      <input class="text" type="text" name="text" placeholder="Required Brand" formControlName="requiredBrand"
+      <input class="text" type="text" name="text" placeholder="{{'Required Brand'|translate}}" formControlName="requiredBrand"
         [(ngModel)]="RequiredBrand" [ngClass]="{ 'is-invalid': hasError('requiredBrand','required') || hasError('requiredBrand','maxlength'),
         'is-valid':tradingForm.get('requiredBrand').touched && !hasError('requiredBrand','required') &&  !hasError('requiredBrand','maxlength')}"
         required />

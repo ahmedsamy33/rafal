@@ -18,6 +18,7 @@
           <select class="text select" name="country" placeholder="country" formControlName="country" [(ngModel)]="Country"
             (change)="getRegionValue()" [ngClass]="{ 'is-invalid': hasError('country','required'),'is-valid':establishingForm.get('country').touched && !hasError('country','required')  }"
             required>
+            <option selected value="country">Select Country</option>
             <option *ngFor="let country of countryArr" value="{{country.code}}">{{country.value}}</option>
           </select>
         </div>
@@ -25,6 +26,7 @@
           <select class="text select" type="text" name="text" placeholder="Region" formControlName="region" [(ngModel)]="Region"
             [ngClass]="{ 'is-invalid': hasError('region','required'),'is-valid':establishingForm.get('region').touched && !hasError('region','required')  }"
             required>
+            <option selected value="region">Select Region</option>
             <option *ngFor="let region of RegionArr" value="{{region.code}}">{{region.value}}</option>
           </select>
         </div>

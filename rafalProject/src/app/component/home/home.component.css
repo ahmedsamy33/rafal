@@ -2,6 +2,7 @@
   overflow: hidden;
   background-color: #0e1010;
   text-align: center;
+  display:none;
 }
 
 .ubber .list-inline {
@@ -97,22 +98,21 @@
 }
 
 .navbar .user-image img {
-  width: 48%;
-  height: 33%;
+  width: 80px;
+  height: 80px;
   border: 1px solid #d4d4d4;
   border-radius: 50%;
 }
 
 .navbar .dropdown .user-image .over {
-  position: absolute;
-  top: 51px;
-  left: 45px;
-  width: 69px;
+  width: 65px;
   height: 25px;
   font-size: 11px;
   background-color: #099;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  margin: 8px auto;
+  line-height: 25px;
+  border-radius: 50px;
+
 
 }
 
@@ -121,15 +121,52 @@
 }
 
 .navbar .navbar-brand img {
-  width: 32%;
-  margin-top: 26px;
+  width: 110px;
+  margin-top: 28px;
 }
 
 .navbar .dropdown .dropdown-item {
   font-size: 11px;
   text-decoration: underline;
+  cursor: pointer;
+}
+.nav-link{
+  cursor: pointer;
+}
+.navbar .nav-item button {
+  background-color: #900004;
+  color: #fff;
+  font-weight: 500;
+  display: inline-block;
+  border: none;
+  height: 37px;
+  min-width: 156px;
+  line-height: 46px;
+  text-align: center;
+  border-radius: 24px 24px 24px 0px;
+  margin-left: 8px;
+  CURSOR: POINTER;
+  margin-top: 1px;
+  position: relative;
+  line-height: 21px;
+}
+.navbar .nav-item  .log{
+width: 81px;
+margin: 0;
+font-weight:600;
+  color:#ab0005 !important;
 }
 
+.navbar .nav-item  .sign{
+  width: 75px;
+  margin: 0;
+  font-weight:600;
+  color:#ab0005 !important;
+  }
+  .navbar .nav-item .sea{
+    font-weight:400;
+  color:#fff !important;
+  }
 @media (max-width:991px) {
 
   .navbar .navbar-nav {

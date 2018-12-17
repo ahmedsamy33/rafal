@@ -4,7 +4,7 @@
       <div class="modal-icon">
         <i class="ic fas fa-calculator"></i>
       </div>
-      <h5><span>Charter</span> Accounting</h5>
+      <h5><span>{{'Charter'|translate}}</span>  {{'Accounting'|translate}}</h5>
       <hr>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
         <span aria-hidden="true">&times;</span>
@@ -13,50 +13,50 @@
   </div>
   <div class="modal-body">
     <div class="form account">
-      <input class="text" type="number" name="phone" placeholder="Year of Budget" formControlName="yearofbudget"
+      <input class="text" type="number" name="phone" placeholder="{{'Year of Budget'|translate}}" formControlName="yearofbudget"
         [(ngModel)]="yearofBudget" [ngClass]="{ 'is-invalid': accountingForm.get('yearofbudget').touched && accountingForm.get('yearofbudget').hasError('required'),
         'is-valid':accountingForm.get('yearofbudget').touched && !accountingForm.get('yearofbudget').hasError('required') }" />
 
 
-      <span>Accounting of the year :</span>
+      <span>{{'Accounting of the year :'|translate}}</span>
       <div class="custom-file">
         <input type="file" class="custom-file-input" id="inputGroupFile01" formControlName="imageblob1" [(ngModel)]="imageBlob1"
           [ngClass]="{ 'is-invalid': accountingForm.get('imageblob1').touched && accountingForm.get('imageblob1').hasError('required'),
         'is-valid':accountingForm.get('imageblob1').touched && !accountingForm.get('imageblob1').hasError('required') }"
           (change)="processFile($event,1)" accept="image/*" required>
-        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">no image choosen </label>
+        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">{{'no image choosen'|translate}} </label>
         <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}} </label>
       </div>
 
 
-      <span>Bank statement : </span>
+      <span>{{'Bank statement :'|translate}} </span>
       <div class="custom-file">
         <input type="file" class="custom-file-input" id="inputGroupFile02" formControlName="imageblob2" [(ngModel)]="imageBlob2"
           [ngClass]="{ 'is-invalid': accountingForm.get('imageblob2').touched && accountingForm.get('imageblob2').hasError('required'),
       'is-valid':accountingForm.get('imageblob2').touched && !accountingForm.get('imageblob2').hasError('required') }"
           (change)="processFile($event,2)" accept="image/*" required>
-        <label class="custom-file-label" for="inputGroupFile02" *ngIf="pictureName2 == ''">no image choosen </label>
+        <label class="custom-file-label" for="inputGroupFile02" *ngIf="pictureName2 == ''">{{'no image choosen'|translate}} </label>
         <label class="custom-file-label" for="inputGroupFile02" *ngIf="pictureName2 != ''">{{pictureName2}} </label>
       </div>
 
 
-      <span>Company accounts :</span>
+      <span>{{'Company accounts :'|translate}}</span>
       <div class="custom-file">
         <input type="file" class="custom-file-input" id="inputGroupFile03" formControlName="imageblob3" [(ngModel)]="imageBlob3"
           [ngClass]="{ 'is-invalid': accountingForm.get('imageblob3').touched && accountingForm.get('imageblob3').hasError('required'),
         'is-valid':accountingForm.get('imageblob3').touched && !accountingForm.get('imageblob3').hasError('required') }"
           (change)="processFile($event,3)" accept="image/*" required>
-        <label class="custom-file-label" for="inputGroupFile03" *ngIf="pictureName3 == ''">no image choosen </label>
+        <label class="custom-file-label" for="inputGroupFile03" *ngIf="pictureName3 == ''">{{'no image choosen'|translate}} </label>
         <label class="custom-file-label" for="inputGroupFile03" *ngIf="pictureName3 != ''">{{pictureName3}} </label>
 
-        <textarea type="text" name="text" placeholder="Other (optional)" formControlName="other" [(ngModel)]="Other"></textarea>
+        <textarea type="text" name="text" placeholder="{{'Other (optional)'|translate}}" formControlName="other" [(ngModel)]="Other"></textarea>
       </div>
 
 
     </div>
   </div>
   <div class="modal-footer account-footer">
-    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Cancel</button>
-    <button type="button" class="btn btn-primary" (click)="CharterService()" [disabled]="!accountingForm.valid ">Submit</button>
+    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}}</button>
+    <button type="button" class="btn btn-primary" (click)="CharterService()" [disabled]="!accountingForm.valid ">{{ 'Submit'|translate}}</button>
   </div>
 </form>

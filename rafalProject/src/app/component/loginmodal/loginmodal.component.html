@@ -8,7 +8,7 @@
       <div class="modal-icon">
         <i class="ic fas fa-lock-open"></i>
       </div>
-      <h5>Log In</h5>
+      <h5>{{'log in'|translate}}</h5>
       <hr>
       <!-- <div class="modal-icon">
               <i class="ic fas fa-lock-open"></i>
@@ -24,22 +24,36 @@
   <div class="modal-body">
     <div class="form log">
 
-      <input class="text" type="text" name="phone" placeholder="User name" formControlName="phonen" [(ngModel)]="phoneNumber"
+        <div class="input-group mb-3 log-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                 <select formControlName="countrycode" [(ngModel)]="contryCode">
+                  <option value="{{country}}" *ngFor="let country of countries">{{country}}</option>
+                </select>
+              </span>
+            </div>
+            <input class="form-control" type="text" name="phone" placeholder="{{'User name'|translate}}" formControlName="phonen" [(ngModel)]="phoneNumber"
         [ngClass]="{ 'is-invalid': loginForm.get('phonen').touched && loginForm.get('phonen').hasError('required'),
-        'is-valid':loginForm.get('phonen').touched && !loginForm.get('phonen').hasError('required') }" />
-      <input class="text" type="password" name="password" placeholder="Password" formControlName="pass" [(ngModel)]="Password"
+        'is-valid':loginForm.get('phonen').touched && !loginForm.get('phonen').hasError('required') }" aria-describedby="basic-addon1"/>
+          </div>
+
+
+
+      <!-- <input class="text" type="text" name="phone" placeholder="User name" formControlName="phonen" [(ngModel)]="phoneNumber"
+        [ngClass]="{ 'is-invalid': loginForm.get('phonen').touched && loginForm.get('phonen').hasError('required'),
+        'is-valid':loginForm.get('phonen').touched && !loginForm.get('phonen').hasError('required') }" aria-describedby="basic-addon1"/> -->
+      <input class="text" type="password" name="password" placeholder="{{'Password'|translate}}" formControlName="pass" [(ngModel)]="Password"
         [ngClass]="{ 'is-invalid': loginForm.get('pass').touched && loginForm.get('pass').hasError('required'),
       'is-valid':loginForm.get('pass').touched && !loginForm.get('pass').hasError('required') }" />
-      <select formControlName="countrycode" [(ngModel)]="contryCode">
+      <!-- <select formControlName="countrycode" [(ngModel)]="contryCode">
         <option value="{{country}}" *ngFor="let country of countries">{{country}}</option>
-      </select>
-      <a class="sign" (click)="openforgetmodal()">forget password?</a>
-      <a class="nav-link sign" (click)="opensignupmodal()">Dont have
-        account.Sign Up</a>
+      </select> -->
+      <a class="sign" (click)="openforgetmodal()">{{'forget password?'|translate}}</a>
+      <a class="nav-link sign" (click)="opensignupmodal()">{{'Dont have account.Sign Up'|translate}}</a>
     </div>
     <div class="modal-footer">
 
-      <button type="button" class="btn btn-primary" (click)="loginData()" [disabled]="!loginForm.valid ">Log in</button>
+      <button type="button" class="btn btn-primary" (click)="loginData()" [disabled]="!loginForm.valid ">{{'log in'|translate}}</button>
     </div>
   </div>
 </form>

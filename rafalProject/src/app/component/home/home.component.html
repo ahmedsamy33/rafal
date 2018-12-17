@@ -117,17 +117,46 @@
           <a class="nav-link ">{{'home'|translate}} <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{urlActive}}#about">About</a>
+          <a class="nav-link" href="{{urlActive}}#about">{{'about'|translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{urlActive}}#services">Services</a>
+          <a class="nav-link" href="{{urlActive}}#services">{{'services'|translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{urlActive}}#adver">Advertisment</a>
+          <a class="nav-link" href="{{urlActive}}#adver">{{'advertisment'|translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{urlActive}}#contact"> Contact</a>
+          <a class="nav-link" href="{{urlActive}}#contact"> {{'contact'|translate}}</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link  sea"> {{'search'|translate}}</a>
+          </li>
+        <li class="nav-item">
+          
+          <a class="nav-link  log" *ngIf="!checkDisplay" (click)="openmodal('LoginmodalComponent')">{{'log in'|translate}} 
+          </a>
+         
+        
+        </li>
+         <li class="nav-item">
+          <a class="nav-link sign" *ngIf="!checkDisplay" (click)="openmodal('SignupmodalComponent')">{{'sign up'|translate}}</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link sign" *ngIf="checkDisplay" (click)="logOut()">{{'log out'|translate}} </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link sign" *ngIf="checkDisplay && userType != 'Company'" (click)="openmodal('UpgrademodalComponent')">
+            Upgrate to company</a>
+        </li>
+        
+        <li class="nav-item">
+          <select class="text select" name="country" placeholder="Language" [(ngModel)]="lang" (ngModelChange)="changeLanguage(lang)">
+            <option value="en">English</option>
+            <option value="ar">العربيه</option>
+          </select>
+        </li>
+
+
 
 
         <li>
@@ -139,15 +168,15 @@
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <div class="user-image">
-                <img class="user" *ngIf="userData == null" src="./assets/images/images.jpg" />
+                <img class="user" *ngIf="userData == null" src="assets/images/images.jpg" />
                 <img class="user" *ngIf="userData != null" src="{{profileImage+userData}}" />
                 <div class="over">
-                  <a class="chan" href="#" data-toggle="modal" data-target="#profile">change</a>
+                  <a class="chan" href="#" data-toggle="modal" data-target="#profile">{{'change photo'|translate}}</a>
                 </div>
               </div>
 
               <p>{{userName}}</p>
-              <a class="dropdown-item" (click)="openmodal('ResetmodalComponent')"> Change password</a>
+              <a class="dropdown-item" (click)="openmodal('ResetmodalComponent')"> {{'change password'|translate}}</a>
 
             </div>
           </div>
@@ -171,11 +200,11 @@
         <div class="header-content">
           <h4>R</h4>
           <div class="info wow fadeInUp">
-            <h3> <span>Rafal Group</span> </h3>
+            <h3> <span>{{'rafal group'|translate}}</span> </h3>
             <!-- <h4>R</h4> -->
-            <p>Our company is considered as one of the leading international services supplier of Commercial and
-              administrative rendered services. </p>
-            <button><a href="#about">Get Started</a></button>
+            <p>{{'Our company is considered as one of the leading international services supplier of Commercial and
+              administrative rendered services.'|translate}} </p>
+            <button><a href="#about">{{'get started'|translate}}</a></button>
           </div>
         </div>
       </div>
@@ -198,12 +227,12 @@
       <div class="col-12">
         <!-- Section Heading Area -->
         <div class="section-heading text-center">
-          <h2>Why We Are <span>Special</span></h2>
+          <h2>{{'Why We Are'|translate}} <span>{{'Special'|translate}}</span></h2>
           <hr>
-          <p>The company does provide the most influential and comprehensive essential services particularly in
+          <p>{{'The company does provide the most influential and comprehensive essential services particularly in
             providing high quality professional management to those new organizations and business entities. This is to
             cover all other related products such as commercial services, commercial agents and other commercial
-            related business between businesses.
+            related business between businesses.'|translate}}
           </p>
           <div class="line-shape"></div>
         </div>
@@ -217,10 +246,8 @@
           <div class="single-icon">
             <i class="fas fa-desktop"></i>
           </div>
-          <h4>Development</h4>
-          <p>The role is responsible for designing, coding and modifying websites, from layout to function and
-            according to a client's specifications. Strive to create visually appealing sites that feature
-            user-friendly design and clear navigation. We are happy to serve you.</p>
+          <h4>{{ 'Development' | translate}}</h4>
+          <p>{{ 'develop' | translate}}</p>
         </div>
       </div>
       <!-- Single Special Area -->
@@ -230,10 +257,8 @@
             <i class="fas fa-globe"></i>
 
           </div>
-          <h4>Importing and Exporting</h4>
-          <p>An import export business is a company that facilitates trades of goods and commodities between domestic
-            and foreign companies. In other words, it’s a company that buys goods internationally and ships them in for
-            domestic purchases and vise versa.</p>
+          <h4>{{'Importing and Exporting'|translate}}</h4>
+          <p>{{ 'export' | translate}}</p>
         </div>
       </div>
       <!-- Single Special Area -->
@@ -242,10 +267,8 @@
           <div class="single-icon">
             <i class="fas fa-user-tie"></i>
           </div>
-          <h4>Hiring Labors</h4>
-          <p>Through a database prepared carefully for all fields and have been rehabilitated and developed to keep
-            pace with the external labor market with the possibility of providing visas to transfer the worker directly
-            or to hire workers through cooperation with enterprises outside Egypt</p>
+          <h4>{{'Hiring Labors'|translate}}</h4>
+          <p>{{ 'labor' | translate}}</p>
         </div>
       </div>
     </div>
@@ -291,27 +314,23 @@
         </div>
         <div class="col-lg-6 col-xl-5 ml-xl-auto">
           <div class="special_description_content">
-            <h2>Try Our <span>Mobile Application</span> Now</h2>
+            <h2>{{'Try Our'|translate}} <span>{{'Mobile Application'|translate}}</span> {{'Now'|translate}}</h2>
             <hr>
-            <p>A mobile application, most commonly referred to as an app, is a type of application software designed to
-              run on a mobile device, such as a smartphone or tablet computer. Mobile applications frequently serve to
-              provide users with similar services to those accessed on PCs.In order to facilitate the service to our
-              customers we offer you the mobile application for our company so that it can communicate with us faster
-              and easier.</p>
+            <p>{{ 'mob' | translate}}</p>
             <div class="app-download-area">
               <div class="app-download-btn wow fadeInUp" data-wow-delay="0.2s">
                 <!-- Google Store Btn -->
-                <a href="#">
+                <a href="https://play.google.com/store/apps/details?id=com.rafalgroup.company&hl=en" target="_blank">
                   <i class="fab fa-android"></i>
-                  <p class="mb-0"><span>available on</span> Google Store</p>
+                  <p class="mb-0"><span>{{'available on'|translate}}</span> Google Store</p>
                 </a>
               </div>
               <div class="app-download-btn wow fadeInDown" data-wow-delay="0.4s">
                 <!-- Apple Store Btn -->
-                <a href="#">
+                <!-- <a href="#">
                   <i class="fab fa-apple"></i>
                   <p class="mb-0"><span>available on</span> Apple Store</p>
-                </a>
+                </a> -->
               </div>
             </div>
           </div>
@@ -326,12 +345,9 @@
   <div id="services" class="services">
     <div class="container">
       <div class="intro wow fadeInUp">
-        <h2>Our<span> Services</span></h2>
+        <h2>{{'Our'|translate}} <span> {{'Services'|translate}} </span></h2>
         <hr>
-        <p>Our role is also to represent commercially any firm in other various countries. We then reduce the
-          difficulty by providing our clients all administrative solutions and different services due to our vast
-          professional experiences in these targeted countries and due to our deep understanding of these countries
-          trade and administrative rules and regulations. </p>
+        <p>{{ 'serv' | translate}} </p>
 
       </div>
       <div class="main">
@@ -347,8 +363,8 @@
                   </div>
                   <div class="col-9">
                     <div class="our-services-text">
-                      <h4><span>Charter</span> Accounting</h4>
-                      <a href="#" data-toggle="modal" data-target="#accounting"> Apply</a>
+                      <h4><span>{{'Charter'|translate}}</span> {{'Accounting'|translate}}</h4>
+                      <a href="#" data-toggle="modal" data-target="#accounting"> {{'Apply'|translate}}</a>
                     </div>
                   </div>
                 </div>
@@ -366,8 +382,8 @@
                   </div>
                   <div class="col-9">
                     <div class="our-services-text">
-                      <h4><span>Hiring</span> Labors</h4>
-                      <a href="#" data-toggle="modal" data-target="#hiring"> Apply</a>
+                      <h4><span>{{'Hiring'|translate}}</span> {{'Labors'|translate}}</h4>
+                      <a href="#" data-toggle="modal" data-target="#hiring">{{'Apply'|translate}}</a>
                     </div>
                   </div>
                 </div>
@@ -386,8 +402,8 @@
                   </div>
                   <div class="col-9">
                     <div class="our-services-text">
-                      <h4><span>Feasibility</span> Study</h4>
-                      <a href="#" data-toggle="modal" data-target="#study"> Apply</a>
+                      <h4><span>{{'Feasibility'|translate}}</span> {{'Study'|translate}}</h4>
+                      <a href="#" data-toggle="modal" data-target="#study"> {{'Apply'|translate}}</a>
                     </div>
                   </div>
                 </div>
@@ -405,8 +421,8 @@
                   </div>
                   <div class="col-9">
                     <div class="our-services-text">
-                      <h4><span>Establishing</span> Companies</h4>
-                      <a href="#" data-toggle="modal" data-target="#company"> Apply</a>
+                      <h4><span>{{'Establishing'|translate}}</span> {{'Companies'|translate}}</h4>
+                      <a href="#" data-toggle="modal" data-target="#company">{{'Apply'|translate}}</a>
                     </div>
                   </div>
                 </div>
@@ -426,8 +442,8 @@
                   </div>
                   <div class="col-9">
                     <div class="our-services-text">
-                      <h4><span>Customs </span>Clearance</h4>
-                      <a href="#" data-toggle="modal" data-target="#custom"> Apply</a>
+                      <h4><span>{{'Customs'|translate}} </span>{{'Clearance'|translate}}</h4>
+                      <a href="#" data-toggle="modal" data-target="#custom">{{'Apply'|translate}}</a>
                     </div>
                   </div>
                 </div>
@@ -445,8 +461,8 @@
                   </div>
                   <div class="col-9">
                     <div class="our-services-text">
-                      <h4>Employment</h4>
-                      <a href="#" data-toggle="modal" data-target="#employ"> Apply</a>
+                      <h4>{{'Employment'|translate}} </h4>
+                      <a href="#" data-toggle="modal" data-target="#employ">{{'Apply'|translate}}</a>
                     </div>
                   </div>
                 </div>
@@ -464,8 +480,8 @@
                   </div>
                   <div class="col-9">
                     <div class="our-services-text">
-                      <h4><span>Office </span>Services</h4>
-                      <a href="#" data-toggle="modal" data-target="#office"> Apply</a>
+                      <h4><span>{{'Office'|translate}} </span>{{'Service'|translate}}</h4>
+                      <a href="#" data-toggle="modal" data-target="#office">{{'Apply'|translate}}</a>
                     </div>
                   </div>
                 </div>
@@ -483,8 +499,8 @@
                   </div>
                   <div class="col-9">
                     <div class="our-services-text">
-                      <h4><span>Trading</span> Agencies</h4>
-                      <a href="#" data-toggle="modal" data-target="#trade"> Apply</a>
+                      <h4><span>{{'Trading'|translate}}</span> {{'Agencies'|translate}}</h4>
+                      <a href="#" data-toggle="modal" data-target="#trade"> {{'Apply'|translate}}</a>
                     </div>
                   </div>
                 </div>
@@ -505,8 +521,8 @@
                   </div>
                   <div class="col-9">
                     <div class="our-services-text">
-                      <h4><span>Certified</span> Translation</h4>
-                      <a href="#" data-toggle="modal" data-target="#translation"> Apply</a>
+                      <h4><span>{{'Certified'|translate}}</span> {{'Translation'|translate}}</h4>
+                      <a href="#" data-toggle="modal" data-target="#translation">{{'Apply'|translate}}</a>
                     </div>
                   </div>
                 </div>
@@ -524,8 +540,8 @@
                   </div>
                   <div class="col-9">
                     <div class="our-services-text">
-                      <h4>Shipping</h4>
-                      <a href="#" data-toggle="modal" data-target="#ship"> Apply</a>
+                      <h4>{{'Shipping'|translate}}</h4>
+                      <a href="#" data-toggle="modal" data-target="#ship">{{'Apply'|translate}}</a>
                     </div>
                   </div>
                 </div>
@@ -584,11 +600,9 @@
   <div class="adv" id="adver">
     <div class="container">
       <div class="adv-title">
-        <h2>Free <span>Advertisement</span> by our users</h2>
+        <h2>{{'Free'|translate}}<span>{{'Advertisement'|translate}}</span> {{'by our users'|translate}}</h2>
         <hr>
-        <p> Because our goal is to serve our customers and cooperate with them in finding their goal, we offer you a
-          service to raise their advertisement for free, which also helps you to find a suitable business opportunity
-          for you. These are part of the ads to inform you about.
+        <p> {{'add'|translate}}
         </p>
       </div>
       <div id="carouselExampleIndicators" class="carousel slide wow zoomIn" data-ride="carousel">
@@ -852,9 +866,8 @@
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
           <div class="title wow fadeInLeft">
-            <h3>Submit A Free <span>Advertisement</span></h3>
-            <p>Your Advertisement will be sent to the admin for review and we will get back to you as soon as
-              possible.</p>
+            <h3>{{'Submit A Free'|translate}} <span>{{'Advrtisement'|translate}}</span></h3>
+            <p>{{'adver'|translate}}</p>
           </div>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
@@ -952,13 +965,13 @@
       <nav>
         <ul>
           <li> <a href="#"><i class="fas fa-map-marker-alt"></i>
-              <span>Egypt, Menoufia ,Shebin-Elkom, AL Galaa AL Bahari Road Hilton Tower 6th floor</span>
+              <span>{{'Egypt, Menoufia ,Shebin-Elkom, AL Galaa AL Bahari Road, Hilton Tower 6th floor'|translate}}</span>
             </a></li>
           <li><a href="#"><i class="fas fa-at"></i>
-              <span>rafalmasr@gmail.com</span>
+              <span>{{'rafalmasr@gmail.com'|translate}}</span>
             </a></li>
           <li> <a href="#"><i class="fas fa-phone"></i>
-              <span>01094132184 / 01113115264</span></a></li>
+              <span>{{'01094132184 / 01113115264'|translate}}</span></a></li>
 
         </ul>
       </nav>
@@ -978,6 +991,6 @@
     <!-- Foooter Text-->
     <div class="copyright-text">
       <!-- ***** Removing this text is now allowed! This template is licensed under CC BY 3.0 ***** -->
-      <p>Copyright ©2018 Rafal Group Designed by <a href="#" target="_blank">Rafal Group</a></p>
+      <p>{{'Copyright ©2018 Rafal Group Designed by' |translate}}<a href="#" target="_blank">{{'Rafal Group'|translate}}</a></p>
     </div>
   </footer>

@@ -191,27 +191,23 @@ export class HomeComponent implements OnInit {
       comp = ResetmodalComponent;
     }
 
-    console.log("true");
-
-
     let getUserVerfiy = JSON.parse(localStorage.getItem("userSignupData"));
 
     let getUsertoken = localStorage.getItem("token");
     if (getUserVerfiy != null) {
-      console.log("1");
-
       this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
       this.bsModalRef.content.actionVerfiy.take(1).subscribe((value) => {
+        console.log("ahmed 111111111:", value) // here you will get the value;
         this.userData = value.userDetails.picture_url;
         this.userName = value.userDetails.userName;
         this.userType = value.userDetails.type;
+        // console.log("ahmed :", value.userDetails.type);
+        console.log(this.userData);
         let islog = true;
         this.checkDisplay = islog;
       });
     }
     else if (getUsertoken != null) {
-      console.log("2");
-
       if (componentTo == 'LoginmodalComponent' || componentTo == 'SignupmodalComponent' || componentTo == 'ResetmodalComponent') {
         this.bsModalRef = this.modalService.show(comp, { class: 'modal-sm' });
         // to get data session from modal
@@ -221,6 +217,7 @@ export class HomeComponent implements OnInit {
             this.userData = value.userDetails.picture_url;
             this.userName = value.userDetails.userName;
             this.userType = value.userDetails.type;
+            // console.log("ahmed :", value.userDetails.type);
             console.log(this.userData);
             let islog = true;
             this.checkDisplay = islog;
@@ -231,48 +228,37 @@ export class HomeComponent implements OnInit {
 
 
       } else {
-        console.log("3");
-
         this.bsModalRef = this.modalService.show(comp);
-        if (componentTo == 'LoginmodalComponent') {
-          this.bsModalRef.content.action.take(1).subscribe((value) => {
-            console.log("ahmed :", value) // here you will get the value;
-            this.userData = value.userDetails.picture_url;
-            this.userName = value.userDetails.userName;
-            this.userType = value.userDetails.type;
-            console.log(this.userData);
-            let islog = true;
-            this.checkDisplay = islog;
-          });
-        }
       }
     } else if (getUsertoken == null) {
-      console.log("4");
 
       if (componentTo == 'LoginmodalComponent' || componentTo == 'SignupmodalComponent') {
         this.bsModalRef = this.modalService.show(comp, { class: 'modal-sm' });
         // to get data session from modal
         if (componentTo == 'LoginmodalComponent') {
           this.bsModalRef.content.action.take(1).subscribe((value) => {
+            console.log("ahmed2 :", value) // here you will get the value;
             this.userData = value.userDetails.picture_url;
             this.userName = value.userDetails.userName;
+            // console.log("ahmed2 :", value.userDetails.type);
             let islog = true;
             this.checkDisplay = islog;
             this.userType = value.userDetails.type;
           });
         }
       } else {
-        console.log("5");
-
         this.bsModalRef = this.modalService.show(LoginmodalComponent, { class: 'modal-sm' });
-        this.bsModalRef.content.action.take(1).subscribe((value) => {
-          console.log("ahmed2 :", value) // here you will get the value;
-          this.userData = value.userDetails.picture_url;
-          this.userName = value.userDetails.userName;
-          let islog = true;
-          this.checkDisplay = islog;
-          this.userType = value.userDetails.type;
-        });
+        if (componentTo == 'LoginmodalComponent') {
+          this.bsModalRef.content.action.take(1).subscribe((value) => {
+            console.log("ahmed2 :", value) // here you will get the value;
+            this.userData = value.userDetails.picture_url;
+            this.userName = value.userDetails.userName;
+            // console.log("ahmed2 :", value.userDetails.type);
+            let islog = true;
+            this.checkDisplay = islog;
+            this.userType = value.userDetails.type;
+          });
+        }
       }
 
 
@@ -333,19 +319,19 @@ export class HomeComponent implements OnInit {
         this.userData = value.userDetails.picture_url;
         this.userName = value.userDetails.userName;
         this.userType = value.userDetails.type;
+        // console.log("ahmed :", value.userDetails.type);
         console.log(this.userData);
         let islog = true;
         this.checkDisplay = islog;
       });
     } else if (getUserlogin == null) {
-      console.log("done");
-
       this.bsModalRef = this.modalService.show(LoginmodalComponent, { class: 'modal-sm' });
 
       this.bsModalRef.content.action.take(1).subscribe((value) => {
         console.log("ahmed2 :", value) // here you will get the value;
         this.userData = value.userDetails.picture_url;
         this.userName = value.userDetails.userName;
+        // console.log("ahmed2 :", value.userDetails.type);
         let islog = true;
         this.checkDisplay = islog;
         this.userType = value.userDetails.type;
@@ -395,6 +381,10 @@ export class HomeComponent implements OnInit {
         while (this.imaArray.length > 0) {
           this.arrays.push(this.imaArray.splice(0, this.size));
         }
+        console.log(this.arrays);
+
+
+        // console.log(this.imaArray.length);
 
       },
       error => {
@@ -409,7 +399,17 @@ export class HomeComponent implements OnInit {
       if (event.target.files && event.target.files.length > 0) {
         let file = event.target.files[0];
         reader.readAsArrayBuffer(file);
+
+
         reader.onload = (e) => {
+
+          // let img = new Image();
+          // img.src = e.target.result;
+          // console.log(img.width, img.height);
+
+          // console.log(e.target.result);
+
+
           const imgBlob = new Blob([reader.result], { type: file.type });
           this.file1 = imgBlob;
         };

@@ -4,7 +4,7 @@
       <div class="modal-icon">
         <i class="ic fas fa-chalkboard-teacher"></i>
       </div>
-      <h5><span>Office </span>Services</h5>
+      <h5><span>{{'Office'|translate}} </span>{{'Service'|translate}}</h5>
       <hr>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
         <span aria-hidden="true">&times;</span>
@@ -15,13 +15,13 @@
     <div class=" form office">
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="text" name="text" placeholder="Address" formControlName="address" [(ngModel)]="Address"
+          <input class="text" type="text" name="text" placeholder="{{'Address'|translate}}" formControlName="address" [(ngModel)]="Address"
             [ngClass]="{ 'is-invalid': hasError('address','required')|| hasError('address','maxlength'),
           'is-valid':OfficeForm.get('address').touched && !hasError('address','required') &&   !hasError('address','maxlength') }"
             required>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="text" name="text" placeholder="Renting Offices" formControlName="rentingOffices"
+          <input class="text" type="text" name="text" placeholder="{{'Renting Offices'|translate}}" formControlName="rentingOffices"
             [(ngModel)]="RentingOffices" [ngClass]="{ 'is-invalid': hasError('rentingOffices','required')|| hasError('rentingOffices','maxlength'),
           'is-valid':OfficeForm.get('rentingOffices').touched && !hasError('rentingOffices','required') &&   !hasError('rentingOffices','maxlength') }"
             required>
@@ -29,13 +29,13 @@
       </div>
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="text" name="text" placeholder="Furniture of Office" formControlName="officeFurniture"
+          <input class="text" type="text" name="text" placeholder="{{'Furniture of Office'|translate}}" formControlName="officeFurniture"
             [ngClass]="{ 'is-invalid': hasError('officeFurniture','required')|| hasError('officeFurniture','maxlength'),
           'is-valid':OfficeForm.get('officeFurniture').touched && !hasError('officeFurniture','required') &&   !hasError('officeFurniture','maxlength') }"
             [(ngModel)]="OfficeFurniture" required>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="text" name="text" placeholder="Devices" formControlName="devices" [(ngModel)]="Devices"
+          <input class="text" type="text" name="text" placeholder="{{'Devices'|translate}}" formControlName="devices" [(ngModel)]="Devices"
             [ngClass]="{ 'is-invalid': hasError('devices','required')|| hasError('devices','maxlength'),
           'is-valid':OfficeForm.get('devices').touched && !hasError('devices','required') &&   !hasError('devices','maxlength') }"
             required />
@@ -43,13 +43,13 @@
       </div>
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="text" name="text" placeholder="Cameras CCTV" formControlName="cameras" [(ngModel)]="Cameras"
+          <input class="text" type="text" name="text" placeholder="{{'Cameras CCTV'|translate}}" formControlName="cameras" [(ngModel)]="Cameras"
             [ngClass]="{ 'is-invalid': hasError('cameras','required')|| hasError('cameras','maxlength'),
           'is-valid':OfficeForm.get('cameras').touched && !hasError('cameras','required') &&   !hasError('cameras','maxlength') }"
             required />
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="text" name="text" placeholder="Inks" formControlName="inks" [(ngModel)]="Inks"
+          <input class="text" type="text" name="text" placeholder="{{'Inks'|translate}}" formControlName="inks" [(ngModel)]="Inks"
             [ngClass]="{ 'is-invalid': hasError('inks','required')|| hasError('inks','maxlength'),
           'is-valid':OfficeForm.get('inks').touched && !hasError('inks','required') &&   !hasError('inks','maxlength') }"
             required />
@@ -57,31 +57,31 @@
       </div>
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="text" name="text" placeholder="Papers" formControlName="papers" [(ngModel)]="Papers"
+          <input class="text" type="text" name="text" placeholder="{{'Papers'|translate}}" formControlName="papers" [(ngModel)]="Papers"
             [ngClass]="{ 'is-invalid': hasError('papers','required')|| hasError('papers','maxlength'),
           'is-valid':OfficeForm.get('papers').touched && !hasError('papers','required') &&   !hasError('papers','maxlength') }"
             required />
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="text" name="text" placeholder="Web Designs" formControlName="webDesign" [(ngModel)]="WebDesign"
+          <input class="text" type="text" name="text" placeholder="{{'Web Designs'|translate}}" formControlName="webDesign" [(ngModel)]="WebDesign"
             [ngClass]="{ 'is-invalid': hasError('webDesign','required')|| hasError('webDesign','maxlength'),
           'is-valid':OfficeForm.get('webDesign').touched && !hasError('webDesign','required') &&   !hasError('webDesign','maxlength') }"
             required />
         </div>
       </div>
 
-      <input class="text" type="text" name="text" placeholder="Digital marketing" formControlName="dMarketing"
+      <input class="text" type="text" name="text" placeholder="{{'Digital marketing'|translate}}" formControlName="dMarketing"
         [ngClass]="{ 'is-invalid': hasError('dMarketing','required')|| hasError('dMarketing','maxlength'),
       'is-valid':OfficeForm.get('dMarketing').touched && !hasError('dMarketing','required') &&   !hasError('dMarketing','maxlength') }"
         [(ngModel)]="DMarketing" required />
 
-      <textarea type="text" name="text" placeholder="Other (optional)" formControlName="others" [(ngModel)]="Others"></textarea>
+      <textarea type="text" name="text" placeholder="{{'Other (optional)'|translate}}" formControlName="others" [(ngModel)]="Others"></textarea>
 
 
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Cancel</button>
-    <button type="button" class="btn btn-primary" (click)="OfficeService()" [disabled]="!OfficeForm.valid ">Submit</button>
+    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}}</button>
+    <button type="button" class="btn btn-primary" (click)="OfficeService()" [disabled]="!OfficeForm.valid ">{{ 'Submit'|translate}}</button>
   </div>
 </form>

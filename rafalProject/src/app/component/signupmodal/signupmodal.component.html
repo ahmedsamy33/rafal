@@ -22,9 +22,25 @@
         [ngClass]="{ 'is-invalid': signupForm.get('name').touched && signupForm.get('name').hasError('required'),
           'is-valid':signupForm.get('name').touched && !signupForm.get('name').hasError('required') }" />
 
-      <input class="text" type="number" name="text" placeholder="Phone" formControlName="phonen" [(ngModel)]="phoneNumber"
+          <div class="input-group mb-3 log-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><select formControlName="countrycode" [(ngModel)]="contryCode">
+                    <option value="{{country}}" *ngFor="let country of countries">{{country}}</option>
+                  </select>
+            </span>
+              </div>
+              <input class="form-control" type="number" name="text" placeholder="Phone" formControlName="phonen" [(ngModel)]="phoneNumber"
+              [ngClass]="{ 'is-invalid': signupForm.get('phonen').touched && signupForm.get('phonen').hasError('required'),
+                'is-valid':signupForm.get('phonen').touched && !signupForm.get('phonen').hasError('required') }"  aria-describedby="basic-addon1"/>
+            </div>
+            
+         
+          
+
+
+      <!-- <input class="form-control" type="number" name="text" placeholder="Phone" formControlName="phonen" [(ngModel)]="phoneNumber"
         [ngClass]="{ 'is-invalid': signupForm.get('phonen').touched && signupForm.get('phonen').hasError('required'),
-          'is-valid':signupForm.get('phonen').touched && !signupForm.get('phonen').hasError('required') }" />
+          'is-valid':signupForm.get('phonen').touched && !signupForm.get('phonen').hasError('required') }"  aria-describedby="basic-addon1"/> -->
 
       <input class="text" type="number" name="text" placeholder="ID number" formControlName="national" [(ngModel)]="nationalId"
         [ngClass]="{ 'is-invalid': signupForm.get('national').touched && signupForm.get('national').hasError('required'),
@@ -38,9 +54,9 @@
         [(ngModel)]="confirmPassword" [ngClass]="{ 'is-invalid': signupForm.get('confirm').touched && signupForm.get('confirm').hasError('required') || (signupForm.get('password').value != signupForm.get('confirm').value),
           'is-valid':signupForm.get('confirm').touched && !signupForm.get('confirm').hasError('required') && (signupForm.get('password').value == signupForm.get('confirm').value) }" />
 
-      <select formControlName="countrycode" [(ngModel)]="contryCode">
+      <!-- <select formControlName="countrycode" [(ngModel)]="contryCode">
         <option value="{{country}}" *ngFor="let country of countries">{{country}}</option>
-      </select>
+      </select> -->
 
 
 
