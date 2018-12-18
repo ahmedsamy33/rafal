@@ -55,7 +55,7 @@
   "Rafal Group":"Rafal Group",
   "forget password?":"forget password?",
   "Dont have account.Sign Up":"Dont have account.Sign Up",
-  "Our company is considered as one of the leading international services supplier of Commercial andadministrative rendered services.":"Our company is considered as one of the leading international services supplier of Commercial andadministrative rendered services.",
+  "rafal define":"Our company is considered as one of the leading international services supplier of Commercial andadministrative rendered services.",
 "develop":"The role is responsible for designing, coding and modifying websites, from layout to function and according to a client's specifications. Strive to create visually appealing sites that feature user-friendly design and clear navigation. We are happy to serve you.",
 "export":"An import export business is a company that facilitates trades of goods and commodities between domestic and foreign companies. In other words, it’s a company that buys goods internationally and ships them in for domestic purchases and vise versa.",
 "labor":"Through a database prepared carefully for all fields and have been rehabilitated and developed to keep pace with the external labor market with the possibility of providing visas to transfer the worker directly or to hire workers through cooperation with enterprises outside Egypt.",
@@ -110,5 +110,27 @@
 "name of the responsible of recieving":"name of the responsible of recieving",
 "type of goods":"type of goods",
 "delivery street address":"Delivery street address",
-"Required Brand":"Required Brand"
+"Required Brand":"Required Brand",
+"product Description":"product Description",
+"Location":"Location",
+"Upload the image of the product :":"Upload the image of the product :",
+"Upload a copy of the bill of shipment :":"Upload a copy of the bill of shipment :",
+"Upload a copy of the authorization :":"Upload a copy of the authorization :",
+"Shipment Description":"Shipment Description",
+"country":"country",
+"company type":"company type",
+"Detailed Address":"Detailed Address",
+"Capital Currency Ex:100:Usd":"Capital Currency Ex:100:Usd",
+"Upload copies of your partners ID cards :":"Upload copies of your partners ID cards :",
+"Upload your authorization copy :":"Upload your authorization copy :",
+"Upload your rental agreement copy :":"Upload your rental agreement copy :",
+"Upload your CV :":"Upload your CV :",
+"name":"name",
+"ID number":"ID number",
+"Already have account.log in":"Already have account.log in",
+"Your Description":"Your Description",
+"Upgrate to company":"Upgrate to company",
+"Search":"Search"
+
+
 }

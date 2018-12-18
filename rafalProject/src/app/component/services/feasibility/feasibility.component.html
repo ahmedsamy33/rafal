@@ -4,7 +4,7 @@
       <div class="modal-icon">
         <i class="ic fas fa-paste"></i>
       </div>
-      <h5>Fesability study</h5>
+      <h5>{{'Feasibility'|translate}}{{'Study'|translate}}</h5>
       <hr>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
         <span aria-hidden="true">&times;</span>
@@ -35,13 +35,13 @@
       </div>
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="text" name="text" placeholder="Activity" formControlName="activity" [(ngModel)]="Activity"
+          <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}}" formControlName="activity" [(ngModel)]="Activity"
             [ngClass]="{ 'is-invalid': hasError('activity','required')|| hasError('activity','maxlength'),
             'is-valid':FeasibilityForm.get('activity').touched && !hasError('activity','required') &&   !hasError('activity','maxlength') }"
             required />
         </div>
         <div class="col">
-          <input class="text" type="text" name="text" placeholder="Detailed Address" formControlName="address"
+          <input class="text" type="text" name="text" placeholder="{{'Detailed Address'|translate}}" formControlName="address"
             [(ngModel)]="Address" [ngClass]="{ 'is-invalid': hasError('address','required')|| hasError('address','maxlength'),
             'is-valid':FeasibilityForm.get('address').touched && !hasError('address','required') &&   !hasError('address','maxlength') }"
             required />
@@ -58,7 +58,7 @@
           </select>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="number" name="text" placeholder="Capital Currency Ex:100:Usd" formControlName="capital"
+          <input class="text" type="number" name="text" placeholder="{{'Capital Currency Ex:100:Usd'|translate}}" formControlName="capital"
             [(ngModel)]="Capital" [ngClass]="{ 'is-invalid': hasError('capital','required'),
             'is-valid':FeasibilityForm.get('capital').touched && !hasError('capital','required') }"
             required />
@@ -68,8 +68,8 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="bsModalRef.hide()">Cancel</button>
-    <button type="button" class="btn btn-primary" [disabled]="!FeasibilityForm.valid " (click)="FeasibilityService()">Submit</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="bsModalRef.hide()">{{'Cancel'|translate}}</button>
+    <button type="button" class="btn btn-primary" [disabled]="!FeasibilityForm.valid " (click)="FeasibilityService()">{{ 'Submit'|translate}}</button>
   </div>
 
 </form>

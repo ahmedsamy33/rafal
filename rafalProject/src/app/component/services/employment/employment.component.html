@@ -4,7 +4,7 @@
         <div class="modal-icon">
           <i class="ic fas fa-handshake"></i>
         </div>
-        <h5>Employment</h5>
+        <h5>{{'Employment'|translate}}</h5>
         <hr>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
           <span aria-hidden="true">&times;</span>
@@ -13,7 +13,7 @@
     </div>
     <div class="modal-body">
       <div class="form employ">
-        <input class="text" type="text" name="text" placeholder="Activity" 
+        <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}}" 
         formControlName="activity" [(ngModel)]="Activity"
         [ngClass]="{ 'is-invalid': hasError('activity','required') || hasError('activity','maxlength'),
         'is-valid':employmentForm.get('activity').touched && !hasError('activity','required') &&  !hasError('activity','maxlength')}"
@@ -25,12 +25,12 @@
           <option  *ngFor="let job of jobTitle" value="{{job.code}}">{{job.value}}</option>
          
        </select>
-        <input class="text" type="number" name="text" placeholder="Salary" 
+        <input class="text" type="number" name="text" placeholder="{{'Salary'|translate}}" 
         formControlName="salary" [(ngModel)]="Salary"
         [ngClass]="{ 'is-invalid': hasError('salary','required') || employmentForm.get('salary').minlength,
         'is-valid':employmentForm.get('salary').touched && !hasError('salary','required') &&  ! employmentForm.get('salary').minlength}"
         required/>
-        <span>Upload your CV :</span>
+        <span>{{'Upload your CV :'|translate}}</span>
         <div class="custom-file">
           <input type="file" class="custom-file-input" id="inputGroupFile01" 
           formControlName="imageblob1" [(ngModel)]="imageBlob1"
@@ -40,14 +40,14 @@
           accept="image/* , .doc , .docx ,.pdf"
           required
           aria-describedby="inputGroupFileAddon01">
-          <label class="custom-file-label" for="inputGroupFile01"  *ngIf="pictureName1 == ''">no file choosen</label>
+          <label class="custom-file-label" for="inputGroupFile01"  *ngIf="pictureName1 == ''">{{'no file choosen'|translate}}</label>
           <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}} </label>
         </div>
-        <textarea type="text" name="text" placeholder="Other (optional)" formControlName="others" [(ngModel)]="Others"></textarea>
+        <textarea type="text" name="text" placeholder="{{'Other (optional)'|translate}}" formControlName="others" [(ngModel)]="Others"></textarea>
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Cancel </button>
-      <button type="button" class="btn btn-primary" (click)="employmentService()" [disabled]="!employmentForm.valid ">Submit</button>
+      <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}} </button>
+      <button type="button" class="btn btn-primary" (click)="employmentService()" [disabled]="!employmentForm.valid ">{{ 'Submit'|translate}}</button>
     </div>
   </form>

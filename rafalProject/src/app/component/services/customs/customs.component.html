@@ -4,7 +4,7 @@
       <div class="modal-icon">
         <i class="ic fab fa-accusoft"></i>
       </div>
-      <h5><span>Customs </span>Clearance</h5>
+      <h5><span>{{'Customs'|translate}}  </span>{{'Clearance'|translate}}</h5>
       <hr>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
         <span aria-hidden="true">&times;</span>
@@ -13,34 +13,34 @@
   </div>
   <div class="modal-body">
     <div class="form customs">
-      <span>Upload a copy of the bill of shipment :</span>
+      <span>{{'Upload a copy of the bill of shipment :'|translate}}</span>
       <div class="custom-file">
         <input type="file" class="custom-file-input" id="inputGroupFile01" formControlName="imageblob1" [(ngModel)]="imageBlob1"
           [ngClass]="{ 'is-invalid': customsForm.get('imageblob1').touched && customsForm.get('imageblob1').hasError('required'),
           'is-valid':customsForm.get('imageblob1').touched && !customsForm.get('imageblob1').hasError('required') }"
           (change)="processFile($event,1)" accept="image/*" required>
-        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">no image choosen </label>
+        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">{{'no image choosen'|translate}} </label>
         <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}} </label>
       </div>
-      <span>Upload a copy of the authorization :</span>
+      <span>{{'Upload a copy of the authorization :'|translate}}</span>
 
       <div class="custom-file">
         <input type="file" class="custom-file-input" id="inputGroupFile02" formControlName="imageblob2" [(ngModel)]="imageBlob2"
           [ngClass]="{ 'is-invalid': customsForm.get('imageblob2').touched && customsForm.get('imageblob2').hasError('required'),
           'is-valid':customsForm.get('imageblob2').touched && !customsForm.get('imageblob2').hasError('required') }"
           (change)="processFile($event,2)" accept="image/*" required>
-        <label class="custom-file-label" for="inputGroupFile02" *ngIf="pictureName2 == ''">no image choosen </label>
+        <label class="custom-file-label" for="inputGroupFile02" *ngIf="pictureName2 == ''">{{'no image choosen'|translate}} </label>
         <label class="custom-file-label" for="inputGroupFile02" *ngIf="pictureName2 != ''">{{pictureName2}} </label>
       </div>
-      <input class="text" type="text" name="text" placeholder="Port of Shipment" formControlName="shipmentPort"
+      <input class="text" type="text" name="text" placeholder="{{'Port of shipment'|translate}}" formControlName="shipmentPort"
         [(ngModel)]="ShipmentPort" [ngClass]="{ 'is-invalid': hasError('shipmentPort','required')|| hasError('shipmentPort','maxlength'),
         'is-valid':customsForm.get('shipmentPort').touched && !hasError('shipmentPort','required') &&   !hasError('shipmentPort','maxlength') }"
         required />
-      <input class="text" type="text" name="text" placeholder="Shipment Description" formControlName="shipmentDescription"
+      <input class="text" type="text" name="text" placeholder="{{'Shipment Description'|translate}}" formControlName="shipmentDescription"
         [(ngModel)]="ShipmentDescription" [ngClass]="{ 'is-invalid': hasError('shipmentDescription','required')|| hasError('shipmentDescription','maxlength'),
         'is-valid':customsForm.get('shipmentDescription').touched && !hasError('shipmentDescription','required') &&   !hasError('shipmentDescription','maxlength') }"
         required />
-      <textarea type="text" name="text" placeholder="Other (optional)" formControlName="others" [(ngModel)]="Others"></textarea>
+      <textarea type="text" name="text" placeholder="{{'Other (optional)'|translate}}" formControlName="others" [(ngModel)]="Others"></textarea>
 
 
 
@@ -48,8 +48,8 @@
     </div>
   </div>
   <div class="modal-footer ">
-    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Cancel</button>
-    <button type="button" class="btn btn-primary" [disabled]="!customsForm.valid " (click)="customsService()">Submit</button>
+    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}}</button>
+    <button type="button" class="btn btn-primary" [disabled]="!customsForm.valid " (click)="customsService()">{{ 'Submit'|translate}}</button>
   </div>
 
 </form>

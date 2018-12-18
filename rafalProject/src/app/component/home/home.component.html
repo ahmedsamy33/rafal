@@ -77,33 +77,38 @@
   <div class="container">
     <ul class="list-inline">
       <li class="nav-item">
-        <a class="nav-link sign" *ngIf="!checkDisplay" (click)="openmodal('LoginmodalComponent')">Log In
+          <li class="nav-item">
+              <select class="text select" name="country" placeholder="Language" [(ngModel)]="lang" (ngModelChange)="changeLanguage(lang)">
+                <option value="en">English</option>
+                <option value="ar">Arabic</option>
+              </select>
+              <span class="lang-border">|</span>
+            </li>
+            <li>
+        <a class="nav-link sign" *ngIf="!checkDisplay" (click)="openmodal('LoginmodalComponent')">{{'log in'|translate}}<span>|</span> 
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sign" *ngIf="!checkDisplay" (click)="openmodal('SignupmodalComponent')">Sign Up</a>
+        <a class="nav-link sign" *ngIf="!checkDisplay" (click)="openmodal('SignupmodalComponent')">{{'sign up'|translate}}<span>|</span></a>
       </li>
+     
       <li class="nav-item">
-        <a class="nav-link sign" *ngIf="checkDisplay" (click)="logOut()">Log out </a>
+        <a class="nav-link sign" *ngIf="checkDisplay" (click)="logOut()">{{'log out'|translate}}<span>|</span> </a>
       </li>
       <li class="nav-item">
         <a class="nav-link sign" *ngIf="checkDisplay && userType != 'Company'" (click)="openmodal('UpgrademodalComponent')">
-          Upgrate to company</a>
+          {{'Upgrate to company'|translate}}<span>|</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sign"> Search</a>
+        <a class="nav-link sign"> {{'Search'|translate}}</a>
       </li>
-      <li class="nav-item">
-        <select class="text select" name="country" placeholder="Language" [(ngModel)]="lang" (ngModelChange)="changeLanguage(lang)">
-          <option value="en">English</option>
-          <option value="ar">Arabic</option>
-        </select>
-      </li>
+      
     </ul>
   </div>
 </div>
 <!--start nav-->
-<nav class="navbar navbar-expand-lg navbar-light ">
+<!--use in en:navbar & ar:navbar & navbar-ar-->
+<nav class="navbar  navbar-expand-lg navbar-light ">
   <div class="container">
     <a class="navbar-brand" href="#"><img src="./assets/images/rafal-logo1.png" /></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -128,10 +133,10 @@
         <li class="nav-item">
           <a class="nav-link" href="{{urlActive}}#contact"> {{'contact'|translate}}</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link  sea"> {{'search'|translate}}</a>
-          </li>
-        <li class="nav-item">
+          </li> -->
+        <!-- <li class="nav-item">
           
           <a class="nav-link  log" *ngIf="!checkDisplay" (click)="openmodal('LoginmodalComponent')">{{'log in'|translate}} 
           </a>
@@ -154,7 +159,7 @@
             <option value="en">English</option>
             <option value="ar">العربيه</option>
           </select>
-        </li>
+        </li> -->
 
 
 
@@ -202,8 +207,7 @@
           <div class="info wow fadeInUp">
             <h3> <span>{{'rafal group'|translate}}</span> </h3>
             <!-- <h4>R</h4> -->
-            <p>{{'Our company is considered as one of the leading international services supplier of Commercial and
-              administrative rendered services.'|translate}} </p>
+            <p>{{'rafal define'|translate}} </p>
             <button><a href="#about">{{'get started'|translate}}</a></button>
           </div>
         </div>
@@ -313,6 +317,7 @@
           </div>
         </div>
         <div class="col-lg-6 col-xl-5 ml-xl-auto">
+          <!-- en:special_description_content & ar:special_description_content special_description_content-ar -->
           <div class="special_description_content">
             <h2>{{'Try Our'|translate}} <span>{{'Mobile Application'|translate}}</span> {{'Now'|translate}}</h2>
             <hr>
@@ -879,24 +884,25 @@
             <select class="text select" type="text" name="text" placeholder="Job Title" formControlName="job"
               [(ngModel)]="Job" [ngClass]="{ 'is-invalid': hasError('job','required'),'is-valid':addadvertismentForm.get('job').touched && !hasError('job','required')  }"
               required>
+              <option selected >Advertisment Title</option>
               <option *ngFor="let job of jobTitle" value="{{job.code}}">{{job.value}}</option>
 
             </select>
 
-            <textarea class="text second" type="text" name="description" placeholder="Your Description" formControlName="discription"
+            <textarea class="text second" type="text" name="description" placeholder="{{'Your Description'|translate}}" formControlName="discription"
               [(ngModel)]="Discription"></textarea>
             <div class="custom-file">
               <input type="file" class="custom-file-input" id="inputGroupFile01" formControlName="imageblob1"
                 [(ngModel)]="imageBlob1" [ngClass]="{ 'is-invalid': addadvertismentForm.get('imageblob1').touched && addadvertismentForm.get('imageblob1').hasError('required'),
                   'is-valid':addadvertismentForm.get('imageblob1').touched && !addadvertismentForm.get('imageblob1').hasError('required') }"
                 (change)="processFile($event,1)" accept="image/*" required>
-              <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">no image choosen
+              <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">{{'no image choosen'|translate}}
               </label>
               <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}}
               </label>
             </div>
 
-            <button type="button" (click)="addAdvertsService()" [disabled]="!addadvertismentForm.valid ">Submit</button>
+            <button type="button" (click)="addAdvertsService()" [disabled]="!addadvertismentForm.valid ">{{ 'Submit'|translate}}</button>
           </form>
 
 

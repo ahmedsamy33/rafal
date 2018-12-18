@@ -1,29 +1,49 @@
 .ubber {
   overflow: hidden;
-  background-color: #0e1010;
+  background-color: #2dbfbf;
   text-align: center;
-  display:none;
+ 
+  
 }
 
 .ubber .list-inline {
   margin-bottom: 0;
+  TEXT-ALIGN: RIGHT;
 }
 
 .ubber .list-inline li {
   display: inline-block;
   color: #fff;
-  margin-right: 5%;
+  PADDING: 0;
   font-size: 14px;
 }
 
 .ubber .list-inline li a {
   color: #fff;
+  padding: 0;
+  margin-left: -11px;
+  font-size:11px
+}
+.ubber  .list-inline li a span{
+padding: 10px;
+    margin-right: 9px;
 }
 
 .ubber .list-inline .select {
   border: none;
   background-color: transparent;
-  color: #c3bdbd;
+  color: #fff;
+  margin-right: 16px;
+  font-size: 11px;
+}
+
+
+.ubber .list-inline .nav-item .lang-border{
+  margin-right: 22px;
+  margin-left: -13px;
+}
+.ubber .list-inline .sign{
+margin-left: 10px
 }
 
 .ubber .list-inline li .profile::after {
@@ -67,7 +87,19 @@
     font-size: 11px;
   }
 }
-
+.navbar-ar .collapse{
+  direction:rtl;
+}
+.navbar-ar .nav-item{
+  
+}
+.navbar-ar .navbar-nav li .nav-link {
+  font-weight: 600;
+  font-size: 15px;
+  margin-right: -4px;
+  cursor: pointer;
+  width: 85px;
+}
 .navbar .dropdown .btn {
   width: 56px;
   height: 38px;
@@ -121,8 +153,8 @@
 }
 
 .navbar .navbar-brand img {
-  width: 110px;
-  margin-top: 28px;
+  width: 87px;
+  margin-top: 50px;
 }
 
 .navbar .dropdown .dropdown-item {
@@ -599,6 +631,15 @@ font-weight:600;
 
 }
 
+.special_description_content {
+  text-align: left;
+  direction: ltr;
+} 
+
+.special_description_content-ar {
+  text-align: right;
+  direction: rtl;
+}
 .special_description_content>h2 {
   color: #ab0004;
   font-size: 27px;
@@ -609,16 +650,18 @@ font-weight:600;
   color: #000;
 }
 
+.special_description_content-ar h2 span {
+  color: #0ff;
+}
+
 .special_description_content hr {
   color: #099;
   width: 32%;
   height: 0px;
-  margin-top: -15px;
   background-color: #099;
-  margin-bottom: 41px;
-  margin-left: 4px;
+  margin: -15px 0 41px 4px;
 
-}
+} 
 
 .single-special:hover {
   -webkit-box-shadow: 0 10px 90px rgba(0, 0, 0, 0.3);

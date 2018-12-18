@@ -9,7 +9,7 @@
       <div class="modal-icon">
         <i class=" ic fas fa-user-plus"></i>
       </div>
-      <h5>Sign Up</h5>
+      <h5>{{'sign up'|translate}}</h5>
       <hr>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
         <span aria-hidden="true">&times;</span>
@@ -18,7 +18,7 @@
   </div>
   <div class="modal-body">
     <div class="form log">
-      <input class="text" type="text" name="text" placeholder="name" formControlName="name" [(ngModel)]="Name"
+      <input class="text" type="text" name="text" placeholder="{{'name'|translate}}" formControlName="name" [(ngModel)]="Name"
         [ngClass]="{ 'is-invalid': signupForm.get('name').touched && signupForm.get('name').hasError('required'),
           'is-valid':signupForm.get('name').touched && !signupForm.get('name').hasError('required') }" />
 
@@ -29,7 +29,7 @@
                   </select>
             </span>
               </div>
-              <input class="form-control" type="number" name="text" placeholder="Phone" formControlName="phonen" [(ngModel)]="phoneNumber"
+              <input class="form-control" type="number" name="text" placeholder="{{'Phone number'|translate}}" formControlName="phonen" [(ngModel)]="phoneNumber"
               [ngClass]="{ 'is-invalid': signupForm.get('phonen').touched && signupForm.get('phonen').hasError('required'),
                 'is-valid':signupForm.get('phonen').touched && !signupForm.get('phonen').hasError('required') }"  aria-describedby="basic-addon1"/>
             </div>
@@ -42,15 +42,15 @@
         [ngClass]="{ 'is-invalid': signupForm.get('phonen').touched && signupForm.get('phonen').hasError('required'),
           'is-valid':signupForm.get('phonen').touched && !signupForm.get('phonen').hasError('required') }"  aria-describedby="basic-addon1"/> -->
 
-      <input class="text" type="number" name="text" placeholder="ID number" formControlName="national" [(ngModel)]="nationalId"
+      <input class="text" type="number" name="text" placeholder="{{'ID number'|translate}}" formControlName="national" [(ngModel)]="nationalId"
         [ngClass]="{ 'is-invalid': signupForm.get('national').touched && signupForm.get('national').hasError('required'),
           'is-valid':signupForm.get('national').touched && !signupForm.get('national').hasError('required') }" />
 
-      <input class="text" type="password" name="text" placeholder="Password" formControlName="password" [(ngModel)]="Password"
+      <input class="text" type="password" name="text" placeholder="{{'Password'|translate}}" formControlName="password" [(ngModel)]="Password"
         [ngClass]="{ 'is-invalid': signupForm.get('password').touched && signupForm.get('password').hasError('required') || (signupForm.get('password').value != signupForm.get('confirm').value),
           'is-valid':signupForm.get('password').touched && !signupForm.get('password').hasError('required') && (signupForm.get('password').value == signupForm.get('confirm').value) }" />
 
-      <input class="text" type="password" name="text" placeholder="Confirm Password" formControlName="confirm"
+      <input class="text" type="password" name="text" placeholder="{{'Confirm Password'|translate}}" formControlName="confirm"
         [(ngModel)]="confirmPassword" [ngClass]="{ 'is-invalid': signupForm.get('confirm').touched && signupForm.get('confirm').hasError('required') || (signupForm.get('password').value != signupForm.get('confirm').value),
           'is-valid':signupForm.get('confirm').touched && !signupForm.get('confirm').hasError('required') && (signupForm.get('password').value == signupForm.get('confirm').value) }" />
 
@@ -60,14 +60,13 @@
 
 
 
-      <a class="nav-link sign" (click)="openloginmodal()">Already have
-        account.log in </a>
+      <a class="nav-link sign" (click)="openloginmodal()">{{'Already have
+        account.log in'|translate}}</a>
     </div>
   </div>
   <div class="modal-footer">
 
-    <button type="button" class="btn btn-primary" (click)="signUp()" [disabled]="!signupForm.valid || (signupForm.get('password').value != signupForm.get('confirm').value)">Sign
-      up</button>
+    <button type="button" class="btn btn-primary" (click)="signUp()" [disabled]="!signupForm.valid || (signupForm.get('password').value != signupForm.get('confirm').value)">{{'sign up'|translate}}</button>
   </div>
 
 
