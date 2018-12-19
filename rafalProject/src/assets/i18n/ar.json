@@ -23,13 +23,13 @@
   "Now": "الان",
   "available on": "متاح الان علي",
   "Our": "",
-  "Services": "خدمتنا",
-  "Charter": "محاسبه",
-  "Accounting": "الميثاق",
+  "Services": "خدماتنا",
+  "Charter": "المحاسبه",
+  "Accounting": "القانونيه",
   "Hiring": "الحاق",
   "Labors": "العماله",
   "Apply": "تسجيل",
-  "Feasibility": "دراسه",
+  "Feasibility": " دراسه",
   "Study": "الجدوي",
   "Establishing": "تاسيس",
   "Companies": "الشركات",
@@ -131,7 +131,19 @@
  "Already have account.log in":"لديك صفحه بالفعل. سجل دخول",
  "Your Description":"وصف الاعلان",
  "Upgrate to company":"ترقيه الي شركه",
- "Search":"البحث"
+ "Search":"البحث",
+ "choose photo :":"اختر صوره",
+ "Language":"اللغه",
+ "English":"الانجليزيه",
+ "Arabic":"العربيه",
+ "Company name":"اسم الشركه",
+ "Expiry date:":"تاريخ الانتهاء",
+ "company website":"موقع الشركه",
+ "Email addres":"عنوان البريد الكتروني",
+ "Capital ($)":"العمله ($)",
+ "C.R Image":"صوره ال c.r",
+ "Old Password":"كلمه المرور الحاليه",
+ "New Password":"كلمه المرور الجديده"
 
 
 }

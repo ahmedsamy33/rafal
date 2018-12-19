@@ -1,5 +1,6 @@
 <form [formGroup]="accountingForm">
-  <div class="modal-header">
+  <!--use in en:modal-header & ar:modal-header modal-header-ar-->
+  <div class="modal-header modal-header-ar">
     <div class="modal-title" id="exampleModalLabel">
       <div class="modal-icon">
         <i class="ic fas fa-calculator"></i>
@@ -11,7 +12,8 @@
       </button>
     </div>
   </div>
-  <div class="modal-body">
+  <!--use in en:modal-body & ar:modal-body modal-body-ar-->
+  <div class="modal-body modal-body-ar">
     <div class="form account">
       <input class="text" type="number" name="phone" placeholder="{{'Year of Budget'|translate}}" formControlName="yearofbudget"
         [(ngModel)]="yearofBudget" [ngClass]="{ 'is-invalid': accountingForm.get('yearofbudget').touched && accountingForm.get('yearofbudget').hasError('required'),
@@ -55,7 +57,8 @@
 
     </div>
   </div>
-  <div class="modal-footer account-footer">
+  <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
+  <div class="modal-footer modal-footer-ar account-footer">
     <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}}</button>
     <button type="button" class="btn btn-primary" (click)="CharterService()" [disabled]="!accountingForm.valid ">{{ 'Submit'|translate}}</button>
   </div>

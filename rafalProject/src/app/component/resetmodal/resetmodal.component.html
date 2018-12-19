@@ -16,22 +16,23 @@
             </button>
           </div>
         </div>
-        <div class="modal-body">
+        <!--use in en:modal-body & ar:modal-body & modal-body-ar-->
+        <div class="modal-body  modal-body-ar">
           <div class="form reset">
-            <input class="text" type="password" name="text" placeholder="Old Password" formControlName="oldpass" [(ngModel)]="Oldpass"
+            <input class="text" type="password" name="text" placeholder="{{'Old Password'|translate}}" formControlName="oldpass" [(ngModel)]="Oldpass"
               [ngClass]="{ 'is-invalid': hasError('oldpass','required'),
           'is-valid':editFormPass.get('oldpass').touched && !hasError('oldpass','required')  }"
               required />
-            <input class="text" type="password" name="text" placeholder="New Password" formControlName="newpass"
+            <input class="text" type="password" name="text" placeholder="{{'New Password'|translate}}" formControlName="newpass"
               [(ngModel)]="Newpass" [ngClass]="{ 'is-invalid': hasError('newpass','required'),
           'is-valid':editFormPass.get('newpass').touched && !hasError('newpass','required')  }"
               required />
-            <input class="text" type="password" name="text" placeholder=" Confirm Password" formControlName="confirmnewpass"
+            <input class="text" type="password" name="text" placeholder=" {{'Confirm Password'|translate}}" formControlName="confirmnewpass"
               [(ngModel)]="Confirmnewpass" [ngClass]="{ 'is-invalid': hasError('confirmnewpass','required'),
           'is-valid':editFormPass.get('confirmnewpass').touched && !hasError('confirmnewpass','required')  }"
               required />
             <button type="button" class="btn btn-secondary" [disabled]="!editFormPass.valid || (editFormPass.value.newpass !== editFormPass.value.confirmnewpass) "
-              (click)="changePass()">Change</button>
+              (click)="changePass()">{{'Change'|translate}}</button>
 
           </div>
         </div>

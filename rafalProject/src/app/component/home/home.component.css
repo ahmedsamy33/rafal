@@ -1,3 +1,4 @@
+
 .ubber {
   overflow: hidden;
   background-color: #2dbfbf;
@@ -6,10 +7,14 @@
   
 }
 
+
 .ubber .list-inline {
   margin-bottom: 0;
   TEXT-ALIGN: RIGHT;
 }
+/* .ubber-ar .list-inline{
+  text-align:left
+} */
 
 .ubber .list-inline li {
   display: inline-block;
@@ -94,11 +99,12 @@ margin-left: 10px
   
 }
 .navbar-ar .navbar-nav li .nav-link {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 15px;
-  margin-right: -4px;
   cursor: pointer;
-  width: 85px;
+  width: 67px;
+  margin-left: 20px;
+  text-align: right;
 }
 .navbar .dropdown .btn {
   width: 56px;
@@ -342,6 +348,7 @@ font-weight:600;
 }
   } */
 /*HEADER*/
+
 .header h4 {
   font-size: 287px;
   position: absolute;
@@ -390,7 +397,21 @@ font-weight:600;
 .header .info button:hover a {
   color: #ab0005;
 }
-
+.header-ar{
+  direction:rtl
+}
+.header-ar .back img{
+transform: scalex(-1);
+}
+.header-ar .header-content .info{
+  direction: rtl;
+  text-align: right;
+}
+.header-ar .header-content h4{
+text-align: right;
+    float: right;
+    width: 100%;
+}
 @media(max-width:991px) and (min-width:786px) {
   .header[_ngcontent-c1] h4[_ngcontent-c1] {
     font-size: 257px;
@@ -461,7 +482,13 @@ font-weight:600;
     margin-left: -4px;
   }
 }
-
+/*main form arabic*/
+.main-form-ar{
+  direction:rtl
+}
+.main-form-ar .title{
+  text-align:right
+}
 /*END HEADER*/
 /*start footer*/
 /* .footer {
@@ -631,15 +658,9 @@ font-weight:600;
 
 }
 
-.special_description_content {
-  text-align: left;
-  direction: ltr;
-} 
 
-.special_description_content-ar {
-  text-align: right;
-  direction: rtl;
-}
+
+ 
 .special_description_content>h2 {
   color: #ab0004;
   font-size: 27px;
@@ -650,9 +671,7 @@ font-weight:600;
   color: #000;
 }
 
-.special_description_content-ar h2 span {
-  color: #0ff;
-}
+
 
 .special_description_content hr {
   color: #099;
@@ -661,18 +680,19 @@ font-weight:600;
   background-color: #099;
   margin: -15px 0 41px 4px;
 
-} 
+}
+ 
+
+.single-special p {
+  margin-bottom: 0;
+}
 
 .single-special:hover {
   -webkit-box-shadow: 0 10px 90px rgba(0, 0, 0, 0.3);
   box-shadow: 0 10px 90px rgba(0, 0, 0, 0.3);
   background-color: #fff;
 }
-
-.single-special p {
-  margin-bottom: 0;
-}
-
+/*app area*/
 .app-download-area {
   display: -moz-flex;
   display: -ms-flex;
@@ -768,6 +788,21 @@ font-weight:600;
   margin-bottom: 27px;
 
 }
+.special_description_content-ar {
+  text-align: right;
+  direction: ltr;
+} 
+
+ .special_description_content-ar hr{
+  margin: -15px 0 41px 308px;
+}  
+
+.special_description_content-ar .app-download-area {
+  direction:rtl
+}
+.special_description_content-ar .app-download-area .app-download-btn :first-child{
+  margin-right:0;
+} 
 
 @media(max-width:576px) and (min-width:270px) {
   .special-area .section-heading p {
@@ -806,7 +841,21 @@ font-weight:600;
     font-size: 13px;
   }
 }
-
+/*services arabic*/
+.services-ar{
+  direction:rtl;
+  overflow:hidden
+}
+.services-ar .services-inner{
+padding: 0 75px 0 0;
+}
+.services-ar .our-services-text{
+  text-align:right
+}
+.services-ar .our-services-text a{
+  text-align:right;
+  float:right;
+}
 /* --------------------------
 :: 8.0 Screenshots Area CSS
 -------------------------- */
@@ -1085,6 +1134,8 @@ font-weight:600;
 
 .adv .adv-title h2 span {
   color: #ab0005;
+  padding:8px
+
 }
 
 .adv .adv-title p {

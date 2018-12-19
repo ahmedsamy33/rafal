@@ -21,11 +21,11 @@
         <div class="form profile">
           <img *ngIf="pictureName2 == ''" src="./assets/images/images.jpg" />
           <img *ngIf="pictureName2 != ''" src="{{imageForURl}}" />
-          <span>choose photo :</span>
+          <span>{{'choose photo :'|translate}}</span>
           <div class="custom-file">
             <input type="file" class="custom-file-input" id="inputGroupFile02" accept="image/*" [(ngModel)]="imageBlob2"
               (change)="processFile($event,2)">
-            <label class="custom-file-label" *ngIf="pictureName2 == ''" for="inputGroupFile02">no image choosen</label>
+            <label class="custom-file-label" *ngIf="pictureName2 == ''" for="inputGroupFile02">{{'no image choosen'|translate}}</label>
             <label class="custom-file-label" *ngIf="pictureName2 != ''" for="inputGroupFile02"> {{pictureName2}}</label>
 
           </div>
@@ -34,7 +34,7 @@
         <div class="modal-footer foot">
 
           <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" (click)="changeProfileImage()"
-            [disabled]="pictureName2 == ''">Change</button>
+            [disabled]="pictureName2 == ''">{{'Change'|translate}}</button>
         </div>
 
       </div>
@@ -73,14 +73,14 @@
   </div>
 </div> -->
 <!--upper bar-->
-<div class="ubber">
+<div class="ubber ubber-ar">
   <div class="container">
     <ul class="list-inline">
       <li class="nav-item">
           <li class="nav-item">
               <select class="text select" name="country" placeholder="Language" [(ngModel)]="lang" (ngModelChange)="changeLanguage(lang)">
-                <option value="en">English</option>
-                <option value="ar">Arabic</option>
+                <option value="en">{{'English'|translate}}</option>
+                <option value="ar">{{'Arabic'|translate}}</option>
               </select>
               <span class="lang-border">|</span>
             </li>
@@ -89,7 +89,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sign" *ngIf="!checkDisplay" (click)="openmodal('SignupmodalComponent')">{{'sign up'|translate}}<span>|</span></a>
+        <a class="nav-link sign" *ngIf="!checkDisplay" (click)="openmodal('SignupmodalComponent')">{{'sign up'|translate}}</a>
       </li>
      
       <li class="nav-item">
@@ -97,18 +97,18 @@
       </li>
       <li class="nav-item">
         <a class="nav-link sign" *ngIf="checkDisplay && userType != 'Company'" (click)="openmodal('UpgrademodalComponent')">
-          {{'Upgrate to company'|translate}}<span>|</span></a>
+          {{'Upgrate to company'|translate}}</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link sign"> {{'Search'|translate}}</a>
-      </li>
+      </li> -->
       
     </ul>
   </div>
 </div>
 <!--start nav-->
 <!--use in en:navbar & ar:navbar & navbar-ar-->
-<nav class="navbar  navbar-expand-lg navbar-light ">
+<nav class="navbar  navbar-ar navbar-expand-lg navbar-light ">
   <div class="container">
     <a class="navbar-brand" href="#"><img src="./assets/images/rafal-logo1.png" /></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -194,7 +194,8 @@
 
 
 <!--start header-->
-<div class="header">
+<!--use in en:header & ar:header & header-ar-->
+<div class="header header-ar">
   <div class="back">
     <img src="./../assets/images/header-bg.png" />
   </div>
@@ -225,7 +226,7 @@
 
 
 <!-- ***** Special Area Start ***** -->
-<section class="special-area bg-white section_padding_100" id="about">
+<section class="special-area special-area-ar bg-white section_padding_100" id="about">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -308,7 +309,8 @@
   <!--end about-->
 
   <!-- Special Description Area -->
-  <div class="special_description_area mt-150">
+  <!--use in en:special_description_area & ar:special_description_area & special_description_area-ar-->
+  <div class="special_description_area  mt-150">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
@@ -318,7 +320,7 @@
         </div>
         <div class="col-lg-6 col-xl-5 ml-xl-auto">
           <!-- en:special_description_content & ar:special_description_content special_description_content-ar -->
-          <div class="special_description_content">
+          <div class="special_description_content special_description_content-ar">
             <h2>{{'Try Our'|translate}} <span>{{'Mobile Application'|translate}}</span> {{'Now'|translate}}</h2>
             <hr>
             <p>{{ 'mob' | translate}}</p>
@@ -347,7 +349,8 @@
   <!--  Special Area End  -->
 
   <!--start services-->
-  <div id="services" class="services">
+   <!-- en:services & ar:services services-ar -->
+  <div id="services" class="services services-ar">
     <div class="container">
       <div class="intro wow fadeInUp">
         <h2>{{'Our'|translate}} <span> {{'Services'|translate}} </span></h2>
@@ -534,7 +537,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 ">
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 offset-lg-3 offset-md-3">
             <div class="our-services-wrapper mb-60">
               <div class="services-inner wow fadeInRight" style="cursor: pointer;" (click)="openmodal('ShippingComponent')">
                 <div class="row">
@@ -862,7 +865,8 @@
 </div> -->
 
   <!--start main form-->
-  <div id="contact" class="main-form">
+  <!--use in en:main-form & ar:main-form & main-form-ar-->
+  <div id="contact" class="main-form main-form-ar">
     <div class="main-back">
       <img src="./../assets/images/pexels-photo-433639.jpeg" />
     </div>

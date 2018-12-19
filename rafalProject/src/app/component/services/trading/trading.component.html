@@ -1,5 +1,6 @@
 <form [formGroup]="tradingForm">
-  <div class="modal-header">
+  <!--use in en:modal-header & ar:modal-header modal-header-ar-->
+  <div class="modal-header modal-header-ar">
     <div class="modal-title" id="exampleModalLabel">
       <div class="modal-icon">
         <i class="ic fas fa-globe"></i>
@@ -11,7 +12,8 @@
       </button>
     </div>
   </div>
-  <div class="modal-body">
+  <!--use in en:modal-body & ar:modal-body modal-body-ar-->
+  <div class="modal-body modal-body-ar">
     <div class="form trade">
       <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}} " formControlName="activity" [(ngModel)]="Activity"
         [ngClass]="{ 'is-invalid': hasError('activity','required') || hasError('activity','maxlength'),
@@ -41,7 +43,8 @@
       <textarea type="text" name="text" placeholder="{{'Other (optional)'|translate}}" formControlName="others" [(ngModel)]="Others"></textarea>
     </div>
   </div>
-  <div class="modal-footer">
+  <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
+  <div class="modal-footer modal-footer-ar">
     <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()" data-dismiss="modal">{{'Cancel'|translate}}</button>
     <button type="button" class="btn btn-primary" (click)="tradingService()" [disabled]="!tradingForm.valid ">{{ 'Submit'|translate}}</button>
   </div>

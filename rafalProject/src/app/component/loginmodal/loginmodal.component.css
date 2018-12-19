@@ -26,6 +26,11 @@
 .is-valid {
   border-color: #28a745 !important;
 }
+.log-group{
+  width: 96%;
+  margin: auto;
+  border-radius: 6px;
+}
 .log-group span{
   color: #666;
   font-size: 13px;
@@ -33,6 +38,7 @@
   display: block;
   padding: 0;
   margin:0;
+  border: 1px solid #009999b0;
 }
 .log-group select{
 height: 28px;
@@ -40,11 +46,44 @@ font-size: 12px;
 background-color: #eee;
 }
 .log-group input{
-  height:30px
+  height:30px;
+  border-radius: 6px;
 }
 .log-group{
 
   width: 97%;
   margin: 13px auto 0px;
  
+}
+.modal-header-ar{
+  direction:rtl
+}
+.modal-header-ar .modal-title .ic{
+  margin-left:11px
+}
+.modal-body-ar{
+  text-align:right;
+  direction:rtl
+}
+.modal-body-ar input{
+padding: 0 10px 0 0;
+}
+.modal-body-ar span{
+text-align: right;
+ margin-right: 2px; 
+}
+.modal-body-ar a{
+text-align: right;
+margin-right: 6px;
+}
+.modal-footer-ar{
+  direction: rtl;
+  /* text-align: left; */
+  margin-left: -2px;
+}
+ .modal-footer-ar .btn-secondary{
+margin-left: 12px;
+}
+.modal-body .log .nav-link{
+  cursor:pointer
 }

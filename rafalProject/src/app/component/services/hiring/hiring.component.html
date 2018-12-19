@@ -1,6 +1,6 @@
 <form [formGroup]="hiringForm">
-
-  <div class="modal-header">
+<!--use in en:modal-header & ar:modal-header modal-header-ar-->
+  <div class="modal-header modal-header-ar">
     <div class="modal-title" id="exampleModalLabel">
       <div class="modal-icon">
         <i class="ic fas fa-briefcase"></i>
@@ -12,7 +12,8 @@
       </button>
     </div>
   </div>
-  <div class="modal-body">
+  <!--use in en:modal-body & ar:modal-body modal-body-ar-->
+  <div class="modal-body modal-body-ar">
     <div class="form hiring">
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12 left">
@@ -82,7 +83,8 @@
         [ngClass]="{  'is-valid':hiringForm.get('others').touched } "></textarea>
     </div>
   </div>
-  <div class="modal-footer ">
+  <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
+  <div class="modal-footer modal-footer-ar">
     <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}}</button>
     <button type="button" class="btn btn-primary" (click)="hiringService()" [disabled]="!hiringForm.valid || ageFlag ||dayFlag">{{ 'Submit'|translate}}</button>
   </div>

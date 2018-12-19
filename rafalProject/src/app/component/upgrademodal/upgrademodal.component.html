@@ -1,10 +1,11 @@
 <form [formGroup]="mydForm">
-  <div class="modal-header">
+  <!--use in en:modal-header & ar:modal-header modal-header-ar-->
+  <div class="modal-header modal-header-ar">
     <div class="modal-title" id="exampleModalLabel">
       <div class="modal-icon">
 
       </div>
-      <h5>Upgrate to company</h5>
+      <h5>{{'Upgrate to company'|translate}}</h5>
       <hr>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
         <span aria-hidden="true">&times;</span>
@@ -12,7 +13,8 @@
     </div>
   </div>
   <!--establishing-->
-  <div class="modal-body">
+  <!--use in en:modal-body & ar:modal-body modal-body-ar-->
+  <div class="modal-body modal-body-ar">
     <div class="form upgrate">
       <select class="text select" [(ngModel)]="company" formControlName="Company" name="country" [ngClass]="{ 'is-invalid': hasError('Company','required'),'is-valid':mydForm.get('Company').touched && !hasError('Company','required')  }"
         placeholder="country">
@@ -28,21 +30,21 @@
       <input class="text" type="text" name="text" *ngIf="company != 'Inverst' " formControlName="companyName"
         [(ngModel)]="CompanyName" [ngClass]="{ 'is-invalid': hasError('companyName','required')|| hasError('companyName','maxlength'),
             'is-valid':mydForm.get('companyName').touched && !hasError('companyName','required') &&   !hasError('companyName','maxlength')   }"
-        placeholder="Company name" />
+        placeholder="{{'Company name'|translate}}" />
 
       <input class="text" type="date" name="text" *ngIf="company == 'Esta'" formControlName="expireDate"
         [(ngModel)]="ExpireDate" [ngClass]="{ 'is-invalid': hasError('expireDate','required'),
       'is-valid':mydForm.get('expireDate').touched && !hasError('expireDate','required')   }"
-        placeholder="Expiry date:" />
+        placeholder="{{'Expiry date:'|translate}}" />
 
       <input class="text" type="text" name="text" *ngIf="company == 'Esta' ||company == 'Inter' "
         formControlName="websiteLink" [(ngModel)]="WebsiteLink" [ngClass]="{ 'is-invalid': hasError('websiteLink','required')|| hasError('websiteLink','maxlength'),
         'is-valid':mydForm.get('websiteLink').touched && !hasError('websiteLink','required') &&   !hasError('websiteLink','maxlength')   }"
-        placeholder="company websit " />
+        placeholder="{{'company website'|translate}}" />
 
       <input class="text" type="email" name="text" formControlName="mail" [(ngModel)]="Mail" [ngClass]="{ 'is-invalid': hasError('mail','required')|| hasError('mail','maxlength') || hasError('mail','pattern'),
       'is-valid':mydForm.get('mail').touched && !hasError('mail','required') &&   !hasError('mail','maxlength') &&   !hasError('mail','pattern')  }"
-        placeholder="Email addres " />
+        placeholder="{{'Email addres'|translate}} " />
 
 
       <!--New investor  -->
@@ -69,13 +71,13 @@
       <input class="text" type="text" name="text" *ngIf="company == 'Inter'" formControlName="activity"
         [(ngModel)]="Activity" [ngClass]="{ 'is-invalid': hasError('activity','required') ,
       'is-valid':mydForm.get('activity').touched && !hasError('activity','required')  }"
-        placeholder="Activity" />
+        placeholder="{{'Activity'|translate}}" />
 
 
       <input class="text" type="number" name="text" *ngIf="company == 'Inverst'" formControlName="capital"
         [(ngModel)]="Capital" [ngClass]="{ 'is-invalid': hasError('capital','required') ,
       'is-valid':mydForm.get('capital').touched && !hasError('capital','required')  }"
-        placeholder="Capital ($)" />
+        placeholder="{{'Capital ($)'|translate}}" />
 
       <!--nationality-->
       <select class=" text select form-control" *ngIf="company != 'Esta'" (change)="getRegionValue2()"
@@ -86,20 +88,21 @@
 
 
 
-      <span *ngIf="company != 'Inverst'">C.R Image</span>
+      <span *ngIf="company != 'Inverst'">{{'C.R Image'|translate}}</span>
       <div class="custom-file" *ngIf="company != 'Inverst'">
         <input type="file" class="custom-file-input" id="inputGroupFile01" formControlName="imageblob1" [(ngModel)]="imageBlob1"
           [ngClass]="{ 'is-invalid': mydForm.get('imageblob1').touched && mydForm.get('imageblob1').hasError('required'),
       'is-valid':mydForm.get('imageblob1').touched && !mydForm.get('imageblob1').hasError('required') }"
           (change)="processFile($event,1)" accept="image/*" required>
-        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">no image choosen </label>
+        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">{{'no image choosen'|translate}} </label>
         <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}} </label>
       </div>
 
     </div>
   </div>
-  <div class="modal-footer upgrate-foot">
-    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">Cancel</button>
+  <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
+  <div class="modal-footer modal-footer-ar upgrate-foot">
+    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}}</button>
     <button type="button" class="btn btn-primary" *ngIf="company == 'Esta'" (click)="upgradeService()"
       [disabled]="
         mydForm.get('countryCode').hasError('required')||
@@ -109,7 +112,7 @@
         mydForm.get('mail').hasError('required')|| mydForm.get('mail').hasError('maxlength') ||  mydForm.get('mail').hasError('pattern')||
         mydForm.get('imageblob1').hasError('required')
 
-    ">Send
+    ">{{'Send'|translate}}
     </button>
     <button type="button" class="btn btn-primary" *ngIf="company == 'Inter'" (click)="upgradeService()"
       [disabled]="
@@ -121,7 +124,7 @@
         mydForm.get('activity').hasError('required')||
         mydForm.get('nationality').hasError('required')
         
-    ">Send</button>
+    ">{{'Send'|translate}}</button>
     <button type="button" class="btn btn-primary" *ngIf="company == 'Inverst'" (click)="upgradeService()"
       [disabled]="
         mydForm.get('mail').hasError('required')|| mydForm.get('mail').hasError('maxlength') ||  mydForm.get('mail').hasError('pattern')||
@@ -129,7 +132,7 @@
         mydForm.get('investor').hasError('required')||
         mydForm.get('capital').hasError('required')||
         mydForm.get('nationality').hasError('required')
-    ">Send</button>
+    ">{{'Send'|translate}}</button>
   </div>
 
 </form>

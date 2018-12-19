@@ -5,4 +5,18 @@
   .is-valid {
     border-color: #28a745 !important;
   }
-  
+  .modal-body-ar{
+    text-align:right;
+    direction:rtl
+  }
+  .modal-body-ar input{
+  padding: 0 10px 0 0;
+  }
+  .modal-body-ar span{
+  text-align: right;
+   margin-right: 2px; 
+  }
+  .modal-body-ar a{
+  text-align: right;
+  margin-right: 6px;
+  }

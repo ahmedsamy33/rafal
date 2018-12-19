@@ -127,6 +127,7 @@ body {
   background-color: #fff;
   border: none;
   margin-top: 3px;
+  cursor:pointer
 }
 
 .modal .form .link {
@@ -240,6 +241,9 @@ body {
   margin-left: 39px;
   padding: 0;
 
+}
+.navbar-ar .navbar-nav li .nav-link{
+  width:46px;
 }
 
 .navbar .navbar-nav .active>.nav-link {

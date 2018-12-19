@@ -2,7 +2,8 @@
 
 
 <form [formGroup]="loginForm">
-  <div class="modal-header">
+  <!--use in en:modal-header & ar:modal-header modal-header-ar-->
+  <div class="modal-header modal-header-ar">
 
     <div id="dialog-sizes-name2" class="modal-title pull-top">
       <div class="modal-icon">
@@ -21,7 +22,8 @@
     </div>
 
   </div>
-  <div class="modal-body">
+  <!--use in en:modal-body & ar:modal-body modal-body-ar-->
+  <div class="modal-body modal-body-ar">
     <div class="form log">
 
         <div class="input-group mb-3 log-group">
@@ -51,7 +53,8 @@
       <a class="sign" (click)="openforgetmodal()">{{'forget password?'|translate}}</a>
       <a class="nav-link sign" (click)="opensignupmodal()">{{'Dont have account.Sign Up'|translate}}</a>
     </div>
-    <div class="modal-footer">
+    <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
+    <div class="modal-footer modal-footer-ar">
 
       <button type="button" class="btn btn-primary" (click)="loginData()" [disabled]="!loginForm.valid ">{{'log in'|translate}}</button>
     </div>

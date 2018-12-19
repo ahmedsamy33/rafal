@@ -1,5 +1,6 @@
 <form [formGroup]="customsForm">
-  <div class="modal-header">
+  <!--use in en:modal-header & ar:modal-header modal-header-ar-->
+  <div class="modal-header modal-header-ar">
     <div class="modal-title" id="exampleModalLabel">
       <div class="modal-icon">
         <i class="ic fab fa-accusoft"></i>
@@ -11,7 +12,8 @@
       </button>
     </div>
   </div>
-  <div class="modal-body">
+  <!--use in en:modal-body & ar:modal-body modal-body-ar-->
+  <div class="modal-body modal-body-ar">
     <div class="form customs">
       <span>{{'Upload a copy of the bill of shipment :'|translate}}</span>
       <div class="custom-file">
@@ -47,7 +49,8 @@
 
     </div>
   </div>
-  <div class="modal-footer ">
+   <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
+  <div class="modal-footer modal-footer-ar">
     <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}}</button>
     <button type="button" class="btn btn-primary" [disabled]="!customsForm.valid " (click)="customsService()">{{ 'Submit'|translate}}</button>
   </div>

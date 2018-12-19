@@ -130,7 +130,19 @@
 "Already have account.log in":"Already have account.log in",
 "Your Description":"Your Description",
 "Upgrate to company":"Upgrate to company",
-"Search":"Search"
+"Search":"Search",
+"choose photo :":"choose photo :",
+"Language":"Language",
+"English":"English",
+"Arabic":"Arabic",
+"Company name":"Company name",
+"Expiry date:":"Expiry date:",
+"company website":"company website",
+"Email addres":"Email addres",
+"Capital ($)":"Capital ($)",
+"C.R Image":"C.R Image",
+"Old Password":"Old Password",
+"New Password":"New Password"
 
 
 }

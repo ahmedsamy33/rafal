@@ -5,3 +5,28 @@
 .is-valid {
   border-color: #28a745 !important;
 }
+.modal-header-ar{
+  direction:rtl
+}
+.modal-header-ar .modal-title .ic{
+  margin-left:11px
+}
+.modal-body-ar{
+  text-align:right;
+  direction:rtl
+}
+.modal-body-ar input{
+padding: 0 10px 0 0;
+}
+.modal-body-ar span{
+text-align: right;
+margin-right: 18px;
+}
+.modal-footer-ar{
+  direction: rtl;
+  /* text-align: left; */
+  margin-left: -2px;
+}
+ .modal-footer-ar .btn-secondary{
+margin-left: 12px;
+}
