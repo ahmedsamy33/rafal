@@ -12,12 +12,12 @@
   "log out":"Log Out",
   "change password":"Change Password",
   "rafal group":"Rafal Group",
-  "get started":"Get Started",
+  "take a tour":"Take a Tour",
   "Why We Are":"Why We Are",
   "Special":"Special",
   "Development":"Development",
   "Importing and Exporting":"Importing and Exporting",
-  "Hiring Labors":"Hiring Labors",
+  "Hiring Laborers":"Hiring Laborers",
   "Try Our":"Try Our",
   "Mobile Application":"Mobile Application",
   "Now":"Now",
@@ -27,7 +27,7 @@
   "Charter":"Charter",
   "Accounting":"Accounting",
   "Hiring":"Hiring",
-  "Labors":"Labors",
+  "Laborers":"Laborers",
   "Apply":"Apply",
   "Feasibility":"Feasibility",
   "Study":"Study",
@@ -79,7 +79,7 @@
 "Other (optional)":"Other (optional)",
 "Cancel":"Cancel",
 "Submit":"Submit",
-"Year of Budget":"Year of Budget",
+"Budget of Year":"Budget of Year",
 "no image choosen":"no image choosen",
 "Accounting of the year :":"Accounting of the year :",
 "Bank statement :":"Bank statement :",
@@ -142,7 +142,8 @@
 "Capital ($)":"Capital ($)",
 "C.R Image":"C.R Image",
 "Old Password":"Old Password",
-"New Password":"New Password"
+"New Password":"New Password",
+"R":"R"
 
 
 }

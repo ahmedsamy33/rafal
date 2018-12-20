@@ -17,7 +17,7 @@
     flex-wrap: nowrap;
     justify-content: space-around;
     width: 100%;
-    height: 50px;
+    height: 43px;
     outline: none;
     background: transparent;
     border-left: 3px solid transparent;
@@ -27,7 +27,7 @@
     cursor: pointer;
   }
   .menu-item .menu-link:hover {
-    color: #fca400;
+    color: #ab0005;
     background: rgba(0, 0, 0, 0.1);
   }
   .menu-item .menu-link .placeholder,
@@ -50,8 +50,8 @@
     width: 50px;
   }
   .menu-item .menu-link.active {
-    border-left: 3px solid #fca400;
-    color: #fca400;
+    border-left: 3px solid #ab0005;
+    color: #ab0005;
   }
   
   .item-children .menu-wrap {

@@ -1543,7 +1543,7 @@ p {
   right: 1px;
   width: 30px;
   height: 30px;
-  background: #fca400;
+  background: #ab0005;
   border: 0;
   border-radius: 50%;
   outline: none;
@@ -1554,7 +1554,7 @@ p {
   transition: all 0.4s;
 }
 .search-group .search-btn:hover {
-  background: #ffb730;
+  background: #ab0005;
   transform: scale(1);
 }
 .search-group .search-input:focus + .search-btn {
@@ -1891,8 +1891,8 @@ button.toast-close-button {
 }
 
 .bg-primary[_ngcontent-c8], .pagination-wrapper[_ngcontent-c8] .input-group[_ngcontent-c8] .input-group-addon[_ngcontent-c8], .my-pagination[_ngcontent-c8] .ngx-pagination a:hover, .my-pagination[_ngcontent-c8] .ngx-pagination .current{
-  background: linear-gradient(to top right, #fca400, #ffd17c);
-    background: -webkit-linear-gradient(to top right, #fca400, #ffd17c);
+  background: #ab0005;
+    background:#ab0005;
     color: #fff;
     padding: 0.1875rem 0.625rem;
 
@@ -1928,8 +1928,8 @@ button.toast-close-button {
 }
 
 .ngx-pagination .current, .ngx-pagination a:hover ,.pagination-wrapper .input-group .input-group-addon {
-  background: linear-gradient(to top right, #fca400, #ffd17c) !important;
-  background: -webkit-linear-gradient(to top right, #fca400, #ffd17c) !important;
+  background: #ab0005 !important;
+  background: #ab0005 !important;
   color: #fff !important;
   padding: 0.1875rem 0.625rem !important;
 }
@@ -1973,7 +1973,7 @@ select{
  }
 
  .pending{
-   background: #fab95b;
+   background: #ab0005;
    color: #fff;
  }
 
@@ -1984,4 +1984,15 @@ select{
 .Rejected {
   background: #f5564e;
   color: #fff;
+}
+.avatar-upload .avatar-edit input + label {
+  
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  text-align: center;
+  margin: auto;
+  background-color: #099;
+  line-height: 28px;
 }

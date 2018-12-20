@@ -5,7 +5,7 @@
       <div class="modal-icon">
         <i class="ic fas fa-briefcase"></i>
       </div>
-      <h5><span>{{'Hiring'|translate}}</span>{{'Labors'|translate}}</h5>
+      <h5><span>{{'Hiring'|translate}}</span>{{'Laborers'|translate}}</h5>
       <hr>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
         <span aria-hidden="true">&times;</span>
@@ -15,6 +15,12 @@
   <!--use in en:modal-body & ar:modal-body modal-body-ar-->
   <div class="modal-body modal-body-ar">
     <div class="form hiring">
+      <div class="row">
+        <select class="text select" [(ngModel)]="company" formControlName="Company" name="country" [ngClass]="{ 'is-invalid': hasError('Company','required'),'is-valid':mydForm.get('Company').touched && !hasError('Company','required')  }"
+        placeholder="country">
+        <option *ngFor="let company of CompanyArr" value="{{company.code}}">{{ company.value }}</option>
+      </select>
+    </div>
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12 left">
           <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}}" formControlName="active" [(ngModel)]="Active"

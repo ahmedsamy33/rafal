@@ -24,19 +24,21 @@
     font-weight: normal;
     transition: all 0.2s ease-in-out;
   }
+  
   .avatar-upload .avatar-edit input + label:hover {
     background: #f1f1f1;
     border-color: #d6d6d6;
   }
   .avatar-upload .avatar-edit input + label {
   
-    color: #757575;
+    color: #fff;
     position: absolute;
     top: 10px;
-   
     right: 0;
     text-align: center;
     margin: auto;
+    background-color: #099;
+    line-height: 28px;
   }
   .avatar-upload .avatar-preview {
     width: 192px;

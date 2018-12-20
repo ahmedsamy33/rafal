@@ -1,0 +1,61 @@
+thead{
+    background-color: #f1f0f0;
+}
+tr th {
+font-size: 13px;
+/* font-weight: 600; */
+color: #2f2f2f;
+}
+.ngx-pagination .current, .ngx-pagination a:hover, .pagination-wrapper .input-group .input-group-addon {
+    background: #ab0005 !important;
+    font-size: 12px;
+    line-height: 23px;
+    border-radius: 4px 0px;
+    border-radius: 3px;
+    cursor:pointer
+}
+.input-group>.custom-select:not(:last-child), .input-group>.form-control:not(:last-child) {
+    border: 1px solid #ab0005;
+    border-radius: 3px;
+    height: 30px;
+    line-height: 33px;
+}
+
+
+
+
+.my-pagination .ngx-pagination a:last-child, .my-pagination .ngx-pagination .current:last-child {
+    border: 1px solid #ab0005;
+    color: #ab0005;
+    line-height: 28px !important;
+}
+.ngx-pagination .current, .ngx-pagination a:hover, .pagination-wrapper .input-group .input-group-addon {
+background: #ab0005 !important;
+}
+.ngx-pagination a, .ngx-pagination button{
+background: #ab0005 !important;
+}
+/* .table-bordered td, .table-bordered th {
+/* border: 1px solid #38424c; */
+/* font-size: 15px;
+} */ 
+.search-group {
+margin-bottom: 10px;
+
+background: rgba(191, 191, 191, 0.1);
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 2px;
+overflow: hidden;
+margin: 10px auto;
+height: 40px;
+line-height: 21px;
+border: 1px solid #538383a8;
+}
+.table-bordered td, .table-bordered th {
+border: 1px solid #dee2e6;
+font-size: 14px;
+}
+tr th{
+color: #565656;
+font-size: 13px !important;
+}

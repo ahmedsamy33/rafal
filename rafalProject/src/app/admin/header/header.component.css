@@ -247,7 +247,7 @@ footer h2 i {
   font-size: 16px;
 }
 .avatar-wrap .user-post {
-  color: #fca400;
+  color: #ab0005;
   font-size: 12px;
   margin-top: 5px;
 }
@@ -262,7 +262,7 @@ footer h2 i {
   cursor: pointer;
 }
 .collapse-menu:hover {
-  color: #fca400;
+  color: #ab0005;
 }
 .collapse-menu .toggle-on {
   transform: rotate(0);
@@ -298,7 +298,7 @@ footer h2 i {
   right: 1px;
   width: 30px;
   height: 30px;
-  background: #fca400;
+  background: #ab0005;
   border: 0;
   border-radius: 50%;
   outline: none;
@@ -309,7 +309,7 @@ footer h2 i {
   transition: all 0.4s;
 }
 .search-group .search-btn:hover {
-  background: #ffb730;
+  background: #ab0005;
   transform: scale(1);
 }
 .search-group .search-input:focus + .search-btn {
@@ -338,7 +338,7 @@ footer h2 i {
 }
 .msg-entrance:hover {
   cursor: pointer;
-  color: #fca400;
+  color: #ab0005
 }
 .msg-entrance span.badge {
   padding: 0;
@@ -348,7 +348,7 @@ footer h2 i {
   display: block;
   width: 11px;
   height: 11px;
-  background: #fca400;
+  background: #ab0005;
   border: 2px solid #465294;
   border-radius: 50%;
 }

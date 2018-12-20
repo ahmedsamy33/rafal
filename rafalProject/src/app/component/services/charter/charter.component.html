@@ -15,7 +15,7 @@
   <!--use in en:modal-body & ar:modal-body modal-body-ar-->
   <div class="modal-body modal-body-ar">
     <div class="form account">
-      <input class="text" type="number" name="phone" placeholder="{{'Year of Budget'|translate}}" formControlName="yearofbudget"
+      <input class="text" type="number" name="phone" placeholder="{{'Budget of Year'|translate}}" formControlName="yearofbudget"
         [(ngModel)]="yearofBudget" [ngClass]="{ 'is-invalid': accountingForm.get('yearofbudget').touched && accountingForm.get('yearofbudget').hasError('required'),
         'is-valid':accountingForm.get('yearofbudget').touched && !accountingForm.get('yearofbudget').hasError('required') }" />
 

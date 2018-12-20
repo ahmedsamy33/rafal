@@ -12,12 +12,12 @@
   "log out": "تسجيل خروج",
   "change password": "تغيير كلمه السر",
   "rafal group": "رافال جروب",
-  "get started": "هيا لنبدا",
+  "take a tour": "قم بعمل جوله",
   "Why We Are": "لماذا نحن",
   "Special": "متميزون",
   "Development": "البرمجه",
   "Importing and Exporting": "الاستيراد والتصدير",
-  "Hiring Labors": "الحاق العماله",
+  "Hiring Laborers": "الحاق العماله",
   "Try Our": "جرب ",
   "Mobile Application": "تطبيق الموبايل الخاص بشركتنا",
   "Now": "الان",
@@ -27,7 +27,7 @@
   "Charter": "المحاسبه",
   "Accounting": "القانونيه",
   "Hiring": "الحاق",
-  "Labors": "العماله",
+  "Laborers": "العماله",
   "Apply": "تسجيل",
   "Feasibility": " دراسه",
   "Study": "الجدوي",
@@ -80,7 +80,7 @@
   "Other (optional)":"( اضافه شئ اخر  (اختياري ",
   "Cancel":"الغاء",
   "Submit":"تسجيل",
-  "Year of Budget":"سنه الميزانيه",
+  "Budget of Year":"ميزانيه السنه",
   "no image choosen":"لم يتم اختيار صوره",
   "Accounting of the year :":"ميزانيه السنه",
   "Bank statement :":"كشف حساب بنكى",
@@ -143,7 +143,8 @@
  "Capital ($)":"العمله ($)",
  "C.R Image":"صوره ال c.r",
  "Old Password":"كلمه المرور الحاليه",
- "New Password":"كلمه المرور الجديده"
+ "New Password":"كلمه المرور الجديده",
+ "R":""
 
 
 }
