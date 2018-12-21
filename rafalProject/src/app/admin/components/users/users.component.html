@@ -33,7 +33,7 @@
       <tbody>
 
         <tr *ngIf="dataListSize == 0">
-          <td class="text-center no-data" colspan="7">
+          <td class="text-center no-data" colspan="8">
             <i class="fa fa-database fa-fw"></i>
             No Data Avilable
           </td>
@@ -47,10 +47,34 @@
           <td>{{item.phoneNumber}}</td>
           <td>{{item.nationalId}}</td>
 
-
+          <td>{{item.type}}</td>
 
 
           <td>{{item.creationDate | date : format : timezone }}</td>
+
+          <td *ngIf="item.profilePictureToken != null" class="url">
+            <a href="{{profileImgSerivce}}{{item.profilePictureToken}}" target="_blank">
+
+              <img src="{{ImgSrc}}" alt="avatar">
+
+            </a>
+
+          </td>
+          <td class="url" *ngIf="item.profilePictureToken == null">
+              <img src="{{no_preview}}" alt="avatar">
+          </td>
+
+
+          <td class="text-center" (click)="toggleActive(item.userId,false)" *ngIf="item.isActive == true">
+            <i style="cursor: pointer;" class="fa fa-toggle-on" title="Deactive"></i></td>
+          <td class="text-center" (click)="toggleActive(item.userId,true)" *ngIf="item.isActive == false"><i style="cursor: pointer;"
+              class="fa fa-toggle-off" title="active"></i></td>
+
+
+          
+
+
+
         </tr>
       </tbody>
     </table>

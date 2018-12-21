@@ -73,7 +73,7 @@ export class ChartAccountingComponent implements OnInit {
     this.spinner.show();
 
     this.service.getImage(fileName, 'CharterAccount').subscribe(data => {
-      // console.log(data);
+      console.log(data);
       this.spinner.hide();
 
       let bikeImage = document.getElementById(id) as HTMLImageElement;

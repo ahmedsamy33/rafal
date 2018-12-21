@@ -2,8 +2,11 @@ import { UsersServices } from './../../../services/shared/Users.service';
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 
-import Swal from 'sweetalert2'
+ import swal from 'sweetalert2';
+
 import { ToastrService } from 'ngx-toastr';
+import { settings } from 'cluster';
+import { SettingsService } from '../../../services/shared/settings.service';
 
 @Component({
   selector: 'app-users',
@@ -21,7 +24,10 @@ export class UsersComponent implements OnInit {
   pageNumber = 1;
 
   ImgSrc: string = 'assets/images/picture.png';
+  
+  no_preview: string = 'assets/images/no-image-icon-4.png';
   imageToShow: any;
+  profileImgSerivce = SettingsService.imageUrlProfile;
 
 
 
@@ -71,5 +77,51 @@ export class UsersComponent implements OnInit {
 
   }
 
+  toggleActive(id, status) {
+    let text = '';
+
+    if (status == true) {
+      text = 'Activate'
+    }
+    else {
+      text = ' DeActivate'
+
+    }
+    swal({
+      title: 'Are you sure?',
+      text: 'You will ' + text + ' this !',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: text
+    }).then((result) => {
+      if (result.value) {
+
+        this.service.toggleUser(id, status).subscribe(data => {
+          swal(
+            text,
+            'Your Advs has been ' + text,
+            'success'
+          );
+          this.loadData(this.pageSize, this.pageNumber, this.searchCeritria);
+
+
+        }, err => {
+
+          swal(
+            'Error!',
+            'Error when ' + text,
+            'warning'
+          );
+
+
+        })
+
+      }
+    });
+
+
+  }
 
 }

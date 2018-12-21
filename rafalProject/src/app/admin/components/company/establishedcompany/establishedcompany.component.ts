@@ -20,6 +20,7 @@ export class EstablishedcompanyComponent implements OnInit {
   companyType = 'Esta'
 
   ImgSrc: string = 'assets/images/picture.png';
+  no_preview: string = 'assets/images/no-image-icon-4.png';
   ImageService = SettingsService.imageUrlCompany;
   constructor(private service: CompanyServices, private spinner: NgxSpinnerService , public toastr:ToastrService) { }
 

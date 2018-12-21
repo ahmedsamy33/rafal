@@ -22,6 +22,7 @@ export class AdvirtesmentComponent implements OnInit {
   ImgSrc: string = './../assets/images/picture.png';
   imageToShow: any;
   AdvImgService;
+  no_preview: string = 'assets/images/no-image-icon-4.png';
   constructor(private service: CompanyserviceService, private spinner: NgxSpinnerService,public toastr:ToastrService) {
 
     this.AdvImgService = SettingsService.DOMAIN_ImgeURLAdver;

@@ -48,12 +48,16 @@
           <td>{{item.description}}</td>
           <td class="url">
             <!-- {{item.advertiseImageToken}} -->
-            <a href="{{AdvImgService}}{{item.advertiseImageToken}}" target="_blank">
+            <a *ngIf="item.advertiseImageToken != null" href="{{AdvImgService}}{{item.advertiseImageToken}}" target="_blank">
 
               <img src="{{ImgSrc}}" alt="avatar">
 
             </a>
 
+          </td>
+
+          <td class="url" *ngIf="item.advertiseImageToken == null">
+              <img src="{{no_preview}}" alt="avatar">
           </td>
           <td>
             <i style="cursor: pointer;" (click)="DeleteAds(item.advertiseId)" class="fa fa-trash"></i>

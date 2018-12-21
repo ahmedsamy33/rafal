@@ -272,7 +272,7 @@ export class ServiceServices {
       catchError((error: Response) => {
         return throwError(error.json());
       }),
-      timeout(4000)
+      timeout(40000)
     )
   }
 
@@ -286,7 +286,7 @@ export class ServiceServices {
       catchError((error: Response) => {
         return throwError(error.json());
       }),
-      timeout(4000)
+      timeout(40000)
     )
   }
 
@@ -297,12 +297,12 @@ export class ServiceServices {
 
 
 
-    return this.http.get(SettingsService.DOMAIN_URL + 'adminservices/getformsfiles?filename=' + fileName + '&formname=' + formname, { headers: SettingsService.getHeaderJsonWithTKN(), responseType: ResponseContentType.Blob }).pipe(
+    return this.http.get(SettingsService.DOMAIN_URL + 'adminservices/getformsfiles?filename=' + fileName + '&formname=' + formname, { headers: SettingsService.getHeaderJsonWithTKN(), responseType: ResponseContentType.Blob}).pipe(
       map((res: Response) => res.blob()),
       catchError((error: Response) => {
         return throwError(error.json());
       }),
-      timeout(4000)
+      timeout(40000)
     )
 
 

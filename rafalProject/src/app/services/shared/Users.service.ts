@@ -28,6 +28,7 @@ export class UsersServices {
       
       }
 
+
        
     
     return this.http.post(SettingsService.DOMAIN_URL + 'userservices/getusersdata', data,
@@ -48,5 +49,13 @@ export class UsersServices {
 
   
  
-  
+  toggleUser(id, status){
+    
+    return this.http.put(SettingsService.DOMAIN_URL + 'advertisementservices/updateadd?isactive=' + status + '&addid=' + id, null, { headers: SettingsService.getHeaderJsonWithTKN() }).map((res: Response) => {
+      return res.json()
+    })
+
+
+
+  }
 }
