@@ -82,28 +82,25 @@ export class EmploymentadminComponent implements OnInit {
 
 
 
-
   getFiles(fileName, id) {
     this.spinner.show();
 
+    
     this.service.getImage(fileName, 'Employment').subscribe(data => {
-      // console.log(data);
+      console.log(data);
+       
       this.spinner.hide();
+ 
 
-      // let bikeImage = document.getElementById(id) as HTMLImageElement;
-
-
-      // var objectURL = URL.createObjectURL(data);
-      // bikeImage.src = objectURL;
-
-
-      this.downloadFile(data)
-
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(data);
+      a.download = id;
+      document.body.appendChild(a);
+      a.click();
+      a.remove()
 
 
-
-
-
+  
     }, err => {
       console.log(err);
 

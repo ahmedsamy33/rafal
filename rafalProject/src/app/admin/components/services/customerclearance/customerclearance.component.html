@@ -41,14 +41,14 @@
 
 
           <td>
-            <a class="url" (click)="getFiles(item.shipmentBillImageName , item.shipmentBillImageName)" target="_blank">
+            <a class="url" (click)="getFiles(item.shipmentBillImageName)" target="_blank">
               <img id="{{item.shipmentBillImageName}}" src="{{ImgSrc}}" alt="avatar">
             </a>
 
           </td>
 
           <td>
-            <a class="url" (click)="getFiles(item.authorizationImageName , item.authorizationImageName)" target="_blank">
+            <a class="url" (click)="getFiles(item.authorizationImageName)" target="_blank">
               <img id="{{item.authorizationImageName}}" src="{{ImgSrc}}" alt="avatar">
             </a>
 
@@ -61,6 +61,9 @@
 
           <td>{{item.shipmentDescription}}</td>
           <td>{{item.shipmentPort}}</td>
+
+          <td>{{item.ownerName}}</td>
+          <td>{{item.ownerPhone}}</td>
 
           <td>{{item.other}}</td>
 

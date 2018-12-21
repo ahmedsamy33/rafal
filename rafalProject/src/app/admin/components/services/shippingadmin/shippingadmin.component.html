@@ -42,7 +42,7 @@
 
 
 
-            <a class="url" (click)="getFiles(item.billAuthorization , item.billAuthorization)" target="_blank">
+            <a class="url" (click)="getFiles(item.billAuthorization)" target="_blank">
 
               <img id="{{item.billAuthorization}}" src="{{ImgSrc}}" alt="avatar">
             </a>
@@ -60,6 +60,9 @@
 
           <td>{{item.goodsType}}</td>
 
+          <td>{{item.ownerName}}</td>
+          <td>{{item.ownerPhone}}</td>
+          
           <td>{{item.other}}</td>
           <td>{{item.creationDate | date : format : timezone }}</td>
 

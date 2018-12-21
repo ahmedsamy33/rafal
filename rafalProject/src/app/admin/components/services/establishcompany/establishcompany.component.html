@@ -43,16 +43,17 @@
           <td>{{index+1}}</td>
 
           <td>{{item.country}}</td>
+          <td>{{item.region}}</td>
+
           <td>{{item.activity}}</td>
           <td>{{item.capitalCurrency}}</td>
-          <td>{{item.id}}</td>
 
 
 
 
 
           <td>
-            <a class="url" (click)="getFiles(item.idsCopiesImageName , item.idsCopiesImageName)" target="_blank">
+            <a class="url" (click)="getFiles(item.idsCopiesImageName)" target="_blank">
               <img id="{{item.idsCopiesImageName}}" src="{{ImgSrc}}" alt="avatar">
             </a>
 
@@ -60,17 +61,19 @@
 
 
           <td>
-            <a class="url" (click)="getFiles(item.idsCopiesImageName , item.authorizationImageName)" target="_blank">
+            <a class="url" (click)="getFiles(item.idsCopiesImageName)" target="_blank">
               <img id="{{item.authorizationImageName}}" src="{{ImgSrc}}" alt="avatar">
             </a>
 
           </td>
 
           <td>
-            <a class="url" (click)="getFiles(item.idsCopiesImageName , item.agreementImageName)" target="_blank">
+            <a class="url" (click)="getFiles(item.idsCopiesImageName)" target="_blank">
               <img id="{{item.agreementImageName}}" src="{{ImgSrc}}" alt="avatar">
             </a></td>
 
+            <td>{{item.ownerName}}</td>
+            <td>{{item.ownerPhone}}</td>
 
           <td>{{item.other }}</td>
           <td>{{item.creationDate | date : format : timezone }}</td>

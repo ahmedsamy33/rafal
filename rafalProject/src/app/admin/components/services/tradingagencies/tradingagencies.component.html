@@ -49,14 +49,17 @@
 
           <td>
 
-            <a class="url" (click)="getFiles(item.productImage , item.productImage)" target="_blank">
+            <a class="url" (click)="getFiles(item.productImage)" target="_blank">
 
               <img id="{{item.productImage}}" src="{{ImgSrc}}" alt="avatar">
             </a>
 
           </td>
 
+
           <td>{{item.other}}</td>
+          <td>{{item.ownerName}}</td>
+          <td>{{item.ownerPhone}}</td>
 
           <td>{{item.creationDate | date : format : timezone }}</td>
         </tr>

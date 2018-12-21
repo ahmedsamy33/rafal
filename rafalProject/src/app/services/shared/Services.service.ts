@@ -291,15 +291,19 @@ export class ServiceServices {
   }
 
 
-  getImage(fileName, formname): Observable<Blob> {
+  getImage(fileName, formname): Observable<any> {
     // return this.http.get(imageUrl, { responseType: ResponseContentType.Blob })
     //     .map((res: Response) => res.blob());
 
 
+    
+    
 
     return this.http.get(SettingsService.DOMAIN_URL + 'adminservices/getformsfiles?filename=' + fileName + '&formname=' + formname, { headers: SettingsService.getHeaderJsonWithTKN(), responseType: ResponseContentType.Blob}).pipe(
       map((res: Response) => res.blob()),
       catchError((error: Response) => {
+        console.log(error.toString() , 'from service');
+        
         return throwError(error.json());
       }),
       timeout(40000)
