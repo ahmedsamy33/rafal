@@ -25,10 +25,10 @@
   </div> -->
 
   <div class="msg-tips-wrap">
-    <div class="msg-entrance ring">
-     <a  routerLink="/home">
+    <div class="msg-entrance ring" (click)="goToHome()">
+      <a>
 
-     </a> <span class="fa fa-home fa-fw"></span>
+      </a> <span class="fa fa-home fa-fw"></span>
       <!-- <span class="badge" *ngIf="tip.ring"></span> -->
     </div>
     <div class="msg-entrance email" (click)="logOut()">
@@ -38,43 +38,44 @@
     </div>
   </div>
 
-  
- 
- 
-<ng-template #changeImage>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">change Image</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <div class="avatar-upload">
-      <div class="avatar-edit">
-          <input [(ngModel)]="imageBlob1" type='file' id="imageUpload"  (change)="previewImg($event)" accept="image/*" required/>
-          <label for="imageUpload">
-        <i class="fa fa-upload"></i>
-  
-          </label>
-      </div>
-      <div class="avatar-preview">
-          <img id="imagePreview"  [src]="imageSrc || 'http://placehold.it/180'" alt="your image" />
-  
-      </div>
-  </div>
-  </div>
-  
-   
-  
-  
-    <div class="modal-footer">
-      
-  
-  <button type="button" [disabled]="! ChangProfileImgBtn" class="btn btn-primary"  (click)="changeProfileImage($event)">Upload!</button>
-  
-  
+
+
+
+  <ng-template #changeImage>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">change Image</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-  
-  
-  
-</ng-template>
+    <div class="modal-body">
+      <div class="avatar-upload">
+        <div class="avatar-edit">
+          <input [(ngModel)]="imageBlob1" type='file' id="imageUpload" (change)="previewImg($event)" accept="image/*"
+            required />
+          <label for="imageUpload">
+            <i class="fa fa-upload"></i>
+
+          </label>
+        </div>
+        <div class="avatar-preview">
+          <img id="imagePreview" [src]="imageSrc || 'http://placehold.it/180'" alt="your image" />
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="modal-footer">
+
+
+      <button type="button" [disabled]="! ChangProfileImgBtn" class="btn btn-primary" (click)="changeProfileImage($event)">Upload!</button>
+
+
+    </div>
+
+
+
+  </ng-template>

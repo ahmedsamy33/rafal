@@ -79,8 +79,8 @@
       'is-valid':mydForm.get('capital').touched && !hasError('capital','required')  }"
         placeholder="{{'Capital ($)'|translate}}" />
 
-      <!--nationality-->
-      <select class=" text select form-control" *ngIf="company != 'Esta'" (change)="getRegionValue2()"
+      <!--nationality (change)="getRegionValue2()"-->
+      <select class=" text select form-control" *ngIf="company != 'Esta'" 
         formControlName="nationality" [(ngModel)]="Nationality" [ngClass]="{ 'is-invalid': hasError('nationality','required'),'is-valid':mydForm.get('nationality').touched && !hasError('nationality','required')  }">
         <option *ngFor="let company of countryArr" value="{{company.code}}">{{ company.value }}</option>
 

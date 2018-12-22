@@ -34,7 +34,7 @@ export class HeaderComponent {
   tip = { ring: true, email: true };
 
   constructor(public router: Router, public AuthService: AuthentionService, builder: FormBuilder,
-    private fb: FormBuilder, public http: HttpClientModule, private modalService: BsModalService ,public spinner:NgxSpinnerService , public toast : ToastrService) {
+    private fb: FormBuilder, public http: HttpClientModule, private modalService: BsModalService, public spinner: NgxSpinnerService, public toast: ToastrService) {
 
 
 
@@ -43,9 +43,9 @@ export class HeaderComponent {
     this.userName = localStorage.getItem('userName');
     let profileImaeToken = localStorage.getItem('imgToken');
 
-      console.log(profileImaeToken);
-      
-   
+    console.log(profileImaeToken);
+
+
     this.getProfileImageByToken(profileImaeToken)
 
 
@@ -53,22 +53,22 @@ export class HeaderComponent {
 
 
   getProfileImageByToken(imageToken) {
-    
+
     this.spinner.show()
     this.AuthService.getProfileImage(imageToken).subscribe(image => {
 
 
       this.createImageFromBlob(image)
-      
+
       this.spinner.hide()
 
     },
 
       err => {
 
-     
+
         this.spinner.hide()
-        this.toast.error(err.message , 'Server Error');
+        this.toast.error(err.message, 'Server Error');
 
 
       })
@@ -92,7 +92,10 @@ export class HeaderComponent {
   }
 
 
- 
+
+  goToHome() {
+    this.router.navigate(['home']);
+  }
 
 
 
@@ -124,7 +127,7 @@ export class HeaderComponent {
 
       SessionService.userSessionData.userDetails.picture_url = data.imageToken;
 
-     localStorage.setItem('imgToken',data.imageToken);
+      localStorage.setItem('imgToken', data.imageToken);
 
 
       this.getProfileImageByToken(data.imageToken)
@@ -132,10 +135,10 @@ export class HeaderComponent {
 
     }, err => {
 
-      
+
       this.spinner.hide()
 
-    this.toast.error(err.message , 'Server Error');
+      this.toast.error(err.message, 'Server Error');
 
     })
   }
@@ -152,9 +155,9 @@ export class HeaderComponent {
 
         if (!this.imageSrc.startsWith('data:image')) {
           this.ChangProfileImgBtn = false;
-    this.toast.error('Upload A valid Image Please', 'Server Error');
+          this.toast.error('Upload A valid Image Please', 'Server Error');
 
-      
+
 
         }
 
@@ -177,17 +180,17 @@ export class HeaderComponent {
     }
   }
 
-openModal(template: TemplateRef<any>) {
+  openModal(template: TemplateRef<any>) {
     this.imageSrc = this.avatarImgSrc;
     this.bsModalRef = this.modalService.show(template, { class: 'modal-md' });
   }
 
 
 
- 
-  
-   
-  
+
+
+
+
   //validate password 
 
 

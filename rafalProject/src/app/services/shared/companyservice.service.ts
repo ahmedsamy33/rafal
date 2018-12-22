@@ -33,7 +33,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
 
@@ -52,7 +52,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
 
@@ -69,7 +69,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
 
@@ -86,7 +86,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
 
@@ -128,7 +128,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
 
@@ -158,7 +158,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
 
@@ -193,7 +193,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
 
@@ -232,7 +232,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
 
@@ -268,7 +268,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
 
@@ -307,7 +307,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
   /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -324,7 +324,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
 
@@ -348,7 +348,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
   /////////////////////////////////////////////////////////////////////////////////.
@@ -375,7 +375,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
 
@@ -391,7 +391,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
 
@@ -410,7 +410,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
 
@@ -432,7 +432,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
 
@@ -453,7 +453,7 @@ export class CompanyserviceService {
         catchError((error: Response) => {
           return throwError(error.json());
         }),
-        timeout(4000)
+        timeout(40000)
       )
   }
 

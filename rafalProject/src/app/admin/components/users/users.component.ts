@@ -2,10 +2,10 @@ import { UsersServices } from './../../../services/shared/Users.service';
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 
- import swal from 'sweetalert2';
+import swal from 'sweetalert2';
 
 import { ToastrService } from 'ngx-toastr';
-import { settings } from 'cluster';
+// import { settings } from 'cluster';
 import { SettingsService } from '../../../services/shared/settings.service';
 
 @Component({
@@ -24,7 +24,7 @@ export class UsersComponent implements OnInit {
   pageNumber = 1;
 
   ImgSrc: string = 'assets/images/picture.png';
-  
+
   no_preview: string = 'assets/images/no-image-icon-4.png';
   imageToShow: any;
   profileImgSerivce = SettingsService.imageUrlProfile;

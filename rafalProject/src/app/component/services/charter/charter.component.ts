@@ -24,13 +24,14 @@ export class CharterComponent implements OnInit {
   public pictureName1: string = '';
   public pictureName2: string = '';
   public pictureName3: string = '';
+  // /[^0-9]/g
   constructor(
     public bsModalRef: BsModalRef,
     private builder: FormBuilder,
     private companyService: CompanyserviceService, private toastr: ToastrService,
     private spinner: NgxSpinnerService) {
     this.accountingForm = this.builder.group({
-      "yearofbudget": ['', Validators.compose([Validators.required])],
+      "yearofbudget": ['', Validators.compose([Validators.required,Validators.pattern('^[0-9]+$'), Validators.maxLength(11)])],
       "imageblob1": ['', Validators.compose([Validators.required])],
       "imageblob2": ['', Validators.compose([Validators.required])],
       "imageblob3": ['', Validators.compose([Validators.required])],
@@ -130,4 +131,14 @@ export class CharterComponent implements OnInit {
     }
 
   }
+  public yearofBudgetFlag: boolean;
+
+  yearofBudgetFun() {
+    if (parseInt(this.yearofBudget) > 0 ) {
+      this.yearofBudgetFlag = false;
+    } else {
+      this.yearofBudgetFlag = true;
+    }
+  }
+
 }

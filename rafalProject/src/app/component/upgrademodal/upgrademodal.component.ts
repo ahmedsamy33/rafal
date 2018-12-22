@@ -76,6 +76,7 @@ export class UpgrademodalComponent implements OnInit {
     this.UserService.getPickListCCJ("Country", lang).subscribe(
       data => {
         this.countryArr = data;
+        this.RegionArr2=data;
         // this.CountryCode=this.countryArr[0].code;
       },
       error => { }

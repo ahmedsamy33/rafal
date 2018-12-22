@@ -53,15 +53,15 @@ export class HiringComponent implements OnInit {
           // Validators.pattern("^d+$")
         ]
       ],
-      skills: ["", Validators.required],
+      skills: ["", Validators.required,Validators.maxLength(30)],
       noYears: [
         "",
-        [Validators.required, Validators.minLength(4), Validators.maxLength(4)]
+        [Validators.required, Validators.minLength(4), Validators.pattern('^[0-9]+$'), Validators.maxLength(11)]
       ],
-      dailyHours: ["", Validators.required],
-      salary: ["", [Validators.required, Validators.minLength(4)]],
-      statusOfVisa: ["", Validators.required],
-      requireQualification: ["", Validators.required],
+      dailyHours: ["", Validators.required,Validators.pattern('^[0-9]+$'), Validators.maxLength(11)],
+      salary: ["", [Validators.required, Validators.minLength(4),Validators.pattern('^[0-9]+$'), Validators.maxLength(11)]],
+      statusOfVisa: ["", ],
+      requireQualification: ["", Validators.required, Validators.maxLength(100)],
       others: [""]
     });
 
@@ -139,6 +139,7 @@ export class HiringComponent implements OnInit {
   }
 
   calDayHour() {
+    console.log(this.DailyHours)
     if (parseInt(this.DailyHours) > 16) {
       this.dayFlag = true;
     } else {

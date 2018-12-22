@@ -5,7 +5,7 @@
       <div class="modal-icon">
         <i class="ic fas fa-calculator"></i>
       </div>
-      <h5><span>{{'Charter'|translate}}</span>  {{'Accounting'|translate}}</h5>
+      <h5><span>{{'Charter'|translate}}</span> {{'Accounting'|translate}}</h5>
       <hr>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
         <span aria-hidden="true">&times;</span>
@@ -15,9 +15,9 @@
   <!--use in en:modal-body & ar:modal-body modal-body-ar-->
   <div class="modal-body modal-body-ar">
     <div class="form account">
-      <input class="text" type="number" name="phone" placeholder="{{'Budget of Year'|translate}}" formControlName="yearofbudget"
-        [(ngModel)]="yearofBudget" [ngClass]="{ 'is-invalid': accountingForm.get('yearofbudget').touched && accountingForm.get('yearofbudget').hasError('required'),
-        'is-valid':accountingForm.get('yearofbudget').touched && !accountingForm.get('yearofbudget').hasError('required') }" />
+      <input class="text" type="text" name="phone" (change)="yearofBudgetFun()"  placeholder="{{'Budget of Year'|translate}}" formControlName="yearofbudget"
+        [(ngModel)]="yearofBudget" [ngClass]="{ 'is-invalid': accountingForm.get('yearofbudget').touched && accountingForm.get('yearofbudget').hasError('required') || yearofBudgetFlag || accountingForm.get('yearofbudget').hasError('pattern') || accountingForm.get('yearofbudget').hasError('maxlength'),
+        'is-valid':accountingForm.get('yearofbudget').touched && !accountingForm.get('yearofbudget').hasError('required')  && !yearofBudgetFlag && !accountingForm.get('yearofbudget').hasError('pattern') && !accountingForm.get('yearofbudget').hasError('maxlength')}" />
 
 
       <span>{{'Accounting of the year :'|translate}}</span>
@@ -26,7 +26,8 @@
           [ngClass]="{ 'is-invalid': accountingForm.get('imageblob1').touched && accountingForm.get('imageblob1').hasError('required'),
         'is-valid':accountingForm.get('imageblob1').touched && !accountingForm.get('imageblob1').hasError('required') }"
           (change)="processFile($event,1)" accept="image/*" required>
-        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">{{'no image choosen'|translate}} </label>
+        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">{{'no image
+          choosen'|translate}} </label>
         <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}} </label>
       </div>
 
@@ -37,7 +38,8 @@
           [ngClass]="{ 'is-invalid': accountingForm.get('imageblob2').touched && accountingForm.get('imageblob2').hasError('required'),
       'is-valid':accountingForm.get('imageblob2').touched && !accountingForm.get('imageblob2').hasError('required') }"
           (change)="processFile($event,2)" accept="image/*" required>
-        <label class="custom-file-label" for="inputGroupFile02" *ngIf="pictureName2 == ''">{{'no image choosen'|translate}} </label>
+        <label class="custom-file-label" for="inputGroupFile02" *ngIf="pictureName2 == ''">{{'no image
+          choosen'|translate}} </label>
         <label class="custom-file-label" for="inputGroupFile02" *ngIf="pictureName2 != ''">{{pictureName2}} </label>
       </div>
 
@@ -48,10 +50,12 @@
           [ngClass]="{ 'is-invalid': accountingForm.get('imageblob3').touched && accountingForm.get('imageblob3').hasError('required'),
         'is-valid':accountingForm.get('imageblob3').touched && !accountingForm.get('imageblob3').hasError('required') }"
           (change)="processFile($event,3)" accept="image/*" required>
-        <label class="custom-file-label" for="inputGroupFile03" *ngIf="pictureName3 == ''">{{'no image choosen'|translate}} </label>
+        <label class="custom-file-label" for="inputGroupFile03" *ngIf="pictureName3 == ''">{{'no image
+          choosen'|translate}} </label>
         <label class="custom-file-label" for="inputGroupFile03" *ngIf="pictureName3 != ''">{{pictureName3}} </label>
 
-        <textarea type="text" name="text" placeholder="{{'Other (optional)'|translate}}" formControlName="other" [(ngModel)]="Other"></textarea>
+        <textarea type="text" name="text" placeholder="{{'Other (optional)'|translate}}" formControlName="other"
+          [(ngModel)]="Other"></textarea>
       </div>
 
 
@@ -60,6 +64,7 @@
   <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
   <div class="modal-footer modal-footer-ar account-footer">
     <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}}</button>
-    <button type="button" class="btn btn-primary" (click)="CharterService()" [disabled]="!accountingForm.valid ">{{ 'Submit'|translate}}</button>
+    <button type="button" class="btn btn-primary" (click)="CharterService()" [disabled]="!accountingForm.valid ">{{
+      'Submit'|translate}}</button>
   </div>
 </form>
