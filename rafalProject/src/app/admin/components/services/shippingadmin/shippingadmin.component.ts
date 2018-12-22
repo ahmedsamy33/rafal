@@ -64,29 +64,24 @@ export class ShippingadminComponent implements OnInit {
 
 
 
-  getFiles(fileName, id) {
+  getFiles(fileName) {
     this.spinner.show();
 
     this.service.getImage(fileName, 'Shipping').subscribe(data => {
-      // console.log(data);
+    
+       
       this.spinner.hide();
+ 
 
-      let bikeImage = document.getElementById(id) as HTMLImageElement;
-
-
-      var objectURL = URL.createObjectURL(data);
-      bikeImage.src = objectURL;
-
-
-
-      var w = window.open("");
-      w.document.write(bikeImage.outerHTML);
-
-      w.focus();
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(data);
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      a.remove()
 
 
-
-
+    
     }, err => {
       console.log(err);
 

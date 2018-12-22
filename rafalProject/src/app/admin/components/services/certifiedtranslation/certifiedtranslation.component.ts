@@ -63,30 +63,26 @@ export class CertifiedtranslationComponent implements OnInit {
   }
 
 
+ 
   getFiles(fileName, id) {
     this.spinner.show();
 
+    
     this.service.getImage(fileName, 'Certified_Translation').subscribe(data => {
-      // console.log(data);
+      console.log(data);
+       
       this.spinner.hide();
+ 
 
-      this.createBlob(data);
-      // let bikeImage = document.getElementById(id) as HTMLImageElement;
-
-
-      // var objectURL = URL.createObjectURL(data);
-      // bikeImage.src = objectURL;
-
-
-
-      // var w = window.open("");
-      // w.document.write(bikeImage.outerHTML);
-
-      // w.focus();
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(data);
+      a.download = id;
+      document.body.appendChild(a);
+      a.click();
+      a.remove()
 
 
-
-
+  
     }, err => {
       console.log(err);
 
@@ -106,12 +102,7 @@ export class CertifiedtranslationComponent implements OnInit {
 
     return image
   }
-
-  createBlob(data) {
-    const blob = new Blob([data], { type: 'application/octet-stream' })
-
-    this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(window.URL.createObjectURL(blob));
-  }
+ 
 }
 
 

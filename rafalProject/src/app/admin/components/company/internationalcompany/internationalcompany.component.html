@@ -13,21 +13,24 @@
     </div>
 
     <div class="table-responsive">
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover text-center">
       <thead>
         <tr>
           <th>#</th>
           <!-- <th>Country</th> -->
           <th>Capital</th>
+          <th>Country</th>
           <th>Company Name</th>
           <th>C.R Image</th>
-          <th>investment Country</th>
+          <th>Investment Country</th>
           <th>Expiry Date</th>
           <th>Phone Number</th>
           <th>Admin Name</th>
           <th>Company Website</th>
           <th>Email Address</th>
-
+          <th>Status</th>
+          <th>Owner Name</th>
+          <th>Owner Phone</th>
 
 
           <!-- <th>Status</th> -->
@@ -36,13 +39,13 @@
 
 
 
-          <!-- <th>STATE</th> -->
+          
         </tr>
       </thead>
       <tbody>
 
         <tr *ngIf="dataListSize == 0">
-          <td class="text-center no-data" colspan="12">
+          <td class="text-center no-data" colspan="15">
             <i class="fa fa-database fa-fw"></i>
             No Data Avilable
           </td>
@@ -52,15 +55,14 @@
         <tr *ngFor="let item of tableData  | paginate: { id: 'pager', itemsPerPage: pageSize, currentPage: pageNumber , totalItems: dataListSize};let index = index">
           <td>{{index+1}}</td>
 
-          <!-- <td>{{item.country}}</td> -->
           <td>{{item.capital}}</td>
+          <td>{{item.country}}</td>
 
           <td>{{item.companyName}}</td>
 
-          <td class="url">
-            <!-- {{item.advertiseImageToken}} -->
-            <a href="{{ImageService}}{{item.cRNumberImageToken}}"
-
+          <td *ngIf="item.cRNumberImageToken != null" class="url">
+             
+            <a  href="{{ImageService}}{{item.cRNumberImageToken}}"
               target="_blank">
 
               <img src="{{ImgSrc}}" alt="avatar">
@@ -68,25 +70,34 @@
             </a>
 
           </td>
+
+          <td class="url" *ngIf="item.cRNumberImageToken == null">
+              <img src="{{no_preview}}" alt="avatar">
+          </td>
+
           <td>{{item.investmentCountry}}</td>
 
 
           <td>{{item.expireDate }}</td>
+          <td>{{item.phoneNumber }}</td>
+          <td>{{item.adminName }}</td>
+          <td>
+              <a href="item.websiteLink" target="_blank">{{item.websiteLink}}</a>
+            </td>
+
+            
           <td>{{item.ownerPhone }}</td>
           <td>{{item.ownerName }}</td>
-          <td>
-            <a href="item.websiteLink" target="_blank">{{item.websiteLink}}</a>
-          </td>
-
+          
           <td>{{item.mail}}</td>
 
 
 
-          <td>{{item.creationDate | date : format : timezone }}</td>
           <td *ngIf="item.status == 'Pending' " class="pending">{{item.status}}</td>
           <td *ngIf="item.status == 'Approverd' " class="Approverd">{{item.status}}</td>
           <td *ngIf="item.status == 'Rejected' " class="Rejected">{{item.status}}</td>
-
+          
+          <td>{{item.creationDate | date : format : timezone }}</td>
         </tr>
       </tbody>
     </table>

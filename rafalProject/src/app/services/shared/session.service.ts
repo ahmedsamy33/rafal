@@ -77,6 +77,8 @@ export class SessionService {
 
   static clearDateFromLocalStorage() {
     localStorage.removeItem("token");
+    localStorage.removeItem("imgToken");
+    localStorage.removeItem("userName");
     localStorage.removeItem("type")
   }
 

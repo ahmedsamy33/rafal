@@ -63,7 +63,7 @@
           <td>
 
 
-            <a class="url" (click)="getFiles(item.cvUrl , item.cvUrl)" target="_blank">
+            <a class="url" (click)="getFiles(item.cvName , item.cvName)" target="_blank">
 
 
               <i class="fa fa-download"></i>
@@ -78,6 +78,7 @@
             </a>
 
           </td>
+          <td>{{item.creationDate | date : format : timezone }}</td>
 
 
 

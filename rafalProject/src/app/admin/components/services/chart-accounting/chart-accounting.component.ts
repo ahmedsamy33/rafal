@@ -69,25 +69,82 @@ export class ChartAccountingComponent implements OnInit {
 
   }
 
+  // getFiles(fileName, id) {
+  //   this.spinner.show();
+
+  //   let thefile = {};
+  //   this.service.getImage(fileName, 'CharterAccount')
+  //   .subscribe(data => {
+  //     console.log(data);
+
+  //   // .subscribe(data => thefile = new Blob([data], { type: "application/octet-stream" }),    
+  //   //                   error => console.log("Error downloading the file."),
+  //   //                 () => console.log('Completed file download.',thefile));
+
+  //     let url = window.URL.createObjectURL(thefile);
+  //     window.open(url);
+       
+  //     // this.spinner.hide();
+
+  //     // let bikeImage = document.getElementById(id) as HTMLImageElement;
+
+
+  //     // var objectURL = URL.createObjectURL(data);
+  //     // bikeImage.src = objectURL;
+
+
+
+  //     // var w = window.open("");
+  //     // w.document.write(bikeImage.outerHTML);
+
+  //     // w.focus();
+
+
+
+  //     //  var url = window.URL.createObjectURL(data);
+  //     // var a = document.createElement('a');
+  //     // document.body.appendChild(a);
+  //     // a.setAttribute('style', 'display: none');
+  //     // a.href = url;
+  //     // a.download = data.;
+  //     // a.click();
+  //     // window.URL.revokeObjectURL(url);
+  //     // a.remove(); // remove the element
+
+
+
+  //   }, err => {
+  //     console.log(err , 'eeeeeeeeror');
+
+  //   })
+  // }
+
+
   getFiles(fileName, id) {
     this.spinner.show();
 
     this.service.getImage(fileName, 'CharterAccount').subscribe(data => {
-      // console.log(data);
+       
       this.spinner.hide();
 
-      let bikeImage = document.getElementById(id) as HTMLImageElement;
+      // let bikeImage = document.getElementById(id) as HTMLImageElement;
 
 
-      var objectURL = URL.createObjectURL(data);
-      bikeImage.src = objectURL;
+      // var objectURL = URL.createObjectURL(data);
+      // bikeImage.src = objectURL;
+
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(data);
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      a.remove()
 
 
+      // var w = window.open("");
+      // w.document.write(bikeImage.outerHTML);
 
-      var w = window.open("");
-      w.document.write(bikeImage.outerHTML);
-
-      w.focus();
+      // w.focus();
 
 
 
@@ -113,5 +170,16 @@ export class ChartAccountingComponent implements OnInit {
   }
 
 
+  downloadfile(type: string){
+
+    // let thefile = {};
+    // this.pservice.downloadfile(this.rundata.name, type)
+    //     .subscribe(data => thefile = new Blob([data], { type: "application/octet-stream" }), //console.log(data),
+    //                 error => console.log("Error downloading the file."),
+    //                 () => console.log('Completed file download.'));
+
+    // let url = window.URL.createObjectURL(thefile);
+    // window.open(url);
+}
 
 }

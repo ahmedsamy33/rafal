@@ -17,7 +17,9 @@ export class NewinvestorComponent implements OnInit {
   /* pagination Info */
   pageSize = 5;
   pageNumber = 1;
-  companyType = 'Inverst'
+  companyType = 'Inverst';
+  no_preview: string = 'assets/images/no-image-icon-4.png';
+
 
   ImgSrc: string = 'assets/images/picture.png';
   ImageService = SettingsService.imageUrlCompany;

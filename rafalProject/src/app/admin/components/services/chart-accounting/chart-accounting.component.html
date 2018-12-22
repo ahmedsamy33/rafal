@@ -26,7 +26,7 @@
       </thead>
       <tbody>
         <tr *ngIf="dataListSize == 0">
-          <td class="text-center no-data" colspan="7">
+          <td class="text-center no-data" colspan="9">
             <i class="fa fa-database fa-fw"></i>
             No Data Avilable
           </td>
@@ -58,6 +58,12 @@
               <img id="{{item.companyAccImageName}}" src="{{ImgSrc}}" alt="avatar">
             </a></td>
 
+          <td>{{item.ownerName}}</td>
+          <td>{{item.ownerPhone}}</td>
+
+
+          
+            
           <td>{{item.other }}</td>
           <td>{{item.creationDate | date : format : timezone }}</td>
         </tr>

@@ -60,9 +60,9 @@
           </select>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="number" name="text" placeholder="{{'Capital Currency Ex:100:Usd'|translate}}" formControlName="capital"
-            [(ngModel)]="Capital" [ngClass]="{ 'is-invalid': hasError('capital','required'),
-            'is-valid':FeasibilityForm.get('capital').touched && !hasError('capital','required') }"
+          <input class="text" type="text" name="text" placeholder="{{'Capital Currency Ex:100:Usd'|translate}}" formControlName="capital"
+            [(ngModel)]="Capital" [ngClass]="{ 'is-invalid': hasError('capital','required') || hasError('capital','pattern') || hasError('capital','minlength') || hasError('capital','maxlength'),
+            'is-valid':FeasibilityForm.get('capital').touched && !hasError('capital','required')  && !hasError('capital','pattern')  && !hasError('capital','minlength')  && !hasError('capital','maxlength') }"
             required />
         </div>
       </div>

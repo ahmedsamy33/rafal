@@ -18,6 +18,8 @@ export class InternationalcompanyComponent implements OnInit {
   pageSize = 5;
   pageNumber = 1;
   companyType = 'Inter';
+  no_preview: string = 'assets/images/no-image-icon-4.png';
+
 
   ImgSrc: string = 'assets/images/picture.png';
   ImageService = SettingsService.imageUrlCompany;
