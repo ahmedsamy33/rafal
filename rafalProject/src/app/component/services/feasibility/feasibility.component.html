@@ -5,7 +5,7 @@
       <div class="modal-icon">
         <i class="ic fas fa-paste"></i>
       </div>
-      <h5>{{'Feasibility'|translate}}{{'Study'|translate}}</h5>
+      <h5>{{'Feasibility'|translate}} <span>{{'Study'|translate}}</span></h5>
       <hr>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
         <span aria-hidden="true">&times;</span>
@@ -17,15 +17,17 @@
     <div class="form study">
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12">
+            <!-- <span>{{'Choose Country'|translate}}</span> -->
           <select class="text select" name="country" placeholder="country" formControlName="country" [(ngModel)]="Country"
             (change)="getRegionValue()" [ngClass]="{ 'is-invalid': hasError('country','required'),'is-valid':FeasibilityForm.get('country').touched && !hasError('country','required')  }"
             required>
-            <option value="" selected disabled hidden>Choose here</option>
+            
             <option *ngFor="let country of countryArr" value="{{country.code}}">{{country.value}}</option>
 
           </select>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
+            <!-- <span>{{'Company Type'|translate}}</span> -->
           <select class="text select" name="company" placeholder="company type" formControlName="compType" [(ngModel)]="CompType"
             [ngClass]="{ 'is-invalid': hasError('compType','required'),'is-valid':FeasibilityForm.get('compType').touched && !hasError('compType','required')  }"
             required>
@@ -52,6 +54,7 @@
       <div class="row">
 
         <div class="col-lg-6 col-md-12 col-sm-12">
+            <!-- <span>{{'Choose Region'|translate}}</span> -->
           <select class="text select" type="text" name="text" placeholder="Region" formControlName="region" [(ngModel)]="Region"
             [ngClass]="{ 'is-invalid': hasError('region','required'),'is-valid':FeasibilityForm.get('region').touched && !hasError('region','required')  }"
             required>

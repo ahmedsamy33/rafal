@@ -37,7 +37,7 @@ padding: 10px;
 .ubber .list-inline .select {
   border: none;
   background-color: transparent;
-  color: #fff;
+  color: #ab0005;
   margin-right: 16px;
   font-size: 11px;
 }
@@ -205,6 +205,13 @@ font-weight:600;
     font-weight:400;
   color:#fff !important;
   }
+  .navbar-ar .dropdown{
+    position: relative;
+   text-align:right;
+    z-index: 9999;
+    margin-top: -7px;
+    margin-right:6px
+  }
 @media (max-width:991px) {
 
   .navbar .navbar-nav {
@@ -236,8 +243,8 @@ font-weight:600;
   }
 
   .navbar .dropdown .btn {
-    width: 53%;
-    height: 56%;
+    width: 68px;
+    height: 56px;
     margin: auto;
     margin-left: 28px;
   }
@@ -304,9 +311,8 @@ font-weight:600;
   }
 
   .navbar .dropdown .btn {
-    width: 47%;
-
-    height: 35%;
+    width: 68px;
+    height: 56px;
   }
 }
 
@@ -483,12 +489,19 @@ text-align: right;
   }
 }
 /*main form arabic*/
+.main-form form .text{
+  margin-top:13px
+}
 .main-form-ar{
   direction:rtl
 }
 .main-form-ar .title{
   text-align:right
 }
+/* .main-form-ar .title-job{
+  text-align:right;
+  padding-right:117px
+} */
 /*END HEADER*/
 /*start footer*/
 /* .footer {
@@ -847,7 +860,7 @@ text-align: right;
   overflow:hidden
 }
 .services-ar .services-inner{
-padding: 0 75px 0 0;
+padding: 0 56px 0 0;
 }
 .services-ar .our-services-text{
   text-align:right
@@ -1158,7 +1171,7 @@ padding: 0 75px 0 0;
 }
 
 .carousel .carousel-item img {
-  width: 222px !important;
+  width: 100% !important;
   height: 183px;
 }
 

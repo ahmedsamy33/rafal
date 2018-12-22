@@ -144,7 +144,13 @@
  "C.R Image":"صوره ال c.r",
  "Old Password":"كلمه المرور الحاليه",
  "New Password":"كلمه المرور الجديده",
- "R":""
+ "R":"",
+ "Choose Country":"اختر البلد",
+ "Choose Region":"اختر المنطقه",
+ "Company Type":"نوع الشركه",
+ "Type of Translation":"نوع الترجمه",
+ "To which Language":"الي اي لغه",
+ "country code":"كود البلد"
 
 
 }

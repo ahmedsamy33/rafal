@@ -27,14 +27,14 @@
 
 
 
-
+      <!-- <span>{{'Type of Translation'|translate}}</span> -->
       <select class="text select" type="text" name="text" placeholder="Type of Translation" formControlName="typeOfTranslate"
         [(ngModel)]="TypeOfTranslate" [ngClass]="{ 'is-invalid': hasError('typeOfTranslate','required'),'is-valid':certifiedForm.get('typeOfTranslate').touched && !hasError('typeOfTranslate','required')  }"
         required>
         <option *ngFor="let type of arrayTypeLang" value="{{type.code}}">{{type.value}}</option>
 
       </select>
-
+      <!-- <span>{{'To which Language'|translate}}</span> -->
       <select class="text select" type="text" name="text" placeholder="To which Language" formControlName="toLang"
         [(ngModel)]="ToLang" [ngClass]="{ 'is-invalid': hasError('toLang','required'),'is-valid':certifiedForm.get('toLang').touched && !hasError('toLang','required')  }"
         required>

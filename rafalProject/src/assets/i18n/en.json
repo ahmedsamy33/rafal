@@ -143,7 +143,13 @@
 "C.R Image":"C.R Image",
 "Old Password":"Old Password",
 "New Password":"New Password",
-"R":"R"
+"R":"R",
+"Choose Country":"Choose Country",
+"Choose Region":"Choose Region",
+"Company Type":"Company Type",
+"Type of Translation":"Type of Translation",
+"To which Language":"To which Language",
+"country code":"country code"
 
 
 }

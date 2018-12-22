@@ -28,6 +28,7 @@
             'is-valid':hiringForm.get('active').touched && !hasError('active','required') &&  !hasError('active','minlength') &&  !hasError('active','maxlength') }" />
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12 right">
+            <!-- <span>{{'Job Title'|translate}}</span> -->
           <select class="text select" type="text" name="text" placeholder="Job Title" formControlName="job" [(ngModel)]="Job"
             [ngClass]="{ 'is-invalid': hasError('job','required'),'is-valid':!hasError('job','required')  }" required>
             <option *ngFor="let job of jobTitle" value="{{job.code}}">{{job.value}}</option>
@@ -37,6 +38,7 @@
       </div>
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12">
+            <!-- <span>{{'Choose Region'|translate}}</span> -->
           <select class="text select" type="text" name="text" placeholder="Region" formControlName="region" [(ngModel)]="Region"
             [ngClass]="{ 'is-invalid': hasError('region','required'),'is-valid':!hasError('region','required')  }"
             required>
@@ -56,6 +58,7 @@
             'is-valid':hiringForm.get('noYears').touched && !hasError('noYears','required') &&  !hasError('noYears','minlength') &&  !hasError('noYears','maxlength') &&  !hasError('noYears','pattern')}" />
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
+            <!-- <span>{{'Status Of Visa'|translate}}</span> -->
           <select class="text select is-valid" type="text" name="text" placeholder="Status of Visa " formControlName="statusOfVisa"
             [(ngModel)]="StatusOfVisa" 
             required>

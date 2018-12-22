@@ -1163,7 +1163,7 @@ p {
   display: block;
   margin: auto;
   width: 306px;
-  padding: 6px;
+  padding: 3px;
 
   /* box-shadow: 2px 3px 20px 0px #afa4a4;*/
   border: none;
@@ -1307,7 +1307,7 @@ p {
 
 @media (max-width:992px) {
   .main-form .title {
-    text-align: center;
+    text-align: center !important;
   }
 
   .main-form .title h3 {
@@ -1344,7 +1344,7 @@ p {
   }
 
   .main-form .title {
-    text-align: center;
+    text-align: center !important;
   }
 
   .main-form .title p {
@@ -1381,7 +1381,7 @@ p {
   .main-form form .custom-file label {
     margin: 0;
     width: 111%;
-    font-size: 4px;
+    font-size: 14px;
     padding-right: 70px;
     padding-left: 2px;
 
@@ -1432,7 +1432,7 @@ p {
 
     margin: auto;
     padding-right: 77px;
-    padding-left: 39px;
+    /* padding-left: 39px; */
 
   }
 }
@@ -1919,6 +1919,9 @@ button.toast-close-button {
   background: #009999 !important;
 
 }
+.table{
+  margin-bottom:0;
+}
 
 .table-bordered i {
   color: #009999 !important;
@@ -1953,12 +1956,10 @@ button.toast-close-button {
   box-shadow: none !important;
 
 }
-select{
+/* select{
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
-
-
-}
+} */
 
 .my-pagination  a, .my-pagination  .current , .my-pagination  a:hover{
   text-decoration: none !important;
@@ -1995,4 +1996,7 @@ select{
   margin: auto;
   background-color: #099;
   line-height: 28px;
+}
+.pagination-wrapper{
+  margin-top:20px;
 }

@@ -322,7 +322,7 @@
           <!-- en:special_description_content & ar:special_description_content special_description_content-ar -->
           <div class="special_description_content special_description_content-ar">
             <h2>{{'Try Our'|translate}} <span>{{'Mobile Application'|translate}}</span> {{'Now'|translate}}</h2>
-            <hr>
+            <!-- <hr> -->
             <p>{{ 'mob' | translate}}</p>
             <div class="app-download-area">
               <div class="app-download-btn wow fadeInUp" data-wow-delay="0.2s">
@@ -518,7 +518,8 @@
         </div>
 
         <div class="row">
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 offset-lg-3 offset-md-3">
+            <div class="d-xs-none  d-sm-none d-md-block col-xl-3 col-lg-3 col-md-3 col-sm-6"></div>
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
             <div class="our-services-wrapper mb-60">
               <div class="services-inner wow fadeInLeft" style="cursor: pointer;" (click)="openmodal('CertifiedComponent')">
                 <div class="row">
@@ -537,7 +538,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 offset-lg-3 offset-md-3">
+          <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 ">
             <div class="our-services-wrapper mb-60">
               <div class="services-inner wow fadeInRight" style="cursor: pointer;" (click)="openmodal('ShippingComponent')">
                 <div class="row">
@@ -557,6 +558,7 @@
             </div>
           </div>
 
+          <div class="d-xs-none  d-sm-none d-md-block col-xl-3 col-lg-3 col-md-3 col-sm-6"></div>
         </div>
       </div>
     </div>
@@ -885,6 +887,7 @@
 
           <form class="wow fadeInRight" [formGroup]="addadvertismentForm">
 
+              <!-- <span class="title-job">{{'Job Title'|translate}}</span> -->
             <select class="text select" type="text" name="text" placeholder="Job Title" formControlName="job"
               [(ngModel)]="Job" [ngClass]="{ 'is-invalid': hasError('job','required'),'is-valid':addadvertismentForm.get('job').touched && !hasError('job','required')  }"
               required>

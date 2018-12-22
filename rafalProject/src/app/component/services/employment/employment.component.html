@@ -20,6 +20,7 @@
         [ngClass]="{ 'is-invalid': hasError('activity','required') || hasError('activity','maxlength'),
         'is-valid':employmentForm.get('activity').touched && !hasError('activity','required') &&  !hasError('activity','maxlength')}"
         required /> -->
+        <!-- <span>{{'Job Title'|translate}}</span> -->
         <select class="text select" type="text" name="text" placeholder="Job Title"  
         formControlName="job" [(ngModel)]="Job" 
         [ngClass]="{ 'is-invalid': hasError('job','required'),'is-valid':employmentForm.get('job').touched && !hasError('job','required')  }"
