@@ -67,22 +67,23 @@
 
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="number" name="text" placeholder="{{'Daily Hours'|translate}}" (change)="calDayHour()"
-            formControlName="dailyHours" [(ngModel)]="DailyHours" [ngClass]="{ 'is-invalid': hasError('dailyHours','required') || dayFlag ,
-          'is-valid':hiringForm.get('dailyHours').touched && !hasError('dailyHours','required') && !dayFlag }" />
+          <input class="text" type="text" name="text" placeholder="{{'Daily Hours'|translate}}" (change)="calDayHour()"
+            formControlName="dailyHours" [(ngModel)]="DailyHours" [ngClass]="{ 'is-invalid': hasError('dailyHours','required') || dayFlag ||  hasError('dailyHours','pattern') ||  hasError('dailyHours','maxLength') ,
+          'is-valid':hiringForm.get('dailyHours').touched && !hasError('dailyHours','required') && !dayFlag  && !hasError('dailyHours','pattern') && !hasError('dailyHours','maxLength')}" />
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="number" name="text" placeholder="{{'Salary'|translate}}" formControlName="salary" [(ngModel)]="Salary"
-            [ngClass]="{ 'is-invalid': hasError('salary','required') || hasError('salary','minlength'),
-          'is-valid':hiringForm.get('salary').touched && !hasError('salary','required') &&  !hasError('salary','minlength') }"
+          <input class="text" type="text" name="text" placeholder="{{'Salary'|translate}}" formControlName="salary" [(ngModel)]="Salary"
+            [ngClass]="{ 'is-invalid': hasError('salary','required') || hasError('salary','minlength') ||  hasError('salary','pattern') ||  hasError('salary','maxLength'),
+          'is-valid':hiringForm.get('salary').touched && !hasError('salary','required') &&  !hasError('salary','minlength')  && !hasError('salary','pattern')  && !hasError('salary','maxLength') }"
             required />
         </div>
       </div>
-      <textarea type="text" name="text" placeholder="{{'Skills'|translate}}" formControlName="skills" [(ngModel)]="Skills" [ngClass]="{ 'is-invalid': hasError('skills','required'),
-      'is-valid':hiringForm.get('skills').touched && !hasError('skills','required')  }"></textarea>
+      <textarea type="text" name="text" placeholder="{{'Skills'|translate}}" formControlName="skills" [(ngModel)]="Skills"
+       [ngClass]="{ 'is-invalid': hasError('skills','required') || hasError('skills','maxlength'),
+      'is-valid':hiringForm.get('skills').touched && !hasError('skills','required')  && !hasError('skills','maxlength') }"></textarea>
       <input class="text big" type="text" name="text" placeholder="{{'Required Qualifications'|translate}}" formControlName="requireQualification"
-        [(ngModel)]="RequireQualification" [ngClass]="{ 'is-invalid': hasError('requireQualification','required'),
-      'is-valid':hiringForm.get('requireQualification').touched && !hasError('requireQualification','required')  }"
+        [(ngModel)]="RequireQualification" [ngClass]="{ 'is-invalid': hasError('requireQualification','required') || hasError('requireQualification','maxlength'),
+      'is-valid':hiringForm.get('requireQualification').touched && !hasError('requireQualification','required') && !hasError('requireQualification','maxlength')  }"
         required />
 
       <textarea type="text" name="text" placeholder="{{'Other (optional)'|translate}}" formControlName="others" [(ngModel)]="Others"

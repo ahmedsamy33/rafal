@@ -38,7 +38,7 @@ export class FeasibilityComponent implements OnInit {
       address: ["", [Validators.required, Validators.maxLength(120)]],
       activity: ["", [Validators.required, Validators.maxLength(30)]],
       compType: ["", Validators.required],
-      capital: ["", Validators.required]
+      capital: ["", [Validators.required,Validators.pattern('^[0-9]+$'), Validators.maxLength(11),Validators.minLength(3)]]
     });
 
     let lang = localStorage.getItem("lang");

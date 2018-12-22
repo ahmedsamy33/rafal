@@ -94,8 +94,12 @@ export class LoginmodalComponent implements OnInit {
         localStorage.setItem('type', data.userDetails.type);
         this.bsModalRef.hide();
         this.spinner.hide();
-        if (data.userDetails.type == 'Company') {
+        console.log(data.userDetails.type)
+
+        if (data.userDetails.type == 'SUPERADMIN' || data.userDetails.type == 'ADMIN' ) {
           this.router.navigate(['layout/Users']);
+        console.log(data.userDetails.type)
+
         }
 
         let option = {
