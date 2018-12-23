@@ -75,6 +75,7 @@ export class HomeComponent implements OnInit {
     private router: Router
   ) {
     this.lang = localStorage.getItem("lang");
+    // this.spinner.show();
 
     this.addadvertismentForm = this.builder.group({
       job: ["", Validators.required],

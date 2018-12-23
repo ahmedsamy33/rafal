@@ -24,7 +24,7 @@
       <select class="text select" type="text" name="text" placeholder="Job Title" formControlName="job" [(ngModel)]="Job"
         [ngClass]="{ 'is-invalid': hasError('job','required'),'is-valid':employmentForm.get('job').touched && !hasError('job','required')  }"
         required>
-        <option value="null" disabled selected>Select your option</option>
+        <option value="null" disabled selected>{{'Select Job title'|translate}}</option>
         <option *ngFor="let job of jobTitle" value="{{job.code}}">{{job.value}}</option>
 
       </select>

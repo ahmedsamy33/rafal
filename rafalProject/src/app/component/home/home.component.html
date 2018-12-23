@@ -85,13 +85,13 @@
         </select>
         <span class="lang-border">|</span>
       </li>
-      <li>
-        <a class="nav-link sign" *ngIf="!checkDisplay" (click)="openmodal('LoginmodalComponent')">{{'log
+      <li *ngIf="!checkDisplay">
+        <a class="nav-link sign" (click)="openmodal('LoginmodalComponent')">{{'log
           in'|translate}}<span>|</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link sign" *ngIf="!checkDisplay" (click)="openmodal('SignupmodalComponent')">{{'sign
+      <li class="nav-item" *ngIf="!checkDisplay">
+        <a class="nav-link sign" (click)="openmodal('SignupmodalComponent')">{{'sign
           up'|translate}}</a>
       </li>
 
@@ -100,7 +100,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link sign" *ngIf="checkDisplay && userType != 'Company'" (click)="openmodal('UpgrademodalComponent')">
-          {{'Upgrate to company'|translate}}</a>
+          {{'Upgrate to company'|translate}}<span>|</span></a>
       </li>
       <!-- <li class="nav-item">
         <a class="nav-link sign"> {{'Search'|translate}}</a>
@@ -242,10 +242,7 @@
         <div class="section-heading text-center">
           <h2>{{'Why We Are'|translate}} <span>{{'Special'|translate}}</span></h2>
           <hr>
-          <p>{{'The company does provide the most influential and comprehensive essential services particularly in
-            providing high quality professional management to those new organizations and business entities. This is to
-            cover all other related products such as commercial services, commercial agents and other commercial
-            related business between businesses.'|translate}}
+          <p>{{'special'|translate}}
           </p>
           <div class="line-shape"></div>
         </div>
@@ -328,7 +325,7 @@
         </div>
         <div class="col-lg-6 col-xl-5 ml-xl-auto">
           <!-- en:special_description_content & ar:special_description_content special_description_content-ar -->
-          <div class="special_description_content special_description_content-ar">
+          <div class="special_description_content" [ngClass]="{'special_description_content-ar':language == 'ar'}">
             <h2>{{'Try Our'|translate}} <span>{{'Mobile Application'|translate}}</span> {{'Now'|translate}}</h2>
             <!-- <hr> -->
             <p>{{ 'mob' | translate}}</p>
@@ -899,7 +896,7 @@
             <select class="text select" type="text" name="text" placeholder="Job Title" formControlName="job"
               [(ngModel)]="Job" [ngClass]="{ 'is-invalid': hasError('job','required'),'is-valid':addadvertismentForm.get('job').touched && !hasError('job','required')  }"
               required>
-              <option selected>Advertisment Title</option>
+              <option value="null" disabled selected>{{'Select Job title'|translate}}</option>
               <option *ngFor="let job of jobTitle" value="{{job.code}}">{{job.value}}</option>
 
             </select>

@@ -91,6 +91,9 @@ margin-left: 10px
     margin-right: 13px;
     font-size: 11px;
   }
+  .ubber .list-inline{
+    text-align:center;
+  }
 }
 .navbar-ar .collapse{
   direction:rtl;
@@ -107,11 +110,12 @@ margin-left: 10px
   text-align: right;
 }
 .navbar .dropdown .btn {
-  width: 56px;
-  height: 38px;
+  width: 54px;
+  height: 41px;
   border: none;
   border-radius: 50%;
   background-color: transparent;
+  margin: -9px 0 0 36px;
 
 }
 
@@ -209,7 +213,7 @@ font-weight:600;
     position: relative;
    text-align:right;
     z-index: 9999;
-    margin-top: -7px;
+    margin-top: -2px;
     margin-right:6px
   }
 @media (max-width:991px) {
@@ -220,7 +224,7 @@ font-weight:600;
     font-size: 7px;
     background-color: #fff;
     padding-top: 18px;
-    height: 216px;
+    height: 232px;
     padding-left: 4px;
     border-radius: 7px;
   }
@@ -247,6 +251,9 @@ font-weight:600;
     height: 56px;
     margin: auto;
     margin-left: 28px;
+  }
+  .navbar .navbar-nav li .nav-link{
+    margin-left:0;
   }
 }
 
@@ -466,7 +473,9 @@ text-align: right;
   .app-download-btn {
     margin-bottom: 20px;
   }
-
+.header{
+  text-align:center !important;
+}
   .header h4 {
     font-size: 207px;
     position: absolute;
@@ -490,7 +499,9 @@ text-align: right;
 }
 /*main form arabic*/
 .main-form form .text{
-  margin-top:13px
+  margin-top:13px;
+  color: #fff;
+  font-size: 13px
 }
 .main-form-ar{
   direction:rtl
@@ -819,7 +830,7 @@ text-align: right;
 
 @media(max-width:576px) and (min-width:270px) {
   .special-area .section-heading p {
-    font-size: 7px;
+    font-size: 12px;
     font-weight: 400;
     margin-top: -16px;
     line-height: 15px;

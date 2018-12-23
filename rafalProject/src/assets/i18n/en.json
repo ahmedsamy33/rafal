@@ -150,8 +150,14 @@
   "Type of Translation": "Type of Translation",
   "To which Language": "To which Language",
   "country code": "country code",
-  "admin": "Go to Admin"
-
+  "admin": "Go to Admin",
+  "special":"The company does provide the most influential and comprehensive essential services particularly in providing high quality professional management to those new organizations and business entities. This is to cover all other related products such as commercial services, commercial agents and other commercial related business between businesses",
+  "Select your country":"Select your country",
+  "Select your region":"Select your region",
+  "Select company type":"Select company type",
+  "Select Job title":"Select Job title",
+  "You must write your country code before mobile number":"You must write your country code before mobile number"
+ 
 
 
 }

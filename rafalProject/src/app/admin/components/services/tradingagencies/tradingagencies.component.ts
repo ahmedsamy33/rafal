@@ -68,7 +68,7 @@ export class TradingagenciesComponent implements OnInit {
     this.spinner.show();
 
 
-    this.service.getImage(fileName, 'Trading_Agencies').subscribe(data => {
+    this.service.getImage(fileName, 'Trading_Agency').subscribe(data => {
       // console.log(data);
 
       this.spinner.hide();

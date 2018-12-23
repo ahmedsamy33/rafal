@@ -67,7 +67,7 @@ export class CustomerclearanceComponent implements OnInit {
     this.spinner.show();
 
 
-    this.service.getImage(fileName, 'Custom_Clearance').subscribe(data => {
+    this.service.getImage(fileName, 'Customs_Clearance').subscribe(data => {
       // console.log(data);
 
       this.spinner.hide();
