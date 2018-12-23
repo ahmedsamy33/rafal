@@ -48,7 +48,7 @@ export class UsersComponent implements OnInit {
 
       this.tableData = res.data;
       this.dataListSize = res.size;
-      console.log(this.dataListSize);
+      // console.log(this.dataListSize);
       this.spinner.hide()
 
 

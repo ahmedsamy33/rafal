@@ -45,8 +45,8 @@ export class UpgrademodalComponent implements OnInit {
     private toastr: ToastrService,
     private spinner: NgxSpinnerService
   ) {
-    console.log("ddddd");
-    console.log(this.company);
+    // console.log("ddddd");
+    // console.log(this.company);
 
 
     this.mydForm = this.builder.group({
@@ -103,7 +103,7 @@ export class UpgrademodalComponent implements OnInit {
 
   upgradeService() {
     let data = {};
-    console.log("ah,e", this.company == 'Esta');
+    // console.log("ah,e", this.company == 'Esta');
 
     if (this.company == 'Esta') {
       // establish
@@ -160,7 +160,7 @@ export class UpgrademodalComponent implements OnInit {
 
     this.UserService.companyupgradeservices(data).subscribe(
       data => {
-        console.log(data.id);
+        // console.log(data.id);
         this.UserService.UploadCompanyCR(this.file1, data.id).subscribe(
           data => {
             this.bsModalRef.hide();

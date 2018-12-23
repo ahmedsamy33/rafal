@@ -46,7 +46,7 @@ export class GlobalService {
             value: value
         })
 
-        console.log(this.data$);
+        // console.log(this.data$);
         
     }
 }

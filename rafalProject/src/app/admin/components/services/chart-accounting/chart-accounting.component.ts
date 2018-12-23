@@ -83,7 +83,7 @@ export class ChartAccountingComponent implements OnInit {
 
   //     let url = window.URL.createObjectURL(thefile);
   //     window.open(url);
-       
+
   //     // this.spinner.hide();
 
   //     // let bikeImage = document.getElementById(id) as HTMLImageElement;
@@ -124,7 +124,7 @@ export class ChartAccountingComponent implements OnInit {
     this.spinner.show();
 
     this.service.getImage(fileName, 'CharterAccount').subscribe(data => {
-       
+
       this.spinner.hide();
 
       // let bikeImage = document.getElementById(id) as HTMLImageElement;
@@ -150,7 +150,7 @@ export class ChartAccountingComponent implements OnInit {
 
 
     }, err => {
-      console.log(err);
+      // console.log(err);
 
     })
   }
@@ -170,7 +170,7 @@ export class ChartAccountingComponent implements OnInit {
   }
 
 
-  downloadfile(type: string){
+  downloadfile(type: string) {
 
     // let thefile = {};
     // this.pservice.downloadfile(this.rundata.name, type)
@@ -180,6 +180,6 @@ export class ChartAccountingComponent implements OnInit {
 
     // let url = window.URL.createObjectURL(thefile);
     // window.open(url);
-}
+  }
 
 }

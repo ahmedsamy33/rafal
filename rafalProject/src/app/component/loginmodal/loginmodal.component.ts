@@ -67,7 +67,7 @@ export class LoginmodalComponent implements OnInit {
 
   loginData() {
 
-    console.log(this.loginForm);
+    // console.log(this.loginForm);
     let lang;
     if (localStorage.getItem('lang') == 'en') {
       lang = "English"
@@ -88,17 +88,17 @@ export class LoginmodalComponent implements OnInit {
     this.autherService.Signin(data).subscribe(
       data => {
         this.action.emit(data);
-        console.log(data);
+        // console.log(data);
         SessionService.saveDataInLocalStorage(data);
         // console.log();
         localStorage.setItem('type', data.userDetails.type);
         this.bsModalRef.hide();
         this.spinner.hide();
-        console.log(data.userDetails.type)
+        // console.log(data.userDetails.type)
 
         if (data.userDetails.type == 'SUPERADMIN' || data.userDetails.type == 'ADMIN' ) {
           this.router.navigate(['layout/Users']);
-        console.log(data.userDetails.type)
+        // console.log(data.userDetails.type)
 
         }
 
@@ -181,7 +181,7 @@ export class LoginmodalComponent implements OnInit {
 
     this.userService.getcountriesphpicklistcodes().subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
         this.countries = data;
         this.contryCode = this.countries[0];
       },

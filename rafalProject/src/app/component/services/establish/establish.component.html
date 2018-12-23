@@ -1,5 +1,5 @@
 <form [formGroup]="establishingForm">
-   <!--use in en:modal-header & ar:modal-header modal-header-ar-->
+  <!--use in en:modal-header & ar:modal-header modal-header-ar-->
   <div class="modal-header modal-header-ar">
     <div class="modal-title" id="exampleModalLabel">
       <div class="modal-icon">
@@ -17,35 +17,35 @@
     <div class="form company">
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12">
-            <!-- <span>{{'Choose Country'|translate}}</span> -->
+          <!-- <span>{{'Choose Country'|translate}}</span> -->
           <select class="text select" name="country" placeholder="country" formControlName="country" [(ngModel)]="Country"
             (change)="getRegionValue()" [ngClass]="{ 'is-invalid': hasError('country','required'),'is-valid':establishingForm.get('country').touched && !hasError('country','required')  }"
             required>
-            <option  value="country" selected="true">Select Country</option>
+            <option value="null" disabled selected>Select your option</option>
             <option *ngFor="let country of countryArr" value="{{country.code}}">{{country.value}}</option>
           </select>
 
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
-            <!-- <span>{{'Choose Region'|translate}}</span> -->
+          <!-- <span>{{'Choose Region'|translate}}</span> -->
           <select class="text select" type="text" name="text" placeholder="Region" formControlName="region" [(ngModel)]="Region"
             [ngClass]="{ 'is-invalid': hasError('region','required'),'is-valid':establishingForm.get('region').touched && !hasError('region','required')  }"
             required>
-            <option selected value="region">Select Region</option>
+            <option value="null" disabled selected>Select your option</option>
             <option *ngFor="let region of RegionArr" value="{{region.code}}">{{region.value}}</option>
           </select>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}}" formControlName="activity" [(ngModel)]="Activity"
-            [ngClass]="{ 'is-invalid': hasError('activity','required')|| hasError('activity','maxlength') || hasError('activity','minlength'),
+          <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}}" formControlName="activity"
+            [(ngModel)]="Activity" [ngClass]="{ 'is-invalid': hasError('activity','required')|| hasError('activity','maxlength') || hasError('activity','minlength'),
             'is-valid':establishingForm.get('activity').touched && !hasError('activity','required') &&   !hasError('activity','maxlength') &&   !hasError('activity','minlength')  }"
             required />
         </div>
         <div class=" col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="number" name="text" placeholder="{{'Capital Currency Ex:100:Usd'|translate}}" formControlName="capital"
-            [(ngModel)]="Capital" [ngClass]="{ 'is-invalid': hasError('capital','required') || hasError('capital','minlength'),
+          <input class="text" type="number" name="text" placeholder="{{'Capital Currency Ex:100:Usd'|translate}}"
+            formControlName="capital" [(ngModel)]="Capital" [ngClass]="{ 'is-invalid': hasError('capital','required') || hasError('capital','minlength'),
           'is-valid':establishingForm.get('capital').touched && !hasError('capital','required') &&  !hasError('capital','minlength')}"
             required />
         </div>
@@ -57,7 +57,8 @@
           [ngClass]="{ 'is-invalid': establishingForm.get('imageblob1').touched && establishingForm.get('imageblob1').hasError('required'),
         'is-valid':establishingForm.get('imageblob1').touched && !establishingForm.get('imageblob1').hasError('required') }"
           (change)="processFile($event,1)" accept="image/*" required>
-        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">{{'no image choosen'|translate}} </label>
+        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">{{'no image
+          choosen'|translate}} </label>
         <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}} </label>
       </div>
 
@@ -67,7 +68,8 @@
           [ngClass]="{ 'is-invalid': establishingForm.get('imageblob2').touched && establishingForm.get('imageblob2').hasError('required'),
         'is-valid':establishingForm.get('imageblob2').touched && !establishingForm.get('imageblob2').hasError('required') }"
           (change)="processFile($event,2)" accept="image/*" required>
-        <label class="custom-file-label" for="inputGroupFile02" *ngIf="pictureName2 == ''">{{'no image choosen'|translate}} </label>
+        <label class="custom-file-label" for="inputGroupFile02" *ngIf="pictureName2 == ''">{{'no image
+          choosen'|translate}} </label>
         <label class="custom-file-label" for="inputGroupFile02" *ngIf="pictureName2 != ''">{{pictureName2}} </label>
       </div>
       <span>{{'Upload your rental agreement copy :'|translate}}</span>
@@ -76,15 +78,17 @@
           [ngClass]="{ 'is-invalid': establishingForm.get('imageblob3').touched && establishingForm.get('imageblob3').hasError('required'),
         'is-valid':establishingForm.get('imageblob3').touched && !establishingForm.get('imageblob3').hasError('required') }"
           (change)="processFile($event,3)" accept="image/*" required>
-        <label class="custom-file-label" for="inputGroupFile03" *ngIf="pictureName3 == ''">{{'no image choosen'|translate}} </label>
+        <label class="custom-file-label" for="inputGroupFile03" *ngIf="pictureName3 == ''">{{'no image
+          choosen'|translate}} </label>
         <label class="custom-file-label" for="inputGroupFile03" *ngIf="pictureName3 != ''">{{pictureName3}} </label>
         <textarea type="text" name="text" placeholder="{{'Other (optional)'|translate}}"></textarea>
       </div>
     </div>
   </div>
-   <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
+  <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
   <div class="modal-footer modal-footer-ar account-footer">
     <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}}</button>
-    <button type="button" class="btn btn-primary" (click)="establishingService()" [disabled]="!establishingForm.valid ">{{ 'Submit'|translate}}</button>
+    <button type="button" class="btn btn-primary" (click)="establishingService()" [disabled]="!establishingForm.valid ">{{
+      'Submit'|translate}}</button>
   </div>
 </form>

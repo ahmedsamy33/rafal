@@ -37,7 +37,7 @@ export class HiringComponent implements OnInit {
     private companyService: CompanyserviceService, private toastr: ToastrService,
     private spinner: NgxSpinnerService
   ) {
-    console.log("ddddd");
+    // console.log("ddddd");
     this.hiringForm = this.builder.group({
       active: [
         "",

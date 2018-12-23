@@ -28,7 +28,7 @@ export class CustomsComponent implements OnInit {
   constructor(public bsModalRef: BsModalRef, private builder: FormBuilder,
     private companyService: CompanyserviceService, private toastr: ToastrService,
     private spinner: NgxSpinnerService) {
-    console.log("ddddd");
+    // console.log("ddddd");
     this.customsForm = this.builder.group({
       "imageblob1": ['', Validators.compose([Validators.required])],
       "imageblob2": ['', Validators.compose([Validators.required])],

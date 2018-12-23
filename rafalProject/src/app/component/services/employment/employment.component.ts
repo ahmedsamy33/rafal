@@ -30,7 +30,7 @@ export class EmploymentComponent implements OnInit {
 
 
   ) {
-    console.log("ddddd");
+    // console.log("ddddd");
 
     this.employmentForm = this.builder.group({
       activity: ["", [Validators.required, Validators.maxLength(30)]],
@@ -108,7 +108,7 @@ export class EmploymentComponent implements OnInit {
           currentName.length
         );
 
-        console.log("ssss : ", this.fileExtension)
+        // console.log("ssss : ", this.fileExtension)
       } else {
         this.pictureName1 = '';
         this.fileExtension = '';

@@ -21,7 +21,7 @@ export class ResetmodalComponent implements OnInit {
     private autherService: AuthentionService,
     private spinner: NgxSpinnerService,
     private toastr: ToastrService) {
-    console.log("ddddd");
+    // console.log("ddddd");
     this.editFormPass = this.builder.group({
       oldpass: ["", Validators.required],
       newpass: ["", Validators.required],

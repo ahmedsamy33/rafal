@@ -35,11 +35,11 @@ export class VerfiymodalComponent implements OnInit {
 
       "code": ['', Validators.required],
     });
-    console.log("ddddd");
+    // console.log("ddddd");
     let data = JSON.parse(localStorage.getItem("userSignupData"));
     this.getSignupData = data;
 
-    console.log(this.getSignupData);
+    // console.log(this.getSignupData);
 
 
     this.DeviceTypeFunction()
@@ -73,10 +73,10 @@ export class VerfiymodalComponent implements OnInit {
       this.deviceType
     ).subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
         this.toastr.success('Login successfully!', 'Welcome', option);
         this.actionVerfiy.emit(data);
-        console.log(data);
+        // console.log(data);
         localStorage.setItem('type', data.userDetails.type);
 
         SessionService.saveDataInLocalStorage(data);

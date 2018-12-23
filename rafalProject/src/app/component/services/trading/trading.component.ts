@@ -32,7 +32,7 @@ export class TradingComponent implements OnInit {
     private spinner: NgxSpinnerService
 
   ) {
-    console.log("ddddd");
+    // console.log("ddddd");
     this.tradingForm = this.builder.group({
       activity: ["", [Validators.required, Validators.maxLength(50)]],
       requiredBrand: ["", [Validators.required, Validators.maxLength(50)]],

@@ -2,7 +2,7 @@ import { SessionService } from './services/shared/session.service';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { AuthentionService } from './services/shared/authention.service';
-import { Router ,Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
+import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,14 +10,14 @@ import { Router ,Event, NavigationStart, NavigationEnd, NavigationError } from '
 })
 export class AppComponent {
 
-  public activeUrl:any;
+  public activeUrl: any;
   constructor(translate: TranslateService,
     private autherService: AuthentionService,
     public router: Router
   ) {
 
 
-  
+
 
 
     if (localStorage.getItem("lang") == null) {
@@ -44,26 +44,26 @@ export class AppComponent {
     // console.log(true);
     let type = localStorage.getItem('type');
     let image = localStorage.getItem('imgToken');
-  
+
 
     if (token != null) {
-      SessionService.userSessionData.userDetails.picture_url=image;
+      SessionService.userSessionData.userDetails.picture_url = image;
       SessionService.userSessionData.tkn = token;
       if (type == 'ADMIN' || type == 'SUPERADMIN') {
         SessionService.userSessionData.is_log = true;
         this.router.events.subscribe(event => {
-          if (event instanceof NavigationEnd ) {
-            this.activeUrl=event.url;
-            this.router.navigate([ this.activeUrl]);
+          if (event instanceof NavigationEnd) {
+            this.activeUrl = event.url;
+            this.router.navigate([this.activeUrl]);
           }
         });
 
-        if(type == 'ADMIN'){
+        if (type == 'ADMIN') {
           SessionService.userSessionData.userDetails.type = 'ADMIN';
-        }else if(type == 'SUPERADMIN'){
+        } else if (type == 'SUPERADMIN') {
           SessionService.userSessionData.userDetails.type = 'SUPERADMIN';
         }
-     
+
         this.autherService.validateSession().subscribe(
           data => {
             SessionService.saveInSession(data);

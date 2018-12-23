@@ -13,7 +13,7 @@ export class AuthguardService implements CanActivate {
     // if (!SessionService.userSessionData.is_log) {
     // console.log(SessionService.userSessionData.userDetails.type, !SessionService.userSessionData.is_log && SessionService.userSessionData.userDetails.type != 'Company');
    
-    console.log( SessionService.userSessionData.userDetails.type.localeCompare("ADMIN") == 0)
+    // console.log( SessionService.userSessionData.userDetails.type.localeCompare("ADMIN") == 0)
     if (!SessionService.userSessionData.is_log ||  SessionService.userSessionData.userDetails.type != "SUPERADMIN") {
       this.router.navigate(['home']);
       return false;

@@ -31,7 +31,7 @@ export class FeasibilityComponent implements OnInit {
     private spinner: NgxSpinnerService
 
   ) {
-    console.log("ddddd");
+    // console.log("ddddd");
     this.FeasibilityForm = this.builder.group({
       country: ["", Validators.required],
       region: ["", Validators.required],

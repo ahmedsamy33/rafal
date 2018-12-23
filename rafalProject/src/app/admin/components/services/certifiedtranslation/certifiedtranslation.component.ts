@@ -63,16 +63,16 @@ export class CertifiedtranslationComponent implements OnInit {
   }
 
 
- 
+
   getFiles(fileName, id) {
     this.spinner.show();
 
-    
+
     this.service.getImage(fileName, 'Certified_Translation').subscribe(data => {
-      console.log(data);
-       
+      // console.log(data);
+
       this.spinner.hide();
- 
+
 
       const a = document.createElement('a');
       a.href = URL.createObjectURL(data);
@@ -82,9 +82,9 @@ export class CertifiedtranslationComponent implements OnInit {
       a.remove()
 
 
-  
+
     }, err => {
-      console.log(err);
+      // console.log(err);
 
     })
   }
@@ -102,7 +102,7 @@ export class CertifiedtranslationComponent implements OnInit {
 
     return image
   }
- 
+
 }
 
 

@@ -1,5 +1,5 @@
 <form [formGroup]="hiringForm">
-<!--use in en:modal-header & ar:modal-header modal-header-ar-->
+  <!--use in en:modal-header & ar:modal-header modal-header-ar-->
   <div class="modal-header modal-header-ar">
     <div class="modal-title" id="exampleModalLabel">
       <div class="modal-icon">
@@ -20,17 +20,18 @@
         placeholder="country">
         <option *ngFor="let company of CompanyArr" value="{{company.code}}">{{ company.value }}</option>
       </select> -->
-    </div>
+      </div>
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12 left">
-          <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}}" formControlName="active" [(ngModel)]="Active"
-            [ngClass]="{ 'is-invalid': hasError('active','required')|| hasError('active','minlength')|| hasError('active','maxlength'),
+          <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}}" formControlName="active"
+            [(ngModel)]="Active" [ngClass]="{ 'is-invalid': hasError('active','required')|| hasError('active','minlength')|| hasError('active','maxlength'),
             'is-valid':hiringForm.get('active').touched && !hasError('active','required') &&  !hasError('active','minlength') &&  !hasError('active','maxlength') }" />
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12 right">
-            <!-- <span>{{'Job Title'|translate}}</span> -->
+          <!-- <span>{{'Job Title'|translate}}</span> -->
           <select class="text select" type="text" name="text" placeholder="Job Title" formControlName="job" [(ngModel)]="Job"
             [ngClass]="{ 'is-invalid': hasError('job','required'),'is-valid':!hasError('job','required')  }" required>
+            <option value="null" disabled selected>Select your option</option>
             <option *ngFor="let job of jobTitle" value="{{job.code}}">{{job.value}}</option>
 
           </select>
@@ -38,16 +39,17 @@
       </div>
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12">
-            <!-- <span>{{'Choose Region'|translate}}</span> -->
+          <!-- <span>{{'Choose Region'|translate}}</span> -->
           <select class="text select" type="text" name="text" placeholder="Region" formControlName="region" [(ngModel)]="Region"
             [ngClass]="{ 'is-invalid': hasError('region','required'),'is-valid':!hasError('region','required')  }"
             required>
+            <option value="null" disabled selected>Select your option</option>
             <option *ngFor="let region of RegionArr" value="{{region.code}}">{{region.value}}</option>
           </select>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="number" name="quantity" placeholder="{{'Age'|translate}}" formControlName="age" [(ngModel)]="Age"
-            (change)="calAge()" [ngClass]="{ 'is-invalid': hasError('age','required')|| hasError('age','maxlength') || ageFlag,
+          <input class="text" type="number" name="quantity" placeholder="{{'Age'|translate}}" formControlName="age"
+            [(ngModel)]="Age" (change)="calAge()" [ngClass]="{ 'is-invalid': hasError('age','required')|| hasError('age','maxlength') || ageFlag,
           'is-valid':hiringForm.get('age').touched && !hasError('age','required') &&  !hasError('age','maxlength') && !ageFlag }" />
         </div>
       </div>
@@ -58,10 +60,9 @@
             'is-valid':hiringForm.get('noYears').touched && !hasError('noYears','required') &&  !hasError('noYears','minlength') &&  !hasError('noYears','maxlength') &&  !hasError('noYears','pattern')}" />
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
-            <!-- <span>{{'Status Of Visa'|translate}}</span> -->
+          <!-- <span>{{'Status Of Visa'|translate}}</span> -->
           <select class="text select is-valid" type="text" name="text" placeholder="Status of Visa " formControlName="statusOfVisa"
-            [(ngModel)]="StatusOfVisa" 
-            required>
+            [(ngModel)]="StatusOfVisa" required>
             <option value="Available">{{'avaliable'|translate}}</option>
             <option value="Unavailable">{{'unavaliable'|translate}}</option>
           </select>
@@ -75,28 +76,29 @@
           'is-valid':hiringForm.get('dailyHours').touched && !hasError('dailyHours','required') && !dayFlag  && !hasError('dailyHours','pattern') && !hasError('dailyHours','maxLength')}" />
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="text" name="text" placeholder="{{'Salary'|translate}}" formControlName="salary" [(ngModel)]="Salary"
-            [ngClass]="{ 'is-invalid': hasError('salary','required') || hasError('salary','minlength') ||  hasError('salary','pattern') ||  hasError('salary','maxLength'),
+          <input class="text" type="text" name="text" placeholder="{{'Salary'|translate}}" formControlName="salary"
+            [(ngModel)]="Salary" [ngClass]="{ 'is-invalid': hasError('salary','required') || hasError('salary','minlength') ||  hasError('salary','pattern') ||  hasError('salary','maxLength'),
           'is-valid':hiringForm.get('salary').touched && !hasError('salary','required') &&  !hasError('salary','minlength')  && !hasError('salary','pattern')  && !hasError('salary','maxLength') }"
             required />
         </div>
       </div>
       <textarea type="text" name="text" placeholder="{{'Skills'|translate}}" formControlName="skills" [(ngModel)]="Skills"
-       [ngClass]="{ 'is-invalid': hasError('skills','required') || hasError('skills','maxlength'),
+        [ngClass]="{ 'is-invalid': hasError('skills','required') || hasError('skills','maxlength'),
       'is-valid':hiringForm.get('skills').touched && !hasError('skills','required')  && !hasError('skills','maxlength') }"></textarea>
-      <input class="text big" type="text" name="text" placeholder="{{'Required Qualifications'|translate}}" formControlName="requireQualification"
-        [(ngModel)]="RequireQualification" [ngClass]="{ 'is-invalid': hasError('requireQualification','required') || hasError('requireQualification','maxlength'),
+      <input class="text big" type="text" name="text" placeholder="{{'Required Qualifications'|translate}}"
+        formControlName="requireQualification" [(ngModel)]="RequireQualification" [ngClass]="{ 'is-invalid': hasError('requireQualification','required') || hasError('requireQualification','maxlength'),
       'is-valid':hiringForm.get('requireQualification').touched && !hasError('requireQualification','required') && !hasError('requireQualification','maxlength')  }"
         required />
 
-      <textarea type="text" name="text" placeholder="{{'Other (optional)'|translate}}" formControlName="others" [(ngModel)]="Others"
-        [ngClass]="{  'is-valid':hiringForm.get('others').touched } "></textarea>
+      <textarea type="text" name="text" placeholder="{{'Other (optional)'|translate}}" formControlName="others"
+        [(ngModel)]="Others" [ngClass]="{  'is-valid':hiringForm.get('others').touched } "></textarea>
     </div>
   </div>
   <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
   <div class="modal-footer modal-footer-ar">
     <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}}</button>
-    <button type="button" class="btn btn-primary" (click)="hiringService()" [disabled]="!hiringForm.valid || ageFlag ||dayFlag">{{ 'Submit'|translate}}</button>
+    <button type="button" class="btn btn-primary" (click)="hiringService()" [disabled]="!hiringForm.valid || ageFlag ||dayFlag">{{
+      'Submit'|translate}}</button>
   </div>
 
 </form>

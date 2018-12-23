@@ -33,7 +33,7 @@ export class CertifiedComponent implements OnInit {
     private spinner: NgxSpinnerService
 
   ) {
-    console.log("ddddd");
+    // console.log("ddddd");
     this.certifiedForm = this.builder.group({
       typeOfTranslate: ["", Validators.required],
       toLang: ["", Validators.required],
@@ -128,7 +128,7 @@ export class CertifiedComponent implements OnInit {
           currentName.length
         );
 
-        console.log("ssss : ", this.fileExtension)
+        // console.log("ssss : ", this.fileExtension)
       } else {
         this.pictureName1 = '';
         this.fileExtension = '';

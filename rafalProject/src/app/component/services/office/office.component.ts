@@ -29,7 +29,7 @@ export class OfficeComponent implements OnInit {
     private toastr: ToastrService,
     private spinner: NgxSpinnerService
   ) {
-    console.log("ddddd");
+    // console.log("ddddd");
     this.OfficeForm = this.builder.group({
       address: ["", [Validators.required, Validators.maxLength(120)]],
       rentingOffices: ["", [Validators.required, Validators.maxLength(120)]],

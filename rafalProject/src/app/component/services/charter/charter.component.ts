@@ -106,7 +106,7 @@ export class CharterComponent implements OnInit {
         this.pictureName2 = '';
 
       }
-      console.log("file2 : ", this.file2);
+      // console.log("file2 : ", this.file2);
     } else if (num == 3) {
       let reader = new FileReader();
       if (event.target.files && event.target.files.length > 0) {
@@ -127,7 +127,7 @@ export class CharterComponent implements OnInit {
         this.pictureName3 = '';
 
       }
-      console.log("file3 : ", this.file3);
+      // console.log("file3 : ", this.file3);
     }
 
   }

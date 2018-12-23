@@ -33,7 +33,7 @@ export class EmploymentadminComponent implements OnInit {
     this.loadData(this.pageSize, this.pageNumber, this.jobTitleCode);
 
 
-    console.log(this.imgService);
+    // console.log(this.imgService);
 
   }
 
@@ -52,7 +52,7 @@ export class EmploymentadminComponent implements OnInit {
 
       this.tableData = res.data;
       this.dataListSize = res.size;
-      console.log(this.tableData);
+      // console.log(this.tableData);
 
       this.spinner.hide();
 
@@ -85,12 +85,12 @@ export class EmploymentadminComponent implements OnInit {
   getFiles(fileName, id) {
     this.spinner.show();
 
-    
+
     this.service.getImage(fileName, 'Employment').subscribe(data => {
-      console.log(data);
-       
+      // console.log(data);
+
       this.spinner.hide();
- 
+
 
       const a = document.createElement('a');
       a.href = URL.createObjectURL(data);
@@ -100,7 +100,7 @@ export class EmploymentadminComponent implements OnInit {
       a.remove()
 
 
-  
+
     }, err => {
       console.log(err);
 

@@ -67,12 +67,12 @@ export class TradingagenciesComponent implements OnInit {
   getFiles(fileName) {
     this.spinner.show();
 
-    
+
     this.service.getImage(fileName, 'Trading_Agencies').subscribe(data => {
-      console.log(data);
-       
+      // console.log(data);
+
       this.spinner.hide();
- 
+
 
       const a = document.createElement('a');
       a.href = URL.createObjectURL(data);
@@ -82,7 +82,7 @@ export class TradingagenciesComponent implements OnInit {
       a.remove()
 
 
-  
+
     }, err => {
       console.log(err);
 

@@ -29,7 +29,7 @@ export class SignupmodalComponent implements OnInit {
     private autherService: AuthentionService,
     private builder: FormBuilder,
     private userService: UserDataService, private spinner: NgxSpinnerService, private toastr: ToastrService) {
-    console.log("ddddd");
+    // console.log("ddddd");
     this.signupForm = this.builder.group({
       "phonen": ['', Validators.compose([Validators.required])],
       "name": ['', Validators.compose([Validators.required])],
@@ -52,7 +52,7 @@ export class SignupmodalComponent implements OnInit {
     this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
   }
   signUp() {
-    console.log(this.signupForm);
+    // console.log(this.signupForm);
     this.spinner.show();
     let option = {
       timeOut: 5000,
@@ -72,7 +72,7 @@ export class SignupmodalComponent implements OnInit {
 
         SessionService.singinSaveData(this.phoneNumber, this.Password, this.contryCode)
         this.openverfiy();
-        console.log(data);
+        // console.log(data);
 
       },
       error => {
@@ -143,7 +143,7 @@ export class SignupmodalComponent implements OnInit {
 
     this.userService.getcountriesphpicklistcodes().subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
         this.countries = data;
         this.contryCode = this.countries[0];
         this.spinner.hide();

@@ -44,7 +44,7 @@ export class ConfirmPasswordComponent implements OnInit {
     let phone = SessionService.userSessionData.userDetails.userName;
     this.autherService.requestForgetPassword(this.conCode, phone, this.Password).subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
         SessionService.resetData();
         this.bsModalRef.hide();
         this.spinner.hide();

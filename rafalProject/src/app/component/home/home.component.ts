@@ -35,6 +35,8 @@ export class HomeComponent implements OnInit {
   public jobTitle = [];
   private Job: string = null;
 
+  public language;
+
   public lang;
   bsModalRef: BsModalRef;
   public Discription: string = null;
@@ -82,6 +84,8 @@ export class HomeComponent implements OnInit {
     });
 
     let lang1 = localStorage.getItem("lang");
+    this.language = lang1;
+
     if (lang1 == "en") {
       lang1 = "English";
     } else {
@@ -113,7 +117,7 @@ export class HomeComponent implements OnInit {
       this.router.url.lastIndexOf('/') + 1,
       this.router.url.lastIndexOf('#'),
     );
-    console.log(this.urlActive);
+    // console.log(this.urlActive);
 
     let token = localStorage.getItem('token');
 
@@ -126,14 +130,14 @@ export class HomeComponent implements OnInit {
           this.spinner.hide();
 
           SessionService.saveDataInLocalStorage(data);
-          console.log(data, SessionService.userSessionData);
+          // console.log(data, SessionService.userSessionData);
           localStorage.setItem("token", data.tkn);
           this.userData = SessionService.userSessionData.userDetails.picture_url;
           this.userName = data.userDetails.userName;
           let islog = SessionService.userSessionData.is_log;
           this.checkDisplay = islog;
           this.userType = SessionService.userSessionData.userDetails.type;
-          console.log(this.checkDisplay);
+          // console.log(this.checkDisplay);
         },
         error => {
           this.spinner.hide();
@@ -141,7 +145,7 @@ export class HomeComponent implements OnInit {
         }
       )
     } else {
-      console.log(SessionService.userSessionData.userDetails.picture_url);
+      // console.log(SessionService.userSessionData.userDetails.picture_url);
       this.userData = SessionService.userSessionData.userDetails.picture_url;
       let islog = SessionService.userSessionData.is_log;
       this.checkDisplay = islog;
@@ -152,7 +156,8 @@ export class HomeComponent implements OnInit {
 
 
   changeLanguage(lang) {
-    console.log(lang);
+    // console.log(lang);
+    this.language = lang;
 
     this.translate.use(lang);
 
@@ -197,12 +202,12 @@ export class HomeComponent implements OnInit {
     if (getUserVerfiy != null) {
       this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
       this.bsModalRef.content.actionVerfiy.take(1).subscribe((value) => {
-        console.log("ahmed 111111111:", value) // here you will get the value;
+        // console.log("ahmed 111111111:", value) // here you will get the value;
         this.userData = value.userDetails.picture_url;
         this.userName = value.userDetails.userName;
         this.userType = value.userDetails.type;
         // console.log("ahmed :", value.userDetails.type);
-        console.log(this.userData);
+        // console.log(this.userData);
         let islog = true;
         this.checkDisplay = islog;
       });
@@ -213,12 +218,12 @@ export class HomeComponent implements OnInit {
         // to get data session from modal
         if (componentTo == 'LoginmodalComponent') {
           this.bsModalRef.content.action.take(1).subscribe((value) => {
-            console.log("ahmed :", value) // here you will get the value;
+            // console.log("ahmed :", value) // here you will get the value;
             this.userData = value.userDetails.picture_url;
             this.userName = value.userDetails.userName;
             this.userType = value.userDetails.type;
             // console.log("ahmed :", value.userDetails.type);
-            console.log(this.userData);
+            // console.log(this.userData);
             let islog = true;
             this.checkDisplay = islog;
           });
@@ -237,7 +242,7 @@ export class HomeComponent implements OnInit {
         // to get data session from modal
         if (componentTo == 'LoginmodalComponent') {
           this.bsModalRef.content.action.take(1).subscribe((value) => {
-            console.log("ahmed2 :", value) // here you will get the value;
+            // console.log("ahmed2 :", value) // here you will get the value;
             this.userData = value.userDetails.picture_url;
             this.userName = value.userDetails.userName;
             // console.log("ahmed2 :", value.userDetails.type);
@@ -248,17 +253,17 @@ export class HomeComponent implements OnInit {
         }
       } else {
         this.bsModalRef = this.modalService.show(LoginmodalComponent, { class: 'modal-sm' });
-        if (componentTo == 'LoginmodalComponent') {
-          this.bsModalRef.content.action.take(1).subscribe((value) => {
-            console.log("ahmed2 :", value) // here you will get the value;
-            this.userData = value.userDetails.picture_url;
-            this.userName = value.userDetails.userName;
-            // console.log("ahmed2 :", value.userDetails.type);
-            let islog = true;
-            this.checkDisplay = islog;
-            this.userType = value.userDetails.type;
-          });
-        }
+        // if (componentTo == 'LoginmodalComponent') {
+        this.bsModalRef.content.action.take(1).subscribe((value) => {
+          // console.log("ahmed2 :", value) // here you will get the value;
+          this.userData = value.userDetails.picture_url;
+          this.userName = value.userDetails.userName;
+          // console.log("ahmed2 :", value.userDetails.type);
+          let islog = true;
+          this.checkDisplay = islog;
+          this.userType = value.userDetails.type;
+        });
+        // }
       }
 
 
@@ -290,19 +295,19 @@ export class HomeComponent implements OnInit {
   }
 
   slickInit(e) {
-    console.log('slick initialized');
+    // console.log('slick initialized');
   }
 
   breakpoint(e) {
-    console.log('breakpoint');
+    // console.log('breakpoint');
   }
 
   afterChange(e) {
-    console.log('afterChange');
+    // console.log('afterChange');
   }
 
   beforeChange(e) {
-    console.log('beforeChange');
+    // console.log('beforeChange');
   }
 
 
@@ -315,12 +320,12 @@ export class HomeComponent implements OnInit {
     if (getUserVerfiy != null) {
       this.bsModalRef = this.modalService.show(VerfiymodalComponent, { class: 'modal-sm' });
       this.bsModalRef.content.actionVerfiy.take(1).subscribe((value) => {
-        console.log("ahmed 111111111:", value) // here you will get the value;
+        // console.log("ahmed 111111111:", value) // here you will get the value;
         this.userData = value.userDetails.picture_url;
         this.userName = value.userDetails.userName;
         this.userType = value.userDetails.type;
         // console.log("ahmed :", value.userDetails.type);
-        console.log(this.userData);
+        // console.log(this.userData);
         let islog = true;
         this.checkDisplay = islog;
       });
@@ -328,7 +333,7 @@ export class HomeComponent implements OnInit {
       this.bsModalRef = this.modalService.show(LoginmodalComponent, { class: 'modal-sm' });
 
       this.bsModalRef.content.action.take(1).subscribe((value) => {
-        console.log("ahmed2 :", value) // here you will get the value;
+        // console.log("ahmed2 :", value) // here you will get the value;
         this.userData = value.userDetails.picture_url;
         this.userName = value.userDetails.userName;
         // console.log("ahmed2 :", value.userDetails.type);
@@ -381,14 +386,14 @@ export class HomeComponent implements OnInit {
         while (this.imaArray.length > 0) {
           this.arrays.push(this.imaArray.splice(0, this.size));
         }
-        console.log(this.arrays);
+        // console.log(this.arrays);
 
 
         // console.log(this.imaArray.length);
 
       },
       error => {
-        console.log(error);
+        // console.log(error);
       }
     );
   }
@@ -427,7 +432,7 @@ export class HomeComponent implements OnInit {
     }
     else if (num == 2) {
       let reader = new FileReader();
-      console.log(event.target.files);
+      // console.log(event.target.files);
 
       if (event.target.files && event.target.files.length > 0) {
         let file = event.target.files[0];
@@ -518,6 +523,10 @@ export class HomeComponent implements OnInit {
     )
   }
 
+  gotoAdmin() {
+    this.router.navigate(['layout/Users']);
+
+  }
 }
 
 

@@ -66,12 +66,12 @@ export class CustomerclearanceComponent implements OnInit {
   getFiles(fileName) {
     this.spinner.show();
 
-    
+
     this.service.getImage(fileName, 'Custom_Clearance').subscribe(data => {
-      console.log(data);
-       
+      // console.log(data);
+
       this.spinner.hide();
- 
+
 
       const a = document.createElement('a');
       a.href = URL.createObjectURL(data);
@@ -81,7 +81,7 @@ export class CustomerclearanceComponent implements OnInit {
       a.remove()
 
 
-  
+
     }, err => {
       console.log(err);
 

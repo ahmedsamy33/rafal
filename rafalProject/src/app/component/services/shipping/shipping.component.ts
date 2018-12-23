@@ -27,7 +27,7 @@ export class ShippingComponent implements OnInit {
     private toastr: ToastrService,
     private spinner: NgxSpinnerService
   ) {
-    console.log("ddddd");
+    // console.log("ddddd");
     this.shippingForm = this.builder.group({
       shipmentPort: ["", [Validators.required, Validators.maxLength(120)]],
       responsibleOfRecievingName: [

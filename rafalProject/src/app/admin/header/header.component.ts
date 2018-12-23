@@ -43,7 +43,7 @@ export class HeaderComponent {
     this.userName = localStorage.getItem('userName');
     let profileImaeToken = localStorage.getItem('imgToken');
 
-    console.log(profileImaeToken);
+    // console.log(profileImaeToken);
 
 
     this.getProfileImageByToken(profileImaeToken)

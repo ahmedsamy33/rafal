@@ -16,7 +16,7 @@ export class MenuComponent implements OnInit {
 
 
 
-    console.log("ddddddddddddddd", this.menuInfo, );
+    // console.log("ddddddddddddddd", this.menuInfo, );
 
   }
 
@@ -29,7 +29,7 @@ export class MenuComponent implements OnInit {
 
   private _selectItem(item) {
     //this._globalService._isActived(item);
-    console.log(item);
+    // console.log(item);
 
     this._globalService.dataBusChanged('isActived', item);
   }

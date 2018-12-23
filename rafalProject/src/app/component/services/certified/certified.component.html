@@ -1,5 +1,5 @@
 <form [formGroup]="certifiedForm">
-   <!--use in en:modal-header & ar:modal-header modal-header-ar-->
+  <!--use in en:modal-header & ar:modal-header modal-header-ar-->
   <div class="modal-header modal-header-ar">
     <div class="modal-title" id="exampleModalLabel">
       <div class="modal-icon">
@@ -21,7 +21,8 @@
           [ngClass]="{ 'is-invalid': certifiedForm.get('imageblob1').touched && certifiedForm.get('imageblob1').hasError('required'),
           'is-valid':certifiedForm.get('imageblob1').touched && !certifiedForm.get('imageblob1').hasError('required') }"
           (change)="processFile($event,1)" accept="image/* , .doc , .docx ,.pdf" required aria-describedby="inputGroupFileAddon01">
-        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">{{'no file choosen'|translate}}</label>
+        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">{{'no file
+          choosen'|translate}}</label>
         <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}} </label>
       </div>
 
@@ -31,6 +32,7 @@
       <select class="text select" type="text" name="text" placeholder="Type of Translation" formControlName="typeOfTranslate"
         [(ngModel)]="TypeOfTranslate" [ngClass]="{ 'is-invalid': hasError('typeOfTranslate','required'),'is-valid':certifiedForm.get('typeOfTranslate').touched && !hasError('typeOfTranslate','required')  }"
         required>
+        <option value="null" disabled selected>Select your option</option>
         <option *ngFor="let type of arrayTypeLang" value="{{type.code}}">{{type.value}}</option>
 
       </select>
@@ -38,6 +40,7 @@
       <select class="text select" type="text" name="text" placeholder="To which Language" formControlName="toLang"
         [(ngModel)]="ToLang" [ngClass]="{ 'is-invalid': hasError('toLang','required'),'is-valid':certifiedForm.get('toLang').touched && !hasError('toLang','required')  }"
         required>
+        <option value="null" disabled selected>Select your option</option>
         <option *ngFor="let type of arrayLang" value="{{type.code}}">{{type.value}}</option>
 
       </select>
@@ -45,17 +48,19 @@
 
 
 
-      <input class="text" type="text" name="text" placeholder="{{'Responsible Of Recieving'|translate}}" formControlName="responsibleOfRecieving"
-        [(ngModel)]="ResponsibleOfRecieving" [ngClass]="{ 'is-invalid': hasError('responsibleOfRecieving','required') ||  hasError('responsibleOfRecieving','maxlength'),
+      <input class="text" type="text" name="text" placeholder="{{'Responsible Of Recieving'|translate}}"
+        formControlName="responsibleOfRecieving" [(ngModel)]="ResponsibleOfRecieving" [ngClass]="{ 'is-invalid': hasError('responsibleOfRecieving','required') ||  hasError('responsibleOfRecieving','maxlength'),
       'is-valid':certifiedForm.get('responsibleOfRecieving').touched && !hasError('responsibleOfRecieving','required') &&  ! hasError('responsibleOfRecieving','maxlength')}"
         required />
 
-      <textarea type="text" name="text" placeholder="{{'Other (optional)'|translate}}" formControlName="others" [(ngModel)]="Others"></textarea>
+      <textarea type="text" name="text" placeholder="{{'Other (optional)'|translate}}" formControlName="others"
+        [(ngModel)]="Others"></textarea>
     </div>
   </div>
   <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
   <div class="modal-footer modal-footer-ar">
     <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}}</button>
-    <button type="button" class="btn btn-primary" (click)="Certified()" [disabled]="!certifiedForm.valid ">{{ 'Submit'|translate}}</button>
+    <button type="button" class="btn btn-primary" (click)="Certified()" [disabled]="!certifiedForm.valid ">{{
+      'Submit'|translate}}</button>
   </div>
 </form>

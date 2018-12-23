@@ -25,7 +25,8 @@
           <div class="custom-file">
             <input type="file" class="custom-file-input" id="inputGroupFile02" accept="image/*" [(ngModel)]="imageBlob2"
               (change)="processFile($event,2)">
-            <label class="custom-file-label" *ngIf="pictureName2 == ''" for="inputGroupFile02">{{'no image choosen'|translate}}</label>
+            <label class="custom-file-label" *ngIf="pictureName2 == ''" for="inputGroupFile02">{{'no image
+              choosen'|translate}}</label>
             <label class="custom-file-label" *ngIf="pictureName2 != ''" for="inputGroupFile02"> {{pictureName2}}</label>
 
           </div>
@@ -77,23 +78,25 @@
   <div class="container">
     <ul class="list-inline">
       <li class="nav-item">
-          <li class="nav-item">
-              <select class="text select" name="country" placeholder="Language" [(ngModel)]="lang" (ngModelChange)="changeLanguage(lang)">
-                <option value="en">{{'English'|translate}}</option>
-                <option value="ar">{{'Arabic'|translate}}</option>
-              </select>
-              <span class="lang-border">|</span>
-            </li>
-            <li>
-        <a class="nav-link sign" *ngIf="!checkDisplay" (click)="openmodal('LoginmodalComponent')">{{'log in'|translate}}<span>|</span> 
+      <li class="nav-item">
+        <select class="text select" name="country" placeholder="Language" [(ngModel)]="lang" (ngModelChange)="changeLanguage(lang)">
+          <option value="en">{{'English'|translate}}</option>
+          <option value="ar">{{'Arabic'|translate}}</option>
+        </select>
+        <span class="lang-border">|</span>
+      </li>
+      <li>
+        <a class="nav-link sign" *ngIf="!checkDisplay" (click)="openmodal('LoginmodalComponent')">{{'log
+          in'|translate}}<span>|</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link sign" *ngIf="!checkDisplay" (click)="openmodal('SignupmodalComponent')">{{'sign up'|translate}}</a>
+        <a class="nav-link sign" *ngIf="!checkDisplay" (click)="openmodal('SignupmodalComponent')">{{'sign
+          up'|translate}}</a>
       </li>
-     
+
       <li class="nav-item">
-        <a class="nav-link sign" *ngIf="checkDisplay" (click)="logOut()">{{'log out'|translate}}<span>|</span> </a>
+        <a class="nav-link sign" *ngIf="checkDisplay" (click)="logOut()"> {{'log out'|translate}}<span>|</span> </a>
       </li>
       <li class="nav-item">
         <a class="nav-link sign" *ngIf="checkDisplay && userType != 'Company'" (click)="openmodal('UpgrademodalComponent')">
@@ -102,13 +105,18 @@
       <!-- <li class="nav-item">
         <a class="nav-link sign"> {{'Search'|translate}}</a>
       </li> -->
-      
+
+      <li class="nav-item">
+        <a class="nav-link sign" *ngIf="checkDisplay && userType == 'SUPERADMIN'" (click)="gotoAdmin()">
+          {{'admin'|translate}} </a>
+      </li>
+
     </ul>
   </div>
 </div>
 <!--start nav-->
 <!--use in en:navbar & ar:navbar & navbar-ar-->
-<nav class="navbar  navbar-ar navbar-expand-lg navbar-light ">
+<nav class="navbar  navbar-expand-lg navbar-light " [ngClass]="{'navbar-ar':language == 'ar'}">
   <div class="container">
     <a class="navbar-brand" href="#"><img src="./assets/images/rafal-logo1.png" /></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -195,7 +203,7 @@
 
 <!--start header-->
 <!--use in en:header & ar:header & header-ar-->
-<div class="header header-ar">
+<div class="header " [ngClass]="{'header-ar':language == 'ar'}">
   <div class="back">
     <img src="./../assets/images/header-bg.png" />
   </div>
@@ -226,7 +234,7 @@
 
 
 <!-- ***** Special Area Start ***** -->
-<section class="special-area special-area-ar bg-white section_padding_100" id="about">
+<section class="special-area  bg-white section_padding_100" [ngClass]="{'special-area-ar':language == 'ar'}" id="about">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -310,7 +318,7 @@
 
   <!-- Special Description Area -->
   <!--use in en:special_description_area & ar:special_description_area & special_description_area-ar-->
-  <div class="special_description_area  mt-150">
+  <div class="special_description_area  mt-150" [ngClass]="{'special_description_area-ar':language == 'ar'}">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
@@ -349,8 +357,8 @@
   <!--  Special Area End  -->
 
   <!--start services-->
-   <!-- en:services & ar:services services-ar -->
-  <div id="services" class="services services-ar">
+  <!-- en:services & ar:services services-ar -->
+  <div id="services" class="services services-ar" [ngClass]="{'services-ar':language == 'ar'}">
     <div class="container">
       <div class="intro wow fadeInUp">
         <h2>{{'Our'|translate}} <span> {{'Services'|translate}} </span></h2>
@@ -518,7 +526,7 @@
         </div>
 
         <div class="row">
-            <div class="d-xs-none  d-sm-none d-md-block col-xl-3 col-lg-3 col-md-3 col-sm-6"></div>
+          <div class="d-xs-none  d-sm-none d-md-block col-xl-3 col-lg-3 col-md-3 col-sm-6"></div>
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
             <div class="our-services-wrapper mb-60">
               <div class="services-inner wow fadeInLeft" style="cursor: pointer;" (click)="openmodal('CertifiedComponent')">
@@ -868,7 +876,7 @@
 
   <!--start main form-->
   <!--use in en:main-form & ar:main-form & main-form-ar-->
-  <div id="contact" class="main-form main-form-ar">
+  <div id="contact" class="main-form main-form-ar" [ngClass]="{'main-form-ar':language == 'ar'}">
     <div class="main-back">
       <img src="./../assets/images/pexels-photo-433639.jpeg" />
     </div>
@@ -887,29 +895,31 @@
 
           <form class="wow fadeInRight" [formGroup]="addadvertismentForm">
 
-              <!-- <span class="title-job">{{'Job Title'|translate}}</span> -->
+            <!-- <span class="title-job">{{'Job Title'|translate}}</span> -->
             <select class="text select" type="text" name="text" placeholder="Job Title" formControlName="job"
               [(ngModel)]="Job" [ngClass]="{ 'is-invalid': hasError('job','required'),'is-valid':addadvertismentForm.get('job').touched && !hasError('job','required')  }"
               required>
-              <option selected >Advertisment Title</option>
+              <option selected>Advertisment Title</option>
               <option *ngFor="let job of jobTitle" value="{{job.code}}">{{job.value}}</option>
 
             </select>
 
-            <textarea class="text second" type="text" name="description" placeholder="{{'Your Description'|translate}}" formControlName="discription"
-              [(ngModel)]="Discription"></textarea>
+            <textarea class="text second" type="text" name="description" placeholder="{{'Your Description'|translate}}"
+              formControlName="discription" [(ngModel)]="Discription"></textarea>
             <div class="custom-file">
               <input type="file" class="custom-file-input" id="inputGroupFile01" formControlName="imageblob1"
                 [(ngModel)]="imageBlob1" [ngClass]="{ 'is-invalid': addadvertismentForm.get('imageblob1').touched && addadvertismentForm.get('imageblob1').hasError('required'),
                   'is-valid':addadvertismentForm.get('imageblob1').touched && !addadvertismentForm.get('imageblob1').hasError('required') }"
                 (change)="processFile($event,1)" accept="image/*" required>
-              <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">{{'no image choosen'|translate}}
+              <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">{{'no image
+                choosen'|translate}}
               </label>
               <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}}
               </label>
             </div>
 
-            <button type="button" (click)="addAdvertsService()" [disabled]="!addadvertismentForm.valid ">{{ 'Submit'|translate}}</button>
+            <button type="button" (click)="addAdvertsService()" [disabled]="!addadvertismentForm.valid ">{{
+              'Submit'|translate}}</button>
           </form>
 
 
@@ -1004,6 +1014,7 @@
     <!-- Foooter Text-->
     <div class="copyright-text">
       <!-- ***** Removing this text is now allowed! This template is licensed under CC BY 3.0 ***** -->
-      <p>{{'Copyright ©2018 Rafal Group Designed by' |translate}}<a href="#" target="_blank">{{'Rafal Group'|translate}}</a></p>
+      <p>{{'Copyright ©2018 Rafal Group Designed by' |translate}}<a href="#" target="_blank">{{'Rafal
+          Group'|translate}}</a></p>
     </div>
   </footer>

@@ -69,12 +69,12 @@ export class EstablishcompanyComponent implements OnInit {
   getFiles(fileName) {
     this.spinner.show();
 
-    
+
     this.service.getImage(fileName, 'EstablishComp').subscribe(data => {
-      console.log(data);
-       
+      // console.log(data);
+
       this.spinner.hide();
- 
+
 
       const a = document.createElement('a');
       a.href = URL.createObjectURL(data);
@@ -84,7 +84,7 @@ export class EstablishcompanyComponent implements OnInit {
       a.remove()
 
 
-  
+
     }, err => {
       console.log(err);
 
@@ -92,7 +92,7 @@ export class EstablishcompanyComponent implements OnInit {
   }
 
 
- 
+
   public imageToShow;
   createImageFromBlob(image: Blob) {
     let reader = new FileReader();

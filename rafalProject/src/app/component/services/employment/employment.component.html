@@ -1,57 +1,55 @@
 <form [formGroup]="employmentForm">
   <!--use in en:modal-header & ar:modal-header modal-header-ar-->
-    <div class="modal-header modal-header-ar">
-      <div class="modal-title" id="exampleModalLabel">
-        <div class="modal-icon">
-          <i class="ic fas fa-handshake"></i>
-        </div>
-        <h5>{{'Employment'|translate}}</h5>
-        <hr>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <div class="modal-header modal-header-ar">
+    <div class="modal-title" id="exampleModalLabel">
+      <div class="modal-icon">
+        <i class="ic fas fa-handshake"></i>
       </div>
+      <h5>{{'Employment'|translate}}</h5>
+      <hr>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-     <!--use in en:modal-body & ar:modal-body modal-body-ar-->
-    <div class="modal-body modal-body-ar">
-      <div class="form employ">
-        <!-- <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}}" 
+  </div>
+  <!--use in en:modal-body & ar:modal-body modal-body-ar-->
+  <div class="modal-body modal-body-ar">
+    <div class="form employ">
+      <!-- <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}}" 
         formControlName="activity" [(ngModel)]="Activity"
         [ngClass]="{ 'is-invalid': hasError('activity','required') || hasError('activity','maxlength'),
         'is-valid':employmentForm.get('activity').touched && !hasError('activity','required') &&  !hasError('activity','maxlength')}"
         required /> -->
-        <!-- <span>{{'Job Title'|translate}}</span> -->
-        <select class="text select" type="text" name="text" placeholder="Job Title"  
-        formControlName="job" [(ngModel)]="Job" 
+      <!-- <span>{{'Job Title'|translate}}</span> -->
+      <select class="text select" type="text" name="text" placeholder="Job Title" formControlName="job" [(ngModel)]="Job"
         [ngClass]="{ 'is-invalid': hasError('job','required'),'is-valid':employmentForm.get('job').touched && !hasError('job','required')  }"
         required>
-          <option  *ngFor="let job of jobTitle" value="{{job.code}}">{{job.value}}</option>
-         
-       </select>
-        <input class="text" type="number" name="text" placeholder="{{'Salary'|translate}}" 
-        formControlName="salary" [(ngModel)]="Salary"
-        [ngClass]="{ 'is-invalid': hasError('salary','required') || employmentForm.get('salary').minlength,
+        <option value="null" disabled selected>Select your option</option>
+        <option *ngFor="let job of jobTitle" value="{{job.code}}">{{job.value}}</option>
+
+      </select>
+      <input class="text" type="number" name="text" placeholder="{{'Salary'|translate}}" formControlName="salary"
+        [(ngModel)]="Salary" [ngClass]="{ 'is-invalid': hasError('salary','required') || employmentForm.get('salary').minlength,
         'is-valid':employmentForm.get('salary').touched && !hasError('salary','required') &&  ! employmentForm.get('salary').minlength}"
-        required/>
-        <span>{{'Upload your CV :'|translate}}</span>
-        <div class="custom-file">
-          <input type="file" class="custom-file-input" id="inputGroupFile01" 
-          formControlName="imageblob1" [(ngModel)]="imageBlob1"
+        required />
+      <span>{{'Upload your CV :'|translate}}</span>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="inputGroupFile01" formControlName="imageblob1" [(ngModel)]="imageBlob1"
           [ngClass]="{ 'is-invalid': employmentForm.get('imageblob1').touched && employmentForm.get('imageblob1').hasError('required'),
           'is-valid':employmentForm.get('imageblob1').touched && !employmentForm.get('imageblob1').hasError('required') }"
-          (change)="processFile($event,1)"
-          accept="image/* , .doc , .docx ,.pdf"
-          required
-          aria-describedby="inputGroupFileAddon01">
-          <label class="custom-file-label" for="inputGroupFile01"  *ngIf="pictureName1 == ''">{{'no file choosen'|translate}}</label>
-          <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}} </label>
-        </div>
-        <textarea type="text" name="text" placeholder="{{'Other (optional)'|translate}}" formControlName="others" [(ngModel)]="Others"></textarea>
+          (change)="processFile($event,1)" accept="image/* , .doc , .docx ,.pdf" required aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">{{'no file
+          choosen'|translate}}</label>
+        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}} </label>
       </div>
+      <textarea type="text" name="text" placeholder="{{'Other (optional)'|translate}}" formControlName="others"
+        [(ngModel)]="Others"></textarea>
     </div>
-     <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
-    <div class="modal-footer modal-footer-ar">
-      <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}} </button>
-      <button type="button" class="btn btn-primary" (click)="employmentService()" [disabled]="!employmentForm.valid ">{{ 'Submit'|translate}}</button>
-    </div>
-  </form>
+  </div>
+  <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
+  <div class="modal-footer modal-footer-ar">
+    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}} </button>
+    <button type="button" class="btn btn-primary" (click)="employmentService()" [disabled]="!employmentForm.valid ">{{
+      'Submit'|translate}}</button>
+  </div>
+</form>

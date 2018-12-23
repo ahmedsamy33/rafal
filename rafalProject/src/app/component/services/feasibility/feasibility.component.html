@@ -17,20 +17,21 @@
     <div class="form study">
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12">
-            <!-- <span>{{'Choose Country'|translate}}</span> -->
+          <!-- <span>{{'Choose Country'|translate}}</span> -->
           <select class="text select" name="country" placeholder="country" formControlName="country" [(ngModel)]="Country"
             (change)="getRegionValue()" [ngClass]="{ 'is-invalid': hasError('country','required'),'is-valid':FeasibilityForm.get('country').touched && !hasError('country','required')  }"
             required>
-            
+            <option value="null" disabled selected>Select your option</option>
             <option *ngFor="let country of countryArr" value="{{country.code}}">{{country.value}}</option>
 
           </select>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
-            <!-- <span>{{'Company Type'|translate}}</span> -->
+          <!-- <span>{{'Company Type'|translate}}</span> -->
           <select class="text select" name="company" placeholder="company type" formControlName="compType" [(ngModel)]="CompType"
             [ngClass]="{ 'is-invalid': hasError('compType','required'),'is-valid':FeasibilityForm.get('compType').touched && !hasError('compType','required')  }"
             required>
+            <option value="null" disabled selected>Select your option</option>
             <option *ngFor="let company of CompanyArr" value="{{company.code}}">{{company.value}}</option>
 
 
@@ -39,8 +40,8 @@
       </div>
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}}" formControlName="activity" [(ngModel)]="Activity"
-            [ngClass]="{ 'is-invalid': hasError('activity','required')|| hasError('activity','maxlength'),
+          <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}}" formControlName="activity"
+            [(ngModel)]="Activity" [ngClass]="{ 'is-invalid': hasError('activity','required')|| hasError('activity','maxlength'),
             'is-valid':FeasibilityForm.get('activity').touched && !hasError('activity','required') &&   !hasError('activity','maxlength') }"
             required />
         </div>
@@ -54,17 +55,18 @@
       <div class="row">
 
         <div class="col-lg-6 col-md-12 col-sm-12">
-            <!-- <span>{{'Choose Region'|translate}}</span> -->
+          <!-- <span>{{'Choose Region'|translate}}</span> -->
           <select class="text select" type="text" name="text" placeholder="Region" formControlName="region" [(ngModel)]="Region"
             [ngClass]="{ 'is-invalid': hasError('region','required'),'is-valid':FeasibilityForm.get('region').touched && !hasError('region','required')  }"
             required>
+            <option value="null" disabled selected>Select your option</option>
             <option *ngFor="let region of RegionArr" value="{{region.code}}">{{region.value}}</option>
 
           </select>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="text" name="text" placeholder="{{'Capital Currency Ex:100:Usd'|translate}}" formControlName="capital"
-            [(ngModel)]="Capital" [ngClass]="{ 'is-invalid': hasError('capital','required') || hasError('capital','pattern') || hasError('capital','minlength') || hasError('capital','maxlength'),
+          <input class="text" type="text" name="text" placeholder="{{'Capital Currency Ex:100:Usd'|translate}}"
+            formControlName="capital" [(ngModel)]="Capital" [ngClass]="{ 'is-invalid': hasError('capital','required') || hasError('capital','pattern') || hasError('capital','minlength') || hasError('capital','maxlength'),
             'is-valid':FeasibilityForm.get('capital').touched && !hasError('capital','required')  && !hasError('capital','pattern')  && !hasError('capital','minlength')  && !hasError('capital','maxlength') }"
             required />
         </div>
@@ -72,10 +74,11 @@
       <!-- <textarea type="text" name="text" placeholder="Other (optional)"></textarea> -->
     </div>
   </div>
-   <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
+  <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
   <div class="modal-footer modal-footer-ar">
     <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="bsModalRef.hide()">{{'Cancel'|translate}}</button>
-    <button type="button" class="btn btn-primary" [disabled]="!FeasibilityForm.valid " (click)="FeasibilityService()">{{ 'Submit'|translate}}</button>
+    <button type="button" class="btn btn-primary" [disabled]="!FeasibilityForm.valid " (click)="FeasibilityService()">{{
+      'Submit'|translate}}</button>
   </div>
 
 </form>
