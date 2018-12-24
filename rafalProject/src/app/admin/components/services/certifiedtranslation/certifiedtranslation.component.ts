@@ -64,7 +64,7 @@ export class CertifiedtranslationComponent implements OnInit {
 
 
 
-  getFiles(fileName, id) {
+  getFiles(fileName) {
     this.spinner.show();
 
 
@@ -76,7 +76,7 @@ export class CertifiedtranslationComponent implements OnInit {
 
       const a = document.createElement('a');
       a.href = URL.createObjectURL(data);
-      a.download = id;
+      a.download = fileName;
       document.body.appendChild(a);
       a.click();
       a.remove()
