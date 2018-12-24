@@ -59,7 +59,7 @@ export class HiringComponent implements OnInit {
       skills: ["",[ Validators.required,Validators.maxLength(200)]],
       noYears: [
         "",
-        [Validators.required, Validators.minLength(4), Validators.pattern('^[0-9]+$'), Validators.maxLength(11)]
+        [Validators.required, Validators.minLength(2), Validators.pattern('^[0-9]+$'), Validators.maxLength(2)]
       ],
       dailyHours: ["", [Validators.required,Validators.pattern('^[0-9]+$'), Validators.maxLength(11)]],
       salary: ["", [Validators.required, Validators.minLength(3),Validators.pattern('^[0-9]+$'), Validators.maxLength(11)]],
