@@ -24,10 +24,13 @@ export class CustomsComponent implements OnInit {
   private Others: string = null;
 
   customsForm: FormGroup;
+  public language;
 
   constructor(public bsModalRef: BsModalRef, private builder: FormBuilder,
     private companyService: CompanyserviceService, private toastr: ToastrService,
     private spinner: NgxSpinnerService) {
+      let lang1 = localStorage.getItem("lang");
+      this.language = lang1;
     // console.log("ddddd");
     this.customsForm = this.builder.group({
       "imageblob1": ['', Validators.compose([Validators.required])],

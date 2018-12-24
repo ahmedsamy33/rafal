@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./forgetmodal.component.css']
 })
 export class ForgetmodalComponent implements OnInit {
+  public language;
 
   public phoneNumber: string = null;
   forgetForm: FormGroup;
@@ -23,6 +24,8 @@ export class ForgetmodalComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private toastr: ToastrService
   ) {
+    let lang1 = localStorage.getItem("lang");
+    this.language = lang1;
     this.forgetForm = this.builder.group({
       "phonen": ['', Validators.compose([Validators.required])],
     });

@@ -23,6 +23,7 @@ export class FeasibilityComponent implements OnInit {
   private Capital: string = null;
 
   FeasibilityForm: FormGroup;
+  public language;
 
   constructor(public bsModalRef: BsModalRef,
     private builder: FormBuilder,
@@ -31,6 +32,8 @@ export class FeasibilityComponent implements OnInit {
     private spinner: NgxSpinnerService
 
   ) {
+    let lang1 = localStorage.getItem("lang");
+    this.language = lang1;
     // console.log("ddddd");
     this.FeasibilityForm = this.builder.group({
       country: ["", Validators.required],

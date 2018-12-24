@@ -17,6 +17,7 @@ export class ConfirmPasswordComponent implements OnInit {
   private Password: string = null;
   private confirmPassword: string = null;
   comfirmPassForm: FormGroup;
+  public language;
 
   constructor(public bsModalRef: BsModalRef, private autherService: AuthentionService,
     private builder: FormBuilder, private spinner: NgxSpinnerService,
@@ -26,6 +27,8 @@ export class ConfirmPasswordComponent implements OnInit {
       "password": ['', Validators.compose([Validators.required])],
       'confirm': ['', Validators.required]
     });
+    let lang1 = localStorage.getItem("lang");
+    this.language = lang1;
     // console.log(SessionService.userSessionData.userDetails.userName);
 
   }

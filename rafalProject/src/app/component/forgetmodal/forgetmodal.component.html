@@ -12,7 +12,7 @@
     </div>
   </div>
   <!--use in en:modal-body & ar:modal-body modal-body-ar-->
-  <div class="modal-body modal-body-ar">
+  <div class="modal-body"  [ngClass]="{' modal-body-ar':language == 'ar'}">
     <div class="form forget">
       <input class="text" type="text" name="phone" placeholder="{{'Phone number'|translate}}" formControlName="phonen" [(ngModel)]="phoneNumber"
         [ngClass]="{ 'is-invalid': forgetForm.get('phonen').touched && forgetForm.get('phonen').hasError('required'),

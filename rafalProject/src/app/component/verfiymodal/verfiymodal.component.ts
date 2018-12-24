@@ -22,6 +22,7 @@ export class VerfiymodalComponent implements OnInit {
   public bowerType;
   public OS;
 
+  public language;
 
   verfiyForm: FormGroup;
 
@@ -30,7 +31,8 @@ export class VerfiymodalComponent implements OnInit {
     private deviceService: DeviceDetectorService,
     private router: Router,
     private builder: FormBuilder, private spinner: NgxSpinnerService, private toastr: ToastrService) {
-
+      let lang1 = localStorage.getItem("lang");
+      this.language = lang1;
     this.verfiyForm = this.builder.group({
 
       "code": ['', Validators.required],

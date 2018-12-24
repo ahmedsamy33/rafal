@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EmploymentComponent implements OnInit {
   private Activity: string = null;
-  private job: string = null;
+  private Job: string = null;
   private Salary: string = null;
   employmentForm: FormGroup;
   public fileExtension: string = "";
@@ -21,6 +21,7 @@ export class EmploymentComponent implements OnInit {
   public file1: any;
 
   public pictureName1: string = '';
+  public language;
 
   constructor(public bsModalRef: BsModalRef,
     private builder: FormBuilder,
@@ -31,7 +32,8 @@ export class EmploymentComponent implements OnInit {
 
   ) {
     // console.log("ddddd");
-
+    let lang1 = localStorage.getItem("lang");
+    this.language = lang1;
     this.employmentForm = this.builder.group({
       activity: ["", [Validators.required, Validators.maxLength(30)]],
       job: ["", Validators.required],
@@ -67,7 +69,7 @@ export class EmploymentComponent implements OnInit {
     }
     this.companyService.EmploymentService(
       this.Activity,
-      this.job,
+      this.Job,
       this.Salary,
       this.fileExtension,
       this.file1

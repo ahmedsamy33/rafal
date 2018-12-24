@@ -22,6 +22,7 @@ export class OfficeComponent implements OnInit {
   private DMarketing: string = null;
   private Others: string = null;
   OfficeForm: FormGroup;
+  public language;
 
   constructor(public bsModalRef: BsModalRef,
     private builder: FormBuilder,
@@ -29,6 +30,8 @@ export class OfficeComponent implements OnInit {
     private toastr: ToastrService,
     private spinner: NgxSpinnerService
   ) {
+    let lang1 = localStorage.getItem("lang");
+    this.language = lang1;
     // console.log("ddddd");
     this.OfficeForm = this.builder.group({
       address: ["", [Validators.required, Validators.maxLength(120)]],

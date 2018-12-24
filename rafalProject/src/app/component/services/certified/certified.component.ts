@@ -21,6 +21,7 @@ export class CertifiedComponent implements OnInit {
   public imageBlob1: any;
 
   public file1: any;
+  public language;
 
   public pictureName1: string = '';
 
@@ -33,6 +34,8 @@ export class CertifiedComponent implements OnInit {
     private spinner: NgxSpinnerService
 
   ) {
+    let lang1 = localStorage.getItem("lang");
+    this.language = lang1;
     // console.log("ddddd");
     this.certifiedForm = this.builder.group({
       typeOfTranslate: ["", Validators.required],

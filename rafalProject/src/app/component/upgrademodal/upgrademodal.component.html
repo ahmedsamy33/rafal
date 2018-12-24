@@ -1,6 +1,6 @@
 <form [formGroup]="mydForm">
   <!--use in en:modal-header & ar:modal-header modal-header-ar-->
-  <div class="modal-header modal-header-ar">
+  <div class="modal-header " [ngClass]="{'modal-header-ar':language == 'ar'}">
     <div class="modal-title" id="exampleModalLabel">
       <div class="modal-icon">
 
@@ -14,9 +14,9 @@
   </div>
   <!--establishing-->
   <!--use in en:modal-body & ar:modal-body modal-body-ar-->
-  <div class="modal-body modal-body-ar">
+  <div class="modal-body" [ngClass]="{'modal-body-ar':language == 'ar'}">
     <div class="form upgrate">
-        <!-- <span>{{'company type'|translate}}</span> -->
+      <!-- <span>{{'company type'|translate}}</span> -->
       <select class="text select" [(ngModel)]="company" formControlName="Company" name="country" [ngClass]="{ 'is-invalid': hasError('Company','required'),'is-valid':mydForm.get('Company').touched && !hasError('Company','required')  }"
         placeholder="country">
         <option value="null" disabled selected>{{'Select company type'|translate}}</option>
@@ -25,8 +25,9 @@
 
       <!--Esta comany  -->
       <!-- <span>{{''|translate}}</span> -->
-      <select class=" text select form-control" *ngIf="company == 'Esta'" formControlName="countryCode"
-        [(ngModel)]="CountryCode" [ngClass]="{ 'is-invalid': hasError('countryCode','required'),'is-valid':mydForm.get('countryCode').touched && !hasError('countryCode','required')  }">
+      <select class=" text select form-control" *ngIf="company == 'Esta'" formControlName="countryCode" [(ngModel)]="CountryCode"
+        [ngClass]="{ 'is-invalid': hasError('countryCode','required'),'is-valid':mydForm.get('countryCode').touched && !hasError('countryCode','required')  }">
+        <option value="null" disabled selected>select from option</option>
         <option *ngFor="let country of countryArr" value="{{country.code}}">{{ country.value }}</option>
       </select>
 
@@ -35,14 +36,14 @@
             'is-valid':mydForm.get('companyName').touched && !hasError('companyName','required') &&   !hasError('companyName','maxlength')   }"
         placeholder="{{'Company name'|translate}}" />
 
-        <!-- <span>{{'Expiry Date'|translate}}</span> -->
-      <input class="text" type="date" name="text" *ngIf="company == 'Esta'" formControlName="expireDate"
-        [(ngModel)]="ExpireDate" [ngClass]="{ 'is-invalid': hasError('expireDate','required'),
+      <!-- <span>{{'Expiry Date'|translate}}</span> -->
+      <input class="text" type="date" name="text" *ngIf="company == 'Esta'" formControlName="expireDate" [(ngModel)]="ExpireDate"
+        [ngClass]="{ 'is-invalid': hasError('expireDate','required'),
       'is-valid':mydForm.get('expireDate').touched && !hasError('expireDate','required')   }"
         placeholder="" />
 
-      <input class="text" type="text" name="text" *ngIf="company == 'Esta' ||company == 'Inter' "
-        formControlName="websiteLink" [(ngModel)]="WebsiteLink" [ngClass]="{ 'is-invalid': hasError('websiteLink','required')|| hasError('websiteLink','maxlength'),
+      <input class="text" type="text" name="text" *ngIf="company == 'Esta' ||company == 'Inter' " formControlName="websiteLink"
+        [(ngModel)]="WebsiteLink" [ngClass]="{ 'is-invalid': hasError('websiteLink','required')|| hasError('websiteLink','maxlength'),
         'is-valid':mydForm.get('websiteLink').touched && !hasError('websiteLink','required') &&   !hasError('websiteLink','maxlength')   }"
         placeholder="{{'company website'|translate}}" />
 
@@ -55,9 +56,11 @@
       <input class="text" type="text" name="text" *ngIf="company == 'Inverst'" formControlName="investnentType"
         [(ngModel)]="InvestnentType" placeholder="Investment type" [ngClass]="{ 'is-invalid': hasError('investnentType','required') ,
         'is-valid':mydForm.get('investnentType').touched && !hasError('investnentType','required')  }" />
-        
-        <select class=" text select form-control" *ngIf="company == 'Inverst'" formControlName="investor"
-        [(ngModel)]="Investor" [ngClass]="{ 'is-invalid': hasError('investor','required'),'is-valid':mydForm.get('investor').touched && !hasError('investor','required')  }">
+
+      <select class=" text select form-control" *ngIf="company == 'Inverst'" formControlName="investor" [(ngModel)]="Investor"
+        [ngClass]="{ 'is-invalid': hasError('investor','required'),'is-valid':mydForm.get('investor').touched && !hasError('investor','required')  }">
+        <option value="null" disabled selected>select from option</option>
+
         <option *ngFor="let country of countryArr" value="{{country.code}}">{{ country.value }}</option>
 
       </select>
@@ -65,6 +68,8 @@
       <!-- internal -->
       <select class=" text select form-control" *ngIf="company == 'Inter'" formControlName="investmentCountryCode"
         [(ngModel)]="InvestmentCountryCode" [ngClass]="{ 'is-invalid': hasError('investmentCountryCode','required'),'is-valid':mydForm.get('investmentCountryCode').touched && !hasError('investmentCountryCode','required')  }">
+        <option value="null" disabled selected>select from option</option>
+
         <option *ngFor="let region of RegionArr2" value="{{region.code}}">{{ region.value }}</option>
 
       </select>
@@ -73,20 +78,22 @@
 
 
       <!--Inter company activity -->
-      <input class="text" type="text" name="text" *ngIf="company == 'Inter'" formControlName="activity"
-        [(ngModel)]="Activity" [ngClass]="{ 'is-invalid': hasError('activity','required') ,
+      <input class="text" type="text" name="text" *ngIf="company == 'Inter'" formControlName="activity" [(ngModel)]="Activity"
+        [ngClass]="{ 'is-invalid': hasError('activity','required') ,
       'is-valid':mydForm.get('activity').touched && !hasError('activity','required')  }"
         placeholder="{{'Activity'|translate}}" />
 
 
-      <input class="text" type="number" name="text" *ngIf="company == 'Inverst'" formControlName="capital"
-        [(ngModel)]="Capital" [ngClass]="{ 'is-invalid': hasError('capital','required') ,
+      <input class="text" type="number" name="text" *ngIf="company == 'Inverst'" formControlName="capital" [(ngModel)]="Capital"
+        [ngClass]="{ 'is-invalid': hasError('capital','required') ,
       'is-valid':mydForm.get('capital').touched && !hasError('capital','required')  }"
         placeholder="{{'Capital ($)'|translate}}" />
 
       <!--nationality (change)="getRegionValue2()"-->
-      <select class=" text select form-control" *ngIf="company != 'Esta'" 
-        formControlName="nationality" [(ngModel)]="Nationality" [ngClass]="{ 'is-invalid': hasError('nationality','required'),'is-valid':mydForm.get('nationality').touched && !hasError('nationality','required')  }">
+      <select class=" text select form-control" *ngIf="company != 'Esta'" formControlName="nationality" [(ngModel)]="Nationality"
+        [ngClass]="{ 'is-invalid': hasError('nationality','required'),'is-valid':mydForm.get('nationality').touched && !hasError('nationality','required')  }">
+        <option value="null" disabled selected>select from option</option>
+
         <option *ngFor="let company of countryArr" value="{{company.code}}">{{ company.value }}</option>
 
       </select>
@@ -99,17 +106,17 @@
           [ngClass]="{ 'is-invalid': mydForm.get('imageblob1').touched && mydForm.get('imageblob1').hasError('required'),
       'is-valid':mydForm.get('imageblob1').touched && !mydForm.get('imageblob1').hasError('required') }"
           (change)="processFile($event,1)" accept="image/*" required>
-        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">{{'no image choosen'|translate}} </label>
+        <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 == ''">{{'no image
+          choosen'|translate}} </label>
         <label class="custom-file-label" for="inputGroupFile01" *ngIf="pictureName1 != ''">{{pictureName1}} </label>
       </div>
 
     </div>
   </div>
   <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
-  <div class="modal-footer modal-footer-ar upgrate-foot">
+  <div class="modal-footer  upgrate-foot" [ngClass]="{'modal-footer-ar':language == 'ar'}">
     <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}}</button>
-    <button type="button" class="btn btn-primary" *ngIf="company == 'Esta'" (click)="upgradeService()"
-      [disabled]="
+    <button type="button" class="btn btn-primary" *ngIf="company == 'Esta'" (click)="upgradeService()" [disabled]="
         mydForm.get('countryCode').hasError('required')||
         mydForm.get('companyName').hasError('required')|| mydForm.get('companyName').hasError('maxlength')||
         mydForm.get('expireDate').hasError('required')||
@@ -119,8 +126,7 @@
 
     ">{{'Send'|translate}}
     </button>
-    <button type="button" class="btn btn-primary" *ngIf="company == 'Inter'" (click)="upgradeService()"
-      [disabled]="
+    <button type="button" class="btn btn-primary" *ngIf="company == 'Inter'" (click)="upgradeService()" [disabled]="
         mydForm.get('companyName').hasError('required')|| mydForm.get('companyName').hasError('maxlength')||
         mydForm.get('websiteLink').hasError('required')||  mydForm.get('websiteLink').hasError('maxlength')||
         mydForm.get('mail').hasError('required')|| mydForm.get('mail').hasError('maxlength') ||  mydForm.get('mail').hasError('pattern')||
@@ -130,8 +136,7 @@
         mydForm.get('nationality').hasError('required')
         
     ">{{'Send'|translate}}</button>
-    <button type="button" class="btn btn-primary" *ngIf="company == 'Inverst'" (click)="upgradeService()"
-      [disabled]="
+    <button type="button" class="btn btn-primary" *ngIf="company == 'Inverst'" (click)="upgradeService()" [disabled]="
         mydForm.get('mail').hasError('required')|| mydForm.get('mail').hasError('maxlength') ||  mydForm.get('mail').hasError('pattern')||
         mydForm.get('investnentType').hasError('required')||
         mydForm.get('investor').hasError('required')||

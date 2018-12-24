@@ -30,6 +30,7 @@ export class HiringComponent implements OnInit {
   hiringForm: FormGroup;
   public ageFlag: boolean;
   public dayFlag: boolean;
+  public language;
 
   constructor(
     public bsModalRef: BsModalRef,
@@ -37,6 +38,8 @@ export class HiringComponent implements OnInit {
     private companyService: CompanyserviceService, private toastr: ToastrService,
     private spinner: NgxSpinnerService
   ) {
+    let lang1 = localStorage.getItem("lang");
+    this.language = lang1;
     // console.log("ddddd");
     this.hiringForm = this.builder.group({
       active: [

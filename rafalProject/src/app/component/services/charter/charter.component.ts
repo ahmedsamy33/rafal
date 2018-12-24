@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./charter.component.css']
 })
 export class CharterComponent implements OnInit {
+  public language;
 
   accountingForm: FormGroup;
   public yearofBudget: string = null;
@@ -30,6 +31,8 @@ export class CharterComponent implements OnInit {
     private builder: FormBuilder,
     private companyService: CompanyserviceService, private toastr: ToastrService,
     private spinner: NgxSpinnerService) {
+      let lang1 = localStorage.getItem("lang");
+      this.language = lang1;
     this.accountingForm = this.builder.group({
       "yearofbudget": ['', Validators.compose([Validators.required,Validators.pattern('^[0-9]+$'), Validators.maxLength(11)])],
       "imageblob1": ['', Validators.compose([Validators.required])],

@@ -19,8 +19,8 @@ export class UpgrademodalComponent implements OnInit {
   public RegionArr2 = [];
   mydForm: FormGroup;
   public CompanyName;
-  public CountryCode;
-  public InvestmentCountryCode;
+  public CountryCode: string = null;
+  public InvestmentCountryCode: string = null;
   public WebsiteLink;
   public InvestnentType;
   // public Type; //upgrade to
@@ -29,8 +29,8 @@ export class UpgrademodalComponent implements OnInit {
   public Mail;
 
   public Activity;
-  public Nationality;
-  public Investor;
+  public Nationality: string = null;
+  public Investor: string = null;
 
 
 
@@ -39,6 +39,7 @@ export class UpgrademodalComponent implements OnInit {
   public file1: any;
 
   public pictureName1: string = '';
+  public language;
 
   constructor(public bsModalRef: BsModalRef, public UserService: UserDataService,
     private builder: FormBuilder,
@@ -47,7 +48,8 @@ export class UpgrademodalComponent implements OnInit {
   ) {
     // console.log("ddddd");
     // console.log(this.company);
-
+    let lang1 = localStorage.getItem("lang");
+    this.language = lang1;
 
     this.mydForm = this.builder.group({
       Company: ["", Validators.required],
@@ -76,7 +78,7 @@ export class UpgrademodalComponent implements OnInit {
     this.UserService.getPickListCCJ("Country", lang).subscribe(
       data => {
         this.countryArr = data;
-        this.RegionArr2=data;
+        this.RegionArr2 = data;
         // this.CountryCode=this.countryArr[0].code;
       },
       error => { }

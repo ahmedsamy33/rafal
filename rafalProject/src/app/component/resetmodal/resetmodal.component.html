@@ -17,7 +17,7 @@
           </div>
         </div>
         <!--use in en:modal-body & ar:modal-body & modal-body-ar-->
-        <div class="modal-body  modal-body-ar">
+        <div class="modal-body  "  [ngClass]="{'modal-body-ar':language == 'ar'}">
           <div class="form reset">
             <input class="text" type="password" name="text" placeholder="{{'Old Password'|translate}}" formControlName="oldpass" [(ngModel)]="Oldpass"
               [ngClass]="{ 'is-invalid': hasError('oldpass','required'),

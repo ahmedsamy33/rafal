@@ -28,6 +28,7 @@ export class LoginmodalComponent implements OnInit {
   public deviceType;
   public bowerType;
   public OS;
+  public language;
 
   constructor(public bsModalRef: BsModalRef,
     private modalService: BsModalService,
@@ -41,7 +42,8 @@ export class LoginmodalComponent implements OnInit {
       "countrycode": ['', Validators.required],
     });
     this.getCountryCode();
-
+    let lang1 = localStorage.getItem("lang");
+    this.language = lang1;
     this.DeviceTypeFunction()
 
 

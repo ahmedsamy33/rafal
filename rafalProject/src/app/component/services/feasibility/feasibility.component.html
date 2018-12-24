@@ -1,6 +1,6 @@
 <form [formGroup]="FeasibilityForm">
   <!--use in en:modal-header & ar:modal-header modal-header-ar-->
-  <div class="modal-header modal-header-ar">
+  <div class="modal-header r" [ngClass]="{'modal-header-a':language == 'ar'}">
     <div class="modal-title" id="exampleModalLabel">
       <div class="modal-icon">
         <i class="ic fas fa-paste"></i>
@@ -13,7 +13,7 @@
     </div>
   </div>
   <!--use in en:modal-body & ar:modal-body modal-body-ar-->
-  <div class="modal-body modal-body-ar">
+  <div class="modal-body " [ngClass]="{'modal-body-ar':language == 'ar'}">
     <div class="form study">
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12">
@@ -75,7 +75,7 @@
     </div>
   </div>
   <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
-  <div class="modal-footer modal-footer-ar">
+  <div class="modal-footer" [ngClass]="{' modal-footer-ar':language == 'ar'}">
     <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="bsModalRef.hide()">{{'Cancel'|translate}}</button>
     <button type="button" class="btn btn-primary" [disabled]="!FeasibilityForm.valid " (click)="FeasibilityService()">{{
       'Submit'|translate}}</button>

@@ -15,6 +15,7 @@ export class ResetmodalComponent implements OnInit {
   public Newpass: string;
   public Confirmnewpass: string;
   editFormPass: FormGroup;
+  public language;
 
   constructor(public bsModalRef: BsModalRef,
     private builder: FormBuilder,
@@ -22,6 +23,8 @@ export class ResetmodalComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private toastr: ToastrService) {
     // console.log("ddddd");
+    let lang1 = localStorage.getItem("lang");
+    this.language = lang1;
     this.editFormPass = this.builder.group({
       oldpass: ["", Validators.required],
       newpass: ["", Validators.required],

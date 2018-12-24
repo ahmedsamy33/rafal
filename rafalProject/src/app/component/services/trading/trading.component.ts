@@ -24,6 +24,7 @@ export class TradingComponent implements OnInit {
   public pictureName1: string = '';
 
   tradingForm: FormGroup;
+  public language;
 
   constructor(public bsModalRef: BsModalRef,
     private builder: FormBuilder,
@@ -32,6 +33,8 @@ export class TradingComponent implements OnInit {
     private spinner: NgxSpinnerService
 
   ) {
+    let lang1 = localStorage.getItem("lang");
+    this.language = lang1;
     // console.log("ddddd");
     this.tradingForm = this.builder.group({
       activity: ["", [Validators.required, Validators.maxLength(50)]],

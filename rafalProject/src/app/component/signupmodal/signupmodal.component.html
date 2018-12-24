@@ -5,7 +5,7 @@
 <!-- <div class="modal-content"> -->
 <form [formGroup]="signupForm">
   <!--use in en:modal-header & ar:modal-header modal-header-ar-->
-  <div class="modal-header modal-header-ar">
+  <div class="modal-header" [ngClass]="{'modal-header-ar':language == 'ar'}">
     <div class="modal-title" id="exampleModalLabel">
       <div class="modal-icon">
         <i class=" ic fas fa-user-plus"></i>
@@ -18,7 +18,7 @@
     </div>
   </div>
   <!--use in en:modal-body & ar:modal-body modal-body-ar-->
-  <div class="modal-body modal-body-ar">
+  <div class="modal-body " [ngClass]="{'modal-body-ar':language == 'ar'}">
     <div class="form log">
       <input class="text" type="text" name="text" placeholder="{{'name'|translate}}" formControlName="name" [(ngModel)]="Name"
         [ngClass]="{ 'is-invalid': signupForm.get('name').touched && signupForm.get('name').hasError('required'),
@@ -67,7 +67,7 @@
     </div>
   </div>
   <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
-  <div class="modal-footer modal-footer-ar">
+  <div class="modal-footer " [ngClass]="{'modal-footer-ar':language == 'ar'}">
 
     <button type="button" class="btn btn-primary" (click)="signUp()" [disabled]="!signupForm.valid || (signupForm.get('password').value != signupForm.get('confirm').value)">{{'sign up'|translate}}</button>
   </div>

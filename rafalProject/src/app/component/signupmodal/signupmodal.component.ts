@@ -20,6 +20,7 @@ export class SignupmodalComponent implements OnInit {
   private Name: string = null;
   private nationalId: string = null;
   private confirmPassword: string = null;
+  public language;
 
   private countries = [];
   private contryCode: string;
@@ -30,6 +31,8 @@ export class SignupmodalComponent implements OnInit {
     private builder: FormBuilder,
     private userService: UserDataService, private spinner: NgxSpinnerService, private toastr: ToastrService) {
     // console.log("ddddd");
+    let lang1 = localStorage.getItem("lang");
+    this.language = lang1;
     this.signupForm = this.builder.group({
       "phonen": ['', Validators.compose([Validators.required])],
       "name": ['', Validators.compose([Validators.required])],

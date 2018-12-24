@@ -32,6 +32,7 @@ export class EstablishComponent implements OnInit {
   private Capital: string = null;
   private Others: string = null;
 
+  public language;
 
   establishingForm: FormGroup;
   constructor(public bsModalRef: BsModalRef,
@@ -41,6 +42,8 @@ export class EstablishComponent implements OnInit {
     private spinner: NgxSpinnerService
 
   ) {
+    let lang1 = localStorage.getItem("lang");
+    this.language = lang1;
     this.establishingForm = this.builder.group({
       country: ["", Validators.required],
       region: ["", Validators.required],

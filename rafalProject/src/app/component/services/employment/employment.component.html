@@ -1,6 +1,6 @@
 <form [formGroup]="employmentForm">
   <!--use in en:modal-header & ar:modal-header modal-header-ar-->
-  <div class="modal-header modal-header-ar">
+  <div class="modal-header " [ngClass]="{'modal-header-ar':language == 'ar'}">
     <div class="modal-title" id="exampleModalLabel">
       <div class="modal-icon">
         <i class="ic fas fa-handshake"></i>
@@ -13,13 +13,12 @@
     </div>
   </div>
   <!--use in en:modal-body & ar:modal-body modal-body-ar-->
-  <div class="modal-body modal-body-ar">
+  <div class="modal-body " [ngClass]="{'modal-body-ar':language == 'ar'}">
     <div class="form employ">
-      <!-- <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}}" 
-        formControlName="activity" [(ngModel)]="Activity"
-        [ngClass]="{ 'is-invalid': hasError('activity','required') || hasError('activity','maxlength'),
+      <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}}" formControlName="activity"
+        [(ngModel)]="Activity" [ngClass]="{ 'is-invalid': hasError('activity','required') || hasError('activity','maxlength'),
         'is-valid':employmentForm.get('activity').touched && !hasError('activity','required') &&  !hasError('activity','maxlength')}"
-        required /> -->
+        required />
       <!-- <span>{{'Job Title'|translate}}</span> -->
       <select class="text select" type="text" name="text" placeholder="Job Title" formControlName="job" [(ngModel)]="Job"
         [ngClass]="{ 'is-invalid': hasError('job','required'),'is-valid':employmentForm.get('job').touched && !hasError('job','required')  }"
@@ -47,7 +46,7 @@
     </div>
   </div>
   <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
-  <div class="modal-footer modal-footer-ar">
+  <div class="modal-footer " [ngClass]="{'modal-footer-ar':language == 'ar'}">
     <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{'Cancel'|translate}} </button>
     <button type="button" class="btn btn-primary" (click)="employmentService()" [disabled]="!employmentForm.valid ">{{
       'Submit'|translate}}</button>

@@ -3,7 +3,7 @@
 
 <form [formGroup]="loginForm">
   <!--use in en:modal-header & ar:modal-header modal-header-ar-->
-  <div class="modal-header modal-header-ar">
+  <div class="modal-header "  [ngClass]="{'modal-header-ar':language == 'ar'}">
 
     <div id="dialog-sizes-name2" class="modal-title pull-top">
       <div class="modal-icon">
@@ -23,7 +23,7 @@
 
   </div>
   <!--use in en:modal-body & ar:modal-body modal-body-ar-->
-  <div class="modal-body modal-body-ar">
+  <div class="modal-body "  [ngClass]="{'modal-body-ar':language == 'ar'}">
     <div class="form log">
 
         <div class="input-group mb-3 log-group">
@@ -54,7 +54,7 @@
       <a class="nav-link sign" (click)="opensignupmodal()">{{'Dont have account.Sign Up'|translate}}</a>
     </div>
     <!--use in en:modal-footer & ar:modal-footer modal-footer-ar-->
-    <div class="modal-footer modal-footer-ar">
+    <div class="modal-footer "  [ngClass]="{'modal-footer-ar':language == 'ar'}">
 
       <button type="button" class="btn btn-primary" (click)="loginData()" [disabled]="!loginForm.valid ">{{'log in'|translate}}</button>
     </div>

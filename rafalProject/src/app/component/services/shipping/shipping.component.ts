@@ -20,6 +20,7 @@ export class ShippingComponent implements OnInit {
 
   public pictureName1: string = '';
   shippingForm: FormGroup;
+  public language;
 
   constructor(public bsModalRef: BsModalRef,
     private builder: FormBuilder,
@@ -27,6 +28,8 @@ export class ShippingComponent implements OnInit {
     private toastr: ToastrService,
     private spinner: NgxSpinnerService
   ) {
+    let lang1 = localStorage.getItem("lang");
+    this.language = lang1;
     // console.log("ddddd");
     this.shippingForm = this.builder.group({
       shipmentPort: ["", [Validators.required, Validators.maxLength(120)]],
