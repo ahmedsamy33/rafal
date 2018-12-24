@@ -135,6 +135,7 @@ overflow-x: hidden
   background-color: #fff;
   color: #666;
   text-decoration-line: underline;
+  cursor:pointer
 }
 
 .modal .form button {
@@ -211,7 +212,7 @@ overflow-x: hidden
   /* height: 0; */
   background-color: transparent;
   position: absolute;
-  top: 25px;
+  /* top: 30px; */
   right: 0;
   left: 0;
    margin-top: -4px; 
@@ -1376,12 +1377,12 @@ p {
 
   .main-form form .text {
     margin: 0;
-    width: 111%;
+    width: 100%;
   }
 
   .main-form form .custom-file label {
     margin: 0;
-    width: 111%;
+    width: 100%;
     font-size: 14px;
     padding-right: 70px;
     padding-left: 2px;
@@ -1465,6 +1466,16 @@ p {
 @media (max-width: 970px) {
   .menu-item .menu-link .placeholder {
     width: 10px !important;
+  }
+  
+}
+@media (max-width: 576px) {
+  .menu-item .menu-link .placeholder{
+    width: 47px;
+    text-align: center;
+    margin-right: 16px;
+    /* padding: 10px; */
+    margin-left: 13px;
   }
 }
 .search-group {

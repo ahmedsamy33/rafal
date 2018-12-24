@@ -11,10 +11,11 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./hiring.component.css']
 })
 export class HiringComponent implements OnInit {
-
+  public countryArr = [];
   public jobTitle = [];
   public RegionArr = [];
 
+  private Country: string = null;
   private Active: string = null;
   private Job: string = null;
   private Region: string = null;
@@ -23,7 +24,7 @@ export class HiringComponent implements OnInit {
   private NoYears: string = null;
   private DailyHours: string = null;
   private Salary: string = null;
-  private StatusOfVisa: string = 'Available';
+  private StatusOfVisa: string = 'null';
   private RequireQualification: string = null;
   private Others: string = null;
 
@@ -42,6 +43,8 @@ export class HiringComponent implements OnInit {
     this.language = lang1;
     // console.log("ddddd");
     this.hiringForm = this.builder.group({
+      
+      country: ["", Validators.required],
       active: [
         "",
         [Validators.required, Validators.minLength(4), Validators.maxLength(30)]
@@ -75,23 +78,29 @@ export class HiringComponent implements OnInit {
     } else {
       lang = "Arabic";
     }
-    this.companyService.getPickListCCJ("Job_Title", lang).subscribe(
-      data => {
-        // console.log(data[0].code);
-        this.jobTitle = data;
-        this.Job = this.jobTitle[0].code;
-      },
-      error => { }
-    );
+    // this.companyService.getPickListCCJ("Job_Title", lang).subscribe(
+    //   data => {
+    //     // console.log(data[0].code);
+    //     this.jobTitle = data;
+    //     this.Job = this.jobTitle[0].code;
+    //   },
+    //   error => { }
+    // );
 
-    this.companyService.getPickListRegion("EGY", lang).subscribe(
+    this.companyService.getPickListCCJ("Country", lang).subscribe(
       data => {
-        // console.log("ddd", data);
-        this.RegionArr = data;
-        this.Region = this.RegionArr[0].code;
+        this.countryArr = data;
       },
       error => { }
     );
+    // this.companyService.getPickListRegion("EGY", lang).subscribe(
+    //   data => {
+    //     // console.log("ddd", data);
+    //     this.RegionArr = data;
+    //     this.Region = this.RegionArr[0].code;
+    //   },
+    //   error => { }
+    // );
   }
 
 
@@ -108,6 +117,7 @@ export class HiringComponent implements OnInit {
       progressBar: true
     }
     let data = {
+      countryCode: this.Country,
       activity: this.Active,
       region: this.Region,
       jobTitleCode: this.Job,
@@ -134,7 +144,26 @@ export class HiringComponent implements OnInit {
       }
     );
   }
+  getRegionValue() {
+    let lang = localStorage.getItem("lang");
+    if (lang == "en") {
+      lang = "English";
+    } else {
+      lang = "Arabic";
+    }
+    this.RegionArr = [];
+    this.Region = "";
+    if (this.Country != null) {
 
+      this.companyService.getPickListRegion(this.Country, lang).subscribe(
+        data => {
+          this.RegionArr = data;
+        },
+        error => {
+        }
+      );
+    }
+  }
   hasError(field: string, error: string) {
     const ctrl = this.hiringForm.get(field);
 

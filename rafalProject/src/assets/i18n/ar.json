@@ -89,11 +89,11 @@
   "Job Title": "المسمي الوظيفي",
   "Region": "المنطقه",
   "Age": "السن",
-  "Number of Years": "عدد السنين",
+  "Number of experience Years": "عدد سنوات الخبره",
   "Status of Visa": "حالة التأشيرة",
   "avaliable": "متاح",
   "unavaliable": "غير متاح",
-  "Daily Hours": "عدد ساعات العمل اليوميه",
+  "Daily Working Hours": "عدد ساعات العمل اليوميه",
   "Salary": "الراتب",
   "Skills": "المهارات",
   "Required Qualifications": "المؤهلات المطلوبه",
@@ -141,7 +141,7 @@
   "company website": "موقع الشركه",
   "Email addres": "عنوان البريد الكتروني",
   "Capital ($)": "العمله ($)",
-  "C.R Image": "صوره ال c.r",
+  "C.R Image": "صوره السجل التجاري",
   "Old Password": "كلمه المرور الحاليه",
   "New Password": "كلمه المرور الجديده",
   "R": "",
@@ -156,7 +156,16 @@
   "Select your region":"اختر المنطقه",
   "Select company type":"اختر نوع الشركه",
   "Select Job title":"اختر المسمي الوظيفي",
-  "You must write your country code before mobile number":"لا تنسي كتابه الكود الخاص ببلدك قبل رقم التليفون"
+  "You must write your country code before mobile number":"لا تنسي كتابه الكود الخاص ببلدك قبل رقم التليفون",
+  "Phone number with your country code":"رقم المويايل بكود البلد",
+  "Apply For Job":"التقديم لوظيفه",
+  "Select Nationality":"اختر الجنسيه",
+  "Select Investment Country":"اختر البلد التي تريد الاستثمار بها",
+  "Investment type":"نوع الاستثمار",
+  "Expiry Date":"تاريخ السجل التجاري",
+  "Resend code":"اعاده ارسال الكود",
+  "Code":"الكود",
+  "Verify":"تاكيد"
  
 
  

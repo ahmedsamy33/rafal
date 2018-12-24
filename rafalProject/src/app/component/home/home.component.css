@@ -3,7 +3,7 @@
   overflow: hidden;
   background-color: #2dbfbf;
   text-align: center;
- 
+ padding:5px 0;
   
 }
 
@@ -27,7 +27,7 @@
   color: #fff;
   padding: 0;
   margin-left: -11px;
-  font-size:11px
+  font-size:12px
 }
 .ubber  .list-inline li a span{
 padding: 10px;
@@ -39,7 +39,7 @@ padding: 10px;
   background-color: transparent;
   color: #ab0005;
   margin-right: 16px;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 
@@ -500,7 +500,7 @@ text-align: right;
 /*main form arabic*/
 .main-form form .text{
   margin-top:13px;
-  color: #fff;
+  color: #3e3e3e;
   font-size: 13px
 }
 .main-form-ar{
@@ -508,6 +508,9 @@ text-align: right;
 }
 .main-form-ar .title{
   text-align:right
+}
+.main-form .main-textarea::placeholder{
+  color: #3e3e3e;
 }
 /* .main-form-ar .title-job{
   text-align:right;
@@ -827,7 +830,11 @@ text-align: right;
 .special_description_content-ar .app-download-area .app-download-btn :first-child{
   margin-right:0;
 } 
-
+@media(max-width:991px) and (min-width:768px) {
+.single-special{
+padding:5px;
+}
+}
 @media(max-width:576px) and (min-width:270px) {
   .special-area .section-heading p {
     font-size: 12px;
@@ -1298,6 +1305,6 @@ right: 370px;
   border-color: #dc3545 !important;
 }
 
-.is-valid {
+/* .is-valid {
   border-color: #28a745 !important;
-}
+} */

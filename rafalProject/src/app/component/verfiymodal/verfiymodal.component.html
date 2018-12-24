@@ -4,7 +4,7 @@
       <div class="modal-icon">
 
       </div>
-      <h5>Verify</h5>
+      <h5>{{'Verify'|translate}}</h5>
       <hr>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
         <span aria-hidden="true">&times;</span>
@@ -16,12 +16,13 @@
     <div class="form verify">
 
 
-      <input class="text" type="text" name="phone" placeholder="Code" formControlName="code" [(ngModel)]="Code"
+      <input class="text" type="text" name="phone" placeholder="{{'Code'|translate}}" formControlName="code" [(ngModel)]="Code"
         [ngClass]="{ 'is-invalid': verfiyForm.get('code').touched && verfiyForm.get('code').hasError('required'),
           'is-valid':verfiyForm.get('code').touched && !verfiyForm.get('code').hasError('required') }" />
 
-      <button class="btn btn-primary" (click)="verfiyEmail()" [disabled]="!verfiyForm.valid ">Verify</button>
-      <a class="link" (click)="resendCode()">Resend code</a>
+      <button class="btn btn-primary" (click)="verfiyEmail()" [disabled]="!verfiyForm.valid ">{{'Verify'|translate}}</button>
+      <a class="link" (click)="resendCode()">{{'Resend code'|translate}}</a>
+      <a class=" link " (click)="opensignupmodal()">{{'sign up'|translate}}</a>
     </div>
 
   </div>

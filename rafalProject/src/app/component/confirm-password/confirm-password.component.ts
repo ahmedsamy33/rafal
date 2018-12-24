@@ -1,10 +1,11 @@
 import { AuthentionService } from './../../services/shared/authention.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SessionService } from '../../services/shared/session.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { SignupmodalComponent } from '../signupmodal/signupmodal.component';
 @Component({
   selector: 'app-confirm-password',
   templateUrl: './confirm-password.component.html',
@@ -20,6 +21,7 @@ export class ConfirmPasswordComponent implements OnInit {
   public language;
 
   constructor(public bsModalRef: BsModalRef, private autherService: AuthentionService,
+    private modalService: BsModalService,
     private builder: FormBuilder, private spinner: NgxSpinnerService,
     private toastr: ToastrService) {
     this.comfirmPassForm = this.builder.group({
@@ -61,4 +63,24 @@ export class ConfirmPasswordComponent implements OnInit {
       }
     )
   }
+  opensignupmodal() {
+    this.bsModalRef.hide();
+    this.bsModalRef = this.modalService.show(SignupmodalComponent, { class: 'modal-sm' });
+  }
+  // resendCode() {
+  //   this.spinner.show();
+
+  //   this.autherService.ResendCode(this.getSignupData.userName).subscribe(
+  //     data => {
+  //       console.log(data);
+  //       this.spinner.hide();
+
+  //     },
+  //     error => {
+  //       console.log(error);
+  //       this.spinner.hide();
+
+  //     }
+  //   );
+  // }
 }

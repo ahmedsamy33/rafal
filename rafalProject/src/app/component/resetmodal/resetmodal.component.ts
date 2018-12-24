@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthentionService } from '../../services/shared/authention.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { SignupmodalComponent } from '../signupmodal/signupmodal.component';
 
 @Component({
   selector: 'app-resetmodal',
@@ -18,6 +19,7 @@ export class ResetmodalComponent implements OnInit {
   public language;
 
   constructor(public bsModalRef: BsModalRef,
+    private modalService: BsModalService,
     private builder: FormBuilder,
     private autherService: AuthentionService,
     private spinner: NgxSpinnerService,
@@ -32,6 +34,10 @@ export class ResetmodalComponent implements OnInit {
     });
   }
   ngOnInit() {
+  }
+  opensignupmodal() {
+    this.bsModalRef.hide();
+    this.bsModalRef = this.modalService.show(SignupmodalComponent, { class: 'modal-sm' });
   }
 
 

@@ -16,11 +16,21 @@
   <div class="modal-body " [ngClass]="{'modal-body-ar':language == 'ar'}">
     <div class="form hiring">
       <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+              <select class="text select" name="country" placeholder="country" formControlName="country" [(ngModel)]="Country"
+              (change)="getRegionValue()" [ngClass]="{ 'is-invalid': hasError('country','required'),'is-valid':hiringForm.get('country').touched && !hasError('country','required')  }"
+              required>
+              <option value="null" disabled selected>{{'Select your country'|translate}}</option>
+              <option *ngFor="let country of countryArr" value="{{country.code}}">{{country.value}}</option>
+            </select>
+          </div>
+      </div>
+      <!-- <div class="row">
         <!-- <select class="text select" [(ngModel)]="company" formControlName="Company" name="country" [ngClass]="{ 'is-invalid': hasError('Company','required'),'is-valid':hiringForm.get('Company').touched && !hasError('Company','required')  }"
         placeholder="country">
         <option *ngFor="let company of CompanyArr" value="{{company.code}}">{{ company.value }}</option>
       </select> -->
-    </div>
+    <!-- </div> --> 
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12 left">
           <input class="text" type="text" name="text" placeholder="{{'Activity'|translate}}" formControlName="active" [(ngModel)]="Active"
@@ -55,7 +65,7 @@
       </div>
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="text" name="text" placeholder="{{'Number of Years'|translate}}" formControlName="noYears"
+          <input class="text" type="text" name="text" placeholder="{{'Number of experience Years'|translate}}" formControlName="noYears"
             [(ngModel)]="NoYears" [ngClass]="{ 'is-invalid': hasError('noYears','required')|| hasError('noYears','minlength')|| hasError('noYears','maxlength') || hasError('noYears','pattern'),
             'is-valid':hiringForm.get('noYears').touched && !hasError('noYears','required') &&  !hasError('noYears','minlength') &&  !hasError('noYears','maxlength') &&  !hasError('noYears','pattern')}" />
         </div>
@@ -73,7 +83,7 @@
 
       <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12">
-          <input class="text" type="text" name="text" placeholder="{{'Daily Hours'|translate}}" (change)="calDayHour()"
+          <input class="text" type="text" name="text" placeholder="{{'Daily Working Hours'|translate}}" (change)="calDayHour()"
             formControlName="dailyHours" [(ngModel)]="DailyHours" [ngClass]="{ 'is-invalid': hasError('dailyHours','required') || dayFlag ||  hasError('dailyHours','pattern') ||  hasError('dailyHours','maxLength') ,
           'is-valid':hiringForm.get('dailyHours').touched && !hasError('dailyHours','required') && !dayFlag  && !hasError('dailyHours','pattern') && !hasError('dailyHours','maxLength')}" />
         </div>

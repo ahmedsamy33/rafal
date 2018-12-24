@@ -1,12 +1,13 @@
 import { SessionService } from './../../services/shared/session.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { AuthentionService } from '../../services/shared/authention.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { SignupmodalComponent } from '../signupmodal/signupmodal.component';
 @Component({
   selector: 'app-verfiymodal',
   templateUrl: './verfiymodal.component.html',
@@ -27,6 +28,7 @@ export class VerfiymodalComponent implements OnInit {
   verfiyForm: FormGroup;
 
   constructor(public bsModalRef: BsModalRef,
+    private modalService: BsModalService,
     private autherService: AuthentionService,
     private deviceService: DeviceDetectorService,
     private router: Router,
@@ -171,6 +173,10 @@ export class VerfiymodalComponent implements OnInit {
     }
     this.bowerType = deviceInfo.browser + '-' + deviceInfo.browser_version;
     this.OS = deviceInfo.os + '-' + deviceInfo.os_version;
+  }
+  opensignupmodal() {
+    this.bsModalRef.hide();
+    this.bsModalRef = this.modalService.show(SignupmodalComponent, { class: 'modal-sm' });
   }
 
   resendCode() {

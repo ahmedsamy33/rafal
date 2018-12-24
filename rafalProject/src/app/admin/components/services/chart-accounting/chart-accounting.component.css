@@ -59,3 +59,15 @@ tr th{
     color: #565656;
     font-size: 13px !important;
 }
+
+@media (max-width: 576px) {
+   
+    .pagination-wrapper{
+      margin-top: 20px;
+      display: block;
+      width: 41%;   
+    }
+    .search-group{
+        width: 179px;
+    }
+  }

@@ -53,24 +53,24 @@ export class CertifiedComponent implements OnInit {
     } else {
       langLocal = "Arabic";
     }
-    this.companyService.getPickListCCJ("Language", langLocal).subscribe(
-      data => {
-        this.arrayLang = data;
-        this.ToLang = this.arrayLang[0].code;
-      },
-      error => {
-        console.log(error);
-      }
-    );
-    this.companyService.getPickListCCJ("Translation_Type", langLocal).subscribe(
-      data => {
-        this.arrayTypeLang = data;
-        this.TypeOfTranslate = this.arrayTypeLang[0].code;
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    // this.companyService.getPickListCCJ("Language", langLocal).subscribe(
+    //   data => {
+    //     this.arrayLang = data;
+    //     this.ToLang = this.arrayLang[0].code;
+    //   },
+    //   error => {
+    //     console.log(error);
+    //   }
+    // );
+    // this.companyService.getPickListCCJ("Translation_Type", langLocal).subscribe(
+    //   data => {
+    //     this.arrayTypeLang = data;
+    //     this.TypeOfTranslate = this.arrayTypeLang[0].code;
+    //   },
+    //   error => {
+    //     console.log(error);
+    //   }
+    // );
 
   }
   ngOnInit() {

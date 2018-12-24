@@ -33,7 +33,9 @@
               required />
             <button type="button" class="btn btn-secondary" [disabled]="!editFormPass.valid || (editFormPass.value.newpass !== editFormPass.value.confirmnewpass) "
               (click)="changePass()">{{'Change'|translate}}</button>
-
+              <button class="btn btn-primary" (click)="verfiyEmail()" [disabled]="!verfiyForm.valid ">Verify</button>
+             
+              
           </div>
         </div>
 

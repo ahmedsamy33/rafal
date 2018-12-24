@@ -88,11 +88,11 @@
   "Job Title": "Job Title",
   "Region": "Region",
   "Age": "Age",
-  "Number of Years": "Number of Years",
+  "Number of experience Years": "Number of experience Years",
   "Status of Visa": "Status of Visa",
   "avaliable": "avaliable",
   "unavaliable": "unavaliable",
-  "Daily Hours": "Daily Hours",
+  "Daily Working Hours": "Daily Working Hours",
   "Salary": "Salary",
   "Skills": "Skills",
   "Required Qualifications": "Required Qualifications",
@@ -156,7 +156,16 @@
   "Select your region":"Select your region",
   "Select company type":"Select company type",
   "Select Job title":"Select Job title",
-  "You must write your country code before mobile number":"You must write your country code before mobile number"
+  "You must write your country code before mobile number":"You must write your country code before mobile number",
+  "Phone number with your country code":"Phone number with your country code",
+  "Apply For Job":"Apply For Job",
+  "Select Nationality":"Select Nationality",
+  "Select Investment Country":"Select Investment Country",
+  "Investment type":"Investment type",
+  "Expiry Date":"Expiry Date",
+  "Resend code":"Resend code",
+  "Code":"Code",
+  "Verify":"Verify"
  
 
 

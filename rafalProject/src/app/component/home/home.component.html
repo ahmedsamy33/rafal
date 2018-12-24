@@ -130,10 +130,10 @@
           <a class="nav-link ">{{'home'|translate}} <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{urlActive}}#about">{{'about'|translate}}</a>
+          <a class="nav-link" href="#about">{{'about'|translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{urlActive}}#services">{{'services'|translate}}</a>
+          <a class="nav-link" href="#services">{{'services'|translate}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{urlActive}}#adver">{{'advertisment'|translate}}</a>
@@ -474,7 +474,7 @@
                   </div>
                   <div class="col-9">
                     <div class="our-services-text">
-                      <h4>{{'Employment'|translate}} </h4>
+                      <h4>{{'Apply For Job'|translate}} </h4>
                       <a href="#" data-toggle="modal" data-target="#employ">{{'Apply'|translate}}</a>
                     </div>
                   </div>
@@ -901,7 +901,7 @@
 
             </select>
 
-            <textarea class="text second" type="text" name="description" placeholder="{{'Your Description'|translate}}"
+            <textarea class="text second main-textarea" type="text " name="description" placeholder="{{'Your Description'|translate}}"
               formControlName="discription" [(ngModel)]="Discription"></textarea>
             <div class="custom-file">
               <input type="file" class="custom-file-input" id="inputGroupFile01" formControlName="imageblob1"
