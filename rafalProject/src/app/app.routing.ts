@@ -24,37 +24,37 @@ const appRoutes: Routes = [
 
 
 
-    //Site routes goes here 
-    {
-        path: 'layout', component: LayoutComponent, canActivate: [AuthguardService],
-        children: [
-            // service
-            { path: 'charter_accounting', component: ChartAccountingComponent },
-            { path: 'hiringLabors', component: HiringlaborsadminComponent },
-            { path: 'feasability_Study', component: FeasibilitystudyComponent },
-            { path: 'establish_companies', component: EstablishcompanyComponent },
-            { path: 'custom_clearance', component: CustomerclearanceComponent },
-            { path: 'employment', component: EmploymentadminComponent },
-            { path: 'office_services', component: OfficeservicesComponent },
-            { path: 'trading_Agencies', component: TradingagenciesComponent },
-            { path: 'certified_Translations', component: CertifiedtranslationComponent },
-            { path: 'shipping', component: ShippingadminComponent },
+  // Site routes goes here
+  {
+    path: 'layout', component: LayoutComponent, canActivate: [AuthguardService],
+    children: [
+      // service
+      { path: 'charter_accounting', component: ChartAccountingComponent },
+      { path: 'hiringLabors', component: HiringlaborsadminComponent },
+      { path: 'feasability_Study', component: FeasibilitystudyComponent },
+      { path: 'establish_companies', component: EstablishcompanyComponent },
+      { path: 'custom_clearance', component: CustomerclearanceComponent },
+      { path: 'employment', component: EmploymentadminComponent },
+      { path: 'office_services', component: OfficeservicesComponent },
+      { path: 'trading_Agencies', component: TradingagenciesComponent },
+      { path: 'certified_Translations', component: CertifiedtranslationComponent },
+      { path: 'shipping', component: ShippingadminComponent },
 
-            // company
-            { path: 'established_Company', component: EstablishedcompanyComponent },
-            { path: 'new_Investor', component: NewinvestorComponent },
-            { path: 'International', component: InternationalcompanyComponent },
+      // company
+      { path: 'established_Company', component: EstablishedcompanyComponent },
+      { path: 'new_Investor', component: NewinvestorComponent },
+      { path: 'International', component: InternationalcompanyComponent },
 
-            { path: 'Users', component: UsersComponent },
-            { path: 'advetis', component: AdvirtesmentComponent },
-        ]
-    },
-    { path: 'home', component: HomeComponent, pathMatch: 'full' },
-    { path: '', component: HomeComponent },
+      { path: 'Users', component: UsersComponent },
+      { path: 'advetis', component: AdvirtesmentComponent },
+    ]
+  },
+  { path: 'home', component: HomeComponent, pathMatch: 'full' },
+  { path: '', component: HomeComponent },
 
-    { path: '**', redirectTo: 'home' },
+  { path: '**', redirectTo: 'home' },
 ];
 
-export const routing = RouterModule.forRoot(appRoutes);
+export const routing = RouterModule.forRoot(appRoutes, { useHash: true });
 
 

@@ -22,7 +22,7 @@ import { HiringComponent } from './component/services/hiring/hiring.component';
 import { FeasibilityComponent } from './component/services/feasibility/feasibility.component';
 import { EstablishComponent } from './component/services/establish/establish.component';
 import { CustomsComponent } from './component/services/customs/customs.component';
- import { OfficeComponent } from './component/services/office/office.component';
+import { OfficeComponent } from './component/services/office/office.component';
 import { TradingComponent } from './component/services/trading/trading.component';
 import { CertifiedComponent } from './component/services/certified/certified.component';
 import { ShippingComponent } from './component/services/shipping/shipping.component';
@@ -114,7 +114,7 @@ export function createTranslateLoader(http: HttpClient) {
     ShippingadminComponent,
     ChangepicComponent,
     ChangepassComponent,
-     
+
   ],
   imports: [
     BrowserModule,
@@ -139,7 +139,8 @@ export function createTranslateLoader(http: HttpClient) {
     routing,
     DataTableModule
   ],
-  providers: [BsModalService, AuthentionService, SessionService, SettingsService, GlobalService, CompanyServices, AuthguardService , ServiceServices],
+  providers: [BsModalService, AuthentionService, SessionService,
+    SettingsService, GlobalService, CompanyServices, AuthguardService, ServiceServices],
   bootstrap: [AppComponent],
   entryComponents: [
 
@@ -150,7 +151,7 @@ export function createTranslateLoader(http: HttpClient) {
     SignupmodalComponent,
     VerfiymodalComponent,
     UpgrademodalComponent,
-     
+
     CharterComponent,
     HiringComponent,
     FeasibilityComponent,
